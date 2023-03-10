@@ -4,9 +4,10 @@
 /** @var string $content */
 
 use app\assets\AppAsset;
+use rmrevin\yii\fontawesome\FA;
 
 AppAsset::register($this);
-
+rmrevin\yii\fontawesome\AssetBundle::register($this);
 //$this->registerCsrfMetaTags();
 $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no']);
@@ -24,7 +25,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>New Age - Start Bootstrap Theme</title>
+    <title>GAIA V2</title>
     <link rel="icon" type="image/x-icon" href="asset/favicon.ico" />
     <?php $this->head() ?>
 </head>
@@ -34,20 +35,17 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
     <div class="container px-5">
-        <a class="navbar-brand fw-bold" href="#page-top">Start Bootstrap</a>
+        <a class="navbar-brand fw-bold" href="#page-top"><img class="main_logo" src="asset/logo.png" style="height: 60px!important;"> <h>GAIA PLATFORM</h></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="bi-list"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Download</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Map</a></li>
             </ul>
             <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
-                        <span class="d-flex align-items-center">
-                            <i class="bi-chat-text-fill me-2"></i>
-                            <span class="small">Send Feedback</span>
+                        <span class="d-flex align-items-center"><i class="fa fa-sign-in pull-left"></i><span class="small">Login</span>
                         </span>
             </button>
         </div>
@@ -223,15 +221,19 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     </div>
 </section>
 <!-- Footer-->
-<footer class="bg-black text-center py-5">
+<footer class="bg-black text-center py-3">
     <div class="container px-5">
         <div class="text-white-50 small">
-            <div class="mb-2">&copy; Your Website 2022. All Rights Reserved.</div>
-            <a href="#!">Privacy</a>
-            <span class="mx-1">&middot;</span>
-            <a href="#!">Terms</a>
-            <span class="mx-1">&middot;</span>
-            <a href="#!">FAQ</a>
+            <div class="mb-2">&copy; Neuron Energy Solutions 2023. All Rights Reserved.</div>
+            <div class="mb-2">Powered By:</div>
+            <img src="asset/logoNE.png">
+            <img src="asset/zitsa.png">
+            <div class="mb-2">Follow us for more:</div>
+            <a href="https://www.neuronenergy.com/"><i class="fa fa-globe" style="font-size: 40px"></i></a>
+            <span class="mx-1">&nbsp;&nbsp;</span>
+            <a href="https://twitter.com/SolarEye_PV"><i class="fa fa-twitter" style="font-size: 40px"></i></a>
+            <span class="mx-1">&nbsp;&nbsp;</span>
+            <a href="https://www.facebook.com/profile.php?id=100051469122856"><i class="fa fa-facebook" style="font-size: 40px"></i></a>
         </div>
     </div>
 </footer>
