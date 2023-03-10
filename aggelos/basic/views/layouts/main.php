@@ -34,7 +34,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
     <div class="container px-5">
-        <a class="navbar-brand fw-bold" href="#page-top"><img class="main_logo" src="asset/logo.png" style="height: 75px!important;"> <h>GAIA PLATFORM</h></a>
+        <a class="navbar-brand fw-bold" href="#page-top"><img class="main_logo" src="asset/logo.png" style="height: 75px!important;"> <h id="h_logo">GAIA PLATFORM</h></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="bi-list"></i>
@@ -78,10 +78,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     </div>
 </header>
 
-<section class="bg-light" >
-   <div class="container" style="text-align: left">
+<section class="bg-light">
+   <div class="container" style="text-align: center">
        <div class="row">
-           <div class="col">
+           <div class="col offset-md-2 ">
                <h5><b>POWERFULL SENSOR NETWORKS</b></h5>
                <p>
                    Fast installation and minimum maintenance costs. Diverse services and applications. Robust equipment and network scalability.
@@ -104,7 +104,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 </section>
 <!-- Call to action section-->
 <section class="cta" id="map-container">
-
+<!--    <div id="map"></div>-->
 </section>
 
 

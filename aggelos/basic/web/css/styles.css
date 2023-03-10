@@ -3031,13 +3031,13 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: green;
-  border-color: green;
+  background-color: #5caa32;
+  border-color: #5caa32;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: green;
-  border-color: green;
+  background-color: #5caa32;
+  border-color: #5caa32;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -11343,7 +11343,7 @@ section {
   color: #6c757d;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active {
-  color: green;
+  color: #5caa32;
 }
 
 /*!
