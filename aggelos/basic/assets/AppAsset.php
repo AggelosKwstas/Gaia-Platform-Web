@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
 
     public $css = [
         'css/styles.css',
+        'css/downloadButton.css',
         'vendor/fontawesome-free/css/all.min.css',
         'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css',
         'https://fonts.gstatic.com',
