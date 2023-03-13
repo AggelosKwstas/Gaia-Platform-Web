@@ -52,11 +52,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                <li class="nav-item"><a id="station_id" class="nav-link <?php
-                    //                    if(\yii\helpers\Url::current() ==\yii\helpers\Url::to(['site/index']).'#map-container'){
-                    //                        die('hello');
-                    //                    }
-                    ?>me-lg-3" href="
+                <li class="nav-item"><a class="nav-link me-lg-3" href="
 <?php
                     if (\yii\helpers\Url::current() == \yii\helpers\Url::to(['site/map'])) {
                         echo \yii\helpers\Url::to(['site/index']) . '#map-container';
@@ -66,7 +62,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 "><b>Station Overview</b></a></li>
                 <li class="nav-item"><a class="nav-link <?php
                     if (\yii\helpers\Url::current() == \yii\helpers\Url::to(['site/map']))
-                        echo 'active';
+                        echo 'active ';
                     ?>me-lg-3"
                                         href="<?php echo \yii\helpers\Url::to(['site/map']) ?>"><b>Map</b></a></li>
             </ul>
@@ -176,6 +172,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         </div>
     </div>
 </div>
+
+
 
 <?php $this->endBody() ?>
 </body>

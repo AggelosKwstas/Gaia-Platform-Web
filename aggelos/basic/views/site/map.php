@@ -4,4 +4,8 @@
 
 $this->title = 'GAIA V2';
 ?>
-<h1>hello in map.php</h1>
+<section class="cta">
+    <div id="map_full"></div>
+</section>
+
+

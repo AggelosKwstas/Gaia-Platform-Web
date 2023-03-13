@@ -1,7 +1,7 @@
 <?php
-
+use \yii\helpers\Url;
 /** @var yii\web\View $this */
-
+$this->registerJs("let locationMap='".Url::to(['site/map'])."'",\yii\web\View::POS_BEGIN);
 $this->title = 'GAIA V2';
 ?>
 
