@@ -11412,24 +11412,23 @@ img:not(.main_logo){
 
 section.cta {
   position: relative;
-  padding: 15rem 0;
-  background-image: url(/asset/nodes.png);
   background-position: center;
   background-size: cover;
+  padding: 0 0;
 }
 section.cta .cta-content {
   position: relative;
   z-index: 1;
 }
-section.cta:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-}
+/*section.cta:before {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  background: rgba(0, 0, 0, 0.5);*/
+/*}*/
 
 .icon-feature {
   font-size: 4rem;
@@ -11626,4 +11625,7 @@ footer a:hover, footer a:active, footer a:focus {
   .masthead .masthead-device-mockup .device-wrapper {
     max-width: 17rem;
   }
+}
+#map {
+  height: 30rem;
 }

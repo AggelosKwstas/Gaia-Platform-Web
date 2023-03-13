@@ -12,13 +12,14 @@ $this->title = 'GAIA V2';
             <div class="col-lg">
                 <!-- Mashead text and app badges-->
                 <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                    <h1 class="display-2 lh-1 mb-3">Create powerful IoT networks, We’ve designed everything beyond...
+                    <h1 class="display-2 lh-1 mb-3">Create powerful IoT networks,<br> We’ve designed everything beyond...
                     </h1>
                     <img class="main_logo" src="asset/sensors.jpg" style="height: 200px;width: 95%">
                     <div style="text-align: center">
 
                         <div id="wrap">
-                            <a href="#" class="btn-slide2">
+                            <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download','path'=>'/upload/','file'=>'GAIAsetup.exe'])
+                            ?>" class="btn-slide2">
                                 <span class="circle2"><i class="fa fa-download"></i></span>
                                 <span class="title2">Download GAIA Desktop Application</span>
                                 <span class="title-hover2">Click here</span>
@@ -58,5 +59,6 @@ $this->title = 'GAIA V2';
 </section>
 <!-- Call to action section-->
 <section class="cta" id="map-container">
-    <!--    <div id="map"></div>-->
+        <div id="map"></div>
+
 </section>
