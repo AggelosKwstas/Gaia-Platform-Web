@@ -18,7 +18,8 @@ $this->title = 'GAIA V2';
                     <div style="text-align: center">
 
                         <div id="wrap">
-                            <a href="#" class="btn-slide2">
+                            <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download','path'=>'/upload/','file'=>'GAIAsetup.exe'])
+                            ?>" class="btn-slide2">
                                 <span class="circle2"><i class="fa fa-download"></i></span>
                                 <span class="title2">Download GAIA Desktop Application</span>
                                 <span class="title-hover2">Click here</span>
