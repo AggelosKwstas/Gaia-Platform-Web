@@ -73,44 +73,38 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header bg-gradient-primary-to-secondary p-4">
-                <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Login</h5>
+            <div class="modal-header bg-white p-4">
+                <h5 class="modal-title font-alt" id="feedbackModalLabel" style="color: #5caa32">Login</h5>
                 <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body border-0 p-4">
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
                 <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                     <!-- Name input-->
+                    <div class="form-floating mb-3" >
+                        <input class="form-control" id="firstname" type="text" style="border-radius: 100px;" placeholder="Enter your firstname..." data-sb-validations="required" />
+                        <label for="firstname">Firstname</label>
+                        <div class="invalid-feedback" data-sb-feedback="firstname:required">Firstname is required.</div>
+                    </div>
+<!--                    lastname-->
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                        <label for="name">Full name</label>
-                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        <input class="form-control" id="lastname" type="text" style="border-radius: 100px;" placeholder="Enter your lastname here..." style="height: 10rem" data-sb-validations="required" />
+                        <label for="lastname">Lastname</label>
+                        <div class="invalid-feedback" data-sb-feedback="lastname:required">Lastname is required.</div>
                     </div>
                     <!-- Email address input-->
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                        <input class="form-control" id="email" type="email" style="border-radius: 100px;" placeholder="name@example.com" data-sb-validations="required,email" />
                         <label for="email">Email address</label>
                         <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                         <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                     </div>
                     <!-- Phone number input-->
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                        <input class="form-control" id="phone" type="tel" style="border-radius: 100px;" placeholder="(123) 456-7890" data-sb-validations="required" />
                         <label for="phone">Phone number</label>
                         <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                     </div>
-                    <!-- Message input-->
-                    <div class="form-floating mb-3">
-                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                        <label for="message">Message</label>
-                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                    </div>
+
                     <!-- Submit success message-->
                     <!---->
                     <!-- This is what your users will see when the form-->
@@ -130,6 +124,13 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <!-- Submit Button-->
                     <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                    <br>
+                    <div class="form-floating mb-3" style="color: #5caa32">
+                        <div class="modal-header">Already a User?</div>
+                    </div>
+
+                    <!-- Sign Up Button-->
+                    <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="signUpButton" type="submit">Sign Up</button></div>
                 </form>
             </div>
         </div>
