@@ -70,40 +70,40 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     </div>
 </footer>
 <!-- Feedback Modal-->
-<div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-white p-4">
-                <h5 class="modal-title font-alt" id="feedbackModalLabel" style="color: #5caa32">Login</h5>
-                <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body border-0 p-4">
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+<!--<div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header bg-white p-4">-->
+<!--                <h5 class="modal-title font-alt" id="feedbackModalLabel" style="color: #5caa32">Login</h5>-->
+<!--                <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body border-0 p-4">-->
+<!--                <form id="contactForm" data-sb-form-api-token="API_TOKEN">-->
                     <!-- Name input-->
-                    <div class="form-floating mb-3" >
-                        <input class="form-control" id="firstname" type="text" style="border-radius: 100px;" placeholder="Enter your firstname..." data-sb-validations="required" />
-                        <label for="firstname">Firstname</label>
-                        <div class="invalid-feedback" data-sb-feedback="firstname:required">Firstname is required.</div>
-                    </div>
+<!--                    <div class="form-floating mb-3" >-->
+<!--                        <input class="form-control" id="firstname" type="text" style="border-radius: 100px;" placeholder="Enter your firstname..." data-sb-validations="required" />-->
+<!--                        <label for="firstname">Firstname</label>-->
+<!--                        <div class="invalid-feedback" data-sb-feedback="firstname:required">Firstname is required.</div>-->
+<!--                    </div>-->
 <!--                    lastname-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="lastname" type="text" style="border-radius: 100px;" placeholder="Enter your lastname here..." style="height: 10rem" data-sb-validations="required" />
-                        <label for="lastname">Lastname</label>
-                        <div class="invalid-feedback" data-sb-feedback="lastname:required">Lastname is required.</div>
-                    </div>
+<!--                    <div class="form-floating mb-3">-->
+<!--                        <input class="form-control" id="lastname" type="text" style="border-radius: 100px;" placeholder="Enter your lastname here..." style="height: 10rem" data-sb-validations="required" />-->
+<!--                        <label for="lastname">Lastname</label>-->
+<!--                        <div class="invalid-feedback" data-sb-feedback="lastname:required">Lastname is required.</div>-->
+<!--                    </div>-->
                     <!-- Email address input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="email" type="email" style="border-radius: 100px;" placeholder="name@example.com" data-sb-validations="required,email" />
-                        <label for="email">Email address</label>
-                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                    </div>
+<!--                    <div class="form-floating mb-3">-->
+<!--                        <input class="form-control" id="email" type="email" style="border-radius: 100px;" placeholder="name@example.com" data-sb-validations="required,email" />-->
+<!--                        <label for="email">Email address</label>-->
+<!--                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>-->
+<!--                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>-->
+<!--                    </div>-->
                     <!-- Phone number input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="phone" type="tel" style="border-radius: 100px;" placeholder="(123) 456-7890" data-sb-validations="required" />
-                        <label for="phone">Phone number</label>
-                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                    </div>
+<!--                    <div class="form-floating mb-3">-->
+<!--                        <input class="form-control" id="phone" type="tel" style="border-radius: 100px;" placeholder="(123) 456-7890" data-sb-validations="required" />-->
+<!--                        <label for="phone">Phone number</label>-->
+<!--                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>-->
+<!--                    </div>-->
 
                     <!-- Submit success message-->
                     <!---->
@@ -130,7 +130,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     </div>
 
                     <!-- Sign Up Button-->
-                    <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="signUpButton" type="submit">Sign Up</button></div>
+                    <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="signUpButton" type="submit" href="<?php echo yii\helpers\Url::to(['site/map']) ?>">Sign Up</button></div>
                 </form>
             </div>
         </div>
