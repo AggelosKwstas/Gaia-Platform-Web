@@ -11,12 +11,11 @@ $this->title = 'GAIA V2';
         <div class=" gx-5 align-items-center">
             <div class="col-lg">
                 <!-- Mashead text and app badges-->
-                <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                    <h1 class="display-2 lh-1 mb-3">Create powerful IoT networks, We’ve designed everything beyond...
+                <div class="mb-1 mb-lg-0 text-center text-lg-start">
+                    <h1 class="display-6 lh-1">Create powerful IoT networks, We’ve designed everything beyond
                     </h1>
                     <img class="main_logo" src="asset/sensors.jpg" style="height: 200px;width: 95%">
                     <div style="text-align: center">
-
                         <div id="wrap">
                             <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download','path'=>'/upload/','file'=>'GAIAsetup.exe'])
                             ?>" class="btn-slide2">
@@ -37,7 +36,7 @@ $this->title = 'GAIA V2';
     <div class="container" style="text-align: center">
         <div class="row">
             <div class="col">
-                <h5><b>POWERFULL SENSOR NETWORKS</b></h5>
+                <h5><b>POWERFUL SENSOR NETWORKS</b></h5>
                 <p>
                     Fast installation and minimum maintenance costs. Diverse services and applications. Robust equipment and network scalability.
                 </p>
@@ -59,5 +58,5 @@ $this->title = 'GAIA V2';
 </section>
 <!-- Call to action section-->
 <section class="cta" id="map-container">
-    <!--    <div id="map"></div>-->
+        <div id="map_element"></div>
 </section>

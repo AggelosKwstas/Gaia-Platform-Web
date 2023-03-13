@@ -24,7 +24,7 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/styles.css',
         'css/downloadButton.css',
-        'css/https://unpkg.com/leaflet@1.9.3/dist/leaflet.css',
+        'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css',
         'vendor/fontawesome-free/css/all.min.css',
         'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css',
         'https://fonts.gstatic.com',
@@ -36,6 +36,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js',
         'js/scripts.js',
+        'js/map_overview.js',
         'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
         'https://cdn.startbootstrap.com/sb-forms-latest.js'
     ];
