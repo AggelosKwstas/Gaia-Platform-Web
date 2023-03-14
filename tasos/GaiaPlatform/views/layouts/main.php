@@ -44,10 +44,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <li class="nav-item"><a class="nav-link me-lg-3" href="#map-container"><b>Station Overview</b></a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3" href="#map"><b>Map</b></a></li>
             </ul>
-            <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
-                        <span class="d-flex align-items-center"><i class="fa fa-sign-in pull-left"></i><span class="small">Login</span>
-                        </span>
-            </button>
+<!--            <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" href="login.php">-->
+<!--              <a data-method="post" class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" href="--><?php ////echo \yii\helpers\Url::to(['site/login'])?><!--" />-->
+<!--                        <span class="d-flex align-items-center"><i class="fa fa-sign-in pull-left"></i><span class="small">Login</span>-->
+<!--                        </span>-->
+<!--            </button>-->
+            <a
+               class="btn btn-primary"
+               href="<?php echo \yii\helpers\Url::to(['/site/login']) ?>">Login</a>
         </div>
     </div>
 </nav>
@@ -79,7 +83,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <!--            </div>-->
 <!--            <div class="modal-body border-0 p-4">-->
 <!--                <form id="contactForm" data-sb-form-api-token="API_TOKEN">-->
-                    <!-- Name input-->
+<!--                     Name input-->
 <!--                    <div class="form-floating mb-3" >-->
 <!--                        <input class="form-control" id="firstname" type="text" style="border-radius: 100px;" placeholder="Enter your firstname..." data-sb-validations="required" />-->
 <!--                        <label for="firstname">Firstname</label>-->
@@ -109,33 +113,33 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     <!---->
                     <!-- This is what your users will see when the form-->
                     <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    <!-- Submit Button-->
-                    <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-                    <br>
-                    <div class="form-floating mb-3" style="color: #5caa32">
-                        <div class="modal-header">Already a User?</div>
-                    </div>
+<!--                    <div class="d-none" id="submitSuccessMessage">-->
+<!--                        <div class="text-center mb-3">-->
+<!--                            <div class="fw-bolder">Form submission successful!</div>-->
+<!--                            To activate this form, sign up at-->
+<!--                            <br />-->
+<!--                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                     Submit error message-->
+<!--                    -->
+<!--                     This is what your users will see when there is-->
+<!--                     an error submitting the form-->
+<!--                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>-->
+<!--                     Submit Button-->
+<!--                    <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="submitButton" type="submit">Submit</button></div>-->
+<!--                    <br>-->
+<!--                    <div class="form-floating mb-3" style="color: #5caa32">-->
+<!--                        <div class="modal-header">Already a User?</div>-->
+<!--                    </div>-->
 
                     <!-- Sign Up Button-->
-                    <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="signUpButton" type="submit" href="<?php echo yii\helpers\Url::to(['site/map']) ?>">Sign Up</button></div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<!--                    <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="signUpButton" type="submit" href="--><?php //echo yii\helpers\Url::to(['site/map']) ?><!--">Sign Up</button></div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <?php $this->endBody() ?>
 </body>

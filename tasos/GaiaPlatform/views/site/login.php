@@ -11,18 +11,15 @@ $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="modal-dialog modal-dialog-centered">
+<div class="modal-dialog modal-dialog-centered" style="padding-top: 1%">
     <div class="modal-content">
+        <h5 class="modal-title font-alt center-block" id="feedbackModalLabel" style="color: #5caa32;">Login to Private Area</h5>
         <?php $form = ActiveForm::begin([
             'id' => 'login-form',
             'options' => ['class' => 'user']
         ]); ?>
-<!--        <div class="modal-header bg-white p-4">-->
-<!--            <h5 class="modal-title font-alt" id="feedbackModalLabel" style="color: #5caa32">Login</h5>-->
-<!--            <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--        </div>-->
-
         <div class="modal-body border-0 p-4">
+            <form>
                 <!-- Name input-->
 
             <?= $form->field($model, 'username', [
@@ -32,32 +29,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 ]
             ])->textInput(['autofocus' => true]) ?>
-<!--                <div class="form-floating mb-3" >-->
-<!--                    <input class="form-control" id="firstname" type="text" style="border-radius: 100px;" placeholder="Enter your firstname..." data-sb-validations="required" />-->
-<!--                    <label for="firstname">Firstname</label>-->
-<!--                    <div class="invalid-feedback" data-sb-feedback="firstname:required">Firstname is required.</div>-->
-<!--                </div>-->
 
-                <!--                    lastname-->
-                <div class="form-floating mb-3">
-                    <input class="form-control" id="lastname" type="text" style="border-radius: 100px;" placeholder="Enter your lastname here..." style="height: 10rem" data-sb-validations="required" />
-                    <label for="lastname">Lastname</label>
-                    <div class="invalid-feedback" data-sb-feedback="lastname:required">Lastname is required.</div>
-                </div>
-                <!-- Email address input-->
-                <div class="form-floating mb-3">
-                    <input class="form-control" id="email" type="email" style="border-radius: 100px;" placeholder="name@example.com" data-sb-validations="required,email" />
-                    <label for="email">Email address</label>
-                    <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                    <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                </div>
-                <!-- Phone number input-->
-                <div class="form-floating mb-3">
-                    <input class="form-control" id="phone" type="tel" style="border-radius: 100px;" placeholder="(123) 456-7890" data-sb-validations="required" />
-                    <label for="phone">Phone number</label>
-                    <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                </div>
-            </form></div>
+            <?= $form->field($model, 'password', [
+                'inputOptions' => [
+                    'class' => 'form-control form-control-user',
+                    'placeholder' => 'Enter your password'
+                ]
+            ])->passwordInput() ?>
+
+                <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-user btn-block', 'name' => 'login-button']) ?>
+
+            </form>
+
+        </div>
 
 <!--<div class="site-login">-->
 <!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
