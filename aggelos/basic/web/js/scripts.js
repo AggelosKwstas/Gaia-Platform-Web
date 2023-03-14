@@ -15,8 +15,8 @@ let config = {
 
 const zoom = 11;
 
-const lat = 39.6650;
-const lng = 20.8537;
+const lat = 39.6935;
+const lng = 20.8465;
 
 
 map = L.map("map_element", config).setView([lat, lng], zoom);
@@ -24,7 +24,7 @@ map = L.map("map_element", config).setView([lat, lng], zoom);
 LeafIcon = L.Icon.extend({
     options: {
         iconSize: [40, 35],
-        popupAnchor: [1, -15]
+        popupAnchor: [-1, -15]
     }
 });
 
@@ -103,8 +103,10 @@ marker6.on('mouseout', function (e) {
 
 var legend = L.control({ position: "topright" });
 
+map.attributionControl.setPrefix();
+
 legend.onAdd = function(map) {
-    var div = L.DomUtil.create("div", "legend");
+    var div = L.DomUtil.create("div", "legend_info");
     div.innerHTML += "<div class='three'><h1>Case Study - Urban Air Quality</h1></div>";
 
 

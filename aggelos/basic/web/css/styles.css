@@ -77,6 +77,11 @@
 }
 
 body {
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
@@ -402,22 +407,22 @@ fieldset {
   border: 0;
 }
 
-legend {
-  float: left;
-  width: 100%;
-  padding: 0;
-  margin-bottom: 0.5rem;
-  font-size: calc(1.275rem + 0.3vw);
-  line-height: inherit;
-}
-@media (min-width: 1200px) {
-  legend {
-    font-size: 1.5rem;
-  }
-}
-legend + * {
-  clear: left;
-}
+/*legend {*/
+/*  float: left;*/
+/*  width: 100%;*/
+/*  padding: 0;*/
+/*  margin-bottom: 0.5rem;*/
+/*  font-size: calc(1.275rem + 0.3vw);*/
+/*  line-height: inherit;*/
+/*}*/
+/*@media (min-width: 1200px) {*/
+/*  legend {*/
+/*    font-size: 1.5rem;*/
+/*  }*/
+/*}*/
+/*legend + * {*/
+/*  clear: left;*/
+/*}*/
 
 ::-webkit-datetime-edit-fields-wrapper,
 ::-webkit-datetime-edit-text,
@@ -596,7 +601,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  /*content: "— ";*/
+  /*content: "— ";*/
 }
 
 .img-fluid {
@@ -11524,6 +11529,10 @@ section.cta .cta-content {
     max-width: 17rem;
   }
 }
+footer{
+  margin-top: auto;
+}
+
 footer a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
@@ -11621,12 +11630,12 @@ footer a:hover, footer a:active, footer a:focus {
 
 #map_element {
   height: 20rem;
-z-index: 10000;
+  z-index: 10000;
 }
 
 
 #map_full {
-height: 50rem;
+  height: 50rem;
 }
 
 .three h1 {
@@ -11637,28 +11646,53 @@ height: 50rem;
   padding-bottom: 15px;
   position: relative;
 }
+/*Legend specific*/
 
-.legend {
-  height: 40px;
-  padding: 0 20px 0;
+.legend_map{
+  padding: 10px 20px;
+}
+
+.legend_info {
+  border-style: solid;
+  border-width: thin;
+  height: 3rem;
+  padding: 6px 8px;
   font: 14px Arial, Helvetica, sans-serif;
   background: white;
   background: rgba(255, 255, 255, 0.8);
   /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
   /*border-radius: 5px;*/
-  line-height: 24px;
+  line-height: 20px;
   color: #555;
 }
 
 
+.legend {
+  padding: 6px 8px;
+  font: 14px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  border-style: solid;
+  border-width: thin;
+  line-height: 26px;
+  color: #555;
+  top:5vh;
+}
+.legend h4 {
+  text-align: center;
+  font-size: 16px;
+  margin: 2px 12px 8px;
+  color: #777;
+}
+
 .legend span {
   position: relative;
-  bottom: 20px;
+  bottom: 3px;
 }
 
 .legend i {
   width: 18px;
-  height: 14px;
+  height: 18px;
   float: left;
   margin: 0 8px 0 0;
   opacity: 0.7;
@@ -11667,4 +11701,91 @@ height: 50rem;
 .legend i.icon {
   background-size: 18px;
   background-color: rgba(255, 255, 255, 1);
+}
+
+
+
+.modal {
+  padding-top: 4%;
+  padding-left: 30%;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 200000; /* Sit on top */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.styled-table {
+  margin-right: auto;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.styled-table thead tr {
+  background-color: #5caa32;
+  color: #ffffff;
+  text-align: left;
+}
+
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #5caa32;
+}
+
+
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #5caa32;
+}
+
+.legend_h {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
