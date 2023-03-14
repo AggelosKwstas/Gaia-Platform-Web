@@ -73,6 +73,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         </div>
     </div>
 </footer>
+
 <!-- Feedback Modal-->
 <!--<div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">-->
 <!--    <div class="modal-dialog modal-dialog-centered">-->

@@ -11,6 +11,7 @@ $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
+
 <div class="modal-dialog modal-dialog-centered" style="padding-top: 1%">
     <div class="modal-content">
         <h5 class="modal-title font-alt center-block" id="feedbackModalLabel" style="color: #5caa32;">Login to Private Area</h5>
