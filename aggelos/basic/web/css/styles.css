@@ -77,6 +77,11 @@
 }
 
 body {
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
@@ -596,7 +601,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  /*content: "— ";*/
+  /*content: "— ";*/
 }
 
 .img-fluid {
@@ -11524,6 +11529,10 @@ section.cta .cta-content {
     max-width: 17rem;
   }
 }
+footer{
+  margin-top: auto;
+}
+
 footer a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
@@ -11621,12 +11630,12 @@ footer a:hover, footer a:active, footer a:focus {
 
 #map_element {
   height: 20rem;
-z-index: 10000;
+  z-index: 10000;
 }
 
 
 #map_full {
-height: 44rem;
+  height: 50rem;
 }
 
 .three h1 {

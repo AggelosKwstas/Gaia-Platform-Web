@@ -81,4 +81,3 @@ $this->title = 'GAIA V2';
     </div>
 </section>
 
-
