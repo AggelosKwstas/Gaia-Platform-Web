@@ -7,9 +7,6 @@
 // Scripts
 //
 
-
-
-
 map2 = L.map("map_full", config).setView([lat, lng], zoom);
 
 LeafIcon = L.Icon.extend({
@@ -43,55 +40,34 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.p
 marker3 = L.marker([39.6216, 20.8596], {icon: greyIcon}).addTo(map2);
 
 marker3.bindPopup("<b>Click here to view this station</b>");
-marker3.on('mouseover', function (e) {
-    this.openPopup();
-});
-marker3.on('mouseout', function (e) {
-    this.closePopup();
-});
 
 
 marker4 = L.marker([39.7147, 20.7572], {icon: greyIcon}).addTo(map2);
 
 marker4.bindPopup("<b>Click here to view this station</b>");
-marker4.on('mouseover', function (e) {
-    this.openPopup();
-});
-marker4.on('mouseout', function (e) {
-    this.closePopup();
-});
 
 
 
 marker5 = L.marker([39.7027, 20.8122], {icon: greyIcon}).addTo(map2);
 
 marker5.bindPopup("<b>Click here to view this station</b>");
-marker5.on('mouseover', function (e) {
-    this.openPopup();
-});
-marker5.on('mouseout', function (e) {
-    this.closePopup();
-});
 
 
 marker6 = L.marker([39.7066, 20.7926], {icon: greyIcon}).addTo(map2);
 
 marker6.bindPopup("<b>Click here to view this station</b>");
-marker6.on('mouseover', function (e) {
-    this.openPopup();
-});
-marker6.on('mouseout', function (e) {
-    this.closePopup();
-});
 
 
-var legend = L.control({ position: "bottomright" });
+var legend = L.control({ position: "bottomleft" });
 
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += "<div class='three'><h1>Case Study - Urban Air Quality</h1></div>";
-
-
+    div.innerHTML += "<h4 style='color: black'>Air Quality</h4>";
+    div.innerHTML += '<i style="background: green"></i><span><b>Good</b></span><br>';
+    div.innerHTML += '<i style="background: orange"></i><span><b>Fair</b></span><br>';
+    div.innerHTML += '<i style="background: red"></i><span><b>Bad</b></span><br>';
+    div.innerHTML += '<i style="background: grey"></i><span><b>No data</b></span><br>';
+    div.innerHTML += '<a id="myBtn" style="text-decoration: none" href="javascript:void(0);">Legend Explained</a>';
 
 
     return div;
@@ -100,14 +76,28 @@ legend.onAdd = function(map) {
 legend.addTo(map2);
 
 
-var legend1 = L.control({ position: "bottomright" });
 
-legend1.onAdd = function(map) {
-    var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += "<div class='three'><h1>Case Study - Urban Air Quality</h1></div>";
+var modal = document.getElementById("myModal");
 
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
 
-    return div;
-};
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

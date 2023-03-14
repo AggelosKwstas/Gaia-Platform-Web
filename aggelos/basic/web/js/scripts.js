@@ -104,7 +104,7 @@ marker6.on('mouseout', function (e) {
 var legend = L.control({ position: "topright" });
 
 legend.onAdd = function(map) {
-    var div = L.DomUtil.create("div", "legend");
+    var div = L.DomUtil.create("div", "legend_info");
     div.innerHTML += "<div class='three'><h1>Case Study - Urban Air Quality</h1></div>";
 
 
