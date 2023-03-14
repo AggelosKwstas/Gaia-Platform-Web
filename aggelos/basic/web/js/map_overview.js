@@ -12,7 +12,7 @@ map2 = L.map("map_full", config).setView([lat, lng], zoom);
 LeafIcon = L.Icon.extend({
     options: {
         iconSize: [40, 35],
-        popupAnchor: [1, -15]
+        popupAnchor: [-1, -15]
     }
 });
 
@@ -36,6 +36,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.p
     maxZoom: 20,
 }).addTo(map2);
 
+map2.attributionControl.setPrefix();
 
 marker3 = L.marker([39.6216, 20.8596], {icon: greyIcon}).addTo(map2);
 
@@ -58,16 +59,16 @@ marker6 = L.marker([39.7066, 20.7926], {icon: greyIcon}).addTo(map2);
 marker6.bindPopup("<b>Click here to view this station</b>");
 
 
-var legend = L.control({ position: "bottomleft" });
+var legend = L.control({ position: "topleft" });
 
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += "<h4 style='color: black'>Air Quality</h4>";
-    div.innerHTML += '<i style="background: green"></i><span><b>Good</b></span><br>';
-    div.innerHTML += '<i style="background: orange"></i><span><b>Fair</b></span><br>';
-    div.innerHTML += '<i style="background: red"></i><span><b>Bad</b></span><br>';
+    div.innerHTML += '<i style="background: #4caf50"></i><span><b>Good</b></span><br>';
+    div.innerHTML += '<i style="background: #ffee33"></i><span><b>Fair</b></span><br>';
+    div.innerHTML += '<i style="background: #b2102f"></i><span><b>Bad</b></span><br>';
     div.innerHTML += '<i style="background: grey"></i><span><b>No data</b></span><br>';
-    div.innerHTML += '<a id="myBtn" style="text-decoration: none" href="javascript:void(0);">Legend Explained</a>';
+    div.innerHTML += '<a id="myBtn" style="text-decoration: none" href="javascript:void(0);">Legend explained</a>';
 
 
     return div;
