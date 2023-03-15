@@ -44,31 +44,31 @@ $this->title = 'GAIA V2';
                         </thead>
                         <tbody>
                         <tr>
-                            <td style="text-align: center">O<sub>3</sub> (ppm)</td>
+                            <td style="text-align: center"><b>O<sub>3</sub> (ppm)</b></td>
                             <td style="color: #165C40;text-align: center" >0-100</td>
                             <td style="color: #FFCE13;text-align: center">100-240</td>
                             <td style="color: #88070B;text-align: center">240-800</td>
                         </tr>
                         <tr>
-                            <td style="text-align: center">PM 2.5 (μg/m3)</td>
+                            <td style="text-align: center"><b>PM 2.5 (μg/m3)</b></td>
                             <td style="color: #165C40;text-align: center" >0-20</td>
                             <td style="color: #FFCE13;text-align: center">20-50</td>
                             <td style="color: #88070B;text-align: center">50-800</td>
                         </tr>
                         <tr>
-                            <td style="text-align: center">PM 10 (μg/m3)</td>
+                            <td style="text-align: center"><b>PM 10 (μg/m3)</b></td>
                             <td style="color: #165C40;text-align: center" >0-40</td>
                             <td style="color: #FFCE13;text-align: center">40-100</td>
                             <td style="color: #88070B;text-align: center">100-1200</td>
                         </tr>
                         <tr>
-                            <td style="text-align: center">SO<sub>2</sub> (ppm)</td>
+                            <td style="text-align: center"><b>SO<sub>2</sub> (ppm)</b></td>
                             <td style="color: #165C40;text-align: center" >0-100</td>
                             <td style="color: #FFCE13;text-align: center">100-200</td>
                             <td style="color: #88070B;text-align: center">200-1200</td>
                         </tr>
                         <tr>
-                            <td style="text-align: center">NO<sub>2</sub> (ppm)</td>
+                            <td style="text-align: center"><b>NO<sub>2</sub> (ppm)</b></td>
                             <td style="color: #165C40;text-align: center" >0-90</td>
                             <td style="color: #FFCE13;text-align: center">90-230</td>
                             <td style="color: #88070B;text-align: center">230-1000</td>
