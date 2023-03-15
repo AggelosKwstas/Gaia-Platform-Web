@@ -5,13 +5,22 @@
 
 
 $this->title = 'GAIA V2';
+$this->registerJs("let urlG='http://openweathermap.org/img/w/".$icon_gardiki."'",\yii\web\View::POS_BEGIN);
+$this->registerJs("let urlI='http://openweathermap.org/img/w/".$icon_ioannis."'",\yii\web\View::POS_BEGIN);
+$this->registerJs("let urlE='http://openweathermap.org/img/w/".$icon_eleousa."'",\yii\web\View::POS_BEGIN);
+$this->registerJs("let urlU='http://openweathermap.org/img/w/".$icon_uoi."'",\yii\web\View::POS_BEGIN);
+$this->registerJs("let foreG='".$forecast_gardiki."'",\yii\web\View::POS_BEGIN);
+$this->registerJs("let foreI='".$forecast_ioannis."'",\yii\web\View::POS_BEGIN);
+$this->registerJs("let foreE='".$forecast_eleousa."'",\yii\web\View::POS_BEGIN);
+$this->registerJs("let foreU='".$forecast_uoi."'",\yii\web\View::POS_BEGIN);
 ?>
+
+
 <section class="cta">
     <div id="map_full">
 
         <div id="myModal" class="modal">
 
-            <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="modal-body" style="font-size: 15px">

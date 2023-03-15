@@ -1,12 +1,4 @@
-/*!
-* Start Bootstrap - New Age v6.0.6 (https://startbootstrap.com/theme/new-age)
-* Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-new-age/blob/master/LICENSE)
-*/
-//
-// Scripts
-//
-
+let s= new Date().toLocaleString();
 map2 = L.map("map_full", config).setView([lat, lng], zoom);
 
 LeafIcon = L.Icon.extend({
@@ -40,23 +32,57 @@ map2.attributionControl.setPrefix();
 
 marker3 = L.marker([39.6216, 20.8596], {icon: greyIcon}).addTo(map2);
 
-marker3.bindPopup("<b>Click here to view this station</b>");
+marker3.bindPopup(`
+<div style="display: block;text-align: center">
+<b>Current Weather Stautus</b><br>
+ <hr class="divider"/>
+ <b>${foreG}</b><br>
+<img style="height: 45px;width: 65px" src="${urlU}.png"><br>
+ <b>Wind Stats</b><br>
+ <i class="fas fa-wind fa-fw pul"></i>
+
+</div>
+`);
 
 
 marker4 = L.marker([39.7147, 20.7572], {icon: greyIcon}).addTo(map2);
 
-marker4.bindPopup("<b>Click here to view this station</b>");
 
+marker4.bindPopup(`
+<div style="display: block;text-align: center">
+<b>Current Weather Stautus</b><br>
+ <hr class="divider"/>
+<p6><b>${s}</b></p6><br>
+ <b>${foreG}</b><br>
+<img style="height: 45px;width: 65px" src="${urlG}.png"><br>
+</div>
+`);
 
 
 marker5 = L.marker([39.7027, 20.8122], {icon: greyIcon}).addTo(map2);
 
-marker5.bindPopup("<b>Click here to view this station</b>");
+marker5.bindPopup(`
+<div style="display: block;text-align: center">
+<b>Current Weather Stautus</b><br>
+ <hr class="divider"/>
+<p6><b>${s}</b></p6><br>
+ <b>${foreG}</b><br>
+<img style="height: 45px;width: 65px" src="${urlI}.png"><br>
+</div>
+`);
 
 
 marker6 = L.marker([39.7066, 20.7926], {icon: greyIcon}).addTo(map2);
 
-marker6.bindPopup("<b>Click here to view this station</b>");
+marker6.bindPopup(`
+<div style="display: block;text-align: center">
+<b>Current Weather Stautus</b><br>
+ <hr class="divider"/>
+<p6><b>${s}</b></p6><br>
+ <b>${foreG}</b><br>
+<img style="height: 45px;width: 65px" src="${urlE}.png"><br>
+</div>
+`);
 
 
 var legend = L.control({ position: "topleft" });

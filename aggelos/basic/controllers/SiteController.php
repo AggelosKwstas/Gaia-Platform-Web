@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
+
 class SiteController extends Controller
 {
     /**
@@ -36,6 +37,30 @@ class SiteController extends Controller
                 ],
             ],
         ];
+    }
+
+    function makeWeatherCalls($lat, $long)
+    {
+        #make api call to open weather api and get weather icon code
+        $output = [];
+        $ch = curl_init();
+        $lat = strval($lat);
+        $long = strval($long);
+        $url = "https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$long&APPID=697f06f42d81bbda7d75e9349aefc162";
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $resp = curl_exec($ch);
+
+        #handle error
+        if ($e = curl_error($ch)) {
+            die($e);
+        } else {
+            $decoded = json_decode($resp, true);
+        }
+        curl_close($ch);
+        return $decoded;
     }
 
     /**
@@ -89,9 +114,9 @@ class SiteController extends Controller
 
     public function actionDownload()
     {
-        $file=Yii::$app->request->get('file');
-        $path=Yii::$app->request->get('path');
-        $root=Yii::getAlias('@webroot').$path.$file;
+        $file = Yii::$app->request->get('file');
+        $path = Yii::$app->request->get('path');
+        $root = Yii::getAlias('@webroot') . $path . $file;
         if (file_exists($root)) {
             return Yii::$app->response->sendFile($root);
         } else {
@@ -129,8 +154,23 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionMap(){
-        return $this->render('map');
+    public function actionMap()
+    {
+        $gardiki = $this->makeWeatherCalls(39.7147, 20.7572);
+        $ioannis = $this->makeWeatherCalls(39.7027, 20.8122);
+        $eleousa = $this->makeWeatherCalls(39.7066, 20.7926);
+        $uoi = $this->makeWeatherCalls(39.6216, 20.8596);
+
+        return $this->render('map', [
+            'icon_gardiki' => $gardiki['weather'][0]['icon'],
+            'icon_ioannis' => $ioannis['weather'][0]['icon'],
+            'icon_eleousa' => $eleousa['weather'][0]['icon'],
+            'icon_uoi' => $uoi['weather'][0]['icon'],
+            'forecast_gardiki' => $gardiki['weather'][0]['main'],
+            'forecast_ioannis' => $ioannis['weather'][0]['main'],
+            'forecast_eleousa' => $eleousa['weather'][0]['main'],
+            'forecast_uoi' => $uoi['weather'][0]['main']
+        ]);
     }
 
     /**

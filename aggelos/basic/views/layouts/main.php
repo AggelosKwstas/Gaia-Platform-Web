@@ -5,10 +5,8 @@
 /** @var string $content */
 
 use app\assets\AppAsset;
-use rmrevin\yii\fontawesome\FA;
 
 AppAsset::register($this);
-rmrevin\yii\fontawesome\AssetBundle::register($this);
 //$this->registerCsrfMetaTags();
 
 $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
