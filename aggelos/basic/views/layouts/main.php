@@ -67,7 +67,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 </ul>
                 <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal"
                         data-bs-target="#feedbackModal">
-                        <span class="d-flex align-items-center"><i class="fa fa-sign-in pull-left"></i><span
+                        <span class="d-flex align-items-center"><i style="display: block;text-align: left" class="fa-solid fa-right-to-bracket"></i>&nbsp;<span
                                     class="small">Login</span>
                         </span>
                 </button>
@@ -84,11 +84,11 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 <img src="asset/logoNE.png">
                 <img src="asset/zitsa.png">
                 <div class="mb-2">Follow us for more:</div>
-                <a href="https://www.neuronenergy.com/"><i class="fa fa-globe" style="font-size: 40px"></i></a>
+                <a href="https://www.neuronenergy.com/"><i class="fa-solid fa-globe" style="font-size: 40px"></i></a>
                 <span class="mx-1">&nbsp;&nbsp;</span>
-                <a href="https://twitter.com/SolarEye_PV"><i class="fa fa-twitter" style="font-size: 40px"></i></a>
+                <a href="https://twitter.com/SolarEye_PV"><i class="fa-brands fa-square-twitter" style="font-size: 40px"></i></a>
                 <span class="mx-1">&nbsp;&nbsp;</span>
-                <a href="https://www.facebook.com/profile.php?id=100051469122856"><i class="fa fa-facebook"
+                <a href="https://www.facebook.com/profile.php?id=100051469122856"><i class="fa-brands fa-facebook"
                                                                                      style="font-size: 40px"></i></a>
             </div>
         </div>

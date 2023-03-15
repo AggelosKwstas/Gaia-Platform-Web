@@ -11402,10 +11402,11 @@ section {
   background-image: url("../assets/img/portrait_black.png");
 }
 
-img:not(.main_logo){
+img:not(.main_logo,.forecast){
   width: 150px;
   margin: 0px 10px 30px 20px;
 }
+
 
 .device[data-device=iPhoneX][data-orientation=portrait][data-color=black] .button {
   display: none;
@@ -11790,8 +11791,36 @@ footer a:hover, footer a:active, footer a:focus {
   font-weight: bold;
 }
 
+hr.solid {
+  border-top: 3px dotted #bbb;;
+}
+
+hr.rounded {
+  border-top: 3px solid #101010;
+  border-radius: 5px;
+}
 
 
+.button_station {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
 
-/*weather card*/
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+.button4:hover {background-color: #e7e7e7;}
+
 

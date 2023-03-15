@@ -162,14 +162,16 @@ class SiteController extends Controller
         $uoi = $this->makeWeatherCalls(39.6216, 20.8596);
 
         return $this->render('map', [
-            'icon_gardiki' => $gardiki['weather'][0]['icon'],
-            'icon_ioannis' => $ioannis['weather'][0]['icon'],
-            'icon_eleousa' => $eleousa['weather'][0]['icon'],
-            'icon_uoi' => $uoi['weather'][0]['icon'],
-            'forecast_gardiki' => $gardiki['weather'][0]['main'],
-            'forecast_ioannis' => $ioannis['weather'][0]['main'],
-            'forecast_eleousa' => $eleousa['weather'][0]['main'],
-            'forecast_uoi' => $uoi['weather'][0]['main']
+                'content'=>$uoi
+//            'icon_gardiki' => $gardiki['weather'][0]['icon'],
+//            'icon_ioannis' => $ioannis['weather'][0]['icon'],
+//            'icon_eleousa' => $eleousa['weather'][0]['icon'],
+//            'icon_uoi' => $uoi['weather'][0]['icon'],
+//            'forecast_gardiki' => $gardiki['weather'][0]['main'],
+//            'forecast_ioannis' => $ioannis['weather'][0]['main'],
+//            'forecast_eleousa' => $eleousa['weather'][0]['main'],
+//            'forecast_uoi' => $uoi['weather'][0]['main'],
+//            'uoi_stats'=>$uoi['main']
         ]);
     }
 
