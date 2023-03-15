@@ -91,6 +91,10 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionAdmin()
+    {
+        return $this->render('admin');
+    }
 
     public function actionDownload()
     {
