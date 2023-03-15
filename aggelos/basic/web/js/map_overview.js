@@ -48,9 +48,9 @@ console.log(fToC(140.8));
 
 marker3.bindPopup(`
 <div style="display: block;text-align: center">
-<h4>Forecast</h4>
+<h6>Γαρδίκι Air Monitor</h6>
   <hr class="dotted">
- Status: <b>${uoi_object['weather'][0]['main']}</b><br>
+ <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png"><br>
  <b><u>Forecast stats</u></b><br>
  <b>Temperature: </b>${fToC(uoi_object['main']['temp'])} °F<br>
@@ -58,7 +58,7 @@ marker3.bindPopup(`
  <b>Humidity: </b>${uoi_object['main']['humidity']} %<br>
  <b>Pressure: </b>${uoi_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${uoi_object['visibility']} m<br>
- <button class="button_station button4"><b>View Station</b></button>
+ <button class="button_station button4"><b>View station</b></button>
 </div>
 `);
 
