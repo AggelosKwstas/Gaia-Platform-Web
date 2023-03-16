@@ -51,7 +51,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <!--            </button>-->
             <a
                class="btn btn-primary"
-               href="<?php echo \yii\helpers\Url::to(['/site/admin']) ?>">Login</a>
+               href="<?php echo \yii\helpers\Url::to(['admin/login']) ?>">Login</a>
         </div>
     </div>
 </nav>
