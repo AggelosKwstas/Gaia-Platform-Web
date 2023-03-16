@@ -11402,7 +11402,7 @@ section {
   background-image: url("../assets/img/portrait_black.png");
 }
 
-img:not(.main_logo,.forecast){
+img:not(.main_logo,.forecast,.footer_logo){
   width: 150px;
   margin: 0px 10px 30px 20px;
 }
@@ -11636,7 +11636,7 @@ footer a:hover, footer a:active, footer a:focus {
 
 
 #map_full {
-  height: 50rem;
+  height: 55rem;
 }
 
 .three h1 {
@@ -11677,7 +11677,7 @@ footer a:hover, footer a:active, footer a:focus {
   border-width: thin;
   line-height: 26px;
   color: #555;
-  top:5vh;
+  top:12vh;
 }
 .legend h4 {
   text-align: center;
@@ -11822,5 +11822,3 @@ hr.rounded {
 }
 
 .button4:hover {background-color: #e7e7e7;}
-
-

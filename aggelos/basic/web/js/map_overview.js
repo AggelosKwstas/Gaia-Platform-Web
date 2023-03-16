@@ -1,16 +1,17 @@
 
+
 function toFixed(num, fixed) {
     var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
     return num.toString().match(re)[0];
 }
 
-function fToC(fahrenheit)
-{
+function fToC(fahrenheit) {
     let fTemp = fahrenheit;
     let fToCel = (fTemp - 32) * 5 / 9;
-    return toFixed(fToCel,1);
+    return toFixed(fToCel, 1);
 }
-let s= new Date().toLocaleString();
+
+let s = new Date().toLocaleString();
 map2 = L.map("map_full", config).setView([lat, lng], zoom);
 
 LeafIcon = L.Icon.extend({
@@ -118,14 +119,14 @@ marker6.bindPopup(`
 </div>
 `);
 
-var legend = L.control({ position: "topleft" });
+var legend = L.control({position: "topleft"});
 
-legend.onAdd = function(map) {
+legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += "<h4 style='color: black'>Air Quality</h4>";
-    div.innerHTML += '<i style="background: #4caf50"></i><span><b>Good</b></span><br>';
-    div.innerHTML += '<i style="background: #ffee33"></i><span><b>Fair</b></span><br>';
-    div.innerHTML += '<i style="background: #b2102f"></i><span><b>Bad</b></span><br>';
+    div.innerHTML += '<i style="background: #20de28"></i><span><b>Good</b></span><br>';
+    div.innerHTML += '<i style="background: #ffea00"></i><span><b>Fair</b></span><br>';
+    div.innerHTML += '<i style="background: #ff0032"></i><span><b>Bad</b></span><br>';
     div.innerHTML += '<i style="background: grey"></i><span><b>No data</b></span><br>';
     div.innerHTML += '<a id="myBtn" style="text-decoration: none" href="javascript:void(0);">Legend explained</a>';
 
@@ -134,7 +135,6 @@ legend.onAdd = function(map) {
 };
 
 legend.addTo(map2);
-
 
 
 var modal = document.getElementById("myModal");
@@ -146,18 +146,32 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
+btn.onclick = function () {
     modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
     modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
+
+
+legend.getContainer().addEventListener('mouseover', function () {
+    map2.dragging.disable();
+});
+
+// Re-enable dragging when user's cursor leaves the element
+legend.getContainer().addEventListener('mouseout', function () {
+    map2.dragging.enable();
+});
+
+$(window).on('load', function () {
+    $('#loading').hide();
+})

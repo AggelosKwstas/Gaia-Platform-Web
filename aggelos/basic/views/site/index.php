@@ -42,7 +42,7 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
     <div class="container" style="text-align: center">
         <div class="row">
             <div class="col">
-                <h5><b>POWERFULL SENSOR NETWORKS</b></h5>
+                <h5><b>POWERFUL SENSOR NETWORKS</b></h5>
                 <p>
                     Fast installation and minimum maintenance costs. Diverse services and applications. Robust equipment
                     and network scalability.
@@ -59,7 +59,7 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
                 <h5><b>SOLAR POWERED</b></h5>
                 <p>
                     Each sensor node has a battery that can be recharged using an internal or external solar panel.
-                    Batteries have a 6600mAh load that ennsures non-stop working time, even in days with no sunlight at
+                    Batteries have a 6600mAh load that ensures non-stop working time, even in days with no sunlight at
                     all.
                 </p>
             </div>

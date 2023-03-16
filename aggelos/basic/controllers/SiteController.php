@@ -41,8 +41,7 @@ class SiteController extends Controller
 
     function makeWeatherCalls($lat, $long)
     {
-        #make api call to open weather api and get weather icon code
-        $output = [];
+        #make api call
         $ch = curl_init();
         $lat = strval($lat);
         $long = strval($long);
@@ -162,10 +161,10 @@ class SiteController extends Controller
         $uoi = $this->makeWeatherCalls(39.6216, 20.8596);
 
         return $this->render('map', [
-                'content_gardiki'=>$gardiki,
-                'content_ioannis'=>$ioannis,
-                'content_eleousa'=>$eleousa,
-                'content_uoi'=>$uoi
+            'content_gardiki' => $gardiki,
+            'content_ioannis' => $ioannis,
+            'content_eleousa' => $eleousa,
+            'content_uoi' => $uoi
 //            'icon_gardiki' => $gardiki['weather'][0]['icon'],
 //            'icon_ioannis' => $ioannis['weather'][0]['icon'],
 //            'icon_eleousa' => $eleousa['weather'][0]['icon'],

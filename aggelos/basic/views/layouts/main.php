@@ -70,10 +70,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
     <!-- Footer-->
     <footer class="bg-black text-center py-1">
         <div class="container px-5">
-            <div class="text-white-50 small mt-3">
+            <div class="text-white-50 small mt-2">
                 <div class="mb-2">&copy; Neuron Energy Solutions 2023. All Rights Reserved.</div>
-                <a href="https://www.neuronenergy.com/"><img src="asset/logoNE.png"></a>
-                <a href="https://www.zitsa.gov.gr/"><img src="asset/zitsa.png"></a>
+                <a href="https://www.neuronenergy.com/"><img class="footer_logo" style="height: 60px;" src="asset/logoNE.png"></a>
         </div>
     </footer>
     <?php $this->endBody() ?>
