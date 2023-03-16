@@ -12,7 +12,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 LeafIcon = L.Icon.extend({
     options: {
-        iconSize: [40, 35],
+        iconSize: [32, 37],
         shadowSize: [50, 64],
         iconAnchor: [20, 35],
         shadowAnchor: [4, 62],
@@ -24,7 +24,7 @@ greenIcon = new LeafIcon({
     iconUrl: 'asset/GreenMarker.png',
 })
 greyIcon = new LeafIcon({
-    iconUrl: 'asset/GreyMarker.png',
+    iconUrl: 'asset/stationGreen.png',
 })
 
 //eleousa
