@@ -37,7 +37,6 @@ $this->registerJs("let eleousa_object=".json_encode($content_eleousa), \yii\web\
                         concentrations , <br>
                         while PM<sub>10</sub> and PM<sub>2.5</sub> are based on daily running means.</em>
                     <br>
-                    </p>
                     <h5><strong>Bands of concentrations and index levels :</strong></h5>
                     <table class="styled-table" style="align-items: center">
                         <thead>
