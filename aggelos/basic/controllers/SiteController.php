@@ -162,7 +162,10 @@ class SiteController extends Controller
         $uoi = $this->makeWeatherCalls(39.6216, 20.8596);
 
         return $this->render('map', [
-                'content'=>$uoi
+                'content_gardiki'=>$gardiki,
+                'content_ioannis'=>$ioannis,
+                'content_eleousa'=>$eleousa,
+                'content_uoi'=>$uoi
 //            'icon_gardiki' => $gardiki['weather'][0]['icon'],
 //            'icon_ioannis' => $ioannis['weather'][0]['icon'],
 //            'icon_eleousa' => $eleousa['weather'][0]['icon'],

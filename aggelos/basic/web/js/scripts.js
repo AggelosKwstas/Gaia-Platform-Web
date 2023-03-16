@@ -50,55 +50,55 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.p
 
 marker3 = L.marker([39.6216, 20.8596], {icon: greyIcon}).addTo(map);
 
-marker3.on('click', function (){
-window.location.href = locationMap;
-});
-
-
-
-
-
-marker3.bindPopup("<b>Click here to view this station</b>");
-marker3.on('mouseover', function (e) {
-    this.openPopup();
-});
-marker3.on('mouseout', function (e) {
-    this.closePopup();
-});
+// marker3.on('click', function (){
+// window.location.href = locationMap;
+// });
+//
+//
+//
+//
+//
+// marker3.bindPopup("<b>Click here to view this station</b>");
+// marker3.on('mouseover', function (e) {
+//     this.openPopup();
+// });
+// marker3.on('mouseout', function (e) {
+//     this.closePopup();
+// });
 
 
 marker4 = L.marker([39.7147, 20.7572], {icon: greyIcon}).addTo(map);
-
-marker4.bindPopup("<b>Click here to view this station</b>");
-marker4.on('mouseover', function (e) {
-    this.openPopup();
-});
-marker4.on('mouseout', function (e) {
-    this.closePopup();
-});
-
-
+//
+// marker4.bindPopup("<b>Click here to view this station</b>");
+// marker4.on('mouseover', function (e) {
+//     this.openPopup();
+// });
+// marker4.on('mouseout', function (e) {
+//     this.closePopup();
+// });
+//
+//
 
 marker5 = L.marker([39.7027, 20.8122], {icon: greyIcon}).addTo(map);
 
-marker5.bindPopup("<b>Click here to view this station</b>");
-marker5.on('mouseover', function (e) {
-    this.openPopup();
-});
-marker5.on('mouseout', function (e) {
-    this.closePopup();
-});
+// marker5.bindPopup("<b>Click here to view this station</b>");
+// marker5.on('mouseover', function (e) {
+//     this.openPopup();
+// });
+// marker5.on('mouseout', function (e) {
+//     this.closePopup();
+// });
 
 
 marker6 = L.marker([39.7066, 20.7926], {icon: greyIcon}).addTo(map);
 
-marker6.bindPopup("<b>Click here to view this station</b>");
-marker6.on('mouseover', function (e) {
-    this.openPopup();
-});
-marker6.on('mouseout', function (e) {
-    this.closePopup();
-});
+// marker6.bindPopup("<b>Click here to view this station</b>");
+// marker6.on('mouseover', function (e) {
+//     this.openPopup();
+// });
+// marker6.on('mouseout', function (e) {
+//     this.closePopup();
+// });
 
 
 var legend = L.control({ position: "topright" });
@@ -116,3 +116,9 @@ legend.onAdd = function(map) {
 };
 
 legend.addTo(map);
+
+function onMapClick() {
+    window.location.href = locationMap;
+}
+
+map.on('click', onMapClick);

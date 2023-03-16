@@ -48,7 +48,7 @@ console.log(fToC(140.8));
 
 marker3.bindPopup(`
 <div style="display: block;text-align: center">
-<h6>Γαρδίκι Air Monitor</h6>
+<h6>UOI Air Monitor</h6>
   <hr class="dotted">
  <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png"><br>
@@ -65,42 +65,58 @@ marker3.bindPopup(`
 marker4 = L.marker([39.7147, 20.7572], {icon: greyIcon}).addTo(map2);
 
 
-// marker4.bindPopup(`
-// <div style="display: block;text-align: center">
-// <b>Current Weather Stautus</b><br>
-//  <hr class="divider"/>
-// <p6><b>${s}</b></p6><br>
-//  <b>${foreG}</b><br>
-// <img style="height: 45px;width: 65px" src="${urlG}.png"><br>
-// </div>
-// `);
+marker4.bindPopup(`
+<div style="display: block;text-align: center">
+<h6>Γαρδίκι - Air Monitor</h6>
+  <hr class="dotted">
+ <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
+<img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
+ <b><u>Forecast stats</u></b><br>
+ <b>Temperature: </b>${fToC(gardiki_object['main']['temp'])} °F<br>
+ <b>Wind: </b>${gardiki_object['wind']['speed']} km/h - ${gardiki_object['wind']['deg']} °<br>
+ <b>Humidity: </b>${gardiki_object['main']['humidity']} %<br>
+ <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
+ <b>Visibility: </b>${gardiki_object['visibility']} m<br>
+ <button class="button_station button4"><b>View station</b></button>
+</div>
+`);
 
 
 marker5 = L.marker([39.7027, 20.8122], {icon: greyIcon}).addTo(map2);
 
-// marker5.bindPopup(`
-// <div style="display: block;text-align: center">
-// <b>Current Weather Stautus</b><br>
-//  <hr class="divider"/>
-// <p6><b>${s}</b></p6><br>
-//  <b>${foreG}</b><br>
-// <img style="height: 45px;width: 65px" src="${urlI}.png"><br>
-// </div>
-// `);
-
+marker5.bindPopup(`
+<div style="display: block;text-align: center">
+<h6>Άγιος Ιωάννης - Air Monitor</h6>
+  <hr class="dotted">
+ <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
+<img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
+ <b><u>Forecast stats</u></b><br>
+ <b>Temperature: </b>${fToC(ioannis_object['main']['temp'])} °F<br>
+ <b>Wind: </b>${ioannis_object['wind']['speed']} km/h - ${ioannis_object['wind']['deg']} °<br>
+ <b>Humidity: </b>${ioannis_object['main']['humidity']} %<br>
+ <b>Pressure: </b>${ioannis_object['main']['pressure']} Pa<br>
+ <b>Visibility: </b>${ioannis_object['visibility']} m<br>
+ <button class="button_station button4"><b>View station</b></button>
+</div>
+`);
 
 marker6 = L.marker([39.7066, 20.7926], {icon: greyIcon}).addTo(map2);
 
-// marker6.bindPopup(`
-// <div style="display: block;text-align: center">
-// <b>Current Weather Stautus</b><br>
-//  <hr class="divider"/>
-// <p6><b>${s}</b></p6><br>
-//  <b>${foreG}</b><br>
-// <img style="height: 45px;width: 65px" src="${urlE}.png"><br>
-// </div>
-// `);
-//
+marker6.bindPopup(`
+<div style="display: block;text-align: center">
+<h6>Ελεούσα - Air Monitor</h6>
+  <hr class="dotted">
+ <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
+<img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${eleousa_object['weather'][0]['icon']}.png"><br>
+ <b><u>Forecast stats</u></b><br>
+ <b>Temperature: </b>${fToC(eleousa_object['main']['temp'])} °F<br>
+ <b>Wind: </b>${eleousa_object['wind']['speed']} km/h - ${eleousa_object['wind']['deg']} °<br>
+ <b>Humidity: </b>${eleousa_object['main']['humidity']} %<br>
+ <b>Pressure: </b>${eleousa_object['main']['pressure']} Pa<br>
+ <b>Visibility: </b>${eleousa_object['visibility']} m<br>
+ <button class="button_station button4"><b>View station</b></button>
+</div>
+`);
 
 var legend = L.control({ position: "topleft" });
 
