@@ -77,6 +77,11 @@
 }
 
 body {
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
@@ -402,22 +407,22 @@ fieldset {
   border: 0;
 }
 
-legend {
-  float: left;
-  width: 100%;
-  padding: 0;
-  margin-bottom: 0.5rem;
-  font-size: calc(1.275rem + 0.3vw);
-  line-height: inherit;
-}
-@media (min-width: 1200px) {
-  legend {
-    font-size: 1.5rem;
-  }
-}
-legend + * {
-  clear: left;
-}
+/*legend {*/
+/*  float: left;*/
+/*  width: 100%;*/
+/*  padding: 0;*/
+/*  margin-bottom: 0.5rem;*/
+/*  font-size: calc(1.275rem + 0.3vw);*/
+/*  line-height: inherit;*/
+/*}*/
+/*@media (min-width: 1200px) {*/
+/*  legend {*/
+/*    font-size: 1.5rem;*/
+/*  }*/
+/*}*/
+/*legend + * {*/
+/*  clear: left;*/
+/*}*/
 
 ::-webkit-datetime-edit-fields-wrapper,
 ::-webkit-datetime-edit-text,
@@ -596,7 +601,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  /*content: "— ";*/
+  /*content: "— ";*/
 }
 
 .img-fluid {
@@ -11329,7 +11334,7 @@ section {
   font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 #mainNav .navbar-brand:hover, #mainNav .navbar-brand:active {
-  color: green;
+  color: #6c757d;
 }
 #mainNav .navbar-toggler {
   font-size: 0.875rem;
@@ -11397,10 +11402,11 @@ section {
   background-image: url("../assets/img/portrait_black.png");
 }
 
-img:not(.main_logo){
+img:not(.main_logo,.forecast,.footer_logo){
   width: 150px;
   margin: 0px 10px 30px 20px;
 }
+
 
 .device[data-device=iPhoneX][data-orientation=portrait][data-color=black] .button {
   display: none;
@@ -11412,23 +11418,14 @@ img:not(.main_logo){
 
 section.cta {
   position: relative;
+  padding:  0;
   background-position: center;
   background-size: cover;
-  padding: 0 0;
 }
 section.cta .cta-content {
   position: relative;
   z-index: 1;
 }
-/*section.cta:before {*/
-/*  content: "";*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*  background: rgba(0, 0, 0, 0.5);*/
-/*}*/
 
 .icon-feature {
   font-size: 4rem;
@@ -11533,6 +11530,10 @@ section.cta .cta-content {
     max-width: 17rem;
   }
 }
+footer{
+  margin-top: auto;
+}
+
 footer a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
@@ -11626,69 +11627,198 @@ footer a:hover, footer a:active, footer a:focus {
     max-width: 17rem;
   }
 }
-#map {
-  height: 30rem;
+
+
+#map_element {
+  height: 20rem;
+  z-index: 10000;
 }
 
-* {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
-.mySlides {display: none;}
-img {vertical-align: middle;}
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
+#map_full {
+  height: 55rem;
+}
+
+.three h1 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  padding-bottom: 15px;
   position: relative;
-  margin: auto;
+}
+/*Legend specific*/
+
+.legend_map{
+  padding: 10px 20px;
 }
 
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
+.legend_info {
+  border-style: solid;
+  border-width: thin;
+  height: 3rem;
+  padding: 6px 8px;
+  font: 14px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
+  /*border-radius: 5px;*/
+  line-height: 20px;
+  color: #555;
+}
+
+
+.legend {
+  padding: 6px 8px;
+  font: 14px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  border-style: solid;
+  border-width: thin;
+  line-height: 26px;
+  color: #555;
+  top:12vh;
+}
+.legend h4 {
   text-align: center;
+  font-size: 16px;
+  margin: 2px 12px 8px;
+  color: #777;
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+.legend span {
+  position: relative;
+  bottom: 3px;
 }
 
-/* The dots/bullets/indicators */
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin: 0 8px 0 0;
+  opacity: 0.7;
+}
+
+.legend i.icon {
+  background-size: 18px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
+
+.modal {
+  padding-top: 4%;
+  padding-left: 30%;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 200000; /* Sit on top */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.styled-table {
+  margin-right: auto;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.styled-table thead tr {
+  background-color: #5caa32;
+  color: #ffffff;
+  text-align: left;
+}
+
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #5caa32;
+}
+
+
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #5caa32;
+}
+
+.legend_h {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+hr.solid {
+  border-top: 3px dotted #bbb;;
+}
+
+hr.rounded {
+  border-top: 3px solid #101010;
+  border-radius: 5px;
+}
+
+
+.button_station {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
-  transition: background-color 0.6s ease;
+  font-size: 13px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
-.active {
-  background-color: #717171;
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
 }
 
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
+.button4:hover {background-color: #e7e7e7;}
