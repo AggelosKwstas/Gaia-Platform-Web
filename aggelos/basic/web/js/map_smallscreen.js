@@ -34,12 +34,11 @@ Icon = new LeafIcon({
 })
 
 console.log('i am here');
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 20,
 }).addTo(map);
 
 marker3 = L.marker([39.6216, 20.8596], {icon: Icon}).addTo(map);
-
 
 marker4 = L.marker([39.7147, 20.7572], {icon: Icon}).addTo(map);
 
@@ -47,15 +46,13 @@ marker5 = L.marker([39.7027, 20.8122], {icon: Icon}).addTo(map);
 
 marker6 = L.marker([39.7066, 20.7926], {icon: Icon}).addTo(map);
 
-var legend = L.control({ position: "topright" });
+var legend = L.control({position: "topright"});
 
 map.attributionControl.setPrefix();
 
-legend.onAdd = function(map) {
+legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "legend_info");
     div.innerHTML += "<div class='three'><h1>Case Study - Urban Air Quality</h1></div>";
-
-
 
 
     return div;

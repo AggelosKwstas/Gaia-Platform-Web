@@ -39,8 +39,8 @@ class AppAsset extends AssetBundle
         'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js',
         'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
         'https://cdn.startbootstrap.com/sb-forms-latest.js',
-        'js/scripts.js',
-        'js/map_overview.js'
+        'js/map_smallscreen.js',
+        'js/map_fullscreen.js'
     ];
 
     public $depends = [
