@@ -51,14 +51,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="
-<?php
-                        if (\yii\helpers\Url::current() == \yii\helpers\Url::to(['site/map'])) {
-                            echo \yii\helpers\Url::to(['site/index']) . '#map-container';
-                        } else
-                            echo '#map-container';
-                        ?>
-"><b>Station Overview</b></a></li>
                     <li class="nav-item"><a class="nav-link <?php
                         if (\yii\helpers\Url::current() == \yii\helpers\Url::to(['site/map']))
                             echo 'active ';
@@ -78,24 +70,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
     <!-- Footer-->
     <footer class="bg-black text-center py-1">
         <div class="container px-5">
-            <div class="text-white-50 small">
+            <div class="text-white-50 small mt-3">
                 <div class="mb-2">&copy; Neuron Energy Solutions 2023. All Rights Reserved.</div>
-                <div class="mb-2">Powered By:</div>
-                <img src="asset/logoNE.png">
-                <img src="asset/zitsa.png">
-                <div class="mb-2">Follow us for more:</div>
-                <a href="https://www.neuronenergy.com/"><i class="fa-solid fa-globe" style="font-size: 40px"></i></a>
-                <span class="mx-1">&nbsp;&nbsp;</span>
-                <a href="https://twitter.com/SolarEye_PV"><i class="fa-brands fa-square-twitter" style="font-size: 40px"></i></a>
-                <span class="mx-1">&nbsp;&nbsp;</span>
-                <a href="https://www.facebook.com/profile.php?id=100051469122856"><i class="fa-brands fa-facebook"
-                                                                                     style="font-size: 40px"></i></a>
-            </div>
+                <a href="https://www.neuronenergy.com/"><img src="asset/logoNE.png"></a>
+                <a href="https://www.zitsa.gov.gr/"><img src="asset/zitsa.png"></a>
         </div>
     </footer>
-
-
-
     <?php $this->endBody() ?>
     </body>
     </html>
