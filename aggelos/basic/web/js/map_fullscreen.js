@@ -10,7 +10,7 @@ function fToC(fahrenheit) {
 }
 
 function testButton(){
-document.getElementById('uoiText').style.display='block';
+document.getElementById('uoiDiv').style.display='block';
 }
 
 let config2 = {
@@ -68,7 +68,8 @@ marker3.bindPopup(`
  <b>Pressure: </b>${uoi_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${uoi_object['visibility']} m<br>
  <button id="uoiButton" onclick="testButton()" class="button_station button4"><b>View station</b></button>
- <b id="uoiText" style="display: none"><u>Station is currently unavailable!</u></b>
+<!-- <b id="uoiText" style="display: none"><u>Station is currently unavailable!</u></b>-->
+<div id="uoiDiv" style="height: 65px;width: 150px;display: none" class="warning"><b>Station is currently unavailable!</b></div>
 </div>
 `);
 
