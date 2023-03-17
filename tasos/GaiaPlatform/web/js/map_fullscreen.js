@@ -1,5 +1,3 @@
-
-
 function toFixed(num, fixed) {
     var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
     return num.toString().match(re)[0];
@@ -16,7 +14,7 @@ map2 = L.map("map_full", config).setView([lat, lng], zoom);
 
 LeafIcon = L.Icon.extend({
     options: {
-        iconSize: [40, 35],
+        iconSize: [25, 32],
         popupAnchor: [-1, -15]
     }
 });
@@ -34,10 +32,10 @@ orangeIcon = new LeafIcon({
 })
 
 greyIcon = new LeafIcon({
-    iconUrl: 'asset/GreyMarker.png',
+    iconUrl: 'asset/stationRed.png',
 })
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 20,
 }).addTo(map2);
 

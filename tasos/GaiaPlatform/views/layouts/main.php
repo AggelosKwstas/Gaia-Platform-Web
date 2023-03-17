@@ -50,19 +50,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 <i class="bi-list"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                    <li class="nav-item"><a class="nav-link <?php
-                        if (\yii\helpers\Url::current() == \yii\helpers\Url::to(['site/map']))
-                            echo 'active ';
-                        ?>me-lg-3"
-                                            href="<?php echo \yii\helpers\Url::to(['site/map']) ?>"><b>Map</b></a></li>
-                </ul>
-                <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal"
-                        data-bs-target="#feedbackModal">
-                        <span class="d-flex align-items-center"><i style="display: block;text-align: left" class="fa-solid fa-right-to-bracket"></i>&nbsp;<span
+                <ul class="navbar-nav ms-auto me-0 my-3 my-lg-0">
+                    <button class="btn btn-primary  px-3 mb-2 mb-lg-0" data-bs-toggle="modal"
+                            data-bs-target="#feedbackModal">
+                        <span class="d-flex align-items-center"><i style="display: block;text-align: left"
+                                                                   class="fa-solid fa-right-to-bracket"></i>&nbsp;<span
                                     class="small">Login</span>
                         </span>
-                </button>
+                    </button>
             </div>
         </div>
     </nav>
@@ -72,8 +67,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
         <div class="container px-5">
             <div class="text-white-50 small mt-2">
                 <div class="mb-2">&copy; Neuron Energy Solutions 2023. All Rights Reserved.</div>
-                <a href="https://www.neuronenergy.com/"><img class="footer_logo" style="height: 60px;" src="asset/logoNE.png"></a>
-        </div>
+                <a href="https://www.neuronenergy.com/"><img class="footer_logo" style="height: 60px;"
+                                                             src="asset/logoNE.png"></a>
+            </div>
     </footer>
     <?php $this->endBody() ?>
     </body>
