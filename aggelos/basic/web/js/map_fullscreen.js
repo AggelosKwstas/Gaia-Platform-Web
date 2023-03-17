@@ -8,8 +8,8 @@ function fToC(f) {
     return toFixed(f, 1);
 }
 
-function testButton(){
-document.getElementById('uoiDiv').style.display='block';
+function testButton() {
+    document.getElementById('uoiDiv').style.display = 'block';
 }
 
 let config2 = {
@@ -66,12 +66,11 @@ marker3.bindPopup(`
  <b>Visibility: </b>${uoi_object['visibility']} m<br>
  <button id="uoiButton" onclick="testButton()" class="button_station button4"><b>View station</b></button>
 <!-- <b id="uoiText" style="display: none"><u>Station is currently unavailable!</u></b>-->
-<div id="uoiDiv" style="height: 65px;width: 150px;display: none" class="oaerror warning"><b>Station is currently unavailable!</b></div>
+<div id="uoiDiv" style="height: 65px;width: 150px;display: none" class="oaerror warning"><b>Station is currently unavailable!</b></div><br>
 </div>
 `);
 
 marker4 = L.marker([39.7147, 20.7572], {icon: greenIcon}).addTo(map2);
-
 
 marker4.bindPopup(`
 <div style="display: block;text-align: center">
@@ -85,7 +84,8 @@ marker4.bindPopup(`
  <b>Humidity: </b>${gardiki_object['main']['humidity']} %<br>
  <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${gardiki_object['visibility']} m<br>
- <button class="button_station button4"><b>View station</b></button>
+ <button onclick="document.getElementById('gardikiLoader').style.display='block'" class="button_station button4"><b>View station</b></button><br>
+<div id="gardikiLoader" class="lds-roller" style="display: none;padding-left: 40px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 
@@ -104,7 +104,8 @@ marker5.bindPopup(`
  <b>Humidity: </b>${ioannis_object['main']['humidity']} %<br>
  <b>Pressure: </b>${ioannis_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${ioannis_object['visibility']} m<br>
- <button class="button_station button4"><b>View station</b></button>
+  <button onclick="document.getElementById('ioannisLoader').style.display='block'" class="button_station button4"><b>View station</b></button><br>
+<div id="ioannisLoader" class="lds-roller" style="display: none;padding-left: 65px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 
@@ -122,20 +123,41 @@ marker6.bindPopup(`
  <b>Humidity: </b>${eleousa_object['main']['humidity']} %<br>
  <b>Pressure: </b>${eleousa_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${eleousa_object['visibility']} m<br>
- <button class="button_station button4"><b>View station</b></button>
+  <button onclick="document.getElementById('eleousaLoader').style.display='block'" class="button_station button4"><b>View station</b></button><br>
+<div id="eleousaLoader" class="lds-roller" style="display: none;padding-left: 40px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 
 var legend = L.control({position: "bottomleft"});
 
+buttonPressed = false
+
+function colorButton() {
+    if(!buttonPressed)
+    {
+        $('.leaflet-pane img[src="asset/stationGreen.png"]').hide();
+        $('.leaflet-pane img[src="asset/stationRed.png"]').hide();
+        $('.leaflet-pane img[src="asset/stationGrey.png"]').hide();
+        buttonPressed = true
+    }
+    else {
+        $('.leaflet-pane img[src="asset/stationGreen.png"]').show();
+        $('.leaflet-pane img[src="asset/stationRed.png"]').show();
+        $('.leaflet-pane img[src="asset/stationGrey.png"]').show();
+        buttonPressed = false
+        }
+    }
+
+
 legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += "<h4 style='color: black'>Air Quality</h4>";
-    div.innerHTML += '<i style="background: #20de28"></i><span><b>Good</b></span><br>';
+    div.innerHTML += '<i style="background: #20de28;cursor: pointer"></i><span><b>Good</b></span><br>';
     div.innerHTML += '<i style="background: #ffea00"></i><span><b>Fair</b></span><br>';
     div.innerHTML += '<i style="background: #ff0032"></i><span><b>Bad</b></span><br>';
-    div.innerHTML += '<i style="background: grey"></i><span><b>No data</b></span><br>';
-    div.innerHTML += '<a id="myBtn" style="text-decoration: none" href="javascript:void(0);">Legend explained</a>';
+    div.innerHTML += '<i style="background: grey"></i><span><b>No data</b></span><br>' +
+        '<button class="button_station button4" onclick="colorButton()">Air monitor sensors</button><br>';
+    div.innerHTML += '<a id="myBtn" style="text-decoration: none;font-size: 17px" href="javascript:void(0);">Legend explained</a>';
 
 
     return div;
