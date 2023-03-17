@@ -5,7 +5,7 @@
 timezone=$(echo "$1")
 readonly IP=$2
 
-#== Bash helpers ==
+#== Bash Api ==
 
 function info {
   echo " "

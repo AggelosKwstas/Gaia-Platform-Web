@@ -23,7 +23,6 @@ class AppAsset extends AssetBundle
 
     public $css = [
         'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css',
-        'vendor/fontawesome-free/css/all.min.css',
         'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css',
         'https://fonts.gstatic.com',
         'theme/font-awesome/css/all.css',

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#== Bash helpers ==
+#== Bash Api ==
 
 function info {
   echo " "

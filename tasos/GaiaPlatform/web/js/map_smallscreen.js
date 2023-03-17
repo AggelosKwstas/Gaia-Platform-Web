@@ -8,10 +8,12 @@
 // 
 
 
-let config = {
+let config1 = {
     minZoom: 7,
     maxZoom: 18,
-    zoomControl: false
+    zoomControl: false,
+    dragging: false,
+    tap: false
 };
 
 const zoom = 11;
@@ -20,7 +22,7 @@ const lat = 39.6935;
 const lng = 20.8465;
 
 
-map = L.map("map_element", config).setView([lat, lng], zoom);
+map = L.map("map_element", config1).setView([lat, lng], zoom);
 
 LeafIcon = L.Icon.extend({
     options: {
