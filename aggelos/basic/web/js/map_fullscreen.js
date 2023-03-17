@@ -3,10 +3,9 @@ function toFixed(num, fixed) {
     return num.toString().match(re)[0];
 }
 
-function fToC(fahrenheit) {
-    let fTemp = fahrenheit;
-    let fToCel = (fTemp - 32) * 5 / 9;
-    return toFixed(fToCel, 1);
+function fToC(f) {
+    f = f - 273.15;
+    return toFixed(f, 1);
 }
 
 function testButton(){
@@ -42,7 +41,7 @@ orangeIcon = new LeafIcon({
 })
 
 greyIcon = new LeafIcon({
-    iconUrl: 'asset/stationRed.png',
+    iconUrl: 'asset/stationGrey.png',
 })
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -51,9 +50,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 map2.attributionControl.setPrefix();
 
-marker3 = L.marker([39.6216, 20.8596], {icon: greenIcon}).addTo(map2);
-
-console.log(fToC(140.8));
+marker3 = L.marker([39.6216, 20.8596], {icon: greyIcon}).addTo(map2);
 
 marker3.bindPopup(`
 <div style="display: block;text-align: center">
@@ -62,14 +59,14 @@ marker3.bindPopup(`
  <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png"><br>
  <b><u>Forecast stats</u></b><br>
- <b>Temperature: </b>${fToC(uoi_object['main']['temp'])} °F<br>
+ <b>Temperature: </b>${fToC(uoi_object['main']['temp'])} °C<br>
  <b>Wind: </b>${uoi_object['wind']['speed']} km/h - ${uoi_object['wind']['deg']} °<br>
  <b>Humidity: </b>${uoi_object['main']['humidity']} %<br>
  <b>Pressure: </b>${uoi_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${uoi_object['visibility']} m<br>
  <button id="uoiButton" onclick="testButton()" class="button_station button4"><b>View station</b></button>
 <!-- <b id="uoiText" style="display: none"><u>Station is currently unavailable!</u></b>-->
-<div id="uoiDiv" style="height: 65px;width: 150px;display: none" class="warning"><b>Station is currently unavailable!</b></div>
+<div id="uoiDiv" style="height: 65px;width: 150px;display: none" class="oaerror warning"><b>Station is currently unavailable!</b></div>
 </div>
 `);
 
@@ -83,7 +80,7 @@ marker4.bindPopup(`
  <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
  <b><u>Forecast stats</u></b><br>
- <b>Temperature: </b>${fToC(gardiki_object['main']['temp'])} °F<br>
+ <b>Temperature: </b>${fToC(gardiki_object['main']['temp'])} °C<br>
  <b>Wind: </b>${gardiki_object['wind']['speed']} km/h - ${gardiki_object['wind']['deg']} °<br>
  <b>Humidity: </b>${gardiki_object['main']['humidity']} %<br>
  <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
@@ -102,7 +99,7 @@ marker5.bindPopup(`
  <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
  <b><u>Forecast stats</u></b><br>
- <b>Temperature: </b>${fToC(ioannis_object['main']['temp'])} °F<br>
+ <b>Temperature: </b>${fToC(ioannis_object['main']['temp'])} °C<br>
  <b>Wind: </b>${ioannis_object['wind']['speed']} km/h - ${ioannis_object['wind']['deg']} °<br>
  <b>Humidity: </b>${ioannis_object['main']['humidity']} %<br>
  <b>Pressure: </b>${ioannis_object['main']['pressure']} Pa<br>
@@ -120,7 +117,7 @@ marker6.bindPopup(`
  <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${eleousa_object['weather'][0]['icon']}.png"><br>
  <b><u>Forecast stats</u></b><br>
- <b>Temperature: </b>${fToC(eleousa_object['main']['temp'])} °F<br>
+ <b>Temperature: </b>${fToC(eleousa_object['main']['temp'])} °C<br>
  <b>Wind: </b>${eleousa_object['wind']['speed']} km/h - ${eleousa_object['wind']['deg']} °<br>
  <b>Humidity: </b>${eleousa_object['main']['humidity']} %<br>
  <b>Pressure: </b>${eleousa_object['main']['pressure']} Pa<br>
