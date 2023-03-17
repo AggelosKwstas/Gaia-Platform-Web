@@ -160,6 +160,9 @@ class SiteController extends Controller
         $eleousa = $this->makeWeatherCalls(39.7066, 20.7926);
         $uoi = $this->makeWeatherCalls(39.6216, 20.8596);
 
+        #change layout
+        $this->layout='main_map';
+
         return $this->render('map', [
             'content_gardiki' => $gardiki,
             'content_ioannis' => $ioannis,

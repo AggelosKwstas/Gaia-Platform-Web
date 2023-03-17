@@ -9,8 +9,15 @@ function fToC(fahrenheit) {
     return toFixed(fToCel, 1);
 }
 
+let config2 = {
+    minZoom: 7,
+    maxZoom: 18,
+    zoomControl: false
+};
+
+
 let s = new Date().toLocaleString();
-map2 = L.map("map_full", config).setView([lat, lng], zoom);
+map2 = L.map("map_full", config2).setView([lat, lng], zoom);
 
 LeafIcon = L.Icon.extend({
     options: {
@@ -20,15 +27,15 @@ LeafIcon = L.Icon.extend({
 });
 
 greenIcon = new LeafIcon({
-    iconUrl: 'asset/GreenMarker.png',
+    iconUrl: 'asset/stationGreen.png',
 })
 
 redIcon = new LeafIcon({
-    iconUrl: 'asset/RedMarker.png',
+    iconUrl: 'asset/stationRed.png',
 })
 
 orangeIcon = new LeafIcon({
-    iconUrl: 'asset/OrangeMarker.png',
+    iconUrl: 'asset/stationOrange.png',
 })
 
 greyIcon = new LeafIcon({

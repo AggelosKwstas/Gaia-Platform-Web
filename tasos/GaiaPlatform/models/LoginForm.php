@@ -14,14 +14,10 @@ use yii\base\Model;
 class LoginForm extends Model
 {
     public $username;
-    public $firstname;
-    public $lastname;
     public $password;
-    public $email;
     public $rememberMe = true;
 
     private $_user = false;
-
 
 
     /**
@@ -31,7 +27,7 @@ class LoginForm extends Model
     {
         return [
             // username and password are both required
-            [['username', 'firstname', 'lastname', 'password', 'email'], 'required'],
+            [['username', 'password'], 'required'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()

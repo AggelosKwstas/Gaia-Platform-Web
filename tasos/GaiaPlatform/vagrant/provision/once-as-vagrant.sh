@@ -4,7 +4,7 @@
 
 github_token=$(echo "$1")
 
-#== Bash helpers ==
+#== Bash Api ==
 
 function info {
   echo " "
