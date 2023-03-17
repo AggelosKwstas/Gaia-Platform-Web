@@ -19,25 +19,92 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
                     <h1 class="display-2 lh-1 mb-3">Create powerful IoT networks,<br> We’ve designed everything
                         beyond...
                     </h1>
-                    <img class="main_logo" src="asset/sensors.jpg" style="height: 200px;width: 95%">
-                    <div style="text-align: center">
-
-                        <div id="wrap">
-                            <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
-                            ?>" class="btn-slide2">
-                                <span class="circle2"><i class="fa fa-download"></i></span>
-                                <span class="title2">Download GAIA Desktop Application</span>
-                                <span class="title-hover2">Click here</span>
-                            </a>
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/66cf5094908491e69d8187bcf934050a4800b37f.jpeg" style="width:100%">
                         </div>
+                        <div class="mySlides fade">
 
+                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/b7d624354d5fa22e38b0ab1f9b905fb08ccc6a05.jpeg" style="width:100%">
+
+                        </div>
+                        <div class="mySlides fade">
+
+                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/5bfad15a7fd24d448a48605baf52655a5bbe5a71.jpeg" style="width:100%">
+                        </div>
+<!--                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>-->
+<!--                        <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
                     </div>
+                    <br>
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(0)"></span>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                    </div>
+                    <script>
+                        let slideIndex = 0;
+                        let timeoutId = null;
+                        const slides = document.getElementsByClassName("mySlides");
+                        const dots = document.getElementsByClassName("dot");
+
+                        showSlides();
+                        function currentSlide(index) {
+                            slideIndex = index;
+                            showSlides();
+                        }
+                        function plusSlides(step) {
+
+                            if(step < 0) {
+                                slideIndex -= 1;
+
+                                if(slideIndex < 0) {
+                                    slideIndex = slides.length - 1;
+                                }
+                            }
+
+                            showSlides();
+                        }
+                        function showSlides() {
+                            for(let i = 0; i < slides.length; i++) {
+                                slides[i].style.display = "none";
+                                dots[i].classList.remove('active');
+                            }
+                            slideIndex++;
+                            if(slideIndex > slides.length) {
+                                slideIndex = 1
+                            }
+                            slides[slideIndex - 1].style.display = "block";
+                            dots[slideIndex - 1].classList.add('active');
+                            if(timeoutId) {
+                                clearTimeout(timeoutId);
+                            }
+                            timeoutId = setTimeout(showSlides, 3000); // Change image every 5 seconds
+                        }
+                    </script>
+<!--                    <img class="main_logo" src="asset/sensors.jpg" style="height: 200px;width: 95%">-->
+
+
                 </div>
             </div>
         </div>
     </div>
 </header>
+<div class="container px-5">
+    <div style="text-align: center">
+        <div id="wrap">
+            <h3 style="color: #5caa32 "><b>You can now download Gaia Platform stable version.</b></h3>
+<!--            <h1 class="display-6 lh-1 mb-3"></h1>-->
+            <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
+            ?>" class="btn-slide2">
+                <span class="circle2"><i class="fa fa-download"></i></span>
+                <span class="title2">Download GAIA Desktop Application</span>
+                <span class="title-hover2">Click here</span>
+            </a>
+            <!--        <p>Gaia Platform - Version 1.0</p>-->
+        </div>
 
+    </div>
+</div>
 <section class="bg-light" style="display: block;text-align: left">
     <div class="container" style="text-align: center">
         <div class="row">
