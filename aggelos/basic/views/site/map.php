@@ -13,10 +13,9 @@ $this->registerJs("let eleousa_object=".json_encode($content_eleousa), \yii\web\
 
 <section class="cta">
     <div id="map_full">
-
         <div id="myModal" class="modal">
 
-            <div class="modal-content">
+            <div class="modal-content" >
                 <span class="close">&times;</span>
                 <div class="modal-body" style="font-size: 15px">
                     <h5><strong>Details on the methodology the AQ Index is calculated :</strong></h5>

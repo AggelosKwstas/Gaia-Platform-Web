@@ -40,7 +40,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             } else
                 echo \yii\helpers\Url::to(['site/index']);
             ?>"><img class="main_logo"
-                     src="asset/logo.png"
+                     src="asset/logoN.png"
                      style="height: 50px!important;">
                 <h id="h_logo">GAIA PLATFORM</h>
             </a>

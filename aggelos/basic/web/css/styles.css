@@ -11673,11 +11673,11 @@ footer a:hover, footer a:active, footer a:focus {
   font: 14px Arial, Helvetica, sans-serif;
   background: white;
   background: rgba(255, 255, 255, 0.8);
-  border-style: solid;
-  border-width: thin;
+  /*border-style: solid;*/
+  /*border-width: thin;*/
   line-height: 26px;
   color: #555;
-  top:12vh;
+  top:-3vh;
 }
 .legend h4 {
   text-align: center;
@@ -11719,6 +11719,7 @@ footer a:hover, footer a:active, footer a:focus {
 
 /* Modal Content/Box */
 .modal-content {
+  pointer-events: none;
   background-color: #fefefe;
   width: 50%; /* Could be more or less, depending on screen size */
 }

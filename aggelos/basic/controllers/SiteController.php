@@ -168,15 +168,6 @@ class SiteController extends Controller
             'content_ioannis' => $ioannis,
             'content_eleousa' => $eleousa,
             'content_uoi' => $uoi
-//            'icon_gardiki' => $gardiki['weather'][0]['icon'],
-//            'icon_ioannis' => $ioannis['weather'][0]['icon'],
-//            'icon_eleousa' => $eleousa['weather'][0]['icon'],
-//            'icon_uoi' => $uoi['weather'][0]['icon'],
-//            'forecast_gardiki' => $gardiki['weather'][0]['main'],
-//            'forecast_ioannis' => $ioannis['weather'][0]['main'],
-//            'forecast_eleousa' => $eleousa['weather'][0]['main'],
-//            'forecast_uoi' => $uoi['weather'][0]['main'],
-//            'uoi_stats'=>$uoi['main']
         ]);
     }
 
