@@ -3,9 +3,19 @@ function toFixed(num, fixed) {
     return num.toString().match(re)[0];
 }
 
+console.log(locationGraphs);
+
 function fToC(f) {
     f = f - 273.15;
     return toFixed(f, 1);
+}
+
+
+function testRedirect() {
+    document.getElementById('gardikiLoader').style.display = 'block';
+    setTimeout(() => {
+        window.location.href = locationGraphs;
+    }, 1500);
 }
 
 function testButton() {
@@ -84,7 +94,7 @@ marker4.bindPopup(`
  <b>Humidity: </b>${gardiki_object['main']['humidity']} %<br>
  <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${gardiki_object['visibility']} m<br>
- <button onclick="document.getElementById('gardikiLoader').style.display='block'" class="button_station button4"><b>View station</b></button><br>
+ <button onclick="testRedirect()" class="button_station button4"><b>View station</b></button><br>
 <div id="gardikiLoader" class="lds-roller" style="display: none;padding-left: 40px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
@@ -128,35 +138,71 @@ marker6.bindPopup(`
 </div>
 `);
 
-var legend = L.control({position: "bottomleft"});
+var legend = L.control({position: "topleft"});
 
-buttonPressed = false
+greenPressed = false
 
-function colorButton() {
-    if(!buttonPressed)
-    {
+function greenButton() {
+    if (!greenPressed) {
         $('.leaflet-pane img[src="asset/stationGreen.png"]').hide();
-        $('.leaflet-pane img[src="asset/stationRed.png"]').hide();
-        $('.leaflet-pane img[src="asset/stationGrey.png"]').hide();
-        buttonPressed = true
-    }
-    else {
+        document.getElementById('greenFilter').style.backgroundColor = '#D3D3D3';
+        greenPressed = true
+    } else {
         $('.leaflet-pane img[src="asset/stationGreen.png"]').show();
-        $('.leaflet-pane img[src="asset/stationRed.png"]').show();
-        $('.leaflet-pane img[src="asset/stationGrey.png"]').show();
-        buttonPressed = false
-        }
+        document.getElementById('greenFilter').style.backgroundColor = '#20de28';
+        greenPressed = false
     }
+}
 
+yellowPressed = false
+
+function yellowButton() {
+    if (!yellowPressed) {
+        $('.leaflet-pane img[src="asset/stationOrange.png"]').hide();
+        document.getElementById('yellowFilter').style.backgroundColor = '#D3D3D3';
+        yellowPressed = true
+    } else {
+        $('.leaflet-pane img[src="asset/stationOrange.png"]').show();
+        document.getElementById('yellowFilter').style.backgroundColor = '#ffea00';
+        yellowPressed = false
+    }
+}
+
+redPressed = false
+
+function redButton() {
+    if (!redPressed) {
+        $('.leaflet-pane img[src="asset/stationRed.png"]').hide();
+        document.getElementById('redFilter').style.backgroundColor = '#D3D3D3';
+        redPressed = true
+    } else {
+        $('.leaflet-pane img[src="asset/stationRed.png"]').show();
+        document.getElementById('redFilter').style.backgroundColor = '#ff0032';
+        redPressed = false
+    }
+}
+
+grayPressed = false
+
+function grayButton() {
+    if (!grayPressed) {
+        $('.leaflet-pane img[src="asset/stationGrey.png"]').hide();
+        document.getElementById('grayFilter').style.backgroundColor = '#D3D3D3';
+        grayPressed = true
+    } else {
+        $('.leaflet-pane img[src="asset/stationGrey.png"]').show();
+        document.getElementById('grayFilter').style.backgroundColor = '#808080';
+        grayPressed = false
+    }
+}
 
 legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += "<h4 style='color: black'>Air Quality</h4>";
-    div.innerHTML += '<i style="background: #20de28;cursor: pointer"></i><span><b>Good</b></span><br>';
-    div.innerHTML += '<i style="background: #ffea00"></i><span><b>Fair</b></span><br>';
-    div.innerHTML += '<i style="background: #ff0032"></i><span><b>Bad</b></span><br>';
-    div.innerHTML += '<i style="background: grey"></i><span><b>No data</b></span><br>' +
-        '<button class="button_station button4" onclick="colorButton()">Air monitor sensors</button><br>';
+    div.innerHTML += '<i id="greenFilter" style="background: #20de28;cursor: pointer" onclick="greenButton()"></i><span><b>Good</b></span><br>';
+    div.innerHTML += '<i id="yellowFilter" style="background: #ffea00;cursor: pointer" onclick="yellowButton()"></i><span><b>Fair</b></span><br>';
+    div.innerHTML += '<i id="redFilter" style="background: #ff0032;cursor: pointer" onclick="redButton()"></i><span><b>Bad</b></span><br>';
+    div.innerHTML += '<i id="grayFilter" style="background: grey;cursor: pointer" onclick="grayButton()"></i><span><b>No data</b></span><br>';
     div.innerHTML += '<a id="myBtn" style="text-decoration: none;font-size: 17px" href="javascript:void(0);">Legend explained</a>';
 
 
@@ -197,3 +243,12 @@ legend.getContainer().addEventListener('mouseout', function () {
 $(window).on('load', function () {
     $('#loading').hide();
 })
+
+map2.doubleClickZoom.disable();
+var div = L.DomUtil.get('legend');
+if (!L.Browser.touch) {
+    L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.on(div, 'mousewheel', L.DomEvent.stopPropagation);
+} else {
+    L.DomEvent.on(div, 'click', L.DomEvent.stopPropagation);
+}

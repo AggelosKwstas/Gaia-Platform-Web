@@ -11667,6 +11667,9 @@ footer a:hover, footer a:active, footer a:focus {
   color: #555;
 }
 
+.redirected{
+  pointer-events: none;
+}
 
 .legend {
   padding: 6px 8px;
@@ -11677,7 +11680,7 @@ footer a:hover, footer a:active, footer a:focus {
   border-width: thin;
   line-height: 26px;
   color: #555;
-  top:-3vh;
+  top:10vh;
 }
 .legend h4 {
   text-align: center;

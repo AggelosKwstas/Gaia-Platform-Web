@@ -3,15 +3,18 @@
 /** @var yii\web\View $this */
 
 
+use yii\helpers\Url;
+
 $this->title = 'GAIA V2';
 $this->registerJs("let uoi_object=".json_encode($content_uoi), \yii\web\View::POS_BEGIN);
 $this->registerJs("let gardiki_object=".json_encode($content_gardiki), \yii\web\View::POS_BEGIN);
 $this->registerJs("let ioannis_object=".json_encode($content_ioannis), \yii\web\View::POS_BEGIN);
 $this->registerJs("let eleousa_object=".json_encode($content_eleousa), \yii\web\View::POS_BEGIN);
+$this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\web\View::POS_BEGIN);
 ?>
 
 
-<section class="cta">
+<section id="map_cta" class="cta">
     <div id="map_full">
         <div id="myModal" class="modal">
 

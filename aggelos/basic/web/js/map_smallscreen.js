@@ -4,6 +4,7 @@ let config1 = {
     zoomControl: false
 };
 
+
 const zoom = 11;
 
 const lat = 39.6935;
@@ -23,7 +24,7 @@ Icon = new LeafIcon({
     iconUrl: 'asset/stationGreen.png',
 })
 
-console.log('i am here');
+
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 20,
 }).addTo(map);

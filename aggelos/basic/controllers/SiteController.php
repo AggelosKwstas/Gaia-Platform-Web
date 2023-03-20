@@ -171,6 +171,10 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionGraphs()
+    {
+        return $this->render('Graphs');
+    }
     /**
      * Displays about page.
      *
