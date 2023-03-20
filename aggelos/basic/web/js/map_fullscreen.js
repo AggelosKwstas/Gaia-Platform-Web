@@ -247,10 +247,5 @@ legend.getContainer().addEventListener('mouseout', function () {
 });
 
 map2.doubleClickZoom.disable();
-var div = L.DomUtil.get('legend');
-if (!L.Browser.touch) {
-    L.DomEvent.disableClickPropagation(div);
-    L.DomEvent.on(div, 'mousewheel', L.DomEvent.stopPropagation);
-} else {
-    L.DomEvent.on(div, 'click', L.DomEvent.stopPropagation);
-}
+
+

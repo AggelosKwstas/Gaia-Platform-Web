@@ -11542,7 +11542,7 @@ footer a:hover, footer a:active, footer a:focus {
   border-width: thin;
   line-height: 26px;
   color: #555;
-  top:10vh;
+  top:11vh;
 }
 .legend h4 {
   text-align: center;
@@ -11809,4 +11809,22 @@ hr.rounded {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 25rem;
+  height: 15rem;
+  border-radius: 5px;
+  top:20vh;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
 }
