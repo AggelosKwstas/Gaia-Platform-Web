@@ -3,7 +3,13 @@ function toFixed(num, fixed) {
     return num.toString().match(re)[0];
 }
 
-console.log(locationGraphs);
+(function () {
+    window.onpageshow = function (event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+})();
 
 function fToC(f) {
     f = f - 273.15;
@@ -11,14 +17,14 @@ function fToC(f) {
 }
 
 
-function testRedirect() {
+function Redirect() {
     document.getElementById('gardikiLoader').style.display = 'block';
     setTimeout(() => {
         window.location.href = locationGraphs;
     }, 1500);
 }
 
-function testButton() {
+function errorButton() {
     document.getElementById('uoiDiv').style.display = 'block';
 }
 
@@ -74,7 +80,7 @@ marker3.bindPopup(`
  <b>Humidity: </b>${uoi_object['main']['humidity']} %<br>
  <b>Pressure: </b>${uoi_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${uoi_object['visibility']} m<br>
- <button id="uoiButton" onclick="testButton()" class="button_station button4"><b>View station</b></button>
+ <button id="uoiButton" onclick="errorButton()" class="button_station button4"><b>View station</b></button>
 <!-- <b id="uoiText" style="display: none"><u>Station is currently unavailable!</u></b>-->
 <div id="uoiDiv" style="height: 65px;width: 150px;display: none" class="oaerror warning"><b>Station is currently unavailable!</b></div><br>
 </div>
@@ -94,7 +100,7 @@ marker4.bindPopup(`
  <b>Humidity: </b>${gardiki_object['main']['humidity']} %<br>
  <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${gardiki_object['visibility']} m<br>
- <button onclick="testRedirect()" class="button_station button4"><b>View station</b></button><br>
+ <button onclick="Redirect()" class="button_station button4"><b>View station</b></button><br>
 <div id="gardikiLoader" class="lds-roller" style="display: none;padding-left: 40px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
@@ -198,12 +204,12 @@ function grayButton() {
 
 legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += "<h4 style='color: black'>Air Quality</h4>";
+    div.innerHTML += "<h4 style='color: black'>Air Quality</h4>"
     div.innerHTML += '<i id="greenFilter" style="background: #20de28;cursor: pointer" onclick="greenButton()"></i><span><b>Good</b></span><br>';
     div.innerHTML += '<i id="yellowFilter" style="background: #ffea00;cursor: pointer" onclick="yellowButton()"></i><span><b>Fair</b></span><br>';
     div.innerHTML += '<i id="redFilter" style="background: #ff0032;cursor: pointer" onclick="redButton()"></i><span><b>Bad</b></span><br>';
     div.innerHTML += '<i id="grayFilter" style="background: grey;cursor: pointer" onclick="grayButton()"></i><span><b>No data</b></span><br>';
-    div.innerHTML += '<a id="myBtn" style="text-decoration: none;font-size: 17px" href="javascript:void(0);">Legend explained</a>';
+    div.innerHTML += '<a id="myBtn" style="text-decoration: none;font-size: 17px" href="javascript:void(0);">Legend explained</a><br>';
 
 
     return div;
@@ -239,10 +245,6 @@ legend.getContainer().addEventListener('mouseover', function () {
 legend.getContainer().addEventListener('mouseout', function () {
     map2.dragging.enable();
 });
-
-$(window).on('load', function () {
-    $('#loading').hide();
-})
 
 map2.doubleClickZoom.disable();
 var div = L.DomUtil.get('legend');
