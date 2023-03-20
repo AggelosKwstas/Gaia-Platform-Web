@@ -11261,6 +11261,10 @@ section {
   background-image: url("../assets/img/portrait_black.png");
 }
 
+.main_logo:hover{
+  -webkit-filter: brightness(1.1) !important;
+}
+
 img:not(.main_logo,.forecast,.footer_logo){
   width: 150px;
   margin: 0px 10px 30px 20px;
