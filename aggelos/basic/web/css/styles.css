@@ -11192,7 +11192,8 @@ section {
 #mainNav .navbar-brand {
   font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-#mainNav .navbar-brand:hover, #mainNav .navbar-brand:active {
+#mainNav .navbar-brand:hover, #mainNav .navbar-brand:active, .main_logo:hover .main_logo:active{
+  -webkit-filter: brightness(1.1) !important;
   color: #6c757d;
 }
 #mainNav .navbar-toggler {
@@ -11261,9 +11262,7 @@ section {
   background-image: url("../assets/img/portrait_black.png");
 }
 
-.main_logo:hover{
-  -webkit-filter: brightness(1.1) !important;
-}
+
 
 img:not(.main_logo,.forecast,.footer_logo){
   width: 150px;
