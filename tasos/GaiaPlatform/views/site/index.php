@@ -12,35 +12,49 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 <!-- Mashead header-->
 <header class="masthead">
     <div class="container px-5">
-        <div class=" gx-5 align-items-center">
-            <div class="col-lg">
-                <!-- Mashead text and app badges-->
-                <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                    <h1 class="display-2 lh-1 mb-3">Create powerful IoT networks,<br> We’ve designed everything
-                        beyond...
-                    </h1>
-                    <div class="slideshow-container">
-                        <div class="mySlides fade">
-                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/66cf5094908491e69d8187bcf934050a4800b37f.jpeg" style="width:100%">
-                        </div>
-                        <div class="mySlides fade">
 
-                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/b7d624354d5fa22e38b0ab1f9b905fb08ccc6a05.jpeg" style="width:100%">
-
-                        </div>
-                        <div class="mySlides fade">
-
-                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/5bfad15a7fd24d448a48605baf52655a5bbe5a71.jpeg" style="width:100%">
-                        </div>
-<!--                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>-->
-<!--                        <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
-                    </div>
-                    <br>
-                    <div style="text-align:center">
-                        <span class="dot" onclick="currentSlide(0)"></span>
-                        <span class="dot" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                    </div>
+                    <div class="carousel1">
+                        <div class="carousel1-item"></div>
+                        <div class="carousel1-item"></div>
+                        <div class="carousel1-item"></div>
+                        
+            </div>
+    </div>
+</header>
+<!--    <div class="container px-5">-->
+<!--        <div class=" gx-5 align-items-center">-->
+<!--            <div class="col-lg">-->
+<!--                 Mashead text and app badges-->
+<!--                <div class="mb-5 mb-lg-0 text-center text-lg-start">-->
+<!--                    <h1 class="display-2 lh-1 mb-3">Create powerful IoT networks,<br> We’ve designed everything-->
+<!--                        beyond...-->
+<!--                    </h1>-->
+<!--<header>-->
+<!--    <div class="container">-->
+<!---->
+<!--        <div class="carousel1">-->
+<!--            <div class="carousel1-item"></div>-->
+<!--            <div class="carousel1-item"></div>-->
+<!--            <div class="carousel1-item"></div>-->
+<!---->
+<!--        </div>-->
+<!--                    <div class="slideshow-container" style="">-->
+<!--                        <div class="mySlides fade">-->
+<!--                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/66cf5094908491e69d8187bcf934050a4800b37f.jpeg" style="width:100%">-->
+<!--                        </div>-->
+<!--                        <div class="mySlides fade">-->
+<!---->
+<!--                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/b7d624354d5fa22e38b0ab1f9b905fb08ccc6a05.jpeg" style="width:100%">-->
+<!---->
+<!--                        </div>-->
+<!--                        <div class="mySlides fade">-->
+<!---->
+<!--                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/5bfad15a7fd24d448a48605baf52655a5bbe5a71.jpeg" style="width:100%">-->
+<!--                        </div>-->
+<!---->
+<!--                    </div>-->
+<!--                    <br>-->
+<!--</header>-->
                     <script>
                         let slideIndex = 0;
                         let timeoutId = null;
@@ -84,11 +98,11 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 <!--                    <img class="main_logo" src="asset/sensors.jpg" style="height: 200px;width: 95%">-->
 
 
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
 <div class="container px-5">
     <div style="text-align: center">
         <div id="wrap">
