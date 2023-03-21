@@ -25,7 +25,7 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 
                         </li>
 
-                        <li><img src="asset/image2.jpeg">rtrtrtrtt</li>
+                        <li><img src="asset/image2.jpeg"></li>
 
                         <li><img src=""></li>
                         <li><img src=""></li>
@@ -39,15 +39,15 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
                         <div id="wrap">
                             <div class="card" style="width: 25rem;">
                             <h3 style="color: black "><b>You can now download Gaia Platform stable version.</b></h3>
-                            <!--            <h1 class="display-6 lh-1 mb-3"></h1>-->
+
                             <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
                             ?>" class="btn-slide2">
                                 <span class="circle2"><i class="fa fa-download"></i></span>
                                 <span class="title2">Download GAIA Desktop Application</span>
                                 <span class="title-hover2">Click here</span>
                             </a>
-
-                            <!--        <p>Gaia Platform - Version 1.0</p>-->
+                            <br>
+                                    <p style="color:black">Gaia Platform - Version 1.0</p>
                         </div>
                         </div>
                     </div>
@@ -172,35 +172,29 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
                 </script>
 
 <div class="container px-5">
-    <div class="dhover">
-        <img src="https://www.w3docs.com/uploads/media/default/0001/03/66cf5094908491e69d8187bcf934050a4800b37f.jpeg" alt="Avatar" class="image" style="width:100%">
-        <div class="middle">
-            <div class="text">John Doe</div>
-        </div>
-    </div>
+    <br>
+    <h1 class="display-2 lh-1 mb-3">Create powerful IoT networks,<br> We’ve designed everything
+        beyond...
+    </h1>
 </div>
 
-<!--            </div>-->
+
+<!--<div class="container px-5">-->
+<!--    <div style="text-align: center">-->
+<!--        <div id="wrap">-->
+<!--            <h3 style="color: #5caa32 "><b>You can now download Gaia Platform stable version.</b></h3>-->
+<!--                <h1 class="display-6 lh-1 mb-3"></h1>-->-->
+<!--            <a href="--><?php //echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
+//            ?><!--" class="btn-slide2">-->
+<!--                <span class="circle2"><i class="fa fa-download"></i></span>-->
+<!--                <span class="title2">Download GAIA Desktop Application</span>-->
+<!--                <span class="title-hover2">Click here</span>-->
+<!--            </a>-->
+<!--                  <p>Gaia Platform - Version 1.0</p>-->-->
 <!--        </div>-->
+<!---->
 <!--    </div>-->
-<!--</header>-->
-
-<div class="container px-5">
-    <div style="text-align: center">
-        <div id="wrap">
-            <h3 style="color: #5caa32 "><b>You can now download Gaia Platform stable version.</b></h3>
-<!--            <h1 class="display-6 lh-1 mb-3"></h1>-->
-            <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
-            ?>" class="btn-slide2">
-                <span class="circle2"><i class="fa fa-download"></i></span>
-                <span class="title2">Download GAIA Desktop Application</span>
-                <span class="title-hover2">Click here</span>
-            </a>
-            <!--        <p>Gaia Platform - Version 1.0</p>-->
-        </div>
-
-    </div>
-</div>
+<!--</div>-->
 <section class="bg-light" style="display: block;text-align: left">
     <div class="container" style="text-align: center">
         <div class="row">

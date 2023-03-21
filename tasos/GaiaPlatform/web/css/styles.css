@@ -4515,6 +4515,8 @@ textarea.form-control-lg {
 
 .card {
   position: relative;
+  height: 15rem;
+  width: 25rem;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -4522,7 +4524,8 @@ textarea.form-control-lg {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 3rem;
+  padding-top: 15px;
 }
 .card > hr {
   margin-right: 0;
@@ -11896,17 +11899,11 @@ body {
   color: white;
   font-weight: 600;
   font-size: 1rem;
-  /*background: -moz-linear-gradient(left,  rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 100%);*/
-  /*background: -webkit-linear-gradient(left,  rgba(255,255,255,0.75) 0%,rgba(255,255,255,0) 100%);*/
-  /*background: linear-gradient(to right,  rgba(255,255,255,0.75) 0%,rgba(255,255,255,0) 100%);*/
-  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfffffff', endColorstr='#00ffffff',GradientType=1 );*/
+
 }
 #slider #center {
-  left: 45%;
+  left: 41%;
   right: auto;
-  /*background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.75) 100%);*/
-  /*background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 100%);*/
-  /*background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 100%);*/
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#bfffffff',GradientType=1 );
 }
 
