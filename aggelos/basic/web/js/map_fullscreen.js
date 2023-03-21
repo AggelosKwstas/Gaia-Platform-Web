@@ -204,13 +204,14 @@ function grayButton() {
 
 legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += "<h4 style='color: black'>Air Quality</h4>"
+    div.innerHTML += "<h4 style='color: black'>Air Quality</h4>";
     div.innerHTML += '<i id="greenFilter" style="background: #20de28;cursor: pointer" onclick="greenButton()"></i><span><b>Good</b></span><br>';
     div.innerHTML += '<i id="yellowFilter" style="background: #ffea00;cursor: pointer" onclick="yellowButton()"></i><span><b>Fair</b></span><br>';
     div.innerHTML += '<i id="redFilter" style="background: #ff0032;cursor: pointer" onclick="redButton()"></i><span><b>Bad</b></span><br>';
     div.innerHTML += '<i id="grayFilter" style="background: grey;cursor: pointer" onclick="grayButton()"></i><span><b>No data</b></span><br>';
     div.innerHTML += '<a id="myBtn" style="text-decoration: none;font-size: 17px" href="javascript:void(0);">Legend explained</a><br>';
-
+    // div.innerHTML += '<button class="button_station button4">Filter Air type</button><br>';
+    // div.innerHTML += '<button class="button_station button4">Filter Water type</button>';
 
     return div;
 };

@@ -75,6 +75,7 @@ function makeBlueChart(){
         data.push([+now, Math.round((Math.random() - 0.5) * 20 + data[i - 1][1])]);
     }
     return option = {
+
         tooltip: {
             trigger: 'axis',
             position: function (pt) {
@@ -108,15 +109,6 @@ function makeBlueChart(){
                 show: true
             },
         },
-        dataZoom: [
-            {
-                type: 'inside',
-                start: 0,
-            },
-            {
-                start: 0,
-            }
-        ],
         series: [
             {
                 z2:9,
@@ -126,7 +118,6 @@ function makeBlueChart(){
                 type: 'line',
                 smooth: true,
                 symbol: 'none',
-                areaStyle: {},
                 data: data,
                 areaStyle: {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [

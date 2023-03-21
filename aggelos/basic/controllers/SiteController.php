@@ -173,6 +173,7 @@ class SiteController extends Controller
 
     public function actionGraphs()
     {
+        $this->layout='main_map';
         return $this->render('Graphs');
     }
     /**
