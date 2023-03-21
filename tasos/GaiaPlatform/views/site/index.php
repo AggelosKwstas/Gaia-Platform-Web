@@ -33,9 +33,12 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
                     <div id="back">
                         <
                     </div>
+
                     <div id="center">
+
                         <div id="wrap">
-                            <h3 style="color: #5caa32 "><b>You can now download Gaia Platform stable version.</b></h3>
+                            <div class="card" style="width: 25rem;">
+                            <h3 style="color: black "><b>You can now download Gaia Platform stable version.</b></h3>
                             <!--            <h1 class="display-6 lh-1 mb-3"></h1>-->
                             <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
                             ?>" class="btn-slide2">
@@ -43,7 +46,9 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
                                 <span class="title2">Download GAIA Desktop Application</span>
                                 <span class="title-hover2">Click here</span>
                             </a>
+
                             <!--        <p>Gaia Platform - Version 1.0</p>-->
+                        </div>
                         </div>
                     </div>
                     <div id="forword">

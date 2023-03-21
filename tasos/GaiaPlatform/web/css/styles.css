@@ -11886,7 +11886,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
+  /*opacity: 0;*/
   /*transition: 0.3s;*/
   /*cursor: pointer;*/
   position: absolute;
@@ -11894,7 +11894,7 @@ body {
   left: 0;
   bottom: 0;
   color: white;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1rem;
   /*background: -moz-linear-gradient(left,  rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 100%);*/
   /*background: -webkit-linear-gradient(left,  rgba(255,255,255,0.75) 0%,rgba(255,255,255,0) 100%);*/
@@ -11907,7 +11907,7 @@ body {
   /*background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.75) 100%);*/
   /*background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 100%);*/
   /*background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 100%);*/
-  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#bfffffff',GradientType=1 );*/
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#bfffffff',GradientType=1 );
 }
 
 #slider #back,
@@ -11945,9 +11945,9 @@ body {
 #slider:hover #forword {
   opacity: 0.7;
 }
-#slider:hover #center {
-  opacity: 0.7;
-}
+  #slider:hover #center {
+    opacity: 0.7;
+  }
 
 ul#move {
   margin: 0;
@@ -11997,44 +11997,10 @@ ul#move li:nth-child(5) {
   background: #744674;
 }
 
-
-/*hover*/
-.dhover {
-  position: relative;
-  width: 50%;
-}
-
-.imageHover {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.dhover:hover .imageHover {
-  opacity: 0.3;
-}
-
-.dhover:hover .middle {
-  opacity: 1;
-}
-
-.text {
-  background-color: #04AA6D;
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
+#rcorners2 {
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
 }
