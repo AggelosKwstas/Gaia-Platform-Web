@@ -11,98 +11,152 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 
 <!-- Mashead header-->
 <header class="masthead">
-    <div class="container px-5">
+<!--    <div class="container px-5">-->
+        <div class=" gx-5 align-items-center">
+            <div class="col-lg">
 
-                    <div class="carousel1">
-                        <div class="carousel1-item"></div>
-                        <div class="carousel1-item"></div>
-                        <div class="carousel1-item"></div>
-                        
+                <div id="slider">
+                    <div id="line">
+
+                    </div>
+
+                    <ul id="move">
+                        <li><img src="https://www.socialprint.com/wp-content/uploads/banner.policies.1920x500.png"></li>
+
+                        <li><img src="https://www.socialprint.com/wp-content/uploads/banner.vision.1920x500.png"></li>
+
+                        <li><img src="http://jasonanbara.com/wp-content/uploads/2015/10/1920x500-4.jpg"></li>
+                        <li><img src="https://i0.wp.com/newreality.co.za/wp-content/uploads/2017/04/blog-title-img-1.jpg"></li>
+                    </ul>
+                    <div id="back">
+                        <
+                    </div>
+                    <div id="forword">
+                        >
+                    </div>
+                    <div id="dots">
+
+                    </div>
+
+                </div>
+                <script>
+                    window.onload = function() {
+
+                        let slider = document.querySelector('#slider');
+                        let move = document.querySelector('#move');
+                        let moveLi = Array.from(document.querySelectorAll('#slider #move li'));
+                        let forword = document.querySelector('#slider #forword');
+                        let back = document.querySelector('#slider #back');
+                        let counter = 1;
+                        let time = 3000;
+                        let line = document.querySelector('#slider #line');
+                        let dots = document.querySelector('#slider #dots');
+                        let dot;
+
+                        for (i = 0; i < moveLi.length; i++) {
+
+                            dot = document.createElement('li');
+                            dots.appendChild(dot);
+                            dot.value = i;
+                        }
+
+                        dot = dots.getElementsByTagName('li');
+
+                        line.style.animation = 'line ' + (time / 1000) + 's linear infinite';
+                        dot[0].classList.add('active');
+
+                        function moveUP() {
+
+                            if (counter == moveLi.length) {
+
+                                moveLi[0].style.marginLeft = '0%';
+                                counter = 1;
+
+                            } else if (counter >= 1) {
+
+                                moveLi[0].style.marginLeft = '-' + counter * 100 + '%';
+                                counter++;
+                            }
+
+                            if (counter == 1) {
+
+                                dot[moveLi.length - 1].classList.remove('active');
+                                dot[0].classList.add('active');
+
+                            } else if (counter > 1) {
+
+                                dot[counter - 2].classList.remove('active');
+                                dot[counter - 1].classList.add('active');
+
+                            }
+
+                        }
+
+                        function moveDOWN() {
+
+                            if (counter == 1) {
+
+                                moveLi[0].style.marginLeft = '-' + (moveLi.length - 1) * 100 + '%';
+                                counter = moveLi.length;
+                                dot[0].classList.remove('active');
+                                dot[moveLi.length - 1].classList.add('active');
+
+                            } else if (counter <= moveLi.length) {
+
+                                counter = counter - 2;
+                                moveLi[0].style.marginLeft = '-' + counter * 100 + '%';
+                                counter++;
+
+                                dot[counter].classList.remove('active');
+                                dot[counter - 1].classList.add('active');
+
+                            }
+
+                        }
+
+                        for (i = 0; i < dot.length; i++) {
+
+                            dot[i].addEventListener('click', function(e) {
+
+                                dot[counter - 1].classList.remove('active');
+                                counter = e.target.value + 1;
+                                dot[e.target.value].classList.add('active');
+                                moveLi[0].style.marginLeft = '-' + (counter - 1) * 100 + '%';
+
+                            });
+
+                        }
+
+                        forword.onclick = moveUP;
+                        back.onclick = moveDOWN;
+
+                        let autoPlay = setInterval(moveUP, time);
+
+                        slider.onmouseover = function() {
+
+                            autoPlay = clearInterval(autoPlay);
+                            line.style.animation = '';
+
+                        }
+
+                        slider.onmouseout = function() {
+
+                            autoPlay = setInterval(moveUP, time);
+                            line.style.animation = 'line ' + (time / 1000) + 's linear infinite';
+
+                        }
+
+                    }
+
+
+                </script>
+
+
             </div>
+<!--        </div>-->
     </div>
 </header>
-<!--    <div class="container px-5">-->
-<!--        <div class=" gx-5 align-items-center">-->
-<!--            <div class="col-lg">-->
-<!--                 Mashead text and app badges-->
-<!--                <div class="mb-5 mb-lg-0 text-center text-lg-start">-->
-<!--                    <h1 class="display-2 lh-1 mb-3">Create powerful IoT networks,<br> We’ve designed everything-->
-<!--                        beyond...-->
-<!--                    </h1>-->
-<!--<header>-->
-<!--    <div class="container">-->
-<!---->
-<!--        <div class="carousel1">-->
-<!--            <div class="carousel1-item"></div>-->
-<!--            <div class="carousel1-item"></div>-->
-<!--            <div class="carousel1-item"></div>-->
-<!---->
-<!--        </div>-->
-<!--                    <div class="slideshow-container" style="">-->
-<!--                        <div class="mySlides fade">-->
-<!--                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/66cf5094908491e69d8187bcf934050a4800b37f.jpeg" style="width:100%">-->
-<!--                        </div>-->
-<!--                        <div class="mySlides fade">-->
-<!---->
-<!--                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/b7d624354d5fa22e38b0ab1f9b905fb08ccc6a05.jpeg" style="width:100%">-->
-<!---->
-<!--                        </div>-->
-<!--                        <div class="mySlides fade">-->
-<!---->
-<!--                            <img src="https://www.w3docs.com/uploads/media/default/0001/03/5bfad15a7fd24d448a48605baf52655a5bbe5a71.jpeg" style="width:100%">-->
-<!--                        </div>-->
-<!---->
-<!--                    </div>-->
-<!--                    <br>-->
-<!--</header>-->
-                    <script>
-                        let slideIndex = 0;
-                        let timeoutId = null;
-                        const slides = document.getElementsByClassName("mySlides");
-                        const dots = document.getElementsByClassName("dot");
 
-                        showSlides();
-                        function currentSlide(index) {
-                            slideIndex = index;
-                            showSlides();
-                        }
-                        function plusSlides(step) {
-
-                            if(step < 0) {
-                                slideIndex -= 1;
-
-                                if(slideIndex < 0) {
-                                    slideIndex = slides.length - 1;
-                                }
-                            }
-
-                            showSlides();
-                        }
-                        function showSlides() {
-                            for(let i = 0; i < slides.length; i++) {
-                                slides[i].style.display = "none";
-                                dots[i].classList.remove('active');
-                            }
-                            slideIndex++;
-                            if(slideIndex > slides.length) {
-                                slideIndex = 1
-                            }
-                            slides[slideIndex - 1].style.display = "block";
-                            dots[slideIndex - 1].classList.add('active');
-                            if(timeoutId) {
-                                clearTimeout(timeoutId);
-                            }
-                            timeoutId = setTimeout(showSlides, 3000); // Change image every 5 seconds
-                        }
-                    </script>
-<!--                    <img class="main_logo" src="asset/sensors.jpg" style="height: 200px;width: 95%">-->
-
-
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</header>-->
 <div class="container px-5">
     <div style="text-align: center">
         <div id="wrap">
