@@ -10,10 +10,10 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 ?>
 
 <!-- Mashead header-->
-<header class="masthead">
+<!--<header class="masthead" style="max-height: 30%">-->
 <!--    <div class="container px-5">-->
-        <div class=" gx-5 align-items-center">
-            <div class="col-lg">
+<!--        <div class=" gx-5 align-items-center">-->
+<!--            <div class="col-lg">-->
 
                 <div id="slider">
                     <div id="line">
@@ -21,15 +21,30 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
                     </div>
 
                     <ul id="move">
-                        <li><img src="https://www.socialprint.com/wp-content/uploads/banner.policies.1920x500.png"></li>
+                        <li><img src="asset/image1.webp">
 
-                        <li><img src="https://www.socialprint.com/wp-content/uploads/banner.vision.1920x500.png"></li>
+                        </li>
 
-                        <li><img src="http://jasonanbara.com/wp-content/uploads/2015/10/1920x500-4.jpg"></li>
-                        <li><img src="https://i0.wp.com/newreality.co.za/wp-content/uploads/2017/04/blog-title-img-1.jpg"></li>
+                        <li><img src="asset/image2.jpeg">rtrtrtrtt</li>
+
+                        <li><img src=""></li>
+                        <li><img src=""></li>
                     </ul>
                     <div id="back">
                         <
+                    </div>
+                    <div id="center">
+                        <div id="wrap">
+                            <h3 style="color: #5caa32 "><b>You can now download Gaia Platform stable version.</b></h3>
+                            <!--            <h1 class="display-6 lh-1 mb-3"></h1>-->
+                            <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
+                            ?>" class="btn-slide2">
+                                <span class="circle2"><i class="fa fa-download"></i></span>
+                                <span class="title2">Download GAIA Desktop Application</span>
+                                <span class="title-hover2">Click here</span>
+                            </a>
+                            <!--        <p>Gaia Platform - Version 1.0</p>-->
+                        </div>
                     </div>
                     <div id="forword">
                         >
@@ -151,11 +166,19 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 
                 </script>
 
-
-            </div>
-<!--        </div>-->
+<div class="container px-5">
+    <div class="dhover">
+        <img src="https://www.w3docs.com/uploads/media/default/0001/03/66cf5094908491e69d8187bcf934050a4800b37f.jpeg" alt="Avatar" class="image" style="width:100%">
+        <div class="middle">
+            <div class="text">John Doe</div>
+        </div>
     </div>
-</header>
+</div>
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
 
 <div class="container px-5">
     <div style="text-align: center">
