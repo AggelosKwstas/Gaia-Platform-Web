@@ -29,7 +29,8 @@ class AppAsset extends AssetBundle
         'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap',
         'https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap',
         'css/styles.css',
-        'css/downloadButton.css'
+        'css/downloadButton.css',
+        'https://unpkg.com/aos@2.3.1/dist/aos.css'
     ];
 
     public $js = [
@@ -39,7 +40,8 @@ class AppAsset extends AssetBundle
         'https://cdn.startbootstrap.com/sb-forms-latest.js',
         'js/map_smallscreen.js',
         'js/map_fullscreen.js',
-        'js/echarts.js'
+        'js/echarts.js',
+        'https://unpkg.com/aos@2.3.1/dist/aos.js'
     ];
 
     public $depends = [

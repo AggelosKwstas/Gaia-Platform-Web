@@ -11957,7 +11957,7 @@ ul#move {
 
 
 ul#move li {
-  padding-top:70vh!important;
+  padding-top:60vh!important;
   transition: 0.6s;
   min-width: 100%;
   max-height: 100px;
@@ -12000,4 +12000,21 @@ ul#move li:nth-child(5) {
   padding: 20px;
   width: 200px;
   height: 150px;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  padding-top: 75px;
+  background: #ccc;
+  text-align: center;
+  color: #FFF;
+  font-size: 3em;
 }

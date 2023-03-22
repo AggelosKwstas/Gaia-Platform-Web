@@ -5,7 +5,7 @@
 */
 //
 // Scripts
-// 
+//
 
 
 let config1 = {

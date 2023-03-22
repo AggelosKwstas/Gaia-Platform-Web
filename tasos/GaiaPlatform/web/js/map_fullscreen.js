@@ -15,7 +15,6 @@ let config2 = {
     zoomControl: false
 };
 
-
 let s = new Date().toLocaleString();
 map2 = L.map("map_full", config2).setView([lat, lng], zoom);
 

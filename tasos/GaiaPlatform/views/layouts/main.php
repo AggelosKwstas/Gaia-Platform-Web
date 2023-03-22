@@ -73,5 +73,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
     </footer>
     <?php $this->endBody() ?>
     </body>
+<script>
+    AOS.init({
+        duration: 1200,
+    })
+</script>
     </html>
 <?php $this->endPage() ?>
