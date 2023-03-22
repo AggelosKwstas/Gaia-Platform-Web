@@ -220,19 +220,29 @@ legend.onAdd = function (map) {
 
 legend.addTo(map2);
 
+// var modal = document.getElementById("myModal");
+//
+// var btn = document.getElementById("myBtn");
+//
+// var span = document.getElementsByClassName("close")[0];
+
+document.getElementById("myBtn").addEventListener("click", detailsFunction, false);
 var modal = document.getElementById("myModal");
-
-var btn = document.getElementById("myBtn");
-
 var span = document.getElementsByClassName("close")[0];
 
-btn.onclick = function () {
+function detailsFunction() {
     modal.style.display = "block";
-    map2.dragging(false);
 }
 
 span.onclick = function () {
     modal.style.display = "none";
+}
+
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 
 window.onclick = function (event) {
@@ -250,5 +260,4 @@ legend.getContainer().addEventListener('mouseout', function () {
 });
 
 map2.doubleClickZoom.disable();
-
 

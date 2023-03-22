@@ -14,9 +14,8 @@ $this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\
 ?>
 
 <section id="map_cta" class="cta">
-    <div id="map_full">
+    <div id="map_full"></div>
         <div id="myModal" class="modal">
-
             <div class="modal-content" >
                 <span class="close">&times;</span>
                 <div class="modal-body" style="font-size: 15px">
@@ -85,6 +84,5 @@ $this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
