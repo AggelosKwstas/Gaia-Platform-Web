@@ -27,11 +27,11 @@ $this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\
                         <br>
                         The Index is based on concentration values for up to five key pollutants, including:
                     <ul>
-                        <li>particulate matter (PM<sub>10</sub>)</li>
-                        <li>fine particulate matter (PM<sub>2.5</sub>)</li>
-                        <li>ozone (O<sub>3</sub>)</li>
-                        <li>nitrogen dioxide (NO<sub>2</sub>)</li>
-                        <li>sulphur dioxide (SO2)</li>
+                        <li><b>particulate matter (PM<sub>10</sub>)</b></li>
+                        <li><b>fine particulate matter (PM<sub>2.5</sub>)</b></li>
+                        <li><b>ozone (O<sub>3</sub>)</b></li>
+                        <li><b>nitrogen dioxide (NO<sub>2</sub>)</b></li>
+                        <li><b>sulphur dioxide (SO2)</b></li>
                     </ul>
                     <em> *Index levels for pollutants NO<sub>2</sub> , O<sub>3</sub> , SO2 are based on hourly
                         concentrations , <br>
