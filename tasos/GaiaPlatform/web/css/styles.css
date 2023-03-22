@@ -11405,7 +11405,7 @@ section {
   background-image: url("../assets/img/portrait_black.png");
 }
 
-img:not(.main_logo,.forecast,.footer_logo){
+img:not(.main_logo,.forecast,.footer_logo,.item-zoom img){
   width: 150px;
   /*margin: 0px 10px 30px 20px;*/
 }
@@ -12004,17 +12004,59 @@ ul#move li:nth-child(5) {
 
 
 
-* {
-  box-sizing: border-box;
+/*aos*/
+.zoomer{
+  -webkit-animation: zoomin 5s 1;
+
 }
 
-.item {
-  width: 200px;
-  height: 200px;
-  margin: 50px auto;
-  padding-top: 75px;
-  background: #ccc;
-  text-align: center;
-  color: #FFF;
-  font-size: 3em;
+@-webkit-keyframes zoomin {
+  0% {
+    -webkit-transform: scale(2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
 }
+
+/*.zoom {*/
+/*  background-image: url("http://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg");*/
+/*  position:fixed;*/
+  /*background-repeat:no-repeat;*/
+  /*background-attachment:fixed;*/
+  /*background-size:cover;*/
+  /*background-position:center-top;*/
+  /*background-position-x: 50%;*/
+  /*background-position-y: 0%;*/
+  /*-webkit-animation: zoomin 5s 1;*/
+/*}*/
+
+
+/*zoom new*/
+.container-zoom {
+  position: relative;
+  height: 70vh!important;
+  overflow: hidden;
+}
+.item-zoom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: zoomin 5s 1;
+}
+.item-zoom img {
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+@-webkit-keyframes zoomin {
+  0% {
+    -webkit-transform: scale(2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+/*.container-zoom:hover .item-zoom img {*/
+/*  -webkit-transform: scale(1.2);*/
+/*  transform: scale(1.2);*/
+/*}*/
