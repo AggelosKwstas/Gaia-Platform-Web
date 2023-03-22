@@ -10985,9 +10985,9 @@ section {
 
 
 
-img:not(.main_logo,.forecast,.footer_logo){
+img:not(.main_logo,.forecast,.footer_logo,.item-zoom img){
   width: 150px;
-  margin: 0px 10px 30px 20px;
+  /*margin: 0px 10px 30px 20px;*/
 }
 
 
@@ -11518,20 +11518,33 @@ hr.rounded {
   font-family: 'Open Sans', serif;
 }
 
+.container-zoom {
+  position: relative;
+  height: 70vh!important;
+  overflow: hidden;
+}
+.item-zoom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: zoomin 5s 1;
+}
+.item-zoom img {
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+@-webkit-keyframes zoomin {
+  0% {
+    -webkit-transform: scale(2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
 .centered {
   position: absolute;
   top: 50%;
-  left: 25%;
+  left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.item {
-  width: 200px;
-  height: 200px;
-  margin: 50px auto;
-  padding-top: 75px;
-  background: #ccc;
-  text-align: center;
-  color: #FFF;
-  font-size: 3em;
 }
