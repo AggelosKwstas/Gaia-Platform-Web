@@ -11,9 +11,16 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 <header>
     <div class="container-zoom">
         <div class="item-zoom">
-            <img src="asset/airPolution3.jpg" style="width:100%">
-        </div>
+            <img src="asset/plugSenseF.png" style="width:100%">
 
+        </div>
+        <div class="centered" style="color: white; padding-right: 28%">
+            <h1 class="display-2 lh-1 mb-3">Gaia Platform</h1>
+            <p>
+                Create powerful IoT networks,<br> We’ve designed everything
+                beyond...
+            </p>
+        </div>
     </div>
 </header>
 

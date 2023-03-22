@@ -12056,6 +12056,14 @@ ul#move li:nth-child(5) {
     -webkit-transform: scale(1);
   }
 }
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /*.container-zoom:hover .item-zoom img {*/
 /*  -webkit-transform: scale(1.2);*/
 /*  transform: scale(1.2);*/
