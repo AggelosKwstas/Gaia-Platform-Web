@@ -65,6 +65,113 @@ legend.getContainer().addEventListener('mouseout', function () {
     map.dragging.enable();
 });
 
+function makeGaugeChart(){
+    var option = {
+        series: [
+            {
+                name: 'PM 1.0',
+                type: 'gauge',
+                center: ['50%', '45%'],
+                startAngle: 200,
+                endAngle: -20,
+                min: 0,
+                max: 200,
+                splitNumber: 1,
+                itemStyle: {
+                    color: '#FF0000'
+                },
+                progress: {
+                    show: true,
+                    width: 30
+                },
+                pointer: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        width: 30
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    //  show: false
+                    distance: -40,
+                    color: 'black',
+                    fontSize: 10
+                },
+                anchor: {
+                    show: false
+                },
+                title: {
+                    left: 'center',
+                    text: 'PM 1.0'
+                },
+                detail: {
+                    name: 'PM 1.0',
+                    valueAnimation: true,
+                    width: '60%',
+                    lineHeight: 40,
+                    borderRadius: 8,
+                    offsetCenter: [0, '130%'],
+                    fontSize: 20,
+                    fontWeight: 'bolder',
+                    formatter: '{value} °C',
+                    color: 'black'
+                },
+                data: [
+                    {
+                        value: 100
+                    }
+                ]
+            },
+            {
+                type: 'gauge',
+                center: ['50%', '60%'],
+                startAngle: 200,
+                endAngle: -20,
+                min: 0,
+                max: 200,
+                itemStyle: {
+                    color: '#FD7347'
+                },
+                progress: {
+                    show: false,
+                    width: 8
+                },
+                pointer: {
+                    show: false
+                },
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false
+                },
+                detail: {
+                    show: false
+                },
+                data: [
+                    {
+                        value: 100
+                    }
+                ]
+            }
+        ]
+    };
+    return option;
+}
+
 function makeBlueChart(){
     let colorPalette = ['rgb(124, 181, 236)'];
     let base = +new Date(1988, 9, 3);

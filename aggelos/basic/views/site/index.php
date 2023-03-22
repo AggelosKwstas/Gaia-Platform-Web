@@ -19,18 +19,33 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
                     <h1 class="display-2 lh-1 mb-3">Create powerful IoT networks,<br> We’ve designed everything
                         beyond...
                     </h1>
-                    <img class="main_logo" src="asset/sensors.jpg" style="height: 200px;width: 95%">
-                    <div style="text-align: center">
+                    <div class="container-5" style="position: relative;text-align: center;display: block">
+                        <div class="item" data-aos="fade-up">1</div>
+                        <div class="item" data-aos="fade-down">2</div>
+                        <div class="item" data-aos="fade-right">3</div>
+                        <div class="item" data-aos="fade-left">4</div>
 
-                        <div id="wrap">
-                            <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
-                            ?>" class="btn-slide2">
-                                <span class="circle2"><i class="fa fa-download"></i></span>
-                                <span class="title2">Download GAIA Desktop Application</span>
-                                <span class="title-hover2">Click here</span>
-                            </a>
+                        <div class="item" data-aos="zoom-in">5</div>
+                        <div class="item" data-aos="zoom-out">6</div>
+
+                        <div class="item" data-aos="slide-up">7</div>
+
+                        <div class="item" data-aos="flip-up">8</div>
+                        <div class="item" data-aos="flip-down">9</div>
+                        <div class="item" data-aos="flip-right">10</div>
+                        <div class="item" data-aos="flip-left">11</div>
+<!--                        <img class="main_logo" src="asset/lib.jpg" style="width: fit-content">-->
+<!--                        <div class="centered">-->
+<!--                            <div id="wrap">-->
+<!--                                <a href="--><?php //echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
+//                                ?><!--" class="btn-slide2">-->
+<!--                                    <span class="title2">You can now download-->
+<!--                                    GAIA Desktop Application (version 1.0.0)-->
+<!--                                    </span>-->
+<!--                                    <span class="title-hover2">Click here</span>-->
+<!--                                </a>-->
+<!--                            </div>-->
                         </div>
-
                     </div>
                 </div>
             </div>
