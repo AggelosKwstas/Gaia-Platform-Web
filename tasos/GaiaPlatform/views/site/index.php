@@ -7,6 +7,7 @@ use yii\helpers\Url;
 
 $this->title = 'GAIA V2';
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
+$this->registerJs("let downloadUrl='" .  Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) . "'", \yii\web\View::POS_BEGIN);
 ?>
 <header>
     <div class="container-zoom">
@@ -43,7 +44,7 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 
                 <!--                    <a href="-->
                 <?php //echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])?><!--">-->
-                <button type="button" class="icon" onclick="checkDownload()">
+                <button type="button" class="icon" onclick="downloadGaia()">
                     <div class="cloud">
                         <div class="puff puff-1"></div>
                         <div class="puff puff-2"></div>
@@ -74,12 +75,6 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
                 </button>
                 <!--                    </a>-->
                 <script>
-                    function checkDownload() {
-                            location.href = <?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])  ?>
-                            console.log('download');
-                    }
-
-
                     document.addEventListener("DOMContentLoaded", function () {
                         this.querySelector(".icon").addEventListener("click", function () {
                             let waitClass = "waiting",

@@ -6,7 +6,11 @@
 //
 // Scripts
 //
-
+function downloadGaia(){
+    setInterval(function () {
+        location.href=downloadUrl;
+    }, 2750);
+}
 
 let config1 = {
     minZoom: 7,
