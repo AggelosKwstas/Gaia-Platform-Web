@@ -22,20 +22,21 @@ class MyAsset extends AssetBundle
     public $baseUrl = '@web';
 
     public $css = [
-        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css',
         'theme/font-awesome/css/all.css',
+        'css/style.css',
+        'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+        'https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap',
         'https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap',
         'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap',
         'https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap',
-        'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'
     ];
 
     public $js = [
         'theme/font-awesome/js/all.js',
-        'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
-        'js/echarts.js',
-        'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js',
-        'https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js'
+        'js/jquery.min.js',
+        'js/popper.js',
+        'js/bootstrap.min.js',
+        'js/main.js'
     ];
 
     public $depends = [

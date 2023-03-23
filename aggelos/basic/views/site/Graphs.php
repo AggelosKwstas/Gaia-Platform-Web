@@ -3,6 +3,7 @@
 /** @var yii\web\View $this */
 
 use yii\helpers\Html;
+
 ?>
 
 <div style="padding-top: 10vh;" class="bg-light">
@@ -13,17 +14,17 @@ use yii\helpers\Html;
         <!--        </div>-->
         <div class="row">
             <div class="col-4">
-                <div class="card" >
+                <div class="card">
                     <div class="p-1" id="barChart1" style="height: 350px"></div>
                 </div>
             </div>
             <div class="col-4">
-                <div class="card" >
+                <div class="card">
                     <div class="p-1" id="barChart2" style="height: 350px"></div>
                 </div>
             </div>
             <div class="col-4">
-                <div class="card" >
+                <div class="card">
                     <div class="p-1" id="gaugeChart" style="height: 350px"></div>
                 </div>
             </div>

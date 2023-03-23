@@ -12,7 +12,7 @@ $this->registerJs("let ioannis_object=".json_encode($content_ioannis), \yii\web\
 $this->registerJs("let eleousa_object=".json_encode($content_eleousa), \yii\web\View::POS_BEGIN);
 $this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\web\View::POS_BEGIN);
 ?>
-
+<div>
 <section id="map_cta" class="cta">
     <div id="map_full"></div>
         <div id="myModal" class="modal">
@@ -85,4 +85,5 @@ $this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\
             </div>
         </div>
 </section>
+</div>
 

@@ -51,8 +51,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-0 my-3 my-lg-0">
-                    <button class="btn btn-primary  px-3 mb-2 mb-lg-0" data-bs-toggle="modal"
-                            data-bs-target="#feedbackModal">
+                    <button class="btn btn-primary  px-3 mb-2 mb-lg-0" onclick="location.href='<?php echo \yii\helpers\Url::to(['site/login']) ?>'">
                         <span class="d-flex align-items-center"><i style="display: block;text-align: left"
                                                                    class="fa-solid fa-right-to-bracket"></i>&nbsp;<span
                                     class="small">Login</span>
