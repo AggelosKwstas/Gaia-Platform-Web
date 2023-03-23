@@ -11,20 +11,139 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 <header>
     <div class="container-zoom">
         <div class="item-zoom">
-            <img src="asset/plugSenseF.png" style="width:100%">
+            <img src="asset/img.png" style="width:100%">
 
         </div>
         <div class="centered" style="color: white; padding-right: 28%">
-            <h1 class="display-2 lh-1 mb-3">Gaia Platform</h1>
-            <p>
-                Create powerful IoT networks,<br> We’ve designed everything
-                beyond...
+            <div class="item" data-aos="fade-down" data-aos-duration="1300">
+            <h1 class="display-2 lh-2 mb-3">Gaia Platform</h1>
+            </div>
+            <div class="item" data-aos="fade-up" data-aos-duration="1300">
+            <p><b>
+                Create powerful IoT networks,<br>
+                We’ve designed everything beyond...
+                </b>
             </p>
+            </div>
         </div>
     </div>
 </header>
 
+<section class="bg-light" style="display: block;text-align: left">
+    <div class="container" style="text-align: center">
+        <div class="row">
+            <div class="col">
+                <div class="item" data-aos="fade-down" data-aos-duration="1000">
+                    <h5><b>POWERFUL SENSOR NETWORKS</b></h5>
+                </div>
+                <div class="item" data-aos="fade-right" data-aos-duration="1000">
+                    <p>
+                        Fast installation and minimum maintenance costs. Diverse services and applications. Robust equipment
+                        and network scalability.
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="item" data-aos="fade-down" data-aos-duration="1000">
+                    <h5><b>OVER 50 SENSOR TYPES</b></h5>
+                </div>
+                <div class="item" data-aos="fade-up" data-aos-duration="1000">
+                    <p>
+                        Sensors for measuring air quality, water quality, ions concentration, container levels, structural
+                        health, noise, agriculture parameters, security parameters, radioactivity levels etc.
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="item" data-aos="fade-down" data-aos-duration="1000">
+                    <h5><b>SOLAR POWERED</b></h5>
+                </div>
+                <div class="item" data-aos="fade-left" data-aos-duration="1000">
+                    <p>
+                        Each sensor node has a battery that can be recharged using an internal or external solar panel.
+                        Batteries have a 6600mAh load that ensures non-stop working time, even in days with no sunlight at
+                        all.
+                    </p>
+                </div>
+            </div>
+        </div>
+</section>
 
+
+<div class="container px-5">
+    <div style="text-align: center;padding-top:5rem; ">
+        <div id="wrap">
+<!--            <a href="--><?php //echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) ?><!--">-->
+            <button type="button" class="icon">
+                <div class="cloud">
+                    <div class="puff puff-1"></div>
+                    <div class="puff puff-2"></div>
+                    <div class="puff puff-3"></div>
+                    <div class="puff puff-4"></div>
+                    <div class="puff puff-5"></div>
+                    <div class="puff puff-6"></div>
+                    <div class="puff puff-7"></div>
+                    <div class="puff puff-8"></div>
+                    <div class="puff puff-9"></div>
+                    <div class="puff puff-10"></div>
+                    <div class="cloud-core"></div>
+                    <div class="check"></div>
+                    <div class="arrow">
+                        <div class="arrow-stem">
+                            <div class="arrow-l-tip"></div>
+                            <div class="arrow-r-tip"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="preload">
+                    <div class="drop drop-1"></div>
+                    <div class="drop drop-2"></div>
+                    <div class="drop drop-3"></div>
+                </div>
+                <div class="progress"></div>
+            </button>
+            <script>
+                document.addEventListener("DOMContentLoaded",function(){
+                    this.querySelector(".icon").addEventListener("click",function(){
+                        let waitClass = "waiting",
+                            runClass = "running",
+                            cl = this.classList;
+
+                        if (!cl.contains(waitClass) && !cl.contains(runClass)) {
+                            cl.add(waitClass);
+                            setTimeout(function(){
+                                cl.remove(waitClass);
+                                setTimeout(function(){
+                                    cl.add(runClass);
+                                    setTimeout(function(){
+                                        cl.remove(runClass);
+                                    }, 4000);
+                                }, 200);
+                            }, 1800);
+                        }
+                    });
+                });
+
+            </script>
+
+<!--            <h1 class="display-2 lh-1 mb-3">You can now download Gaia Platform stable version.</h1>-->
+<!--                <h1 class="display-6 lh-1 mb-3"></h1>-->
+<!--            <a href="--><?php //echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
+//            ?><!--" class="btn-slide2">-->
+<!--                <span class="circle2"><i class="fa fa-download"></i></span>-->
+<!--                <span class="title2">Download GAIA Desktop Application</span>-->
+<!--                <span class="title-hover2">Click here</span>-->
+<!--            </a>-->
+<!--                  <p>Gaia Platform - Version 1.0</p>-->
+        </div>
+
+    </div>
+</div>
+
+<section class="cta">
+    <div id="map_element"></div>
+
+</section>
 
 
 <!-- Mashead header-->
@@ -195,55 +314,3 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 <!--        beyond...-->
 <!--    </h1>-->
 <!--</div>-->
-
-
-<div class="container px-5">
-    <div style="text-align: center;padding-top:5rem; ">
-        <div id="wrap">
-
-            <h1 class="display-2 lh-1 mb-3">You can now download Gaia Platform stable version.</h1>
-                <h1 class="display-6 lh-1 mb-3"></h1>
-            <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
-            ?>" class="btn-slide2">
-                <span class="circle2"><i class="fa fa-download"></i></span>
-                <span class="title2">Download GAIA Desktop Application</span>
-                <span class="title-hover2">Click here</span>
-            </a>
-                  <p>Gaia Platform - Version 1.0</p>
-        </div>
-
-    </div>
-</div>
-<section class="bg-light" style="display: block;text-align: left">
-    <div class="container" style="text-align: center">
-        <div class="row">
-            <div class="col">
-                <h5><b>POWERFUL SENSOR NETWORKS</b></h5>
-                <p>
-                    Fast installation and minimum maintenance costs. Diverse services and applications. Robust equipment
-                    and network scalability.
-                </p>
-            </div>
-            <div class="col">
-                <h5><b>OVER 50 SENSOR TYPES</b></h5>
-                <p>
-                    Sensors for measuring air quality, water quality, ions concentration, container levels, structural
-                    health, noise, agriculture parameters, security parameters, radioactivity levels etc.
-                </p>
-            </div>
-            <div class="col">
-                <h5><b>SOLAR POWERED</b></h5>
-                <p>
-                    Each sensor node has a battery that can be recharged using an internal or external solar panel.
-                    Batteries have a 6600mAh load that ensures non-stop working time, even in days with no sunlight at
-                    all.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="cta">
-    <div id="map_element"></div>
-
-</section>
