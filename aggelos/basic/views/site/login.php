@@ -14,28 +14,32 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <section class="ftco-section" style="z-index: 2">
     <div class="row justify-content-center">
-        <div class="col-md-7 col-lg-5">
+        <div class="col-md-7 col-lg-4">
             <div class="login-wrap p-4 p-md-5">
                 <div class="d-flex">
                     <div class="w-100">
-                        <h3 class="mb-4"><b>Login to Private Area</b></h3>
+                        <h3 style="padding-top: 2rem"><b>Login to Private Area</b></h3>
                     </div>
                     <div class="w-100">
                         <p class="social-media d-flex justify-content-end">
-                            <img src="asset/logGlobe.png" style="width: 50px" alt="">
+                            <img src="asset/logGlobe.png" style="width: 75px" alt="">
                         </p>
                     </div>
                 </div>
                 <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
                 <div class="form-group">
-                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.3rem"><span
+                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.3rem;color: white"><span
                                 class="fa fa-user"></span></div>
+                    <b style="color: black">
                     <?= $form->field($model, 'username')->textInput() ?>
+                    </b>
                 </div>
                 <div class="form-group">
-                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.3rem"><span
+                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.3rem;color: white"><span
                                 class="fa fa-lock"></span></div>
+                    <b style="color: black">
                     <?= $form->field($model, 'password')->passwordInput() ?>
+                    </b>
                 </div>
                 <div class="form-group">
                     <div>

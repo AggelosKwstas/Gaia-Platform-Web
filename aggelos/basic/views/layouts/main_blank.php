@@ -28,7 +28,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
         <link rel="icon" type="image/x-icon" href="asset/logo.png"/>
         <?php $this->head() ?>
     </head>
-    <body style="height: 100vh!important;">
+    <body>
     <?php $this->beginBody() ?>
     <?php echo $content ?>
     <?php $this->endBody() ?>

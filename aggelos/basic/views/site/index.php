@@ -7,6 +7,7 @@ use yii\helpers\Url;
 
 $this->title = 'GAIA V2';
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
+$this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) . "'", \yii\web\View::POS_BEGIN);
 ?>
 <header>
     <div class="container-zoom">
@@ -15,24 +16,137 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 
         </div>
         <div class="centered" style="color: white; padding-right: 28%">
-            <div class="item" data-aos="fade-right" data-aos-duration="1300">
-                <h1 class="display-2 lh-1 mb-3">Gaia Platform</h1>
-                <p>
-                    Create powerful IoT networks,<br> We’ve designed everything
-                    beyond...<br>
-                    <!--                <div id="wrap">-->
-                    <!--                    <a href="-->
-                    <?php //echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
-                    //                    ?><!--" class="btn-slide2">-->
-                    <!--                        <span class="circle2"><i class="fa fa-download"></i></span>-->
-                    <!--                        <span class="title2">Download GAIA Desktop Application</span>-->
-                    <!--                        <span class="title-hover2">Click here</span>-->
-                    <!--                    </a>-->
-                    <!--                </div>-->
+            <div class="item" data-aos="fade-down" data-aos-duration="1300">
+                <h1 class="display-2 lh-2 mb-3">Gaia Platform</h1>
+            </div>
+            <div class="item" data-aos="fade-up" data-aos-duration="1300">
+                <p><b>
+                        Create powerful IoT networks,<br>
+                        We’ve designed everything beyond...
+                    </b>
+                </p>
             </div>
         </div>
     </div>
 </header>
+
+<div class="item" data-aos="zoom-out" data-aos-duration="1000">
+<section>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div class="col-12 col-lg-5">
+                <h2 class="display-4 lh-1 mb-4">Enter a new age of web design</h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">This section is perfect for featuring some information
+                    about your application, why it was built, the problem it solves, or anything else! There's plenty of
+                    space for text here, so don't worry about writing too much.</p>
+            </div>
+            <div class="col-12 col-lg-5">
+                <button type="button" class="icon" onclick="downloadGaia()">
+                    <div class="cloud">
+                        <div class="puff puff-1"></div>
+                        <div class="puff puff-2"></div>
+                        <div class="puff puff-3"></div>
+                        <div class="puff puff-4"></div>
+                        <div class="puff puff-5"></div>
+                        <div class="puff puff-6"></div>
+                        <div class="puff puff-7"></div>
+                        <div class="puff puff-8"></div>
+                        <div class="puff puff-9"></div>
+                        <div class="puff puff-10"></div>
+                        <div class="cloud-core"></div>
+                        <div class="check"></div>
+                        <div class="arrow">
+                            <div class="arrow-stem">
+                                <div class="arrow-l-tip"></div>
+                                <div class="arrow-r-tip"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preload">
+                        <div class="drop drop-1"></div>
+                        <div class="drop drop-2"></div>
+                        <div class="drop drop-3"></div>
+                    </div>
+                </button>
+                <p style="padding-left: 13rem" class="lead fw-normal text-muted"><em>Click on the cloud<br>
+                        to download GAIA</em></p>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        this.querySelector(".icon").addEventListener("click", function () {
+                            let waitClass = "waiting",
+                                runClass = "running",
+                                cl = this.classList;
+
+                            if (!cl.contains(waitClass) && !cl.contains(runClass)) {
+                                cl.add(waitClass);
+                                setTimeout(function () {
+                                    cl.remove(waitClass);
+                                    setTimeout(function () {
+                                        cl.add(runClass);
+                                        setTimeout(function () {
+                                            cl.remove(runClass);
+                                        }, 4000);
+                                    }, 200);
+                                }, 1800);
+                            }
+                        });
+                    });
+
+                </script>
+
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+<section class="bg-light" style="display: block;text-align: left">
+    <div class="container" style="text-align: center">
+        <div class="row">
+            <div class="col">
+                <div class="item" data-aos="fade-down" data-aos-duration="1000">
+                    <h5><b>POWERFUL SENSOR NETWORKS</b></h5>
+                </div>
+                <div class="item" data-aos="fade-right" data-aos-duration="1000">
+                    <p>
+                        Fast installation and minimum maintenance costs. Diverse services and applications. Robust
+                        equipment
+                        and network scalability.
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="item" data-aos="fade-down" data-aos-duration="1000">
+                    <h5><b>OVER 50 SENSOR TYPES</b></h5>
+                </div>
+                <div class="item" data-aos="fade-up" data-aos-duration="1000">
+                    <p>
+                        Sensors for measuring air quality, water quality, ions concentration, container levels,
+                        structural
+                        health, noise, agriculture parameters, security parameters, radioactivity levels etc.
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="item" data-aos="fade-down" data-aos-duration="1000">
+                    <h5><b>SOLAR POWERED</b></h5>
+                </div>
+                <div class="item" data-aos="fade-left" data-aos-duration="1000">
+                    <p>
+                        Each sensor node has a battery that can be recharged using an internal or external solar panel.
+                        Batteries have a 6600mAh load that ensures non-stop working time, even in days with no sunlight
+                        at
+                        all.
+                    </p>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+<section class="cta">
+    <div id="map_element"></div>
+
+</section>
 
 
 <!-- Mashead header-->
@@ -203,79 +317,3 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 <!--        beyond...-->
 <!--    </h1>-->
 <!--</div>-->
-
-<section class="bg-light" style="display: block;text-align: left">
-    <div class="container" style="text-align: center">
-        <div class="row">
-            <div class="col">
-                <div class="item" data-aos="fade-right" data-aos-duration="1000">
-                    <h5><b>POWERFUL SENSOR NETWORKS</b></h5>
-                    <p>
-                        Fast installation and minimum maintenance costs. Diverse services and applications. Robust
-                        equipment
-                        and network scalability.
-                    </p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="item" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
-                    <h5><b>OVER 50 SENSOR TYPES</b></h5>
-                    <p>
-                        Sensors for measuring air quality, water quality, ions concentration, container levels,
-                        structural
-                        health, noise, agriculture parameters, security parameters, radioactivity levels etc.
-                    </p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="item" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="700">
-                    <h5><b>SOLAR POWERED</b></h5>
-                    <p>
-                        Each sensor node has a battery that can be recharged using an internal or external solar panel.
-                        Batteries have a 6600mAh load that ensures non-stop working time, even in days with no sunlight
-                        at
-                        all.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="bg-light">
-    <div class="container px-5">
-        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
-            <div class="col-12 col-lg-5">
-                <h2 class="display-4 lh-1 mb-4">GAIA desktop application is now available!</h2>
-                <p class="lead fw-normal text-muted mb-5 mb-lg-0"><img style="width: 25px" src="asset/gaiaTransparent.ico" alt=""> <b>Version 1.0 </b>
-                    <div style="padding-top: 1rem">
-                    <a title="Click to download" href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
-                                ?>">
-                    <button><i class="fa fa-download pull-left" style="font-size: 15px"></i>&nbsp; Download</button>
-                </a>
-                </div>
-            </div>
-            <div class="col-sm-8 col-md-6">
-            </div>
-        </div>
-    </div>
-</section>
-<!--<div class="item" data-aos="zoom-in-down" data-aos-duration="1000" data-aos-delay="200">-->
-<!--    <div class="container px-5 mb-5">-->
-<!--        <div style="text-align: center;padding-top:5rem; ">-->
-<!--            <h1 class="display-2 lh-1 mb-2" style="font-size: 35px">You can now download Gaia Platform desktop-->
-<!--                version.</h1>-->
-<!--            <h1 class="display-6 lh-1 mb-2"></h1>-->
-<!--            <a title="GAIA desktop version 1.0" href="--><?php //echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
-//            ?><!--"-->
-<!--            </a>-->
-<!--            <button><i class="fa fa-download pull-left" style="font-size: 15px"></i>&nbsp; Download</button>-->
-<!--        </div>-->
-<!--        </a>-->
-<!--    </div>-->
-<!--</div>-->
-<section class="cta">
-    <div class="item" data-aos="zoom-in" data-aos-delay="800">
-        <div id="map_element"></div>
-    </div>
-</section>
