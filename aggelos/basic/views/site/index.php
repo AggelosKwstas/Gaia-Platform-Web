@@ -247,12 +247,15 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-12 col-lg-5">
                 <h2 class="display-4 lh-1 mb-4">GAIA Desktop application is now available!</h2>
-                <p class="lead fw-normal text-muted mb-5 mb-lg-0">Version 1.0<br>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0"><img style="width: 25px" src="asset/gaiaTransparent.ico" alt=""> Version 1.0
+                    <div style="padding-top: 1rem">
+                    <a title="Click to download" href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
+                                ?>">
                     <button><i class="fa fa-download pull-left" style="font-size: 15px"></i>&nbsp; Download</button>
-                </p>
+                </a>
+                </div>
             </div>
             <div class="col-sm-8 col-md-6">
-                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="CHINA-ROSE-1.jpg" alt="..." /></div>
             </div>
         </div>
     </div>
