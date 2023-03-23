@@ -32,13 +32,13 @@ $this->registerJs("let downloadUrl='" .  Url::to(['site/download', 'path' => '/u
 
 
 <section>
-    <div class="container px-5">
+    <div class="container">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
-            <div class="col-12 col-lg-5">
-                <h2 class="display-4 lh-1 mb-4">Enter a new age of web design</h2>
-                <p class="lead fw-normal text-muted mb-5 mb-lg-0">This section is perfect for featuring some information
-                    about your application, why it was built, the problem it solves, or anything else! There's plenty of
-                    space for text here, so don't worry about writing too much.</p>
+            <div class="col-12 col-lg-7">
+                <h2 class="display-4 lh-1 mb-4">Gaia Platform Stable Version</h2>
+                <h2 class="display-4 lh-1 mb-4"></h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">You can now download Gaia Platform stable version</p>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">Version 1.0 - Windows</p>
             </div>
             <div class="col-12 col-lg-5">
 
@@ -101,6 +101,7 @@ $this->registerJs("let downloadUrl='" .  Url::to(['site/download', 'path' => '/u
             </div>
         </div>
     </div>
+    <img src="asset/windows.svg">
 </section>
 
 <!--<div class="container px-5">-->
