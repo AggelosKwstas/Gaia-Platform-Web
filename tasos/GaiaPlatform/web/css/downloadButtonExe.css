@@ -9,7 +9,7 @@ body {
 .icon {
     background-color: transparent;
     border: 0;
-    color: #557eef;
+    color: #92c478;
     cursor: pointer;
     display: block;
     font-size: 20px;
@@ -38,7 +38,7 @@ body {
     height: 5.8em;
 }
 .puff, .cloud-core {
-    background-color: #fff;
+    background-color: #d2d2d2;
 }
 .puff {
     border-radius: 50%;
@@ -133,12 +133,18 @@ body {
     transform-origin: 50% 2.6em;
 }
 .check:after {
-    height: 5.5em;
+    height: 5.3em;
     transform: rotate(35deg);
     transform-origin: 50% 5.1em;
 }
 /* Arrow */
 .arrow {
+    top: 3em;
+    left: 0;
+    width: 9em;
+    height: 5.3em;
+}
+.arrow-core {
     top: 3em;
     left: 0;
     width: 9em;
@@ -234,8 +240,8 @@ body {
 
 /* Running */
 .running .puff {
-    animation-duration: 0.75s;
-    animation-delay: 2.75s;
+    animation-duration: 0.25s;
+    animation-delay: 0.1s;
     animation-timing-function: cubic-bezier(.1,.8,.2,.95);
 }
 .running .puff-1 {
@@ -269,10 +275,10 @@ body {
     animation-name: puff10;
 }
 .running .cloud-core {
-    animation: core 2.75s;
+    animation: core 0.1s;
 }
 .running .check {
-    animation: check 0.4s 2.75s;
+    animation: check 0.4s 0.75s;
 }
 .running .arrow {
     animation: arrow 0.125s;
@@ -280,19 +286,23 @@ body {
 .running .arrow-stem {
     animation: arrowStem 0.125s;
 }
-.running .arrow-l-tip {
-    animation: arrowLTip 0.375s 0.125s;
+/* .running .arrow-l-tip {
+	animation: arrowLTip 0.375s 0.125s;
 }
 .running .arrow-r-tip {
-    animation: arrowRTip 0.375s 0.125s;
-}
-.running .progress {
-    animation: filling 2s 0.75s;
-}
+	animation: arrowRTip 0.375s 0.125s;
+} */
+/* .running .arrow-core {
+	animation: core 2.7s;
+} */
+/* .running .progress {
+	animation: filling 2s 0.75s;
+} */
 .icon.running div {
     animation-fill-mode: forwards;
 }
-.icon.running .cloud-core, .icon.running .check, .icon.running .arrow, .icon.running .arrow div, .icon.running .progress {
+
+.icon.running .cloud-core, .icon.running .check .icon.running .arrow div, .icon.running {
     animation-timing-function: linear;
 }
 
@@ -352,8 +362,10 @@ body {
     to {transform: translateY(0.7em)}
 }
 @keyframes arrowStem {
-    from {height: 5.3em}
-    to {height: 0.8em}
+    from {visibility: visible}
+    to {visibility: hidden}
+    /* from {height: 5.3em}
+    to {height: 0.8em} */
 }
 @keyframes arrowLTip {
     from {transform: rotate(-135deg)}
