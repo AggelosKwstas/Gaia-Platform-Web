@@ -69,13 +69,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 <div class="mb-2">&copy; Neuron Energy Solutions 2023. All Rights Reserved.</div>
                 <a href="https://www.neuronenergy.com/"><img class="footer_logo" style="height: 60px;"
                                                              src="asset/logoNE.png" title="Neuron Energy Solutions"></a>
-            </div>
     </footer>
     <?php $this->endBody() ?>
     </body>
     <script>
     AOS.init({
-    duration: 1200,
+    once:true,
     })
     </script>
 </html>

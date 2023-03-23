@@ -15,19 +15,20 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 
         </div>
         <div class="centered" style="color: white; padding-right: 28%">
-            <div class="item" data-aos="fade-right">
+            <div class="item" data-aos="fade-right" data-aos-duration="1300">
                 <h1 class="display-2 lh-1 mb-3">Gaia Platform</h1>
                 <p>
                     Create powerful IoT networks,<br> We’ve designed everything
                     beyond...<br>
-                <div id="wrap">
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
-                    ?>" class="btn-slide2">
-                        <span class="circle2"><i class="fa fa-download"></i></span>
-                        <span class="title2">Download GAIA Desktop Application</span>
-                        <span class="title-hover2">Click here</span>
-                    </a>
-                </div>
+                    <!--                <div id="wrap">-->
+                    <!--                    <a href="-->
+                    <?php //echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
+                    //                    ?><!--" class="btn-slide2">-->
+                    <!--                        <span class="circle2"><i class="fa fa-download"></i></span>-->
+                    <!--                        <span class="title2">Download GAIA Desktop Application</span>-->
+                    <!--                        <span class="title-hover2">Click here</span>-->
+                    <!--                    </a>-->
+                    <!--                </div>-->
             </div>
         </div>
     </div>
@@ -203,54 +204,75 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 <!--    </h1>-->
 <!--</div>-->
 
-
-<div class="container px-5">
-    <div style="text-align: center;padding-top:5rem; ">
-        <div id="wrap">
-
-            <h1 class="display-2 lh-1 mb-3">You can now download Gaia Platform stable version.</h1>
-            <h1 class="display-6 lh-1 mb-3"></h1>
-            <a href="<?php echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
-            ?>" class="btn-slide2">
-                <span class="circle2"><i class="fa fa-download"></i></span>
-                <span class="title2">Download GAIA Desktop Application</span>
-                <span class="title-hover2">Click here</span>
-            </a>
-            <p>Gaia Platform - Version 1.0</p>
-        </div>
-
-    </div>
-</div>
 <section class="bg-light" style="display: block;text-align: left">
     <div class="container" style="text-align: center">
         <div class="row">
             <div class="col">
-                <h5><b>POWERFUL SENSOR NETWORKS</b></h5>
-                <p>
-                    Fast installation and minimum maintenance costs. Diverse services and applications. Robust equipment
-                    and network scalability.
-                </p>
+                <div class="item" data-aos="fade-right" data-aos-duration="1000">
+                    <h5><b>POWERFUL SENSOR NETWORKS</b></h5>
+                    <p>
+                        Fast installation and minimum maintenance costs. Diverse services and applications. Robust
+                        equipment
+                        and network scalability.
+                    </p>
+                </div>
             </div>
             <div class="col">
-                <h5><b>OVER 50 SENSOR TYPES</b></h5>
-                <p>
-                    Sensors for measuring air quality, water quality, ions concentration, container levels, structural
-                    health, noise, agriculture parameters, security parameters, radioactivity levels etc.
-                </p>
+                <div class="item" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+                    <h5><b>OVER 50 SENSOR TYPES</b></h5>
+                    <p>
+                        Sensors for measuring air quality, water quality, ions concentration, container levels,
+                        structural
+                        health, noise, agriculture parameters, security parameters, radioactivity levels etc.
+                    </p>
+                </div>
             </div>
             <div class="col">
-                <h5><b>SOLAR POWERED</b></h5>
-                <p>
-                    Each sensor node has a battery that can be recharged using an internal or external solar panel.
-                    Batteries have a 6600mAh load that ensures non-stop working time, even in days with no sunlight at
-                    all.
-                </p>
+                <div class="item" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="700">
+                    <h5><b>SOLAR POWERED</b></h5>
+                    <p>
+                        Each sensor node has a battery that can be recharged using an internal or external solar panel.
+                        Batteries have a 6600mAh load that ensures non-stop working time, even in days with no sunlight
+                        at
+                        all.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+<section class="bg-light">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div class="col-12 col-lg-5">
+                <h2 class="display-4 lh-1 mb-4">GAIA Desktop application is now available!</h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">Version 1.0<br>
+                    <button><i class="fa fa-download pull-left" style="font-size: 15px"></i>&nbsp; Download</button>
+                </p>
+            </div>
+            <div class="col-sm-8 col-md-6">
+                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="CHINA-ROSE-1.jpg" alt="..." /></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--<div class="item" data-aos="zoom-in-down" data-aos-duration="1000" data-aos-delay="200">-->
+<!--    <div class="container px-5 mb-5">-->
+<!--        <div style="text-align: center;padding-top:5rem; ">-->
+<!--            <h1 class="display-2 lh-1 mb-2" style="font-size: 35px">You can now download Gaia Platform desktop-->
+<!--                version.</h1>-->
+<!--            <h1 class="display-6 lh-1 mb-2"></h1>-->
+<!--            <a title="GAIA desktop version 1.0" href="--><?php //echo Yii::$app->urlManager->createUrl(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe'])
+//            ?><!--"-->
+<!--            </a>-->
+<!--            <button><i class="fa fa-download pull-left" style="font-size: 15px"></i>&nbsp; Download</button>-->
+<!--        </div>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</div>-->
 <section class="cta">
-    <div id="map_element"></div>
-
+    <div class="item" data-aos="zoom-in" data-aos-delay="800">
+        <div id="map_element"></div>
+    </div>
 </section>
