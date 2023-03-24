@@ -1962,6 +1962,12 @@ progress {
     --bs-gutter-y: 3rem;
   }
 }
+
+.btn-primary{
+  --bs-btn-active-bg:green;
+  --bs-btn-border-color:green;
+  --bs-btn-active-border-color:green;
+}
 .table {
   --bs-table-bg: transparent;
   --bs-table-accent-bg: transparent;
@@ -3027,12 +3033,13 @@ textarea.form-control-lg {
 }
 .btn-check:focus + .btn, .btn:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(41, 55, 240, 0.25);
 }
 .btn:disabled, .btn.disabled, fieldset:disabled .btn {
   pointer-events: none;
   opacity: 0.65;
 }
+
+
 
 .btn-primary {
   color: #fff;
@@ -3048,7 +3055,6 @@ textarea.form-control-lg {
   color: #fff;
   background-color: green;
   border-color: green;
-  box-shadow: 0 0 0 0.25rem rgba(73, 85, 242, 0.5);
 }
 .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
   color: #fff;
@@ -3056,7 +3062,6 @@ textarea.form-control-lg {
   border-color: green;
 }
 .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(73, 85, 242, 0.5);
 }
 .btn-primary:disabled, .btn-primary.disabled {
   color: #fff;
@@ -3292,7 +3297,6 @@ textarea.form-control-lg {
   border-color: green;
 }
 .btn-check:checked + .btn-outline-primary:focus, .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
-  box-shadow: 0 0 0 0.25rem rgba(41, 55, 240, 0.5);
 }
 .btn-outline-primary:disabled, .btn-outline-primary.disabled {
   color: green;
@@ -11333,7 +11337,12 @@ section {
 #mainNav .navbar-brand {
   font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-#mainNav .navbar-brand:hover, #mainNav .navbar-brand:active {
+#mainNav .navbar-brand:hover, #mainNav .navbar-brand:active, .main_logo:hover .main_logo:active,.footer_logo:hover{
+  -webkit-filter: brightness(1.1) !important;
+  color: #6c757d;
+}
+.footer_logo:hover{
+  -webkit-filter: brightness(1.2) !important;
   color: #6c757d;
 }
 #mainNav .navbar-toggler {

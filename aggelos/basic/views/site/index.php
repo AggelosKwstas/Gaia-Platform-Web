@@ -38,7 +38,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                     <h2 class="display-4 lh-1 mb-4">What we offer?</h2>
                 </div>
                 <div class="item" data-aos="fade-up" data-aos-duration="1000">
-                    <p style="font-size: 20px;">
+                    <p style="font-size: 19px;">
                         Our platform helps to enable real-time monitoring and measurement of the air quality index in
                         the environment. These sensors are designed to detect and measure the concentration of various
                         pollutants such as PM2.5, PM10, CO2 and other harmful gases. The platform is designed to be easy
