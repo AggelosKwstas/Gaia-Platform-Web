@@ -41,7 +41,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 echo \yii\helpers\Url::to(['site/index']);
             ?>"><img class="main_logo"
                      src="asset/logGlobe.png"
-                     style="height: 75px!important;">
+                     style="height: 50px!important;">
                 <h id="h_logo">GAIA PLATFORM</h>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
@@ -51,6 +51,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-0 my-3 my-lg-0">
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo  \yii\helpers\Url::to(['site/map']) ?>"><b>Stations Overview</b></a></li>
+                </ul>
                     <button class="btn btn-primary  px-3 mb-2 mb-lg-0" onclick="location.href='<?php echo \yii\helpers\Url::to(['site/login']) ?>'">
                         <span class="d-flex align-items-center"><i style="display: block;text-align: left"
                                                                    class="fa-solid fa-right-to-bracket"></i>&nbsp;<span
@@ -62,7 +64,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
     </nav>
     <?php echo $content ?>
     <!-- Footer-->
-    <footer class="bg-black text-center py-1">
+    <footer class="text-center py-1" style="background-color: #1b1b1b">
         <div class="container px-5">
             <div class="text-white-50 small mt-2">
                 <div class="mb-2">&copy; Neuron Energy Solutions 2023. All Rights Reserved.</div>

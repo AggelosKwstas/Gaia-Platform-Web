@@ -12,7 +12,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 <header>
     <div class="container-zoom">
         <div class="item-zoom">
-            <img src="asset/image.png" style="width:100%">
+            <img src="asset/img.png" style="width:100%">
 
         </div>
         <div class="centered" style="color: white; padding-right: 28%">
@@ -30,75 +30,33 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
     </div>
 </header>
 
-<div class="item" data-aos="zoom-out" data-aos-duration="1000">
 <section>
-    <div class="container px-5">
+    <div class="container">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-12 col-lg-5">
-                <h2 class="display-4 lh-1 mb-4">Enter a new age of web design</h2>
-                <p class="lead fw-normal text-muted mb-5 mb-lg-0">This section is perfect for featuring some information
-                    about your application, why it was built, the problem it solves, or anything else! There's plenty of
-                    space for text here, so don't worry about writing too much.</p>
+                <div class="item" data-aos="fade-down" data-aos-duration="1000">
+                    <h2 class="display-4 lh-1 mb-4">What we offer?</h2>
+                </div>
+                <div class="item" data-aos="fade-up" data-aos-duration="1000">
+                    <p style="font-size: 20px;">
+                        Our platform helps to enable real-time monitoring and measurement of the air quality index in
+                        the environment. These sensors are designed to detect and measure the concentration of various
+                        pollutants such as PM2.5, PM10, CO2 and other harmful gases. The platform is designed to be easy
+                        to use, making it convenient for you to access the air quality data whenever you need it.
+                        In addition to personal use, GAIA platform is also used for public health purposes, such as
+                        tracking air pollution levels in cities and industrial areas.
+                    </p>
+                </div>
             </div>
-            <div class="col-12 col-lg-5">
-                <button type="button" class="icon" onclick="downloadGaia()">
-                    <div class="cloud">
-                        <div class="puff puff-1"></div>
-                        <div class="puff puff-2"></div>
-                        <div class="puff puff-3"></div>
-                        <div class="puff puff-4"></div>
-                        <div class="puff puff-5"></div>
-                        <div class="puff puff-6"></div>
-                        <div class="puff puff-7"></div>
-                        <div class="puff puff-8"></div>
-                        <div class="puff puff-9"></div>
-                        <div class="puff puff-10"></div>
-                        <div class="cloud-core"></div>
-                        <div class="check"></div>
-                        <div class="arrow">
-                            <div class="arrow-stem">
-                                <div class="arrow-l-tip"></div>
-                                <div class="arrow-r-tip"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="preload">
-                        <div class="drop drop-1"></div>
-                        <div class="drop drop-2"></div>
-                        <div class="drop drop-3"></div>
-                    </div>
-                </button>
-                <p style="padding-left: 13rem" class="lead fw-normal text-muted"><em>Click on the cloud<br>
-                        to download GAIA</em></p>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        this.querySelector(".icon").addEventListener("click", function () {
-                            let waitClass = "waiting",
-                                runClass = "running",
-                                cl = this.classList;
-
-                            if (!cl.contains(waitClass) && !cl.contains(runClass)) {
-                                cl.add(waitClass);
-                                setTimeout(function () {
-                                    cl.remove(waitClass);
-                                    setTimeout(function () {
-                                        cl.add(runClass);
-                                        setTimeout(function () {
-                                            cl.remove(runClass);
-                                        }, 4000);
-                                    }, 200);
-                                }, 1800);
-                            }
-                        });
-                    });
-
-                </script>
-
+            <div class="col-12 col-lg-7">
+                <div class="item" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="asset/whatMeasure1.jpg" class="img-fluid" style="padding-left:4rem;width: 1500px">
+                </div>
             </div>
-        </div>
-    </div>
+
+
 </section>
-</div>
+
 <section class="bg-light" style="display: block;text-align: left">
     <div class="container" style="text-align: center">
         <div class="row">
@@ -140,6 +98,73 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                 </div>
             </div>
         </div>
+</section>
+
+
+<section>
+    <div class="container" style="display:block;text-align:center">
+        <div class="item" data-aos="fade-down" data-aos-duration="1000">
+            <h2 class="display-4 lh-1 mb-4" style="position:center">Gaia Platform Stable Version</h2>
+        </div>
+        <div class="item" data-aos="fade-up" data-aos-duration="1000">
+            <p class="lead fw-normal text-muted mb-5 mb-lg-0">You can now download Gaia Platform version 1.0 for
+                Windows.</p>
+        </div>
+
+        <button type="button" class="icon" onclick="downloadGaia()">
+            <div class="cloud">
+                <div class="puff puff-1"></div>
+                <div class="puff puff-2"></div>
+                <div class="puff puff-3"></div>
+                <div class="puff puff-4"></div>
+                <div class="puff puff-5"></div>
+                <div class="puff puff-6"></div>
+                <div class="puff puff-7"></div>
+                <div class="puff puff-8"></div>
+                <div class="puff puff-9"></div>
+                <div class="puff puff-10"></div>
+                <div class="cloud-core"></div>
+                <div class="check"></div>
+                <div class="arrow">
+                    <div class="arrow-stem">
+                        <div class="arrow-l-tip"></div>
+                        <div class="arrow-r-tip"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="preload">
+                <div class="drop drop-1"></div>
+                <div class="drop drop-2"></div>
+                <div class="drop drop-3"></div>
+            </div>
+
+            <!-- <div class="progress"></div> -->
+        </button>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                this.querySelector(".icon").addEventListener("click", function () {
+                    let waitClass = "waiting",
+                        runClass = "running",
+                        cl = this.classList;
+
+                    if (!cl.contains(waitClass) && !cl.contains(runClass)) {
+                        cl.add(waitClass);
+                        setTimeout(function () {
+                            cl.remove(waitClass);
+                            setTimeout(function () {
+                                cl.add(runClass);
+                                setTimeout(function () {
+                                    cl.remove(runClass);
+                                }, 4000);
+                            }, 200);
+                        }, 1800);
+                    }
+                });
+            });
+
+        </script>
+
+    </div>
 </section>
 
 

@@ -16,8 +16,6 @@ let config1 = {
     minZoom: 7,
     maxZoom: 18,
     zoomControl: false,
-    dragging: false,
-    tap: false
 };
 
 const zoom = 11;
