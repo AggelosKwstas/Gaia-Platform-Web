@@ -9,10 +9,11 @@ $this->title = 'GAIA V2';
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
 $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) . "'", \yii\web\View::POS_BEGIN);
 ?>
+
 <header>
     <div class="container-zoom" style="height: 90vh!important;">
         <div class="item-zoom">
-            <img src="asset/img.png" style="width:100%">
+            <img src="asset/libe.png" style="width:100%" alt="">
 
         </div>
         <div class="centered" style="color: white; padding-right: 28%">
@@ -50,7 +51,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
             </div>
             <div class="col-12 col-lg-7">
                 <div class="item" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="asset/whatMeasure1.jpg" class="img-fluid" style="padding-left:4rem;width: 1500px">
+                    <img src="asset/whatMeasure1.jpg" class="img-fluid" style="padding-left:4rem;width: 1500px" alt="">
                 </div>
             </div>
 
@@ -111,7 +112,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                 Windows.</p>
         </div>
 
-        <button type="button" class="icon" onclick="downloadGaia()">
+        <button type="button" class="icon" onclick="downloadGaia()" title="Download GAIA">
             <div class="cloud">
                 <div class="puff puff-1"></div>
                 <div class="puff puff-2"></div>
