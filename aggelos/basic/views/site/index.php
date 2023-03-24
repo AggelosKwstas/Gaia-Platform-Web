@@ -10,7 +10,7 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) . "'", \yii\web\View::POS_BEGIN);
 ?>
 <header>
-    <div class="container-zoom">
+    <div class="container-zoom" style="height: 90vh!important;">
         <div class="item-zoom">
             <img src="asset/img.png" style="width:100%">
 

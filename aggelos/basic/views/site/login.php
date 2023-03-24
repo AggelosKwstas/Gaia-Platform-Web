@@ -28,14 +28,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
                 <div class="form-group">
-                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.3rem;color: white"><span
+                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.4rem;color: white;height: 46px;left: 1px"><span
                                 class="fa fa-user"></span></div>
                     <b style="color: black">
                     <?= $form->field($model, 'username')->textInput() ?>
                     </b>
                 </div>
                 <div class="form-group">
-                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.3rem;color: white"><span
+                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.4rem;color: white;height: 46px;left: 1px"><span
                                 class="fa fa-lock"></span></div>
                     <b style="color: black">
                     <?= $form->field($model, 'password')->passwordInput() ?>

@@ -11734,12 +11734,12 @@ footer a:hover, footer a:active, footer a:focus {
 
 /* The Close Button */
 .close {
-  color: #aaa;
-  float: left;
+  color: #aaaaaa;
+  float: right;
+  width: 20px;
   font-size: 28px;
   font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
   color: black;
