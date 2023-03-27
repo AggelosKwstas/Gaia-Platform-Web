@@ -11351,10 +11351,14 @@ section {
   -webkit-filter: brightness(1.1) !important;
   color: #6c757d;
 }
-.footer_logo:hover{
-  -webkit-filter: brightness(1.2) !important;
-  color: #6c757d;
+
+.circle_dot{
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
 }
+
 #mainNav .navbar-toggler {
   font-size: 0.875rem;
   padding: 0.75rem 1rem;
@@ -11698,7 +11702,7 @@ footer a:hover, footer a:active, footer a:focus {
   border-width: thin;
   line-height: 26px;
   color: #555;
-  top:12vh;
+  top:12dvh;
 }
 .legend h4 {
   text-align: center;

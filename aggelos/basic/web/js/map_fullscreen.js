@@ -204,12 +204,12 @@ function grayButton() {
 
 legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "legend");
-  div.innerHTML +="<h4 style='color: black'>Air Quality</h4>"+
-   '<i id="greenFilter" style="background: #01fb0a;cursor: pointer" onclick="greenButton()"></i><span><b>Good</b></span><br>'+
-     '<i id="yellowFilter" style="background: #ffeb00;cursor: pointer" onclick="yellowButton()"></i><span><b>Fair</b></span><br>'+
-    '<i id="redFilter" style="background: #ff0032;cursor: pointer" onclick="redButton()"></i><span><b>Bad</b></span><br>'+
-     '<div><i id="grayFilter" style="background: grey;cursor: pointer" onclick="grayButton()"></i><span><b>No data</b></span><br>'+
-   '<a id="myBtn" style="text-decoration: none;font-size: 17px" href="javascript:void(0);">Legend explained</a><br>';
+    div.innerHTML += "<h4 style='color: black'>Air Quality</h4>" +
+        '<i class="circle_dot" id="greenFilter" style="background: #01fb0a;cursor: pointer" onclick="greenButton()"></i><span><b>Good</b></span><br>' +
+        '<i class="circle_dot" id="yellowFilter" style="background: #ffeb00;cursor: pointer" onclick="yellowButton()"></i><span><b>Fair</b></span><br>' +
+        '<i class="circle_dot" id="redFilter" style="background: #ff0032;cursor: pointer" onclick="redButton()"></i><span><b>Bad</b></span><br>' +
+        '<i class="circle_dot" id="grayFilter" style="background: grey;cursor: pointer" onclick="grayButton()"></i><span><b>No data</b></span><br>' +
+        '<a id="myBtn" style="text-decoration: none;font-size: 17px" href="javascript:void(0);">Legend explained</a><br>';
     //Filter water and air type sensors -> deleteAirSensors() - deleteWaterSensors()
 
     // div.innerHTML += '<button class="button_station button4">Filter Air type</button><br>';
