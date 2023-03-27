@@ -11,9 +11,9 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 ?>
 
 <header>
-    <div class="container-zoom" style="height: 90vh!important;">
+    <div class="container-zoom" style="height: 90dvh!important;">
         <div class="item-zoom">
-            <img src="asset/libe.png" style="width:100%;draggable=false" alt="">
+            <img src="asset/libe.png" style="width:100%;height:100%;pointer-events: none;" alt="">
 
         </div>
         <div class="centered" style="color: white; padding-right: 28%">
@@ -51,7 +51,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
             </div>
             <div class="col-12 col-lg-7">
                 <div class="item" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="asset/whatMeasure1.jpg" class="img-fluid" style="padding-left:4rem;width: 1500px" alt="">
+                    <img src="asset/whatMeasure1.jpg" class="img-fluid" style="padding-left:4rem;width: 1500px;  pointer-events: none" alt="">
                 </div>
             </div>
 

@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </b>
                 </div>
                 <div class="form-group">
-                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.4rem;color: white;height: 46px;left: 1px"><span
+                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.35rem;color: white;height: 46px;left: 1px"><span
                                 class="fa fa-lock"></span></div>
                     <b style="color: black">
                     <?= $form->field($model, 'password')->passwordInput() ?>

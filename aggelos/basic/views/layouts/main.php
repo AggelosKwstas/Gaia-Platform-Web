@@ -41,7 +41,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 echo \yii\helpers\Url::to(['site/index']);
             ?>"><img class="main_logo"
                      src="asset/logoN.png"
-                     style="height: 65px!important;">
+                     style="height: 65px!important;" alt="">
                 <h id="h_logo">GAIA PLATFORM</h>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
@@ -72,7 +72,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             <div class="text-white-50 small mt-2">
                 <div class="mb-2">&copy; Neuron Energy Solutions 2023. All Rights Reserved.</div>
                 <a href="https://www.neuronenergy.com/"><img class="footer_logo" style="height: 60px;"
-                                                             src="asset/logoNE.png" title="Neuron Energy Solutions"></a>
+                                                             src="asset/logoNE.png" title="Neuron Energy Solutions" alt=""></a>
     </footer>
     <?php $this->endBody() ?>
     </body>
