@@ -6,15 +6,8 @@ use yii\web\Response;
 
 
 class ApiController extends Controller{
-     public function beforeAction($action): bool
-     {
 
-         \Yii::$app->response->format = Response::FORMAT_JSON;
-         return parent::beforeAction($action);
-     }
+    //Handle API calls
+    //
 
-     public function actionGetNodes(){
-
-         return Node::find()->all();
-     }
 }

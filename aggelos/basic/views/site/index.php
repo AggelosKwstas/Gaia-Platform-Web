@@ -13,7 +13,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 <header>
     <div class="container-zoom" style="height: 90vh!important;">
         <div class="item-zoom">
-            <img src="asset/libe.png" style="width:100%" alt="">
+            <img src="asset/libe.png" style="width:100%;draggable=false" alt="">
 
         </div>
         <div class="centered" style="color: white; padding-right: 28%">

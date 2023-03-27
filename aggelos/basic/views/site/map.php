@@ -14,7 +14,9 @@ $this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\
 ?>
 <div>
 <section id="map_cta" class="cta">
+    <div class="map-wrapper">
     <div id="map_full"></div>
+    </div>
         <div id="myModal" class="modal">
             <div class="modal-content" >
                 <span class="close">&times;</span>
