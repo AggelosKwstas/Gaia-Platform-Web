@@ -10,9 +10,10 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
 $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) . "'", \yii\web\View::POS_BEGIN);
 ?>
 <header>
-    <div class="container-zoom" style="height:90vh!important;">
+<!--    style="height:90vh!important;"-->
+    <div class="container-zoom" >
         <div class="item-zoom">
-            <img src="asset/img.png" style="width:100%">
+            <img src="asset/img.png">
 
         </div>
         <div class="centered" style="color: white; padding-right: 28%">
@@ -44,7 +45,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
     <div class="container">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-12 col-lg-5">
-                <div class="item" data-aos="fade-down" data-aos-duration="1000">
+                <div class="item" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
                     <h2 class="display-4 lh-1 mb-4">What we offer?</h2>
                 </div>
 <!--                <div class="item" data-aos="fade-up" data-aos-duration="1000">-->
@@ -63,7 +64,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
             </div>
             <div class="col-12 col-lg-7">
                 <div class="item" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="asset/whatMeasure1.jpg" class="img-fluid" style="padding-left:4rem;width: 1500px">
+                    <img src="asset/whatMeasure1.jpg" class="img-fluid" style="width: 1500px">
                 </div>
             </div>
 
@@ -77,7 +78,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                 <div class="item" data-aos="fade-down" data-aos-duration="1000">
                     <h5><b>POWERFUL SENSOR NETWORKS</b></h5>
                 </div>
-                <div class="item" data-aos="fade-right" data-aos-duration="1000">
+                <div class="item" data-aos="fade-down" data-aos-duration="1000">
                     <p>
                         Fast installation and minimum maintenance costs. Diverse services and applications. Robust
                         equipment
@@ -89,7 +90,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                 <div class="item" data-aos="fade-down" data-aos-duration="1000">
                     <h5><b>OVER 50 SENSOR TYPES</b></h5>
                 </div>
-                <div class="item" data-aos="fade-up" data-aos-duration="1000">
+                <div class="item" data-aos="fade-down" data-aos-duration="1000">
                     <p>
                         Sensors for measuring air quality, water quality, ions concentration, container levels,
                         structural
@@ -101,7 +102,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                 <div class="item" data-aos="fade-down" data-aos-duration="1000">
                     <h5><b>SOLAR POWERED</b></h5>
                 </div>
-                <div class="item" data-aos="fade-left" data-aos-duration="1000">
+                <div class="item" data-aos="fade-down" data-aos-duration="1000">
                     <p>
                         Each sensor node has a battery that can be recharged using an internal or external solar panel.
                         Batteries have a 6600mAh load that ensures non-stop working time, even in days with no sunlight
@@ -111,8 +112,46 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <div class="item" data-aos="fade-right" data-aos-duration="1000">
+                    <h5><b>MULTIPLE RADIO OPTIONS</b></h5>
+                </div>
+                <div class="item" data-aos="fade-right" data-aos-duration="1000">
+                    <p>
+                        WiFi and 3G/GPRS radios can be used in order to send the sensor data directly to the Internet without using an intermediate gateway.
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="item" data-aos="fade-up" data-aos-duration="1000">
+                    <h5><b>GEOLOCATION TRACKING</b></h5>
+                </div>
+                <div class="item" data-aos="fade-up" data-aos-duration="1000">
+                    <p>
+                        3G+GPS and GPRS+GPS modules allow the implementation of realtime tracking applications in an easy way.
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="item" data-aos="fade-left" data-aos-duration="1000">
+                    <h5><b>SENSORS TO THE CLOUD</b></h5>
+                </div>
+                <div class="item" data-aos="fade-left" data-aos-duration="1000">
+                    <p>
+                        Connect any sensor the GAIA platform and deploy Internet of Things (IoT), machine-to-machine (M2M) or Smart Cities projects with minimum time to market.
+                    </p>
+                </div>
+            </div>
+        </div>
 </section>
 
+<!--<section>-->
+<!--    <div class="container" style="text-align: center">-->
+<!--        <div class="row">-->
+<!--           -->
+<!--        </div>-->
+<!--</section>-->
 
 <section>
     <div class="container" style="display:block;text-align:center">

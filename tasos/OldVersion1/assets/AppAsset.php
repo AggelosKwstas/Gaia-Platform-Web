@@ -32,6 +32,7 @@ class AppAsset extends AssetBundle
         'css/styles.css',
         'css/downloadButton.css',
         'css/downloadButtonExe.css',
+        'screenType.css',
         'https://unpkg.com/aos@2.3.1/dist/aos.css'
     ];
 
