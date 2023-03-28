@@ -24,14 +24,13 @@ class AppAsset extends AssetBundle
     public $css = [
         'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css',
         'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css',
-        'https://fonts.gstatic.com',
         'theme/font-awesome/css/all.css',
         'https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap',
         'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap',
         'https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap',
         'css/styles.css',
+        'css/cloud.css',
         'css/downloadButton.css',
-        'css/downloadButtonExe.css',
         'https://unpkg.com/aos@2.3.1/dist/aos.css'
     ];
 
@@ -42,6 +41,7 @@ class AppAsset extends AssetBundle
         'https://cdn.startbootstrap.com/sb-forms-latest.js',
         'js/map_smallscreen.js',
         'js/map_fullscreen.js',
+        'js/echarts.js',
         'https://unpkg.com/aos@2.3.1/dist/aos.js'
     ];
 

@@ -1,7 +1,7 @@
 #wrap {
-  z-index:1000000;
   margin: 20px auto;
   text-align: center;
+  font-family: Konnect, sans-serif;
 }
 
 .btn-slide, .btn-slide2 {
@@ -12,14 +12,14 @@
   line-height: 50px;
   padding: 0;
   border-radius: 50px;
-  background: #fdfdfd;
+  background: transparent;
   border: 2px solid #0099cc;
   margin: 10px;
   transition: .5s;
 }
 
 .btn-slide2 {
-  border: 2px solid #5caa32;
+  border: 2px solid transparent;
 }
 
 .btn-slide:hover {
@@ -27,18 +27,18 @@
 }
 
 .btn-slide2:hover {
-  background-color: #5caa32;
+  background-color: transparent;
 }
 
 .btn-slide:hover span.circle, .btn-slide2:hover span.circle2 {
   left: 100%;
   margin-left: -45px;
-  background-color: #fdfdfd;
+  background-color: transparent;
   color: #0099cc;
 }
 
 .btn-slide2:hover span.circle2 {
-  color: #5caa32;
+  color: white;
 }
 
 .btn-slide:hover span.title, .btn-slide2:hover span.title2 {
@@ -68,7 +68,7 @@
 }
 
 .btn-slide2 span.circle2 {
-  background-color: #5caa32;
+  background-color: transparent;
 }
 
 .btn-slide span.title,
@@ -86,7 +86,7 @@
 
 .btn-slide2 span.title2,
 .btn-slide2 span.title-hover2 {
-  color: #5caa32;
+  color: white;
   left: 65px;
 }
 

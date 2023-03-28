@@ -13,7 +13,7 @@ $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, shrink-to-fit=yes']);
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
-$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset/logo.png']);
+$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset/logGlobe.png']);
 ?>
 <?php $this->beginPage() ?>
 
@@ -32,7 +32,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
     <?php $this->beginBody() ?>
 
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top shadow-sm" id="mainNav">
         <div class="container px-5">
             <a class="navbar-brand fw-bold" href="<?php
             if (\yii\helpers\Url::current() == \yii\helpers\Url::to(['site/index'])) {
@@ -40,8 +40,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             } else
                 echo \yii\helpers\Url::to(['site/index']);
             ?>"><img class="main_logo"
-                     src="asset/logo.png"
-                     style="height: 50px!important;">
+                     src="asset/testGlobe.png"
+                     style="height: 60px!important;">
                 <h id="h_logo">GAIA PLATFORM</h>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
