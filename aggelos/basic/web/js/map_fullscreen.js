@@ -128,8 +128,10 @@ marker5.bindPopup(`
 marker6 = L.marker([39.7066, 20.7926], {icon: greenIcon}).addTo(map2);
 
 marker6.bindPopup(`
+<div style="position: relative;display: inline-block">
+<h6>Location:</h6><i class="fa fa-location-dot pull-left"></i>
+</div>
 <div style="display: block;text-align: center">
-<h6>Ελεούσα - Air Monitor</h6>
   <hr class="dotted">
  <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${eleousa_object['weather'][0]['icon']}.png"><br>
@@ -204,7 +206,7 @@ function grayButton() {
 
 legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += " <div class='con-tool right'>  <h4 style='color: black;padding-left: 0.5rem;cursor:help'>Air Quality</h4><div class='tool'><p style='font-size: 15px!important;'>Filter the staions by clicking on the color codes.</p></div> </div><br>" +
+    div.innerHTML += " <div class='con-tool right'>  <h4 style='color: black;padding-left: 0.5rem;cursor:help'>Air Quality</h4><div class='tool'><span><em>Filter the staions by clicking on the color codes.</em></span></div> </div><br>" +
         '<i class="circle_dot" id="greenFilter" style="background: #01fb0a;cursor: pointer" onclick="greenButton()"></i><span><b>Good</b></span><br>' +
         '<i class="circle_dot" id="yellowFilter" style="background: #ffeb00;cursor: pointer" onclick="yellowButton()"></i><span><b>Fair</b></span><br>' +
         '<i class="circle_dot" id="redFilter" style="background: #ff0032;cursor: pointer" onclick="redButton()"></i><span><b>Bad</b></span><br>' +
