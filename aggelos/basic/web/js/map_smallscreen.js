@@ -7,9 +7,7 @@
 // Scripts
 //
 function downloadGaia(){
-    setTimeout(function () {
         location.href=downloadUrl;
-    }, 2750);
 }
 
 let config1 = {
@@ -76,4 +74,15 @@ legend.getContainer().addEventListener('mouseover', function () {
 
 legend.getContainer().addEventListener('mouseout', function () {
     map.dragging.enable();
+});
+
+$(".btn-circle-download").click(function() {
+    $(this).addClass("load");
+    setTimeout(function() {
+        $(".btn-circle-download").addClass("done");
+        downloadGaia();
+    }, 1000);
+    setTimeout(function() {
+        $(".btn-circle-download").removeClass("load done");
+    }, 5000);
 });

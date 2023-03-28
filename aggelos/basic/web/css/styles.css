@@ -12361,8 +12361,6 @@ footer a:hover, footer a:active, footer a:focus {
 }
 
 .legend_info {
-    border-style: solid;
-    border-width: thin;
     height: 3rem;
     padding: 6px 8px;
     font: 14px Arial, Helvetica, sans-serif;
@@ -12372,6 +12370,27 @@ footer a:hover, footer a:active, footer a:focus {
     /*border-radius: 5px;*/
     line-height: 20px;
     color: #555;
+}
+
+/*@media only screen and (max-width: 1000px) {*/
+/*.legend{*/
+/*    top:15dvh;*/
+/*}*/
+/*}*/
+
+.legend_h {
+    visibility: hidden;
+    display: block;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .legend_info {
+        display: none;
+    }
+    .legend_h{
+        visibility: visible;
+    }
 }
 
 
@@ -12384,8 +12403,8 @@ footer a:hover, footer a:active, footer a:focus {
     /*border-width: thin;*/
     line-height: 26px;
     color: #555;
-    top: 12dvh;
 }
+
 
 .legend h4 {
     text-align: center;
@@ -13012,7 +13031,7 @@ ul#move li:nth-child(5) {
     color: black;
 
     position: absolute;
-    top:-140%;
+    top: -140%;
     left: -25%;
 
 
@@ -13022,7 +13041,7 @@ ul#move li:nth-child(5) {
     transform: translateY(9px);
     transition: all 0.3s ease-in-out;
 
-    box-shadow: 0 0 3px  rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
 }
 
 
@@ -13040,7 +13059,7 @@ ul#move li:nth-child(5) {
 
 }
 
-.con-tool:hover .tool{
+.con-tool:hover .tool {
     visibility: visible;
     transform: translateY(-10px);
     opacity: 1;
@@ -13049,47 +13068,200 @@ ul#move li:nth-child(5) {
 
 
 /*hover ToolTip*/
-.left:hover {transform: translateX(-6px); }
-.top:hover {transform: translateY(-6px);  }
-.bottom:hover {transform: translateY(6px);}
+.left:hover {
+    transform: translateX(-6px);
+}
 
+.top:hover {
+    transform: translateY(-6px);
+}
 
+.bottom:hover {
+    transform: translateY(6px);
+}
 
 
 /*left*/
 
-.left .tool{ top:-20%; left:-170%; }
+.left .tool {
+    top: -20%;
+    left: -170%;
+}
 
-.left .tool::after{
-    top:40%;
-    left:90%;
+.left .tool::after {
+    top: 40%;
+    left: 90%;
     transform: rotate(-90deg);
 }
 
 
-
-
 /*bottom*/
 
-.bottom .tool { top:115%; left:-20%; }
+.bottom .tool {
+    top: 115%;
+    left: -20%;
+}
 
-.bottom .tool::after{
-    top:-17%;
-    left:40%;
+.bottom .tool::after {
+    top: -17%;
+    left: 40%;
     transform: rotate(180deg);
 }
 
 
-
 /*right*/
 
-.right .tool { top:-20%; left:115%; }
+.right .tool {
+    top: -20%;
+    left: 115%;
+}
 
-.right .tool::after{
-    top:40%;
-    left:-12%;
+.right .tool::after {
+    top: 40%;
+    left: -12%;
     transform: rotate(90deg);
 }
 
+.btn-circle-download {
+    position: relative;
+    height: 48px;
+    width: 48px;
+    margin: auto;
+    border-radius: 100%;
+    background: #E8EAED;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
 
+.btn-circle-download:after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 200%;
+    height: 100%;
+    background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+    transform: translateX(-100%);
+}
+
+.btn-circle-download svg {
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.btn-circle-download svg#border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    stroke: none;
+    stroke-dasharray: 144;
+    stroke-dashoffset: 144;
+    transition: all 0.9s linear;
+}
+
+.btn-circle-download svg#arrow {
+    position: absolute;
+    top: 14px;
+    left: 17px;
+    stroke: #9098A9;
+    transition: all 0.2s ease;
+}
+
+.btn-circle-download svg#check {
+    position: absolute;
+    top: 17px;
+    left: 13px;
+    stroke: white;
+    transform: scale(0);
+}
+
+.btn-circle-download:hover {
+    background: rgba(92, 170, 50, 0.2);
+}
+
+.btn-circle-download:hover #arrow path,
+.btn-circle-download:hover #arrow polyline {
+    stroke: #5caa32;
+}
+
+.btn-circle-download.load {
+    background: rgba(92, 170, 50, 0.2);
+}
+
+.btn-circle-download.load #arrow path,
+.btn-circle-download.load #arrow polyline {
+    stroke: #5caa32;
+}
+
+.btn-circle-download.load #border {
+    stroke: #5caa32;
+    stroke-dasharray: 144;
+    stroke-dashoffset: 0;
+}
+
+.btn-circle-download.done {
+    background: #5caa32;
+    animation: rubberBand 0.8s;
+}
+
+.btn-circle-download.done:after {
+    transform: translateX(50%);
+    transition: transform 0.4s ease;
+    transition-delay: 0.7s;
+}
+
+.btn-circle-download.done #border,
+.btn-circle-download.done #arrow {
+    display: none;
+}
+
+.btn-circle-download.done #check {
+    transform: scale(1);
+    transition: all 0.2s ease;
+    transition-delay: 0.2s;
+}
+
+@keyframes rubberBand {
+    from {
+        transform: scale(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.15, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.15, 1);
+    }
+    50% {
+        transform: scale3d(1.1, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.credit {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.2s ease;
+    -webkit-user-select: none;
+    user-select: none;
+    opacity: 0.6;
+}
+
+.credit img {
+    width: 72px;
+}
+
+.credit:hover {
+    transform: scale(0.95);
+}
 

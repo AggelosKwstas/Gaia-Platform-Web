@@ -8,6 +8,7 @@ use yii\helpers\Url;
 $this->title = 'GAIA V2';
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
 $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) . "'", \yii\web\View::POS_BEGIN);
+
 ?>
 
 <header>
@@ -51,7 +52,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
             </div>
             <div class="col-12 col-lg-7">
                 <div class="item" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="asset/whatMeasure1.jpg" class="img-fluid" style="padding-left:4rem;width: 1500px;  pointer-events: none" alt="">
+                    <img src="asset/whatMeasure1.jpg" class="img-fluid" style="width: 1500px;  pointer-events: none" alt="">
                 </div>
             </div>
 
@@ -111,64 +112,24 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
             <p class="lead fw-normal text-muted mb-5 mb-lg-0">You can now download Gaia Platform version 1.0 for
                 Windows.</p>
         </div>
+        <div class="btn-circle-download mt-4">
+            <svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
+                <path d="M24,15 L24,32"></path>
+                <polyline points="30 27 24 33 18 27"></polyline>
+            </svg>
+            <svg id="check" width="21px" height="15px" viewBox="13 17 21 15">
+                <polyline points="32.5 18.5 20 31 14.5 25.5"></polyline>
+            </svg>
+            <svg  id="border" width="48px" height="48px" viewBox="0 0 48 48">
+                <path d="M24,1 L24,1 L24,1 C36.7025492,1 47,11.2974508 47,24 L47,24 L47,24 C47,36.7025492 36.7025492,47 24,47 L24,47 L24,47 C11.2974508,47 1,36.7025492 1,24 L1,24 L1,24 C1,11.2974508 11.2974508,1 24,1 L24,1 Z"></path>
+            </svg>
+        </div>
 
-        <button type="button" class="icon" onclick="downloadGaia()" title="Download GAIA">
-            <div class="cloud">
-                <div class="puff puff-1"></div>
-                <div class="puff puff-2"></div>
-                <div class="puff puff-3"></div>
-                <div class="puff puff-4"></div>
-                <div class="puff puff-5"></div>
-                <div class="puff puff-6"></div>
-                <div class="puff puff-7"></div>
-                <div class="puff puff-8"></div>
-                <div class="puff puff-9"></div>
-                <div class="puff puff-10"></div>
-                <div class="cloud-core"></div>
-                <div class="check"></div>
-                <div class="arrow">
-                    <div class="arrow-stem">
-                        <div class="arrow-l-tip"></div>
-                        <div class="arrow-r-tip"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="preload">
-                <div class="drop drop-1"></div>
-                <div class="drop drop-2"></div>
-                <div class="drop drop-3"></div>
-            </div>
-
-            <!-- <div class="progress"></div> -->
-        </button>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                this.querySelector(".icon").addEventListener("click", function () {
-                    let waitClass = "waiting",
-                        runClass = "running",
-                        cl = this.classList;
-
-                    if (!cl.contains(waitClass) && !cl.contains(runClass)) {
-                        cl.add(waitClass);
-                        setTimeout(function () {
-                            cl.remove(waitClass);
-                            setTimeout(function () {
-                                cl.add(runClass);
-                                setTimeout(function () {
-                                    cl.remove(runClass);
-                                }, 4000);
-                            }, 200);
-                        }, 1800);
-                    }
-                });
-            });
-
-        </script>
 
     </div>
 </section>
 
-
+<h4 class="legend_h">Case Study - Urban Air Quality</h4>
 <section class="cta">
     <div id="map_element"></div>
 

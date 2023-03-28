@@ -3,6 +3,15 @@ function toFixed(num, fixed) {
     return num.toString().match(re)[0];
 }
 
+let url = window.location.href;
+
+url = url.substring(url.lastIndexOf('8') + 1);
+
+if (url === locationMap) {
+    let element = document.getElementById("mainNav");
+    element.classList.remove("fixed-top");
+}
+
 (function () {
     window.onpageshow = function (event) {
         if (event.persisted) {
@@ -70,7 +79,8 @@ marker3 = L.marker([39.6216, 20.8596], {icon: greyIcon}).addTo(map2);
 
 marker3.bindPopup(`
 <div style="display: block;text-align: center">
-<h6>UOI - Air Monitor</h6>
+<h6>UOI <br>
+ Air Monitor</h6>
   <hr class="dotted">
  <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png"><br>
@@ -90,7 +100,8 @@ marker4 = L.marker([39.7147, 20.7572], {icon: greenIcon}).addTo(map2);
 
 marker4.bindPopup(`
 <div style="display: block;text-align: center">
-<h6>Γαρδίκι - Air Monitor</h6>
+<h6>Γαρδίκι <br>
+ Air Monitor</h6>
   <hr class="dotted">
  <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
@@ -101,7 +112,7 @@ marker4.bindPopup(`
  <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${gardiki_object['visibility']} m<br>
  <button onclick="Redirect()" class="button_station button4"><b>View station</b></button><br>
-<div id="gardikiLoader" class="lds-roller" style="display: none;padding-left: 40px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+<div id="gardikiLoader" class="lds-roller" style="display: none;padding-left: 27px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 
@@ -110,7 +121,8 @@ marker5 = L.marker([39.7027, 20.8122], {icon: greenIcon}).addTo(map2);
 
 marker5.bindPopup(`
 <div style="display: block;text-align: center">
-<h6>Άγιος Ιωάννης - Air Monitor</h6>
+<h6>Άγιος Ιωάννης <br>
+ Air Monitor</h6>
   <hr class="dotted">
  <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
@@ -128,10 +140,9 @@ marker5.bindPopup(`
 marker6 = L.marker([39.7066, 20.7926], {icon: greenIcon}).addTo(map2);
 
 marker6.bindPopup(`
-<div style="position: relative;display: inline-block">
-<h6>Location:</h6><i class="fa fa-location-dot pull-left"></i>
-</div>
 <div style="display: block;text-align: center">
+<h6>Ελεούσα <br>
+Air Monitor</h6>
   <hr class="dotted">
  <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${eleousa_object['weather'][0]['icon']}.png"><br>
@@ -206,7 +217,7 @@ function grayButton() {
 
 legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += " <div class='con-tool right'>  <h4 style='color: black;padding-left: 0.5rem;cursor:help'>Air Quality</h4><div class='tool'><span><em>Filter the staions by clicking on the color codes.</em></span></div> </div><br>" +
+    div.innerHTML += " <div class='con-tool right'>  <h4 style='color: black;padding-left: 0.5rem;cursor:help;'>Air Quality</h4><div class='tool'><span style='font-family: Georgia, serif;'><em>Filter the staions by clicking on the color codes.</em></span></div> </div><br>" +
         '<i class="circle_dot" id="greenFilter" style="background: #01fb0a;cursor: pointer" onclick="greenButton()"></i><span><b>Good</b></span><br>' +
         '<i class="circle_dot" id="yellowFilter" style="background: #ffeb00;cursor: pointer" onclick="yellowButton()"></i><span><b>Fair</b></span><br>' +
         '<i class="circle_dot" id="redFilter" style="background: #ff0032;cursor: pointer" onclick="redButton()"></i><span><b>Bad</b></span><br>' +

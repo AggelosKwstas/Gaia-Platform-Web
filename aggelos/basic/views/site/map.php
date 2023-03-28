@@ -11,9 +11,10 @@ $this->registerJs("let gardiki_object=".json_encode($content_gardiki), \yii\web\
 $this->registerJs("let ioannis_object=".json_encode($content_ioannis), \yii\web\View::POS_BEGIN);
 $this->registerJs("let eleousa_object=".json_encode($content_eleousa), \yii\web\View::POS_BEGIN);
 $this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\web\View::POS_BEGIN);
+$this->registerJs("let locationMap='" .  Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
 ?>
 <div>
-<section id="map_cta" class="cta">
+<section id="map_cta" class="cta" >
     <div class="map-wrapper">
     <div id="map_full"></div>
     </div>
