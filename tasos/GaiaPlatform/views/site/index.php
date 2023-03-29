@@ -15,7 +15,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
     <!--    style="height:90vh!important;"-->
     <div class="container-zoom" >
         <div class="item-zoom">
-            <img src="asset/img.png">
+            <img src="asset/libe.png">
 
         </div>
         <div class="centered" style="color: white; padding-right: 28%">
@@ -146,7 +146,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                 Windows.</p>
         </div>
 
-        <button type="button" class="icon" onclick="downloadGaia()">
+        <button type="button" class="icon" onclick="downloadGaia()" title="Download GAIA">
             <div class="cloud">
                 <div class="puff puff-1"></div>
                 <div class="puff puff-2"></div>

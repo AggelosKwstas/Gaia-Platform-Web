@@ -12021,3 +12021,6 @@ footer a:hover, footer a:active, footer a:focus {
     height: 100%;
 }
 
+.containerFooter{
+    width: 500px;
+}

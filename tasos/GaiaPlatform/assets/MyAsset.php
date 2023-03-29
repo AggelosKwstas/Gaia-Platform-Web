@@ -23,7 +23,7 @@ class MyAsset extends AssetBundle
 
     public $css = [
         'theme/font-awesome/css/all.css',
-        'css/style.css',
+        'css/login.css',
         'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
         'https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap',
         'https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap',
