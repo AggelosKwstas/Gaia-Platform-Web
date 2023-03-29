@@ -70,9 +70,24 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
     <footer class="text-center py-1" style="background-color: #1b1b1b">
         <div class="container px-5">
             <div class="text-white-50 small mt-2">
-                <div class="mb-2">&copy; Neuron Energy Solutions 2023. All Rights Reserved.</div>
-                <a href="https://www.neuronenergy.com/"><img class="footer_logo" style="height: 60px;"
-                                                             src="asset/logoNE.png" title="Neuron Energy Solutions" alt=""></a>
+                <a href="https://www.neuronenergy.com/" target="_blank"><img class="footer_logo" style="height: 60px;"
+                                                                             src="asset/logoNE.png" title="Neuron Energy Solutions" alt=""></a>
+                <div class="mb-2" style="font-size: 12px">© 2023 | Neuron Energy Solutions. All rights reserved.</div>
+                <div class="it-icons">
+                    <a style="text-decoration: none" target="_blank" href="https://twitter.com/SolarEye_PV">
+                        <i class="fa-brands fa-twitter"></i>&nbsp;&nbsp;
+                    </a>
+                    <a style="text-decoration: none" target="_blank" href="https://www.linkedin.com/company/neuron-energy-solutions/">
+                        <i class="fa-brands fa-linkedin-in"></i>&nbsp;&nbsp;
+                    </a>
+                    <a style="text-decoration: none" target="_blank" href="https://www.facebook.com/profile.php?id=100051469122856">
+                        <i class="fa-brands fa-facebook"></i>&nbsp;&nbsp;
+                    </a>
+
+                    <a style="text-decoration: none" target="_blank" href="https://gr.pinterest.com/solareye/">
+                        <i class="fa-brands fa-pinterest"></i>&nbsp;&nbsp;
+                    </a>
+                </div>
     </footer>
     <?php $this->endBody() ?>
     </body>

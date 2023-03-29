@@ -13329,3 +13329,13 @@ ul#move li:nth-child(5) {
         height:1300px;
     }
 }
+
+.it-icons a {
+    font-size: 1.5rem;
+    display: inline-block;
+    transform: scale(1);
+    transition: all ease .3s;
+}
+.it-icons a:hover{
+    transform: scale(1.2);
+}
