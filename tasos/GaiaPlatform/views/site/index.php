@@ -13,7 +13,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 
 <header>
     <!--    style="height:90vh!important;"-->
-    <div class="container-zoom" >
+    <div class="container-zoom">
         <div class="item-zoom">
             <img src="asset/libe.png">
 
@@ -53,7 +53,8 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
             </div>
             <div class="col-12 col-lg-7">
                 <div class="item" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="asset/whatMeasure1.jpg" class="img-fluid" style="width: 1500px;  pointer-events: none" alt="">
+                    <img src="asset/whatMeasure1.jpg" class="img-fluid" style="width: 1500px;  pointer-events: none"
+                         alt="">
                 </div>
             </div>
 
@@ -108,7 +109,8 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                 </div>
                 <div class="item" data-aos="fade-right" data-aos-duration="1000">
                     <p>
-                        WiFi and 3G/GPRS radios can be used in order to send the sensor data directly to the Internet without using an intermediate gateway.
+                        WiFi and 3G/GPRS radios can be used in order to send the sensor data directly to the Internet
+                        without using an intermediate gateway.
                     </p>
                 </div>
             </div>
@@ -118,7 +120,8 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                 </div>
                 <div class="item" data-aos="fade-up" data-aos-duration="1000">
                     <p>
-                        3G+GPS and GPRS+GPS modules allow the implementation of realtime tracking applications in an easy way.
+                        3G+GPS and GPRS+GPS modules allow the implementation of realtime tracking applications in an
+                        easy way.
                     </p>
                 </div>
             </div>
@@ -128,7 +131,8 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                 </div>
                 <div class="item" data-aos="fade-left" data-aos-duration="1000">
                     <p>
-                        Connect any sensor the GAIA platform and deploy Internet of Things (IoT), machine-to-machine (M2M) or Smart Cities projects with minimum time to market.
+                        Connect any sensor the GAIA platform and deploy Internet of Things (IoT), machine-to-machine
+                        (M2M) or Smart Cities projects with minimum time to market.
                     </p>
                 </div>
             </div>

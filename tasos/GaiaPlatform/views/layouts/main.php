@@ -76,17 +76,17 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 <div class="it-icons">
                     <br>
                     <p>Follow us on:</p>
-                    <a style="text-decoration: none" target="_blank" title="Linked-in" href="https://www.linkedin.com/company/neuron-energy-solutions/">
-                        <i class="fa-brands fa-linkedin-in"></i>&nbsp;&nbsp;
+                    <a style="text-decoration: none" target="_blank" title="LinkedIn" href="https://www.linkedin.com/company/neuron-energy-solutions/">
+                        <i class="fa-brands fa-linkedin"></i>&nbsp;&nbsp;
                     </a>
                     <a style="text-decoration: none" target="_blank" title="Facebook" href="https://www.facebook.com/profile.php?id=100068977243761">
-                        <i class="fa-brands fa-facebook"></i>&nbsp;&nbsp;
+                        <i class="fa-brands fa-square-facebook"></i>&nbsp;&nbsp;
                     </a>
                     <a style="text-decoration: none" title="Tiwtter" target="_blank" href="https://twitter.com/SolarEye_PV">
-                        <i class="fa-brands fa-twitter"></i>&nbsp;&nbsp;
+                        <i class="fa-brands fa-square-twitter"></i>&nbsp;&nbsp;
                     </a>
                     <a style="text-decoration: none" target="_blank" title="Pinterest" href="https://gr.pinterest.com/solareye/">
-                        <i class="fa-brands fa-pinterest"></i>&nbsp;&nbsp;
+                        <i class="fa-brands fa-square-pinterest"></i>
                     </a>
                 </div>
     </footer>
