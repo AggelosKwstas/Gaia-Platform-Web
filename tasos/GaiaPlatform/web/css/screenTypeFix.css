@@ -1,0 +1,38 @@
+@media only screen and (min-width: 300px) and (max-width: 550px){
+    .container-zoom {
+        width:100%;
+        height:500px;
+    }
+    .item-zoom img{
+        height:500px;
+    }
+}
+@media only screen and (min-width: 551px) and (max-width: 899px){
+    .container-zoom {
+        width:100%;
+        height:600px;
+    }
+    .item-zoom img{
+        height:800px;
+    }
+}
+@media only screen and (min-width: 900px) and (max-width: 2000px){
+    .container-zoom {
+        width:100%;
+        height:850px;
+    }
+    .item-zoom img{
+        height:900px;
+    }
+}
+
+@media only screen and (min-width: 2001px) {
+    .container-zoom {
+        width:100%;
+        height:900px;
+    }
+    .item-zoom img{
+
+        height:1300px;
+    }
+}

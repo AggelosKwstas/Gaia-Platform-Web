@@ -31,6 +31,7 @@ class AppAsset extends AssetBundle
         'css/styles.css',
         'css/cloud.css',
         'css/downloadButton.css',
+        'screenTypeFix.css',
         'https://unpkg.com/aos@2.3.1/dist/aos.css'
     ];
 
