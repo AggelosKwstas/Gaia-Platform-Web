@@ -11,12 +11,6 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<section class="contact-layout">
-
-</section>
-
-
-
 
 <section class="contact-layout">
     <div class="container" style="text-align: center">
