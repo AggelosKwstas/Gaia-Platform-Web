@@ -11,7 +11,15 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
+<section class="contact-layout">
+
+</section>
+
+
+
+
+<section class="contact-layout">
+    <div class="container" style="text-align: center">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
@@ -37,15 +45,27 @@ $this->params['breadcrumbs'][] = $this->title;
             If you have business inquiries or other questions, please fill out the following form to contact us.
             Thank you.
         </p>
-
+        <div class="login-wrap p-4 p-md-5">
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col ">
 
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
-                    <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+                    <?= $form->field($model, 'name', [
+                        'inputOptions' => [
+                            'class' => 'form-control form-control-user',
+                            'placeholder' => 'Enter your full name'
 
-                    <?= $form->field($model, 'email') ?>
+                        ]
+                    ])->textInput(['autofocus' => true]) ?>
+
+                    <?= $form->field($model, 'email',
+                        [
+                            'inputOptions' => [
+                                'class' => 'form-control form-control-user',
+                                'placeholder' => 'Enter your email'
+                            ]
+                        ]) ?>
 
                     <?= $form->field($model, 'subject') ?>
 
@@ -61,8 +81,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php ActiveForm::end(); ?>
 
-            </div>
+<!--            </div>-->
         </div>
-
+        </div>
     <?php endif; ?>
 </div>
+</section>
