@@ -74,7 +74,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                                                                              src="asset/logoNE.png" title="Neuron Energy Solutions" alt=""></a>
                 <div class="mb-2" style="font-size: 12px">© 2023 | Neuron Energy Solutions. All rights reserved.</div>
                 <div class="it-icons">
-                    <br>
                     <p>Follow us on:</p>
                     <a style="text-decoration: none" target="_blank" title="LinkedIn" href="https://www.linkedin.com/company/neuron-energy-solutions/">
                         <i class="fa-brands fa-linkedin"></i>&nbsp;&nbsp;

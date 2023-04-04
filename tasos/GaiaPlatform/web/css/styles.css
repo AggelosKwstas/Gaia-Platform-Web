@@ -11649,7 +11649,7 @@ section {
     color: #6c757d;
 }
 
-.footer_logo:hover, footer_logo:active {
+.footer_logo:hover, .footer_logo:active {
     -webkit-filter: brightness(1.2) !important;
     color: #6c757d;
 }
