@@ -11,7 +11,10 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
+
+<section class="contact-layout">
+    <div class="container" style="text-align: center">
+
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
@@ -37,21 +40,50 @@ $this->params['breadcrumbs'][] = $this->title;
             If you have business inquiries or other questions, please fill out the following form to contact us.
             Thank you.
         </p>
-
+        <div class="login-wrap p-4 p-md-5">
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col ">
 
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
-                    <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+                    <?= $form->field($model, 'name', [
+                        'inputOptions' => [
+                            'class' => 'form-control form-control-user radius-contact',
+                            'placeholder' => 'Enter your full name'
 
-                    <?= $form->field($model, 'email') ?>
+                        ]
+                    ])->textInput(['autofocus' => true]) ?>
 
-                    <?= $form->field($model, 'subject') ?>
+                    <?= $form->field($model, 'email',
+                        [
+                            'inputOptions' => [
+                                'class' => 'form-control form-control-user radius-contact',
+                                'placeholder' => 'Enter your email'
+                            ]
+                        ]) ?>
 
-                    <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
+                    <?= $form->field($model, 'subject',
+                        [
+                            'inputOptions' => [
+                                'class' => 'form-control form-control-user radius-contact',
+                                'placeholder' => 'Enter subject name'
+                            ]
+                        ]) ?>
 
-                    <?= $form->field($model, 'verifyCode')->widget(Captcha::class, [
+                    <?= $form->field($model, 'body',
+                        [
+                            'inputOptions' => [
+                                'class' => 'form-control form-control-user radius-contact',
+                                'placeholder' => 'Enter your comment'
+                            ]
+                        ])->textarea(['rows' => 6]) ?>
+
+                    <?= $form->field($model, 'verifyCode',[
+                        'inputOptions' => [
+                            'class' => 'form-control form-control-user radius-contact',
+                            'placeholder' => 'Prove you are not a robot'
+                        ]
+                    ])->widget(Captcha::class, [
                         'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
                     ]) ?>
 
@@ -61,8 +93,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php ActiveForm::end(); ?>
 
-            </div>
+<!--            </div>-->
         </div>
-
+        </div>
     <?php endif; ?>
 </div>
+</section>
+

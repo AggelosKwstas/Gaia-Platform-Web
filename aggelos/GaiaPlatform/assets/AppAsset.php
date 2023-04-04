@@ -30,7 +30,12 @@ class AppAsset extends AssetBundle
         'https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap',
         'css/styles.css',
         'css/cloud.css',
-        'css/downloadButton.css',
+        'css/screenTypeFix.css',
+        'css/popupLoader.css',
+        'css/tooltip.css',
+        'css/modal.css',
+        'css/mapElements.css',
+        'css/contactUs.css',
         'https://unpkg.com/aos@2.3.1/dist/aos.css'
     ];
 
