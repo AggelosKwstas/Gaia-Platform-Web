@@ -51,9 +51,17 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-0 my-3 my-lg-0">
-                    <li class="nav-item"><a class="nav-link me-lg-3"
-                                            href="<?php echo \yii\helpers\Url::to(['site/map']) ?>"><b>Stations
-                                Overview</b></a></li>
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3"
+                           href="<?php echo \yii\helpers\Url::to(['site/map']) ?>">
+                            <b>Stations Overview</b></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3"
+                           href="<?php echo \yii\helpers\Url::to(['site/contact']) ?>">
+                            <b>Contact Us</b></a>
+                    </li>
                 </ul>
                 <button class="btn btn-primary  px-3 mb-2 mb-lg-0"
                         onclick="location.href='<?php echo \yii\helpers\Url::to(['site/login']) ?>'">
