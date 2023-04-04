@@ -81,9 +81,9 @@ marker3 = L.marker([39.6216, 20.8596], {icon: greyIcon}).addTo(map2);
 
 marker3.bindPopup(`
 <div style="display: block;text-align: center">
-<h6>UOI <br>
- Air Monitor</h6>
+<h6 style="font-size: 18px"><i class="fa-solid fa-location-dot"></i> UOI</h6>
   <hr class="dotted">
+ <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png"><br>
  <b><u>Forecast stats</u></b><br>
@@ -102,9 +102,9 @@ marker4 = L.marker([39.7147, 20.7572], {icon: greenIcon}).addTo(map2);
 
 marker4.bindPopup(`
 <div style="display: block;text-align: center">
-<h6>Γαρδίκι <br>
- Air Monitor</h6>
+<h6 style="font-size: 18px"><i class="fa-solid fa-location-dot"></i> Γαρδίκι</h6>
   <hr class="dotted">
+ <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
  <b><u>Forecast stats</u></b><br>
@@ -123,9 +123,9 @@ marker5 = L.marker([39.7027, 20.8122], {icon: greenIcon}).addTo(map2);
 
 marker5.bindPopup(`
 <div style="display: block;text-align: center">
-<h6>Άγιος Ιωάννης <br>
- Air Monitor</h6>
+<h6 style="font-size: 18px"><i class="fa-solid fa-location-dot"></i> Άγιος Ιωάννης</h6>
   <hr class="dotted">
+ <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
  <b><u>Forecast stats</u></b><br>
@@ -135,7 +135,7 @@ marker5.bindPopup(`
  <b>Pressure: </b>${ioannis_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${ioannis_object['visibility']} m<br>
   <button onclick="document.getElementById('ioannisLoader').style.display='block'" class="button_station button4"><b>View station</b></button><br>
-<div id="ioannisLoader" class="lds-roller" style="display: none;padding-left: 65px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+<div id="ioannisLoader" class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 
@@ -143,9 +143,9 @@ marker6 = L.marker([39.7066, 20.7926], {icon: greenIcon}).addTo(map2);
 
 marker6.bindPopup(`
 <div style="display: block;text-align: center">
-<h6>Ελεούσα <br>
-Air Monitor</h6>
+<h6 style="font-size: 18px"><i class="fa-solid fa-location-dot"></i> Ελεούσα</h6>
   <hr class="dotted">
+ <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${eleousa_object['weather'][0]['icon']}.png"><br>
  <b><u>Forecast stats</u></b><br>
@@ -155,7 +155,7 @@ Air Monitor</h6>
  <b>Pressure: </b>${eleousa_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${eleousa_object['visibility']} m<br>
   <button onclick="document.getElementById('eleousaLoader').style.display='block'" class="button_station button4"><b>View station</b></button><br>
-<div id="eleousaLoader" class="lds-roller" style="display: none;padding-left: 40px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+<div id="eleousaLoader" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 
