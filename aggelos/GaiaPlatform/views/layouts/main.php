@@ -51,9 +51,17 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-0 my-3 my-lg-0">
-                    <li class="nav-item"><a class="nav-link me-lg-3"
-                                            href="<?php echo \yii\helpers\Url::to(['site/map']) ?>"><b>Stations
-                                Overview</b></a></li>
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3"
+                           href="<?php echo \yii\helpers\Url::to(['site/map']) ?>">
+                            <b>Stations Overview</b></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3"
+                           href="<?php echo \yii\helpers\Url::to(['site/contact']) ?>">
+                            <b>Contact Us</b></a>
+                    </li>
                 </ul>
                 <button class="btn btn-primary  px-3 mb-2 mb-lg-0"
                         onclick="location.href='<?php echo \yii\helpers\Url::to(['site/login']) ?>'">
@@ -74,18 +82,18 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                                                                              src="asset/logoNE.png" title="Neuron Energy Solutions" alt=""></a>
                 <div class="mb-2" style="font-size: 12px">© 2023 | Neuron Energy Solutions. All rights reserved.</div>
                 <div class="it-icons">
+                    <p>Follow us on:</p>
+                    <a style="text-decoration: none" target="_blank" title="LinkedIn" href="https://www.linkedin.com/company/neuron-energy-solutions/">
+                        <i class="fa-brands fa-linkedin"></i>&nbsp;&nbsp;
+                    </a>
+                    <a style="text-decoration: none" target="_blank" title="Facebook" href="https://www.facebook.com/profile.php?id=100068977243761">
+                        <i class="fa-brands fa-square-facebook"></i>&nbsp;&nbsp;
+                    </a>
                     <a style="text-decoration: none" title="Tiwtter" target="_blank" href="https://twitter.com/SolarEye_PV">
-                        <i class="fa-brands fa-twitter"></i>&nbsp;&nbsp;
+                        <i class="fa-brands fa-square-twitter"></i>&nbsp;&nbsp;
                     </a>
-                    <a style="text-decoration: none" target="_blank" title="Linked-in" href="https://www.linkedin.com/company/neuron-energy-solutions/">
-                        <i class="fa-brands fa-linkedin-in"></i>&nbsp;&nbsp;
-                    </a>
-                    <a style="text-decoration: none" target="_blank" title="Facebook" href="https://www.facebook.com/profile.php?id=100051469122856">
-                        <i class="fa-brands fa-facebook"></i>&nbsp;&nbsp;
-                    </a>
-
                     <a style="text-decoration: none" target="_blank" title="Pinterest" href="https://gr.pinterest.com/solareye/">
-                        <i class="fa-brands fa-pinterest"></i>&nbsp;&nbsp;
+                        <i class="fa-brands fa-square-pinterest"></i>
                     </a>
                 </div>
     </footer>
