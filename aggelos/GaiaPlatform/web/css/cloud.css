@@ -8,8 +8,11 @@ body {
 }
 .icon:hover{
     -webkit-filter: brightness(1.1) !important;
+    transform: scale(1.2);
 }
 .icon {
+    transform: scale(1.1);
+    transition: all ease .3s;
     background-color: transparent;
     border: 0;
     color: #92c478;

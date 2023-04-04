@@ -1,17 +1,22 @@
-/*!
-* Start Bootstrap - New Age v6.0.6 (https://startbootstrap.com/theme/new-age)
-* Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-new-age/blob/master/LICENSE)
-*/
-//
-// Scripts
-//
-function downloadGaia(){
+/* Download GAIA Desktop logic */
+function downloadGaia() {
     setTimeout(function () {
-        location.href=downloadUrl;
+        location.href = downloadUrl;
     }, 2750);
 }
 
+$(".btn-circle-download").click(function () {
+    $(this).addClass("load");
+    setTimeout(function () {
+        $(".btn-circle-download").addClass("done");
+        downloadGaia();
+    }, 1000);
+    setTimeout(function () {
+        $(".btn-circle-download").removeClass("load done");
+    }, 5000);
+});
+
+/* Config map elements */
 let config1 = {
     minZoom: 7,
     maxZoom: 18,
@@ -19,10 +24,8 @@ let config1 = {
 };
 
 const zoom = 11;
-
 const lat = 39.6935;
 const lng = 20.8465;
-
 
 map = L.map("map_element", config1).setView([lat, lng], zoom);
 
@@ -57,8 +60,6 @@ map.attributionControl.setPrefix();
 legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "legend_info");
     div.innerHTML += "<div class='three'><h1>Case Study - Urban Air Quality</h1></div>";
-
-
     return div;
 };
 
@@ -76,15 +77,4 @@ legend.getContainer().addEventListener('mouseover', function () {
 
 legend.getContainer().addEventListener('mouseout', function () {
     map.dragging.enable();
-});
-
-$(".btn-circle-download").click(function() {
-    $(this).addClass("load");
-    setTimeout(function() {
-        $(".btn-circle-download").addClass("done");
-        downloadGaia();
-    }, 1000);
-    setTimeout(function() {
-        $(".btn-circle-download").removeClass("load done");
-    }, 5000);
 });

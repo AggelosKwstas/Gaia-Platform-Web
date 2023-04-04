@@ -12025,9 +12025,27 @@ footer a:hover, footer a:active, footer a:focus {
 .it-icons a {
     font-size: 1.5rem;
     display: inline-block;
-    transform: scale(1);
+    transform: scale(1.05);
     transition: all ease .3s;
 }
-.it-icons a:hover{
-    transform: scale(1.2);
+
+.fa-linkedin-in:hover{
+    transform: scale(1.1);
+    color:#0A66C2 !important;
 }
+
+.fa-facebook-f:hover{
+    transform: scale(1.1);
+    color:#4267B2!important;
+}
+
+.fa-twitter:hover{
+    transform: scale(1.1);
+    color:#0072b1!important;
+}
+
+.fa-pinterest-p:hover{
+    transform: scale(1.1);
+    color:#e60023!important;
+}
+
