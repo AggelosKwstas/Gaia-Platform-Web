@@ -12,7 +12,6 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 ?>
 
 <header>
-    <!--    style="height:90vh!important;"-->
     <div class="container-zoom">
         <div class="item-zoom">
             <img src="asset/libe.png">

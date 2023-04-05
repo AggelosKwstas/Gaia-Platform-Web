@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=gaia',
+    'dsn' => 'mysql:host=localhost;dbname=gaiaUpdated',
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8',

@@ -4,9 +4,9 @@
 
 /** @var string $content */
 
-use app\assets\MyAsset;
+use app\assets\BackendAsset;
 
-MyAsset::register($this);
+BackendAsset::register($this);
 //$this->registerCsrfMetaTags();
 
 $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');

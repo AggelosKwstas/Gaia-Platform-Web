@@ -14,6 +14,7 @@ $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, 
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset/logGlobe.png']);
+
 ?>
 <?php $this->beginPage() ?>
 
@@ -64,7 +65,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                     </li>
                 </ul>
                 <button class="btn btn-primary  px-3 mb-2 mb-lg-0"
-                        onclick="location.href='<?php echo \yii\helpers\Url::to(['site/login']) ?>'">
+                        onclick="location.href='<?php echo \yii\helpers\Url::to(['backend/login']) ?>'">
                         <span class="d-flex align-items-center"><i style="display: block;text-align: left"
                                                                    class="fa-solid fa-right-to-bracket"></i>&nbsp;<span
                                     class="small">Login</span>
