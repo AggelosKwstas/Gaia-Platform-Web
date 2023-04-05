@@ -36,6 +36,11 @@ function Redirect(id) {
 
     if (found === false) {
         document.getElementById(id).style.display = 'block';
+
+        map2._handlers.forEach(function (handler) {
+            handler.disable();
+        });
+
         setTimeout(() => {
             window.location.href = locationGraphs;
         }, 1500);

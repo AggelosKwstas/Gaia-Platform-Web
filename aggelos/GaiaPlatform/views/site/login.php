@@ -3,52 +3,53 @@
 /** @var yii\web\View $this */
 /** @var yii\bootstrap5\ActiveForm $form */
 
-/** @var app\models\LoginForm $model */
-
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
 $this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
+    <div class="col-7">
+        <div class="p-5">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4"><b>Welcome Back!</b></h1>
+            </div>
+            <hr>
+            <?php $form = ActiveForm::begin([
+                'id' => 'login-form',
+                'options' => ['class'=>'user']
+            ]); ?>
 
-<section class="ftco-section" style="z-index: 2">
-    <div class="row justify-content-center">
-        <div class="col-md-7 col-lg-4">
-            <div class="login-wrap p-4 p-md-5">
-                <div class="d-flex">
-                    <div class="w-100">
-                        <h3 style="padding-top: 2rem"><b>Login to Private Area</b></h3>
-                    </div>
-                    <div class="w-100">
-                        <p class="social-media d-flex justify-content-end">
-                            <img src="asset/logGlobe.png" style="width: 75px" alt="">
-                        </p>
-                    </div>
-                </div>
-                <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-                <div class="form-group">
-                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.37rem;color: white;height: 46px;left: 1px"><span
-                                class="fa fa-user"></span></div>
-                    <b style="color: black">
-                    <?= $form->field($model, 'username')->textInput() ?>
-                    </b>
-                </div>
-                <div class="form-group">
-                    <div class="icon d-flex align-items-center justify-content-center" style="top:2.35rem;color: white;height: 46px;left: 1px"><span
-                                class="fa fa-lock"></span></div>
-                    <b style="color: black">
-                    <?= $form->field($model, 'password')->passwordInput() ?>
-                    </b>
-                </div>
-                <div class="form-group">
-                    <div>
-                        <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                    </div>
-                </div>
-                <?php ActiveForm::end(); ?>
+            <?= $form->field($model, 'username',
+                [
+                    'inputOptions'=>[
+                        'class'=>'form-control form-control-user',
+                        'placeholder'=>'Enter Username'
+                    ]
+                ]
+            )->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'password',
+                [
+                    'inputOptions'=>[
+                        'class'=>'form-control form-control-user',
+                        'placeholder'=>'Enter Password'
+                    ]
+                ]
+            )->passwordInput() ?>
+            <?= $form->field($model, 'rememberMe',
+                [
+                    'inputOptions'=>[
+                        'class'=>''
+                    ]
+                ]
+            )->checkbox() ?>
+            <hr>
+            <div class="form-group">
+                <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-user btn-block', 'name' => 'login-button']) ?>
+            </div>
+            <?php ActiveForm::end()?>
+            <hr>
+            <div class="text-center">
+                <a class="small" href="<?php echo \yii\helpers\Url::to(['site/forgot-password'])?>">Forgot Password?</a>
             </div>
         </div>
     </div>
-</section>
-
