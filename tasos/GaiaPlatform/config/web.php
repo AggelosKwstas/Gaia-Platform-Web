@@ -29,6 +29,14 @@ $config = [
         'mailer' => [
             'class' => \yii\symfonymailer\Mailer::class,
             'viewPath' => '@app/mail',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'tasostest.smtp@gmail.com',
+                'password' => 'gveiyobgzomypgry',
+                'port' => '25',
+                'encryption' => 'tls',
+            ],
             // send all mails to a file by default.
             'useFileTransport' => true,
         ],
