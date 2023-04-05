@@ -26,19 +26,24 @@ function fToC(f) {
     return toFixed(f, 1);
 }
 
-function Redirect() {
-    document.getElementById('gardikiLoader').style.display = 'block';
-    setTimeout(() => {
-        window.location.href = locationGraphs;
-    }, 1500);
-}
+function Redirect(id) {
+    let found = false;
 
-function errorButton() {
-    document.getElementById('uoiDiv').style.display = 'block';
+    if (id === 'uoiDiv') {
+        document.getElementById('uoiDiv').style.display = 'block';
+        found = true;
+    }
+
+    if (found === false) {
+        document.getElementById(id).style.display = 'block';
+        setTimeout(() => {
+            window.location.href = locationGraphs;
+        }, 1500);
+    }
 }
 
 /* Filter Stations */
-greenPressed = false
+let greenPressed = false
 
 function greenButton() {
     if (!greenPressed) {
@@ -52,7 +57,7 @@ function greenButton() {
     }
 }
 
-yellowPressed = false
+let yellowPressed = false
 
 function yellowButton() {
     if (!yellowPressed) {
@@ -66,7 +71,7 @@ function yellowButton() {
     }
 }
 
-redPressed = false
+let redPressed = false
 
 function redButton() {
     if (!redPressed) {
@@ -80,7 +85,7 @@ function redButton() {
     }
 }
 
-grayPressed = false
+let grayPressed = false
 
 function grayButton() {
     if (!grayPressed) {
@@ -138,7 +143,7 @@ marker3 = L.marker([39.6216, 20.8596], {icon: greyIcon}).addTo(map2);
 
 marker3.bindPopup(`
 <div style="display: block;text-align: center">
-<h6><i class="fa fa-location-dot"></i>  UOI</h6>
+<h6><i class="fa fa-location-dot"></i>&nbsp;UOI</h6>
   <hr>
   <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
@@ -149,8 +154,7 @@ marker3.bindPopup(`
  <b>Humidity: </b>${uoi_object['main']['humidity']} %<br>
  <b>Pressure: </b>${uoi_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${uoi_object['visibility']} m<br>
- <button id="uoiButton" onclick="errorButton()" class="button_station button4"><b>View station</b></button>
-<!-- <b id="uoiText" style="display: none"><u>Station is currently unavailable!</u></b>-->
+ <button id="uoiButton" onclick="Redirect('uoiDiv')" class="button_station button4"><b>View station</b></button>
 <div id="uoiDiv" style="height: 65px;width: 150px;display: none" class="oaerror warning"><b>Station is currently unavailable!</b></div><br>
 </div>
 `);
@@ -159,7 +163,7 @@ marker4 = L.marker([39.7147, 20.7572], {icon: greenIcon}).addTo(map2);
 
 marker4.bindPopup(`
 <div style="display: block;text-align: center">
-<h6><i class="fa fa-location-dot"></i>  Γαρδίκι</h6>
+<h6><i class="fa fa-location-dot"></i>&nbsp;Γαρδίκι</h6>
   <hr>
     <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
@@ -170,8 +174,8 @@ marker4.bindPopup(`
  <b>Humidity: </b>${gardiki_object['main']['humidity']} %<br>
  <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${gardiki_object['visibility']} m<br>
- <button onclick="Redirect()" class="button_station button4"><b>View station</b></button><br>
-<div id="gardikiLoader" class="lds-roller" style="display: none;padding-left: 27px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+ <button onclick="Redirect('gardikiLoader')" class="button_station button4"><b>View station</b></button><br>
+<div id="gardikiLoader" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 
@@ -180,7 +184,7 @@ marker5 = L.marker([39.7027, 20.8122], {icon: greenIcon}).addTo(map2);
 
 marker5.bindPopup(`
 <div style="display: block;text-align: center">
- <h6><i class="fa fa-location-dot"></i>  Άγιος Ιωάννης</h6>
+ <h6><i class="fa fa-location-dot"></i>&nbsp;Άγιος Ιωάννης</h6>
   <hr class="dotted">
     <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
@@ -191,8 +195,8 @@ marker5.bindPopup(`
  <b>Humidity: </b>${ioannis_object['main']['humidity']} %<br>
  <b>Pressure: </b>${ioannis_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${ioannis_object['visibility']} m<br>
-  <button onclick="document.getElementById('ioannisLoader').style.display='block'" class="button_station button4"><b>View station</b></button><br>
-<div id="ioannisLoader" class="lds-roller" style="display: none;padding-left: 65px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  <button onclick="Redirect('ioannisLoader')" class="button_station button4"><b>View station</b></button><br>
+<div id="ioannisLoader" class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 
@@ -200,7 +204,7 @@ marker6 = L.marker([39.7066, 20.7926], {icon: greenIcon}).addTo(map2);
 
 marker6.bindPopup(`
 <div style="display: block;text-align: center">
- <h6><i class="fa fa-location-dot"></i>  Ελεούσα</h6>
+ <h6><i class="fa fa-location-dot"></i>&nbsp;Ελεούσα</h6>
   <hr class="dotted">
       <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
@@ -211,8 +215,8 @@ marker6.bindPopup(`
  <b>Humidity: </b>${eleousa_object['main']['humidity']} %<br>
  <b>Pressure: </b>${eleousa_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${eleousa_object['visibility']} m<br>
-  <button onclick="document.getElementById('eleousaLoader').style.display='block'" class="button_station button4"><b>View station</b></button><br>
-<div id="eleousaLoader" class="lds-roller" style="display: none;padding-left: 40px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+ <button onclick="Redirect('eleousaLoader')" class="button_station button4"><b>View station</b></button><br>
+<div id="eleousaLoader" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 

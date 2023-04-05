@@ -40,7 +40,6 @@ Icon = new LeafIcon({
     iconUrl: 'asset/stationGreen.png',
 })
 
-console.log('i am here');
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 20,
 }).addTo(map);
