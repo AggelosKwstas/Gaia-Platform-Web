@@ -33,15 +33,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
     <?php $this->beginBody() ?>
     <div id="wrapper">
 
-        <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #212121"  id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #212121" id="accordionSidebar">
 
-            <a class="sidebar-brand d-flex align-items-center justify-content-center inactiveLink" style="color: white!important;">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center inactiveLink"
+               style="color: white!important;">
                 <div class="sidebar-brand-text mx-3">GAIA Backend</div>
             </a>
 
-
             <hr class="sidebar-divider my-0">
-
 
             <li class="nav-item active">
                 <a class="nav-link" href="<?php
@@ -51,7 +50,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                     echo \yii\helpers\Url::to(['backend/index']);
                 ?>">
                     <i class="fa fa-house fa-lg"></i>
-                    <span>Dashboard</span></a>
+                    <span>Home</span></a>
             </li>
 
 
@@ -128,7 +127,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
 
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo \yii\helpers\Url::to(['site/map'])  ?>">
+                <a class="nav-link" href="<?php echo \yii\helpers\Url::to(['site/map']) ?>">
                     <i class="fas fa-fw fa-chart-area fa-lg"></i>
                     <span>Charts</span></a>
             </li>
@@ -152,7 +151,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
         </ul>
 
 
-
         <div id="content-wrapper" class="d-flex flex-column">
 
 
@@ -162,15 +160,13 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
 
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" style="color: #212121!important;">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"
+                            style="color: #212121!important;">
                         <i class="fa fa-bars"></i>
                     </button>
 
 
-
                     <ul class="navbar-nav ml-auto">
-
-
 
 
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -204,13 +200,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 </div>
 
 
-
-
             </div>
 
 
         </div>
-
 
 
         <a class="scroll-to-top rounded" href="#page-top">
@@ -236,7 +229,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 </div>
             </div>
         </div>
-    <?php $this->endBody() ?>
+        <?php $this->endBody() ?>
     </body>
     </html>
 <?php $this->endPage() ?>

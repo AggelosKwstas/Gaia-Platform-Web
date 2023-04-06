@@ -20,24 +20,22 @@ class BackendController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::class,
-                'only' => ['logout'],
+                'only' => ['login', 'index'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
                         'allow' => true,
+                        'actions' => ['login'],
                         'roles' => ['@'],
                     ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
+                    [
+                        'allow' => true,
+                        'actions' => ['index'],
+                        'roles' => ['?'],
+                    ],
                 ],
             ],
         ];
     }
-
     /**
      * {@inheritdoc}
      */
@@ -46,6 +44,7 @@ class BackendController extends Controller
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
+                'layout' => 'basic',
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',

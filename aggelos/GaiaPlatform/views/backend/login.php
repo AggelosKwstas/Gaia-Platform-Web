@@ -2,44 +2,58 @@
 
 /** @var yii\web\View $this */
 /** @var yii\bootstrap5\ActiveForm $form */
-
-/** @var app\models\LoginForm $model */
+/** @var \common\models\LoginForm $model */
 
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
 $this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
- <h2>Login to private area</h2>
-    <p>Please fill out the following fields to login:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-
+<div class="row">
+    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+    <div class="col-lg-6">
+        <div class="p-5">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4"><b>Welcome Back!</b></h1>
+            </div>
+            <hr>
             <?php $form = ActiveForm::begin([
                 'id' => 'login-form',
-                'fieldConfig' => [
-                    'template' => "{label}\n{input}\n{error}",
-                    'labelOptions' => ['class' => 'col-lg-1 col-form-label mr-lg-3'],
-                    'inputOptions' => ['class' => 'col-lg-3 form-control'],
-                    'errorOptions' => ['class' => 'col-lg-7 invalid-feedback'],
-                ],
+                'options' => ['class'=>'user']
             ]); ?>
 
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-            <?= $form->field($model, 'password')->passwordInput() ?>
-
+            <?= $form->field($model, 'username',
+                [
+                    'inputOptions'=>[
+                        'class'=>'form-control form-control-user',
+                        'placeholder'=>'Enter Username'
+                    ]
+                ]
+            )->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'password',
+                [
+                    'inputOptions'=>[
+                        'class'=>'form-control form-control-user',
+                        'placeholder'=>'Enter Password'
+                    ]
+                ]
+            )->passwordInput() ?>
+            <?= $form->field($model, 'rememberMe',
+                [
+                    'inputOptions'=>[
+                        'class'=>''
+                    ]
+                ]
+            )->checkbox() ?>
+            <hr>
             <div class="form-group">
-                <div>
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
+                <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-user btn-block', 'name' => 'login-button']) ?>
             </div>
-
-            <?php ActiveForm::end(); ?>
-
+            <?php ActiveForm::end()?>
+            <hr>
+            <div class="text-center">
+                <a class="small" href="<?php echo \yii\helpers\Url::to(['site/forgot-password'])?>">Forgot Password?</a>
+            </div>
         </div>
     </div>
 </div>
