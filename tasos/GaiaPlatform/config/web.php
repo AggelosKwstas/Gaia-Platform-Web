@@ -27,18 +27,23 @@ $config = [
             'errorAction' => 'site/error',
         ],
         'mailer' => [
-            'class' => \yii\symfonymailer\Mailer::class,
+            'class' => '\yii\swiftmailer\Mailer',
             'viewPath' => '@app/mail',
+            'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
                 'username' => 'tasostest.smtp@gmail.com',
                 'password' => 'gveiyobgzomypgry',
-                'port' => '25',
+                'port' => '587',
                 'encryption' => 'tls',
+//                'streamOptions' => [
+//                    'ssl' => ['allow_self_signed' => true, 'confirm_peer' => false, 'verify_peer'=>false,'
+//                     verify_peer_name' => false
+//                    ],
             ],
             // send all mails to a file by default.
-            'useFileTransport' => true,
+//            'useFileTransport' => true,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
