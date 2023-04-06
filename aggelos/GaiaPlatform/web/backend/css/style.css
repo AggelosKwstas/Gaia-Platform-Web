@@ -8343,3 +8343,34 @@ a[data-toggle="collapse"] {
 
 .subscribe-form .form-control {
   background: #3b4ec6; }
+
+.inactiveLink {
+  pointer-events: none;
+  cursor: default;
+}
+
+.btn-our {
+  color: #fff;
+  background-color: #212121;
+  border-color: #212121; }
+.btn-our:hover {
+  color: #fff;
+  background-color: #212121;
+  border-color: #212121; }
+.btn-our:focus, .btn-our.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem #212121;
+  box-shadow: 0 0 0 0.2rem #212121; }
+
+.btn-our.disabled, .btn-our:disabled {
+  color: #fff;
+  background-color: #212121;
+  border-color: #212121; }
+.btn-our:not(:disabled):not(.disabled):active, .btn-our:not(:disabled):not(.disabled).active,
+.show > .btn-our.dropdown-toggle {
+  color: #fff;
+  background-color: #212121;
+  border-color: #212121; }
+.btn-our:not(:disabled):not(.disabled):active:focus, .btn-our:not(:disabled):not(.disabled).active:focus,
+.show > .btn-our.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem #212121;
+  box-shadow: 0 0 0 0.2rem #212121; }

@@ -30,13 +30,14 @@ class BackendAsset extends AssetBundle
         'https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap',
         'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap',
         'https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap',
+        'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i',
     ];
 
     public $js = [
         'theme/font-awesome/js/all.js',
-        'backend/js/sb-admin-2.js',
         'backend/js/sb-admin-2.min.js',
         'backend/js/jquery-easing/jquery.easing.min.js',
+        'backend/vendor/bootstrap/js/bootstrap.bundle.min.js'
     ];
 
     public $depends = [
