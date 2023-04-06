@@ -44,7 +44,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
 
 
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?php
+                if (\yii\helpers\Url::current() == \yii\helpers\Url::to(['backend/index'])) {
+                    echo '#page-top';
+                } else
+                    echo \yii\helpers\Url::to(['backend/index']);
+                ?>">
                     <i class="fa fa-house fa-lg"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -123,7 +128,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
 
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="<?php echo \yii\helpers\Url::to(['site/map'])  ?>">
                     <i class="fas fa-fw fa-chart-area fa-lg"></i>
                     <span>Charts</span></a>
             </li>
@@ -157,7 +162,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
 
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" style="color: #212121!important;">
                         <i class="fa fa-bars"></i>
                     </button>
 
@@ -166,12 +171,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                     <ul class="navbar-nav ml-auto">
 
 
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                        </li>
 
 
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -180,7 +179,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 medium"><?php echo \Yii::$app->user->identity->username; ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 medium"><b><?php echo \Yii::$app->user->identity->username; ?></b></span>
                                 <img class="img-profile rounded-circle"
                                      src="backend/img/undraw_profile.svg">
                             </a>
