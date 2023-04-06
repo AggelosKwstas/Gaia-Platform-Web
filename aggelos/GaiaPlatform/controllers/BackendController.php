@@ -22,9 +22,8 @@ class BackendController extends Controller
                 'class' => AccessControl::class,
                 'rules' => [
                     [
-                        'actions' => ['login','logout'],
+                        'actions' => ['login', 'logout'],
                         'allow' => true,
-                        'roles'=>['?'],
                     ],
                     [
                         'actions' => ['index'],
