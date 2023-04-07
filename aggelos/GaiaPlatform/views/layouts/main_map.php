@@ -32,7 +32,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
     <?php $this->beginBody() ?>
 
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-md navbar-light fixed-top shadow-sm" id="mainNav">
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="mainNav" style="position: relative!important;">
         <div class="container px-5">
             <a class="navbar-brand fw-bold" href="<?php
             if (\yii\helpers\Url::current() == \yii\helpers\Url::to(['site/index'])) {
