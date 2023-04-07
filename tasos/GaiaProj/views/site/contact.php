@@ -13,8 +13,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 
-
 <section class="contact-bg">
+    <!--        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">-->
+    <!--            <div class="col-12 col-lg-7">-->
     <div class="container-contact bg-light">
         <div class="content">
             <div class="left-side">
@@ -49,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="right-side">
                 <div class="topic-text">Send us a message</div>
-                <p>If you have technical problems to report or other questions, please fill out the following form to contact us. Thank you.</p>
+                <p>If you have any work from me or any types of quries related to my tutorial, you can send us message from here. It's our pleasure to help you.</p>
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
                 <?= $form->field($model, 'name', [
@@ -97,4 +98,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php ActiveForm::end(); ?>
             </div>
+            <!--                    </div>-->
+            <!--                </div>-->
+
+            <!--            <div class="col-12 col-lg-5">-->
+            <!--                <img src="asset/libe.png">-->
+            <!--            </div>-->
 </section>

@@ -7,20 +7,29 @@
     /*font-family: "Poppins" , sans-serif;*/
 }
 .contact-bg{
-    padding-left: 30rem;
-    background-image: url("../asset/libe.png");
+    padding-left: 65vh;
+    padding-top: 15vh;
+    background: url("../asset/libe.png") no-repeat center fixed;
     background-size: cover;
-    background-repeat: no-repeat;
 }
-
+/*body{*/
+/*    min-height: 100vh;*/
+/*    width: 100%;*/
+/*    background: #c8e8e9;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*}*/
 .container-contact{
     position: center;
     width: 70%;
-    height:auto;
+    height:70%;
     background: #fff;
     border-radius: 25px;
     padding-top: 5vh;
-    padding-bottom: 30px;
+    /*padding-left: 150px;*/
+    padding-bottom: 100px;
+    /*padding: 20px 60px 30px 40px;*/
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .container-contact .content{
@@ -54,7 +63,7 @@
 }
 .content .left-side .details i{
     font-size: 30px;
-    color: #3e2093;
+    /*color: #3e2093;*/
     margin-bottom: 10px;
 }
 .content .left-side .details .topic{
@@ -109,13 +118,13 @@
     border: none;
     padding: 8px 16px;
     border-radius: 6px;
-    background: #3e2093;
+    /*background: #3e2093;*/
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.button input[type="button"]:hover{
-    background: #5029bc;
-}
+/*.button input[type="button"]:hover{*/
+/*    background: #5029bc;*/
+/*}*/
 
 @media (max-width: 950px) {
     .container-contact{
@@ -131,7 +140,6 @@
     .container-contact{
         margin: 40px 0;
         height: 100%;
-        padding-left: 30vh;
     }
     .container-contact .content{
         flex-direction: column-reverse;

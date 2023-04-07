@@ -70,8 +70,8 @@ class BackendController extends Controller
      */
     public function actionLogin()
     {
-        $this->layout = 'basic';
-
+//        $this->layout = 'basic';
+        $this->layout='main_map';
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->redirect(['backend/index']);

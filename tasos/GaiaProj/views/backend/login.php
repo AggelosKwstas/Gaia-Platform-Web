@@ -12,41 +12,81 @@ use yii\bootstrap5\Html;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="row">
-    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-    <div class="col-lg-6">
-        <div class="p-5">
-            <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4"><b><i class="fa fa-right-to-bracket "></i>&nbsp;&nbsp;Login to private
-                        area</b></h1>
-            </div>
-            <hr>
-            <?php $form = ActiveForm::begin([
-                'id' => 'login-form',
-                'options' => ['class' => 'user']
-            ]); ?>
 
-            <?= $form->field($model, 'username',
-                [
-                    'inputOptions' => [
-                        'class' => 'form-control form-control-user',
-                        'placeholder' => 'Enter Username'
-                    ]
-                ]
-            )->textInput(['autofocus' => true]) ?>
-            <?= $form->field($model, 'password',
-                [
-                    'inputOptions' => [
-                        'class' => 'form-control form-control-user',
-                        'placeholder' => 'Enter Password'
-                    ]
-                ]
-            )->passwordInput() ?>
-            <hr>
-            <div class="form-group">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-user btn-block', 'name' => 'login-button']) ?>
+
+
+<section class="contact-bg">
+    <!--        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">-->
+    <!--            <div class="col-12 col-lg-7">-->
+    <div class="container-contact bg-light">
+        <div class="content">
+            <div class="left-side">
+                <div class="address details">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="topic">Address</div>
+                    <div class="text-one">Science and Technology Park of Epirus, University Campus</div>
+                    <div class="text-two">P.C. 45 110, Ioannina, Greece</div>
+                </div>
+                <div class="phone details">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="topic">Phone</div>
+                    <div class="text-one">+30 26515 00012</div>
+                </div>
+                <div class="fax details">
+                    <i class="fas fa-fax"></i>
+                    <div class="topic">Fax</div>
+                    <div class="text-one">+30 26510 40637</div>
+                </div>
+                <div class="email details">
+                    <i class="fas fa-envelope"></i>
+                    <div class="topic">Email</div>
+                    <div class="text-one">info@neuronenergy.com</div>
+                </div>
+                <div class="email details">
+                    <a href="https://www.neuronenergy.com/">
+                        <i class="fa-solid fa-globe"></i>
+                    </a>
+                    <div class="topic">Website</div>
+                    <div class="text-one">www.neuronenergy.com</div>
+                </div>
             </div>
-            <?php ActiveForm::end() ?>
-        </div>
-    </div>
-</div>
+            <div class="right-side">
+                <div class="topic-text">Login to private area</div>
+
+                <?php $form = ActiveForm::begin([
+                    'id' => 'login-form',
+                    'options' => ['class' => 'user']
+                ]); ?>
+
+                <?= $form->field($model, 'username',
+                    [
+                        'inputOptions' => [
+                            'class' => 'form-control form-control-user input-box',
+                            'style' => 'border-radius: 25px; width: 40%',
+                            'placeholder' => 'Enter Username'
+                        ]
+                    ]
+                )->textInput(['autofocus' => true]) ?>
+                <?= $form->field($model, 'password',
+                    [
+                        'inputOptions' => [
+                            'class' => 'form-control form-control-user input-box',
+                            'style' => 'border-radius: 25px; width: 40%',
+                            'placeholder' => 'Enter Password'
+                        ]
+                    ]
+                )->passwordInput() ?>
+
+<!--                <hr>-->
+                <div class="form-group">
+                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-user btn-block', 'name' => 'login-button']) ?>
+                </div>
+                <?php ActiveForm::end() ?>
+            </div>
+            <!--                    </div>-->
+            <!--                </div>-->
+
+            <!--            <div class="col-12 col-lg-5">-->
+            <!--                <img src="asset/libe.png">-->
+            <!--            </div>-->
+</section>

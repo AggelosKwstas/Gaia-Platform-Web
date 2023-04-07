@@ -97,6 +97,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+
     return $this->redirect(['backend/login']);
     }
 
