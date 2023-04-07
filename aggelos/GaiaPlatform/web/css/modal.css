@@ -41,7 +41,10 @@
     }
 
     .modal-body {
-        font-size: 10px !important;
+        font-size: 15px !important;
+    }
+    .modal-content{
+        width: 90%;
     }
 }
 

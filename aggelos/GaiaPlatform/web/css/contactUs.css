@@ -9,6 +9,7 @@
 .contact-bg{
     padding-left: 30rem;
     background-image: url("../asset/libe.png");
+    position: relative;
     background-size: cover;
     background-repeat: no-repeat;
 }

@@ -28,7 +28,7 @@ function fToC(f) {
 
 function Redirect(id) {
     let found = false;
-
+    console.log(id);
     if (id === 'uoiDiv') {
         document.getElementById('uoiDiv').style.display = 'block';
         found = true;
@@ -166,6 +166,7 @@ marker3.bindPopup(`
 
 marker4 = L.marker([39.7147, 20.7572], {icon: greenIcon}).addTo(map2);
 
+//gardiki -> node_id=1
 marker4.bindPopup(`
 <div style="display: block;text-align: center">
 <h6><i class="fa fa-location-dot"></i>&nbsp;Γαρδίκι</h6>
@@ -179,14 +180,15 @@ marker4.bindPopup(`
  <b>Humidity: </b>${gardiki_object['main']['humidity']} %<br>
  <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${gardiki_object['visibility']} m<br>
- <button onclick="Redirect('gardikiLoader')" class="button_station button4"><b>View station</b></button><br>
-<div id="gardikiLoader" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+ <button onclick="Redirect('1')" class="button_station button4"><b>View station</b></button><br>
+<div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 
 
 marker5 = L.marker([39.7027, 20.8122], {icon: greenIcon}).addTo(map2);
 
+//ioannis -> node_id=2
 marker5.bindPopup(`
 <div style="display: block;text-align: center">
  <h6><i class="fa fa-location-dot"></i>&nbsp;Άγιος Ιωάννης</h6>
@@ -200,13 +202,14 @@ marker5.bindPopup(`
  <b>Humidity: </b>${ioannis_object['main']['humidity']} %<br>
  <b>Pressure: </b>${ioannis_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${ioannis_object['visibility']} m<br>
-  <button onclick="Redirect('ioannisLoader')" class="button_station button4"><b>View station</b></button><br>
-<div id="ioannisLoader" class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  <button onclick="Redirect('2')" class="button_station button4"><b>View station</b></button><br>
+<div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 
 marker6 = L.marker([39.7066, 20.7926], {icon: greenIcon}).addTo(map2);
 
+//eleousa -> node_id=3
 marker6.bindPopup(`
 <div style="display: block;text-align: center">
  <h6><i class="fa fa-location-dot"></i>&nbsp;Ελεούσα</h6>
@@ -220,8 +223,8 @@ marker6.bindPopup(`
  <b>Humidity: </b>${eleousa_object['main']['humidity']} %<br>
  <b>Pressure: </b>${eleousa_object['main']['pressure']} Pa<br>
  <b>Visibility: </b>${eleousa_object['visibility']} m<br>
- <button onclick="Redirect('eleousaLoader')" class="button_station button4"><b>View station</b></button><br>
-<div id="eleousaLoader" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+ <button onclick="Redirect('3')" class="button_station button4"><b>View station</b></button><br>
+<div id="3" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 `);
 

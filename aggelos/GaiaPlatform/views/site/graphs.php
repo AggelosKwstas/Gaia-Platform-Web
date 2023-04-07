@@ -5,12 +5,13 @@
 use yii\helpers\Html;
 
 ?>
-
-<!--    <div class="container-fluid bg-light" style="padding-top: 3rem">-->
-<!--        <nav class="navbar navbar-dark bg-dark">-->
-<!--            <h1 style="color: white">hghghgh</h1>-->
-<!--        </nav>-->
-<!--    </div>-->
+<div class="container-fluid bg-light">
+    <div class="container bg-light" style="padding-top: 3rem">
+        <nav class="navbar navbar-dark bg-white" style="display: block;text-align: center">
+            <p style="color: black">hghghgh</p>
+        </nav>
+    </div>
+</div>
 
 <section class="bg-light" style="padding-top: 1rem!important;">
     <div class="container-fluid">
@@ -21,8 +22,8 @@ use yii\helpers\Html;
                 </div>
             </div>
             <div class="col-lg">
-                    <div class="card">
-                        <div class="chartt" id="barChart2" style="width: 100%; min-height: 400px"></div>
+                <div class="card">
+                    <div class="chartt" id="barChart2" style="width: 100%; min-height: 400px"></div>
                 </div>
             </div>
             <div class="col-lg">
@@ -50,6 +51,16 @@ use yii\helpers\Html;
         </div>
     </div>
 </section>
+
+
+<h1>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+    type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of
+    Lorem Ipsum.
+</h1>
 <!--<section class="bg-light">-->
 <!--    <div class="container-fluid">-->
 <!--        <div class="row">-->
