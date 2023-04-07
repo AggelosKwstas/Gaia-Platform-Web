@@ -6,50 +6,49 @@ use yii\helpers\Html;
 
 ?>
 
-<div style="padding-top: 10vh;" class="bg-light">
-    <div class="container-1 overflow-hidden p-4 bg-light">
-        <!--        <div class="page-title">-->
-        <!--                <img src="asset/graph.png" alt="" style="width: 20px;padding-top: 20px">-->
-        <!--            <h3 style="color:black;display: inline-block;position: relative">Άγιος Ιωάννης Air Monitor - Enviromental PRO</h3>-->
-        <!--        </div>-->
+<!--    <div class="container-fluid bg-light" style="padding-top: 3rem">-->
+<!--        <nav class="navbar navbar-dark bg-dark">-->
+<!--            <h1 style="color: white">hghghgh</h1>-->
+<!--        </nav>-->
+<!--    </div>-->
+
+<section class="bg-light" style="padding-top: 1rem!important;">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-4">
+            <div class="col-lg">
                 <div class="card">
-                    <div class="p-1" id="barChart1" style="height: 350px"></div>
+                    <div class="chartt" id="barChart1" style="width: 100%; min-height: 400px"></div>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="card">
-                    <div class="p-1" id="barChart2" style="height: 350px"></div>
+            <div class="col-lg">
+                    <div class="card">
+                        <div class="chartt" id="barChart2" style="width: 100%; min-height: 400px"></div>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="card">
-                    <div class="p-1" id="gaugeChart" style="height: 350px"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-            <div class="col-4">
-                <div class="card">
-                    <div class="p-1" id="barChart2" style="height: 350px"></div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <div class="p-1" id="barChart2" style="height: 350px"></div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <div class="p-1" id="barChart2" style="height: 350px"></div>
+            <div class="col-lg">
+                    <div class="card">
+                        <div class="chartt" id="gaugeChart" style="width: 100%; min-height: 400px"></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<!--<section class="bg-light">-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-4 ">-->
+<!--                <div class="card w-auto h-100">-->
+<!--                        <div id="barChart1" style="height: 350px;width: auto"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
 <?php
 $script = <<< JS
+
+
 let barChart1 = echarts.init(document.getElementById('barChart1'));
 barChart1.setOption(makeBlueChart());
 
@@ -58,7 +57,14 @@ barChart2.setOption(makeBlueChart());
 
 var chartDom = document.getElementById('gaugeChart');
 var myChart = echarts.init(chartDom);
-myChart.setOption(makeGaugeChart());
+myChart.setOption(makeBlueChart());
+
+const container = document.querySelectorAll('.chartt');
+for (let arrayElement of container) {
+  let chart = echarts.init(arrayElement);
+  new ResizeObserver(() => chart.resize()).observe(arrayElement);
+}
+
 JS;
 $this->registerJs($script);
 ?>
