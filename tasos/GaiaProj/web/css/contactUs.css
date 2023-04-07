@@ -125,6 +125,16 @@
 /*.button input[type="button"]:hover{*/
 /*    background: #5029bc;*/
 /*}*/
+@media (min-width: 576px) {
+    .container-contact{
+        width: 40%;
+        padding: 30px 40px 40px 35px ;
+    }
+    .container-contact .content .right-side{
+        width: 45%;
+        margin-left: 10px;
+    }
+}
 
 @media (max-width: 950px) {
     .container-contact{

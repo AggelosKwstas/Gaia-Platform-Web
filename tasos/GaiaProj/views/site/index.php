@@ -32,7 +32,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
     </div>
 </header>
 
-<section>
+<section class="bg-white">
     <div class="container">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-12 col-lg-5">
@@ -139,7 +139,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 </section>
 
 
-<section>
+<section class="bg-white">
     <div class="container" style="display:block;text-align:center">
         <div class="item" data-aos="fade-down" data-aos-duration="1000">
             <h2 class="display-4 lh-1 mb-4" style="position:center">Gaia Platform Stable Version</h2>
@@ -205,7 +205,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
     </div>
 </section>
 
-<h4 class="legend_h">Case Study - Urban Air Quality</h4>
+<!--<h4  class="legend_h">Case Study - Urban Air Quality</h4>-->
 <section class="cta">
     <div id="map_element"></div>
 
