@@ -14,7 +14,7 @@ use yii\helpers\Html;
 
 <section class="bg-light" style="padding-top: 1rem!important;">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row p-2">
             <div class="col-lg">
                 <div class="card">
                     <div class="chartt" id="barChart1" style="width: 100%; min-height: 400px"></div>
@@ -26,8 +26,25 @@ use yii\helpers\Html;
                 </div>
             </div>
             <div class="col-lg">
-                    <div class="card">
-                        <div class="chartt" id="gaugeChart" style="width: 100%; min-height: 400px"></div>
+                <div class="card">
+                    fgfgfgffg
+                </div>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-lg">
+                <div class="card">
+                    <div class="chartt" id="gaugeChart" style="width: 100%; min-height: 400px"></div>
+                </div>
+            </div>
+            <div class="col-lg">
+                <div class="card">
+                    <div class="chartt" id="gaugeChart" style="width: 100%; min-height: 400px"></div>
+                </div>
+            </div>
+            <div class="col-lg">
+                <div class="card">
+                    <div class="chartt" id="gaugeChart" style="width: 100%; min-height: 400px"></div>
                 </div>
             </div>
         </div>

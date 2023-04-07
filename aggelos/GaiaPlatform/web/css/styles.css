@@ -12049,3 +12049,9 @@ footer a:hover, footer a:active, footer a:focus {
     color:#e60023!important;
 }
 
+
+@media (max-width: 767px) {
+    .col-lg {
+        margin-bottom: 10px;
+    }
+}
