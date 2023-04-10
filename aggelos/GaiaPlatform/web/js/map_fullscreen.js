@@ -28,7 +28,6 @@ function fToC(f) {
 
 function Redirect(id) {
     let found = false;
-    console.log(id);
     if (id === 'uoiDiv') {
         document.getElementById('uoiDiv').style.display = 'block';
         found = true;
@@ -167,8 +166,7 @@ marker3.bindPopup(`
 marker4 = L.marker([39.7147, 20.7572], {icon: greenIcon}).addTo(map2);
 
 //gardiki -> node_id=1
-marker4.bindPopup(`
-<div style="display: block;text-align: center">
+marker4.bindPopup(`<div style="display: block;text-align: center">
 <h6><i class="fa fa-location-dot"></i>&nbsp;Γαρδίκι</h6>
   <hr>
     <b>Type: </b>Air Monitor<br>
@@ -182,9 +180,7 @@ marker4.bindPopup(`
  <b>Visibility: </b>${gardiki_object['visibility']} m<br>
  <button onclick="Redirect('1')" class="button_station button4"><b>View station</b></button><br>
 <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-</div>
-`);
-
+</div>`);
 
 marker5 = L.marker([39.7027, 20.8122], {icon: greenIcon}).addTo(map2);
 
@@ -270,3 +266,16 @@ legend.getContainer().addEventListener('mouseout', function () {
 });
 
 map2.doubleClickZoom.disable();
+
+//close legend on small devices
+$(document).click(function (event) {
+    let status3 = marker3.getPopup();
+    let status4 = marker4.getPopup();
+    let status5 = marker5.getPopup();
+    let status6 = marker6.getPopup();
+
+    if (status3.isOpen() || status4.isOpen() || status5.isOpen() || status6.isOpen())
+        $('.legend').hide();
+    else
+        $('.legend').show();
+});

@@ -18,12 +18,12 @@ use yii\helpers\Html;
         <div class="row p-3">
             <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chartt" id="barChart1" style=" min-height: 400px"></div>
+                    <div class="chart" id="barChart1" style=" min-height: 400px"></div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chartt" id="barChart2" style="min-height: 400px"></div>
+                    <div class="chart" id="barChart2" style="min-height: 400px"></div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-lg">
@@ -35,17 +35,17 @@ use yii\helpers\Html;
         <div class="row p-3">
             <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chartt" id="gaugeChart" style="min-height: 400px"></div>
+                    <div class="chart" id="gaugeChart" style="min-height: 400px"></div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chartt" id="gaugeChart" style=" min-height: 400px"></div>
+                    <div class="chart" id="gaugeChart" style=" min-height: 400px"></div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chartt" id="gaugeChart" style="min-height: 400px"></div>
+                    <div class="chart" id="gaugeChart" style="min-height: 400px"></div>
                 </div>
             </div>
         </div>
@@ -61,17 +61,6 @@ use yii\helpers\Html;
     Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of
     Lorem Ipsum.
 </h1>
-<!--<section class="bg-light">-->
-<!--    <div class="container-fluid">-->
-<!--        <div class="row">-->
-<!--            <div class="col-lg-4 ">-->
-<!--                <div class="card w-auto h-100">-->
-<!--                        <div id="barChart1" style="height: 350px;width: auto"></div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
 
 <?php
 $script = <<< JS
@@ -87,7 +76,7 @@ var chartDom = document.getElementById('gaugeChart');
 var myChart = echarts.init(chartDom);
 myChart.setOption(makeBlueChart());
 
-const container = document.querySelectorAll('.chartt');
+const container = document.querySelectorAll('.chart');
 for (let arrayElement of container) {
   let chart = echarts.init(arrayElement);
   new ResizeObserver(() => chart.resize()).observe(arrayElement);
