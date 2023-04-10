@@ -79,7 +79,7 @@ legend.getContainer().addEventListener('mouseout', function () {
 });
 
 
-function makeBlueChart(){
+function makeBlueChart() {
     let colorPalette = ['rgb(124, 181, 236)'];
     let base = +new Date(1988, 9, 3);
     let oneDay = 24 * 3600 * 1000;
@@ -89,9 +89,9 @@ function makeBlueChart(){
         data.push([+now, Math.round((Math.random() - 0.5) * 20 + data[i - 1][1])]);
     }
     return option = {
-
         tooltip: {
             trigger: 'axis',
+            confine: true,
             position: function (pt) {
                 return [pt[0], '10%'];
             }
@@ -99,7 +99,7 @@ function makeBlueChart(){
         title: {
             left: 'center',
             text: 'PM 1.0',
-            fontWeight:'lighter'
+            fontWeight: 'lighter'
         },
         toolbox: {
             feature: {
@@ -123,9 +123,13 @@ function makeBlueChart(){
                 show: true
             },
         },
+        //ean value einai px 20000 se mobile kobete (delete ean oi arithmoi einai mikroi)
+        grid: {
+            containLabel: true,
+        },
         series: [
             {
-                z2:9,
+                z2: 9,
                 z: 9,
                 color: colorPalette,
                 name: 'Fake Data',

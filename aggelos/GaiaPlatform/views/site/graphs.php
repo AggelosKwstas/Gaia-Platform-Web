@@ -15,37 +15,37 @@ use yii\helpers\Html;
 
 <section class="bg-light" style="padding-top: 1rem!important;">
     <div class="container-fluid">
-        <div class="row p-2">
-            <div class="col-lg">
+        <div class="row p-3">
+            <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chartt" id="barChart1" style="width: 100%; min-height: 400px"></div>
+                    <div class="chartt" id="barChart1" style=" min-height: 400px"></div>
                 </div>
             </div>
-            <div class="col-lg">
+            <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chartt" id="barChart2" style="width: 100%; min-height: 400px"></div>
+                    <div class="chartt" id="barChart2" style="min-height: 400px"></div>
                 </div>
             </div>
-            <div class="col-lg">
+            <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
                     fgfgfgffg
                 </div>
             </div>
         </div>
-        <div class="row p-2">
-            <div class="col-lg">
+        <div class="row p-3">
+            <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chartt" id="gaugeChart" style="width: 100%; min-height: 400px"></div>
+                    <div class="chartt" id="gaugeChart" style="min-height: 400px"></div>
                 </div>
             </div>
-            <div class="col-lg">
+            <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chartt" id="gaugeChart" style="width: 100%; min-height: 400px"></div>
+                    <div class="chartt" id="gaugeChart" style=" min-height: 400px"></div>
                 </div>
             </div>
-            <div class="col-lg">
+            <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chartt" id="gaugeChart" style="width: 100%; min-height: 400px"></div>
+                    <div class="chartt" id="gaugeChart" style="min-height: 400px"></div>
                 </div>
             </div>
         </div>
