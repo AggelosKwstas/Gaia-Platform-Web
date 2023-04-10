@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'name', [
                     'inputOptions' => [
                         'class' => 'form-control form-control-user input-box',
-                        'style' => 'border-radius: 25px; width: 40%',
+                        'style' => 'border-radius: 25px;',
                         'placeholder' => 'Enter your name'
 
                     ]
@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'inputOptions' => [
                             'class' => 'form-control form-control-user input-box',
-                            'style' => 'border-radius: 25px; width: 40%',
+                            'style' => 'border-radius: 25px;',
                             'placeholder' => 'Enter your email'
                         ]
                     ]) ?>
@@ -75,7 +75,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'inputOptions' => [
                             'class' => 'form-control form-control-user input-box',
-                            'style' => 'border-radius: 25px; width: 40%',
+                            'style' => 'border-radius: 25px;',
                             'placeholder' => 'Enter subject'
                         ]
                     ]) ?>
@@ -84,14 +84,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'inputOptions' => [
                             'class' => 'form-control form-control-user radius-contact',
-                            'style' => 'border-radius: 25px; width: 40%',
+                            'style' => 'border-radius: 25px; width:80%',
                             'placeholder' => 'Enter your comment'
                         ]
                     ])->textarea(['rows' => 6]) ?>
 
-                <div class="input-box message-box">
 
-                </div>
+<!--                <div class="input-box message-box">-->
+<!---->
+<!--                </div>-->
                 <div class="button">
                     <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
                 </div>

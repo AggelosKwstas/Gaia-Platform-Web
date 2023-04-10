@@ -86,13 +86,13 @@
 }
 .right-side .input-box{
     height: 50px;
-    width: 100%;
+    width: 50%;
     margin: 12px 0;
 }
 .right-side .input-box input,
 .right-side .input-box textarea{
     height: 100%;
-    width: 40%;
+    width: 70%;
     border: none;
     outline: none;
     font-size: 16px;
@@ -119,37 +119,31 @@
     padding: 8px 16px;
     border-radius: 6px;
     /*background: #3e2093;*/
+
     cursor: pointer;
     transition: all 0.3s ease;
 }
 /*.button input[type="button"]:hover{*/
 /*    background: #5029bc;*/
 /*}*/
-@media (min-width: 576px) {
+@media screen and (min-device-width: 300px) and (max-device-width: 768px)
+{
+    .contact-bg{
+        padding-top: 0vh;
+        padding-left: 3vh;
+        padding-right: 3vh;
+    }
     .container-contact{
-        width: 40%;
-        padding: 30px 40px 40px 35px ;
-    }
-    .container-contact .content .right-side{
-        width: 45%;
-        margin-left: 10px;
-    }
-}
-
-@media (max-width: 950px) {
-    .container-contact{
-        width: 90%;
-        padding: 30px 40px 40px 35px ;
-    }
-    .container-contact .content .right-side{
-        width: 75%;
-        margin-left: 55px;
-    }
-}
-@media (max-width: 820px) {
-    .container-contact{
+        width: 100%;
         margin: 40px 0;
-        height: 100%;
+        padding: 30px 40px 40px 35px ;
+    }
+    .container-contact .content .right-side{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .right-side .input-box{
+        width: 100%;
     }
     .container-contact .content{
         flex-direction: column-reverse;
@@ -161,12 +155,43 @@
         justify-content: center;
         flex-wrap: wrap;
     }
-    .container-contact .content .left-side::before{
-        display: none;
-    }
-    .container-contact .content .right-side{
-        width: 100%;
-        margin-left: 0;
-    }
+        .container-contact .content .left-side::before{
+            display: none;
+        }
 }
+
+
+/*@media (max-width: 950px) {*/
+/*    .container-contact{*/
+/*        width: 90%;*/
+/*        padding: 30px 40px 40px 35px ;*/
+/*    }*/
+/*    .container-contact .content .right-side{*/
+/*        width: 75%;*/
+/*        margin-left: 55px;*/
+/*    }*/
+/*}*/
+/*@media (max-width: 820px) {*/
+/*    .container-contact{*/
+/*        margin: 40px 0;*/
+/*        height: 100%;*/
+/*    }*/
+/*    .container-contact .content{*/
+/*        flex-direction: column-reverse;*/
+/*    }*/
+/*    .container-contact .content .left-side{*/
+/*        width: 100%;*/
+/*        flex-direction: row;*/
+/*        margin-top: 40px;*/
+/*        justify-content: center;*/
+/*        flex-wrap: wrap;*/
+/*    }*/
+/*    .container-contact .content .left-side::before{*/
+/*        display: none;*/
+/*    }*/
+/*    .container-contact .content .right-side{*/
+/*        width: 100%;*/
+/*        margin-left: 0;*/
+/*    }*/
+/*}*/
 
