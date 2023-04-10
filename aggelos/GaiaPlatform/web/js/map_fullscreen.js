@@ -267,15 +267,12 @@ legend.getContainer().addEventListener('mouseout', function () {
 
 map2.doubleClickZoom.disable();
 
-//close legend on small devices
-$(document).click(function (event) {
-    let status3 = marker3.getPopup();
-    let status4 = marker4.getPopup();
-    let status5 = marker5.getPopup();
-    let status6 = marker6.getPopup();
-
-    if (status3.isOpen() || status4.isOpen() || status5.isOpen() || status6.isOpen())
+//close legend when popup is open on small devices.
+if (window.innerWidth <= 700) {
+    map2.on('popupopen', () => {
         $('.legend').hide();
-    else
+    })
+    map2.on('popupclose', () => {
         $('.legend').show();
-});
+    })
+}
