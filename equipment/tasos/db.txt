@@ -1,0 +1,10 @@
+ergo
+id, name 
+
+borrowing_user
+id, name, type, phone, where_to, product_id(foreign key)
+
+product
+id, image_id, ergo_id(foreign key), prod_name, promitheutis, arithmos_par,hmeromhnia_par,  serial_number, borrowing_user_id(foreign key), date_from, date_to 
+
+
