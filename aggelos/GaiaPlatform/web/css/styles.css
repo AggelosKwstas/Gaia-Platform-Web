@@ -11,9 +11,14 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00b21c8289a4cac8866b70cc3ab1134d7afdcae1
 html, body {
     overflow-x: hidden;
 }
+
 body {
     position: relative;
 }
@@ -12024,6 +12029,7 @@ footer a:hover, footer a:active, footer a:focus {
     height: 100vh;
     max-height: 665px;
 }
+
 .top-front__wrap {
     position: relative;
     max-width: 100%;
@@ -12037,24 +12043,24 @@ footer a:hover, footer a:active, footer a:focus {
     transition: all ease .3s;
 }
 
-.fa-linkedin-in:hover{
+.fa-linkedin-in:hover {
     transform: scale(1.1);
-    color:#0A66C2 !important;
+    color: #0A66C2 !important;
 }
 
-.fa-facebook-f:hover{
+.fa-facebook-f:hover {
     transform: scale(1.1);
-    color:#4267B2!important;
+    color: #4267B2 !important;
 }
 
-.fa-twitter:hover{
+.fa-twitter:hover {
     transform: scale(1.1);
-    color:#0072b1!important;
+    color: #0072b1 !important;
 }
 
-.fa-pinterest-p:hover{
+.fa-pinterest-p:hover {
     transform: scale(1.1);
-    color:#e60023!important;
+    color: #e60023 !important;
 }
 
 @media (max-width: 990px) {
