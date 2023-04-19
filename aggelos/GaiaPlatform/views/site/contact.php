@@ -21,36 +21,37 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="left-side">
                 <div class="address details">
                     <i class="fas fa-map-marker-alt"></i>
-                    <div class="topic">Address</div>
+                    <div class="topic"><b>Address</b></div>
                     <div class="text-one">Science and Technology Park of Epirus, University Campus</div>
                     <div class="text-two">P.C. 45 110, Ioannina, Greece</div>
                 </div>
                 <div class="phone details">
                     <i class="fas fa-phone-alt"></i>
-                    <div class="topic">Phone</div>
+                    <div class="topic"><b>Phone</b></div>
                     <div class="text-one">+30 26515 00012</div>
                 </div>
                 <div class="fax details">
                     <i class="fas fa-fax"></i>
-                    <div class="topic">Fax</div>
+                    <div class="topic"><b>Fax</b></div>
                     <div class="text-one">+30 26510 40637</div>
                 </div>
                 <div class="email details">
                     <i class="fas fa-envelope"></i>
-                    <div class="topic">Email</div>
+                    <div class="topic"><b>Email</b></div>
                     <div class="text-one">info@neuronenergy.com</div>
                 </div>
                 <div class="email details">
                     <a href="https://www.neuronenergy.com/">
-                        <i class="fa-solid fa-globe"></i>
+                        <i class="fa fa-globe"></i>
                     </a>
-                    <div class="topic">Website</div>
+                    <div class="topic"><b>Website</b></div>
                     <div class="text-one">www.neuronenergy.com</div>
                 </div>
             </div>
             <div class="right-side">
-                <div class="topic-text">Send us a message</div>
-                <p>If you have any work from me or any types of quries related to my tutorial, you can send us message from here. It's our pleasure to help you.</p>
+                <div class="topic-text">Support</div>
+                <p>If you have technical problems to report or other questions,<br>please fill out the following form to contact us. Thank you.
+                </p>
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
                 <?= $form->field($model, 'name', [
