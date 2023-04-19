@@ -16,6 +16,13 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 't7pFIWRuVmERyiS1EvTxnqyzSUpIXMNk',
         ],
+        'reCaptcha' => [
+            'class' => 'himiklab\yii2\recaptcha\ReCaptchaConfig',
+            'siteKeyV2' => '6LdttZ4lAAAAAMtEMELAsWOL_NwPs6MLMxLv0FQC',
+            'secretV2' => '6LdttZ4lAAAAAMO1X1Tg-nTB42_4lGgg0PHU2pqc',
+            'siteKeyV3' => '6LdttZ4lAAAAAMtEMELAsWOL_NwPs6MLMxLv0FQC',
+            'secretV3' => '6LdttZ4lAAAAAMO1X1Tg-nTB42_4lGgg0PHU2pqc',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

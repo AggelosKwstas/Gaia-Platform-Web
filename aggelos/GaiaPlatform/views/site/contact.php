@@ -88,7 +88,15 @@ $this->params['breadcrumbs'][] = $this->title;
                             'style' => 'border-radius: 25px; width:80%',
                             'placeholder' => 'Enter your comment'
                         ]
-                    ])->textarea(['rows' => 6]) ?>
+                    ])->textarea(array('rows' => 6)) ?>
+
+                <?= $form->field($model, 'reCaptcha')->widget(
+                    \himiklab\yii2\recaptcha\ReCaptcha2::className(),
+                    [
+                        'siteKey' => '6LdttZ4lAAAAAMtEMELAsWOL_NwPs6MLMxLv0FQC', // unnecessary is reCaptcha component was set up
+                    ]
+                ) ?>
+
 
 
                 <!--                <div class="input-box message-box">-->
@@ -107,3 +115,10 @@ $this->params['breadcrumbs'][] = $this->title;
             <!--                <img src="asset/libe.png">-->
             <!--            </div>-->
 </section>
+<?php
+$script = <<< JS
+
+$("#myTextArea").charCounter(1000);
+JS;
+$this->registerJs($script);
+?>

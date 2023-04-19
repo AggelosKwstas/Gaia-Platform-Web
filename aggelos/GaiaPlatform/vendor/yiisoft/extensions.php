@@ -49,4 +49,32 @@ return array (
       '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii/src',
     ),
   ),
+  'himiklab/yii2-recaptcha-widget' => 
+  array (
+    'name' => 'himiklab/yii2-recaptcha-widget',
+    'version' => '2.1.1.0',
+    'alias' => 
+    array (
+      '@himiklab/yii2/recaptcha' => $vendorDir . '/himiklab/yii2-recaptcha-widget/src',
+      '@himiklab/yii2/recaptcha/tests' => $vendorDir . '/himiklab/yii2-recaptcha-widget/tests',
+    ),
+  ),
+  'yiisoft/yii2-httpclient' => 
+  array (
+    'name' => 'yiisoft/yii2-httpclient',
+    'version' => '2.0.14.0',
+    'alias' => 
+    array (
+      '@yii/httpclient' => $vendorDir . '/yiisoft/yii2-httpclient/src',
+    ),
+  ),
+  'kekaadrenalin/yii2-module-recaptcha-v3' => 
+  array (
+    'name' => 'kekaadrenalin/yii2-module-recaptcha-v3',
+    'version' => '1.4.0.0',
+    'alias' => 
+    array (
+      '@kekaadrenalin/recaptcha3' => $vendorDir . '/kekaadrenalin/yii2-module-recaptcha-v3/src',
+    ),
+  ),
 );
