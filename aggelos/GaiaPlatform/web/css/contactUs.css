@@ -48,7 +48,7 @@
 /*}*/
 .container-contact {
     position: center;
-    width: 50%;
+    width: 59%;
     height: 70%;
     background: #fff;
     border-radius: 25px;
@@ -251,21 +251,21 @@
     }
 }
 
-@media screen and (min-device-width: 780px) and (max-device-width: 1024px) {
+@media screen and (min-device-width: 780px) and (max-device-width: 1025px) {
     .contact-bg {
         padding-top: 8vh;
-        padding-left: 3vh;
+        padding-left: 50vh;
         padding-right: 3vh;
     }
 
     .container-contact {
-        width: 100%;
+        width: 70%;
         margin: 40px 0;
         padding: 30px 40px 40px 35px;
     }
 
     .container-contact .content .right-side {
-        width: 70%;
+        width: 100%;
         margin-right: 5rem !important;
     }
 
@@ -293,4 +293,90 @@
         margin: 40px;
     }
 }
+
+@media screen and (min-device-width: 1025px) and (max-device-width: 1280px) {
+    .contact-bg {
+        padding-top: 8vh;
+        padding-left: 50vh;
+        padding-right: 3vh;
+    }
+
+    .container-contact {
+        width: 70%;
+        margin: 40px 0;
+        padding: 30px 40px 40px 35px;
+    }
+
+    .container-contact .content .right-side {
+        width: 100%;
+        margin-right: 5rem !important;
+    }
+
+    .right-side .input-box {
+        width: 100%;
+    }
+
+    .container-contact .content {
+        flex-direction: column-reverse;
+    }
+
+    .container-contact .content .left-side {
+        width: 100%;
+        flex-direction: row;
+        margin-top: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .container-contact .content .left-side::before {
+        display: none;
+    }
+
+    .content .left-side .details {
+        margin: 40px;
+    }
+}
+@media (max-width: 320px) {
+    .contact-bg {
+        padding-top: 8vh;
+        padding-left: 3vh;
+        padding-right: 3vh;
+    }
+
+    .container-contact {
+        width: 100%;
+        margin: 40px 0;
+        padding: 30px 40px 40px 35px;
+    }
+
+    .container-contact .content .right-side {
+        width: 100%;
+        margin-right: 5rem !important;
+    }
+
+    .right-side .input-box {
+        width: 100%;
+    }
+
+    .container-contact .content {
+        flex-direction: column-reverse;
+    }
+
+    .container-contact .content .left-side {
+        width: 100%;
+        flex-direction: row;
+        margin-top: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .container-contact .content .left-side::before {
+        display: none;
+    }
+
+    .content .left-side .details {
+        margin: 0;
+    }
+}
+
 
