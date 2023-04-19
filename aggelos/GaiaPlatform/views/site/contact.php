@@ -13,8 +13,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 
-
 <section class="contact-bg">
+    <!--        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">-->
+    <!--            <div class="col-12 col-lg-7">-->
     <div class="container-contact bg-light">
         <div class="content">
             <div class="left-side">
@@ -49,13 +50,13 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="right-side">
                 <div class="topic-text">Send us a message</div>
-                <p>If you have technical problems to report or other questions, please fill out the following form to contact us. Thank you.</p>
+                <p>If you have any work from me or any types of quries related to my tutorial, you can send us message from here. It's our pleasure to help you.</p>
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
                 <?= $form->field($model, 'name', [
                     'inputOptions' => [
                         'class' => 'form-control form-control-user input-box',
-                        'style' => 'border-radius: 25px; width: 40%',
+                        'style' => 'border-radius: 25px;',
                         'placeholder' => 'Enter your name'
 
                     ]
@@ -65,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'inputOptions' => [
                             'class' => 'form-control form-control-user input-box',
-                            'style' => 'border-radius: 25px; width: 40%',
+                            'style' => 'border-radius: 25px;',
                             'placeholder' => 'Enter your email'
                         ]
                     ]) ?>
@@ -74,7 +75,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'inputOptions' => [
                             'class' => 'form-control form-control-user input-box',
-                            'style' => 'border-radius: 25px; width: 40%',
+                            'style' => 'border-radius: 25px;',
                             'placeholder' => 'Enter subject'
                         ]
                     ]) ?>
@@ -83,18 +84,25 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'inputOptions' => [
                             'class' => 'form-control form-control-user radius-contact',
-                            'style' => 'border-radius: 25px; width: 40%',
+                            'style' => 'border-radius: 25px; width:80%',
                             'placeholder' => 'Enter your comment'
                         ]
                     ])->textarea(['rows' => 6]) ?>
 
-                <div class="input-box message-box">
 
-                </div>
+                <!--                <div class="input-box message-box">-->
+                <!---->
+                <!--                </div>-->
                 <div class="button">
                     <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>
             </div>
+            <!--                    </div>-->
+            <!--                </div>-->
+
+            <!--            <div class="col-12 col-lg-5">-->
+            <!--                <img src="asset/libe.png">-->
+            <!--            </div>-->
 </section>
