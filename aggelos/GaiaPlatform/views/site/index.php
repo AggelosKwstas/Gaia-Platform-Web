@@ -204,6 +204,8 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
     </div>
 </section>
 
+
+<section class="bg-light">
 <!--<h4 class="legend_h">Case Study - Urban Air Quality</h4>-->
 <div class="container mb-3" style="display: block;text-align: center">
     <h4 class="display-6 mb-4">Case Study - Urban Air Quality</h4>
@@ -211,6 +213,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
      With the rise of urbanization, air pollution has become a growing concern for public health and the environment. Using our sensors we have an efficient way to monitor air quality in real-time and generate accurate data for analysis. This case study monitors the city of Ioannina, Greece and demonstrates the potential of sensor technology to address and solve critical environmental challenges.
     </p>
 </div>
+</section>
 <section class="cta">
     <div id="map_element"></div>
 

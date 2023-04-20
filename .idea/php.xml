@@ -364,6 +364,9 @@
       <path value="$PROJECT_DIR$/aggelos/basic/vendor/yiisoft/yii2-debug" />
       <path value="$PROJECT_DIR$/aggelos/basic/vendor/yiisoft/yii2-faker" />
       <path value="$PROJECT_DIR$/aggelos/basic/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/aggelos/GaiaPlatform/vendor/kekaadrenalin/yii2-module-recaptcha-v3" />
+      <path value="$PROJECT_DIR$/aggelos/GaiaPlatform/vendor/himiklab/yii2-recaptcha-widget" />
+      <path value="$PROJECT_DIR$/aggelos/GaiaPlatform/vendor/yiisoft/yii2-httpclient" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4">
