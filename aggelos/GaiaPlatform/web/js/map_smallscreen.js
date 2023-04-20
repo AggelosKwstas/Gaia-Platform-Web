@@ -24,8 +24,8 @@ let config1 = {
 };
 
 const zoom = 11;
-const lat = 39.6935;
-const lng = 20.8465;
+const lat = 39.6711248555161;
+const lng = 20.85619898364398;
 
 map = L.map("map_element", config1).setView([lat, lng], zoom);
 

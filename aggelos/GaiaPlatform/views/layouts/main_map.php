@@ -41,7 +41,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 echo \yii\helpers\Url::to(['site/index']);
             ?>"><img class="main_logo"
                      src="asset/maybe.png"
-                     style="height: 60px!important;">
+                     style="height: 50px!important;">
                 <h id="h_logo">GAIA PLATFORM</h>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
