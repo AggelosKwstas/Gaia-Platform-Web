@@ -93,7 +93,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                        href="https://www.facebook.com/profile.php?id=100068977243761">
                         <i class="fa-brands fa-facebook-f"></i>&nbsp;&nbsp;
                     </a>
-                    <a style="text-decoration: none" title="Tiwtter" target="_blank"
+                    <a style="text-decoration: none" title="Twitter" target="_blank"
                        href="https://twitter.com/SolarEye_PV">
                         <i class="fa-brands fa-twitter"></i>&nbsp;&nbsp;
                     </a>

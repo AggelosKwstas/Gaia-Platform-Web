@@ -54,10 +54,10 @@
 @media only screen and (min-width: 300px) and (max-width: 550px){
     .container-zoom {
         width:100%;
-        height:500px;
+        height:570px;
     }
     .item-zoom img{
-        height:500px;
+        height:600px;
     }
 }
 @media only screen and (min-width: 551px) and (max-width: 899px){

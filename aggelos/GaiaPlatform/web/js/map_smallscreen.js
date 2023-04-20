@@ -52,17 +52,8 @@ marker5 = L.marker([39.7027, 20.8122], {icon: Icon}).addTo(map);
 
 marker6 = L.marker([39.7066, 20.7926], {icon: Icon}).addTo(map);
 
-var legend = L.control({position: "topright"});
-
 map.attributionControl.setPrefix();
 
-legend.onAdd = function (map) {
-    var div = L.DomUtil.create("div", "legend_info");
-    div.innerHTML += "<div class='three'><h1>Case Study - Urban Air Quality</h1></div>";
-    return div;
-};
-
-legend.addTo(map);
 
 function onMapClick() {
     window.location.href = locationMap;
