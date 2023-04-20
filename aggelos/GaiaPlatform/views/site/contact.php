@@ -96,29 +96,18 @@ $this->params['breadcrumbs'][] = $this->title;
                         'siteKey' => '6LdttZ4lAAAAAMtEMELAsWOL_NwPs6MLMxLv0FQC', // unnecessary is reCaptcha component was set up
                     ]
                 ) ?>
-
-
-
-                <!--                <div class="input-box message-box">-->
-                <!---->
-                <!--                </div>-->
                 <div class="button">
                     <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>
             </div>
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--            <div class="col-12 col-lg-5">-->
-            <!--                <img src="asset/libe.png">-->
-            <!--            </div>-->
 </section>
+
 <?php
 $script = <<< JS
-
-$("#myTextArea").charCounter(1000);
+document.getElementsByClassName("g-recaptcha")[0].setAttribute("data-size", "compact")
 JS;
 $this->registerJs($script);
 ?>
+

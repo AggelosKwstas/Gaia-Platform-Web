@@ -40,7 +40,7 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'reCaptcha' => 'Prove You Are Human',
         ];
     }
 

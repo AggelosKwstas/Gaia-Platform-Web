@@ -12,6 +12,10 @@
     resize: none;
 }
 
+.form-label {
+    font-weight: bold;
+}
+
 .field-contactform-email {
     font-weight: bold;
     height: 105px;
