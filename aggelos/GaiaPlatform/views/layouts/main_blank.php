@@ -13,7 +13,7 @@ $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, shrink-to-fit=yes']);
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
-$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset/logGlobe.png']);
+$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset/maybe.png']);
 ?>
 <?php $this->beginPage() ?>
 
@@ -25,7 +25,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
         <meta name="description" content=""/>
         <meta name="author" content=""/>
         <title>GAIA V2</title>
-        <link rel="icon" type="image/x-icon" href="asset/logo.png"/>
+        <link rel="icon" type="image/x-icon" href="asset/maybe.png"/>
         <?php $this->head() ?>
     </head>
     <body>

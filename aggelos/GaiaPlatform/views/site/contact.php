@@ -2,6 +2,7 @@
 
 /** @var yii\web\View $this */
 /** @var yii\bootstrap5\ActiveForm $form */
+
 /** @var app\models\ContactForm $model */
 
 use yii\bootstrap5\ActiveForm;
@@ -50,7 +51,8 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="right-side">
                 <div class="topic-text">Support</div>
-                <p>If you have technical problems to report or other questions,<br>please fill out the following form to contact us. Thank you.
+                <p>If you have technical problems to report or other questions,<br>please fill out the following form to
+                    contact us. Thank you.
                 </p>
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
