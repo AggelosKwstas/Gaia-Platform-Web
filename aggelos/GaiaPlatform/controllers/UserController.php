@@ -28,7 +28,7 @@ class UserController extends AuthedController
                 'class' => AccessControl::class,
                 'rules' => [
                     [
-                        'actions' => ['index','create','view','update','delete'],
+                        'actions' => ['index', 'create', 'view', 'update', 'delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -49,7 +49,7 @@ class UserController extends AuthedController
 
         $searchModel = new UserSearch();
 
-        $this->layout='basic';
+        $this->layout = 'basic';
 
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('index', [
@@ -66,7 +66,7 @@ class UserController extends AuthedController
      */
     public function actionView($id)
     {
-        $this->layout='basic';
+        $this->layout = 'basic';
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -83,10 +83,10 @@ class UserController extends AuthedController
 //        $this->onlyAdmin;
         $model = new \app\models\dist\UserDist();
         $model->scenario = "create";
-        $this->layout='basic';
+        $this->layout = 'basic';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->render('user/index');
+            return $this->redirect('@web/index.php?r=user%2Findex');
         }
 
         return $this->render('create', [
@@ -104,7 +104,7 @@ class UserController extends AuthedController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $this->layout='basic';
+        $this->layout = 'basic';
         $model->scenario = "update";
 
 
@@ -143,7 +143,7 @@ class UserController extends AuthedController
 
         if (Yii::$app->user->identity->isAdmin && ((UserDist::findOne($id)) !== null)) {
             return $model;
-        } else if (( UserDist::getRestricted($id)) === null)
+        } else if ((UserDist::getRestricted($id)) === null)
             $this->forbid();
         else if ($model !== null) {
 
