@@ -10,14 +10,12 @@ use yii\widgets\Pjax;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Users');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
+<a href="<?php echo \yii\helpers\Url::to(['backend/index']) ?>"><b>Go back</b></a>
 <div class="index-page kt-portlet">
     <div class="kt-portlet__head">
         <div class="kt-portlet__head-label">
-					<span class="kt-portlet__head-icon">
-						<i class="la la-adjust"></i>
-					</span>
+
             <h3 class="kt-portlet__head-title">
                 <?= Html::encode($this->title) ?>
 

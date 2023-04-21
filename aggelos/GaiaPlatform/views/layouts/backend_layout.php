@@ -134,9 +134,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
 
 
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table fa-lg"></i>
-                    <span>Tables</span></a>
+                <a class="nav-link" href="<?php echo  \yii\helpers\Url::to(['user/index'])  ?>">
+                    <i class="fas fa-fw fa-user fa-lg"></i>
+                    <span>Users</span></a>
             </li>
 
 

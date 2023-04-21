@@ -1721,16 +1721,6 @@ HTML;
             $content = Lib::strtr($this->panelFooterTemplate, ['{footer}' => $footer]);
             $panelFooter = Html::tag('div', $content, $footerOptions);
         }
-        if ($before !== false) {
-            static::initCss($beforeOptions, 'kv-panel-before');
-            $content = Lib::strtr($this->panelBeforeTemplate, ['{before}' => $before]);
-            $panelBefore = Html::tag('div', $content, $beforeOptions);
-        }
-        if ($after !== false) {
-            static::initCss($afterOptions, 'kv-panel-after');
-            $content = Lib::strtr($this->panelAfterTemplate, ['{after}' => $after]);
-            $panelAfter = Html::tag('div', $content, $afterOptions);
-        }
         $out = Lib::strtr($this->panelTemplate, [
             '{panelHeading}' => $panelHeading,
             '{type}' => $type,
