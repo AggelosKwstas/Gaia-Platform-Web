@@ -37,7 +37,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
 
             <a class="sidebar-brand d-flex align-items-center justify-content-center inactiveLink"
                style="color: white!important;">
-                <div class="sidebar-brand-text mx-3">GAIA Backend</div>
+                <div class="sidebar-brand-text">GAIA Backend</div>
+                <img src="asset/maybe.png" style="width: 3rem;position: relative;left: 5px">
             </a>
 
             <hr class="sidebar-divider my-0">
@@ -178,7 +179,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 medium"><b><?php echo \Yii::$app->user->identity->username; ?></b></span>
                                 <img class="img-profile rounded-circle"
-                                     src="backend/img/undraw_profile.svg">
+                                     src="backend/img/user.png">
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -186,8 +187,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                                 <a class="dropdown-item" href="<?php \yii\helpers\Url::to(['backend/logout']) ?>"
                                    data-toggle="modal" data-target="#logoutModal">
                                     <div style="display: block;text-align: center;font-size: 17px">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw text-gray-"></i>
-                                    Logout
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw text-gray-"></i>
+                                        Logout
                                     </div>
                                 </a>
                             </div>
@@ -228,7 +229,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="<?php echo \yii\helpers\Url::to(['backend/logout']) ?>">Logout</a>
+                        <a class="btn btn-primary"
+                           href="<?php echo \yii\helpers\Url::to(['backend/logout']) ?>">Logout</a>
                     </div>
                 </div>
             </div>
