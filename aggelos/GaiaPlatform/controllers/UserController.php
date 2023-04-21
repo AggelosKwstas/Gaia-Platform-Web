@@ -28,7 +28,7 @@ class UserController extends AuthedController
                 'class' => AccessControl::class,
                 'rules' => [
                     [
-                        'actions' => ['index','view','update','delete'],
+                        'actions' => ['index','create','view','update','delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],

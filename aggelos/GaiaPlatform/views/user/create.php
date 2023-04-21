@@ -6,7 +6,8 @@ use yii\helpers\Html;
 /** @var app\models\User $model */
 
 $this->title = Yii::t('app', 'Create User');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
+Yii::$app->setHomeUrl('@web/index.php?r=backend%2Findex');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['user/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-create">

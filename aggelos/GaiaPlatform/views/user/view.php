@@ -7,6 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\pure\User */
 
 $this->title = $model->fullname;
+Yii::$app->setHomeUrl('@web/index.php?r=backend%2Findex');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 

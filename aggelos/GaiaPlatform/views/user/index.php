@@ -3,6 +3,7 @@
 use app\helpers\Override\GridView;
 use kartik\select2\Select2;
 use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
@@ -10,8 +11,9 @@ use yii\widgets\Pjax;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Users');
+Yii::$app->setHomeUrl('@web/index.php?r=backend%2Findex');
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<a href="<?php echo \yii\helpers\Url::to(['backend/index']) ?>"><b>Go back</b></a>
 <div class="index-page kt-portlet">
     <div class="kt-portlet__head">
         <div class="kt-portlet__head-label">
@@ -40,16 +42,6 @@ $this->title = Yii::t('app', 'Users');
                 ['class' => 'kartik\grid\SerialColumn'],
 
 //            'id',
-                ["attribute" => "image_id",
-                    'value' => function ($model, $key, $index, $widget) {
-
-                        if ($model->image)
-                            return yii\helpers\Html::img($model->image->fullThumbnailPath, ["width" => "40px"]);
-                        else
-                            return null;
-                    }, 'format' => "raw",
-                    "filter" => false,
-                ],
 
                 'username',
                 'email:email',
