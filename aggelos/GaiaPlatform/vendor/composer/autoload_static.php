@@ -40,6 +40,14 @@ class ComposerStaticInitba5e629b0d65bdfc39df7912f510c2a2
         'k' => 
         array (
             'kekaadrenalin\\recaptcha3\\' => 25,
+            'kartik\\select2\\' => 15,
+            'kartik\\plugins\\fileinput\\' => 25,
+            'kartik\\grid\\' => 12,
+            'kartik\\file\\' => 12,
+            'kartik\\dialog\\' => 14,
+            'kartik\\date\\' => 12,
+            'kartik\\bs5dropdown\\' => 19,
+            'kartik\\base\\' => 12,
         ),
         'h' => 
         array (
@@ -144,6 +152,38 @@ class ComposerStaticInitba5e629b0d65bdfc39df7912f510c2a2
         'kekaadrenalin\\recaptcha3\\' => 
         array (
             0 => __DIR__ . '/..' . '/kekaadrenalin/yii2-module-recaptcha-v3/src',
+        ),
+        'kartik\\select2\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-select2/src',
+        ),
+        'kartik\\plugins\\fileinput\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/bootstrap-fileinput',
+        ),
+        'kartik\\grid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-grid/src',
+        ),
+        'kartik\\file\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-fileinput/src',
+        ),
+        'kartik\\dialog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-dialog/src',
+        ),
+        'kartik\\date\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-datepicker/src',
+        ),
+        'kartik\\bs5dropdown\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-bootstrap5-dropdown/src',
+        ),
+        'kartik\\base\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base/src',
         ),
         'himiklab\\yii2\\recaptcha\\tests\\' => 
         array (

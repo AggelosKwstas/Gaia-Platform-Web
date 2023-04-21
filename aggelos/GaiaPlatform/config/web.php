@@ -27,7 +27,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\pure\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -70,6 +70,11 @@ $config = [
             ],
         ],
         */
+    ],
+    'modules' => [
+        'gridview' => [
+            'class' => 'kartik\grid\Module'
+        ]
     ],
     'params' => $params,
 ];

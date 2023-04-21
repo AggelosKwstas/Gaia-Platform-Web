@@ -22,7 +22,12 @@
       "ext-curl": "*",
         "ext-json": "*",
         "himiklab/yii2-recaptcha-widget": "*",
-        "kekaadrenalin/yii2-module-recaptcha-v3": "*"
+        "kekaadrenalin/yii2-module-recaptcha-v3": "*",
+        "kartik-v/yii2-widget-datepicker": "dev-master",
+        "kartik-v/yii2-widget-fileinput": "dev-master",
+        "kartik-v/yii2-grid": "dev-master",
+        "kartik-v/yii2-widget-select2": "dev-master",
+        "kartik-v/yii2-bootstrap5-dropdown": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
