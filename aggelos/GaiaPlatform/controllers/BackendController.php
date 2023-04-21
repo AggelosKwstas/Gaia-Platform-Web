@@ -72,6 +72,10 @@ class BackendController extends Controller
     {
         $this->layout='backend_login';
 
+        if (!Yii::$app->user->isGuest) {
+            return $this->redirect(['backend/index']);
+        }
+
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->redirect(['backend/index']);

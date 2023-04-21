@@ -49,7 +49,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 } else
                     echo \yii\helpers\Url::to(['backend/index']);
                 ?>">
-                    <i class="fa fa-house fa-lg"></i>
+                    <i class="fas fa-fw fa-home fa-lg"></i>
                     <span>Home</span></a>
             </li>
 
