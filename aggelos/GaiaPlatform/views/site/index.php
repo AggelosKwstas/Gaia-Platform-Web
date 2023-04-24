@@ -15,7 +15,6 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
     <div class="container-zoom">
         <div class="item-zoom">
             <img src="asset/libe.png">
-
         </div>
         <div class="centered" style="color: white; padding-right: 28%">
             <div class="item" data-aos="fade-down" data-aos-duration="1300">
@@ -203,7 +202,6 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 
     </div>
 </section>
-
 <section class="bg-light">
     <div class="item" data-aos="fade-up" data-aos-duration="1000">
         <div class="container pt-3" style="display: block;text-align: center">
@@ -218,6 +216,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
         </div>
     </div>
 </section>
+
 <section class="cta">
     <div id="map_element"></div>
 

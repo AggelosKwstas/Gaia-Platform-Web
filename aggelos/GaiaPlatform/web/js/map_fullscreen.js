@@ -279,3 +279,51 @@ if (navigator.userAgent.match(/Android/i)
         $('.legend').show();
     })
 }
+
+/*Dropdown Menu*/
+$('.dropdown').click(function () {
+    $(this).attr('tabindex', 1).focus();
+    $(this).toggleClass('active');
+    $(this).find('.dropdown-menu').slideToggle(300);
+    if($(this).hasClass('active')){
+        $('#cycle').addClass('fa fa-chevron-down');
+    }
+    else
+        $('#cycle').addClass('fa fa-chevron-left');
+
+});
+$('.dropdown').focusout(function () {
+    $(this).removeClass('active');
+    $(this).find('.dropdown-menu').slideUp(300);
+    $('#cycle').addClass('fa fa-chevron-left');
+    $('#cycle').removeClass('fa fa-chevron-down');
+});
+$('.dropdown .dropdown-menu li').click(function () {
+    $(this).parents('.dropdown').find('span').text($(this).text());
+    $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+    $('#cycle').addClass('fa fa-chevron-left');
+});
+/*End Dropdown Menu*/
+
+
+$('.dropdown-menu li').click(function () {
+    if ( $(this).parents('.dropdown').find('input').val()=='Γαρδίκι') {
+        // map2.setView([39.7147,],35);
+        map2.flyTo([39.7147, 20.7572], 20, {
+            animate: true,
+            duration: 1.5
+        });
+    }
+    else if($(this).parents('.dropdown').find('input').val()=='Ελεούσα'){
+        map2.flyTo([39.7066, 20.7926], 20, {
+            animate: true,
+            duration: 1.5
+        });
+    }
+    else if($(this).parents('.dropdown').find('input').val()=='Άγιος Ιωάννης'){
+        map2.flyTo([39.7027, 20.8122], 20, {
+            animate: true,
+            duration: 1.5
+        });
+    }
+});

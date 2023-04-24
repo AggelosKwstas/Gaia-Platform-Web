@@ -43,7 +43,6 @@ class AppAsset extends AssetBundle
         'theme/font-awesome/js/all.js',
         'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js',
         'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
-        'https://cdn.startbootstrap.com/sb-forms-latest.js',
         'js/map_smallscreen.js',
         'js/map_fullscreen.js',
         'js/echarts.js',
