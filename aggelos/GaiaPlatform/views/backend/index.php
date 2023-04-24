@@ -2,8 +2,9 @@
 
 /** @var yii\web\View $this */
 
-$this->title = 'My Yii Application';
 ?>
+<title>GAIA Backend</title>
+
 <div class="site-index">
 
     <div class="jumbotron text-center bg-transparent mt-5 mb-5">

@@ -71,7 +71,7 @@ class SiteController extends Controller
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
-                'layout'=>'basic',
+                'layout' => 'basic',
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
@@ -79,6 +79,7 @@ class SiteController extends Controller
             ],
         ];
     }
+
 
     /**
      * Displays homepage.
@@ -97,7 +98,8 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-    return $this->redirect(['backend/login']);
+        $this->view->title = 'Login';
+        return $this->redirect(['backend/login']);
     }
 
 
@@ -132,7 +134,8 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        $this->layout='main_map';
+        $this->view->title = 'Contact';
+        $this->layout = 'main_map';
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
@@ -152,7 +155,8 @@ class SiteController extends Controller
         $uoi = $this->makeWeatherCalls(39.6216, 20.8596);
 
         #change layout
-        $this->layout='main_map';
+        $this->view->title = 'Sensor Map';
+        $this->layout = 'main_map';
 
         return $this->render('map', [
             'content_gardiki' => $gardiki,
@@ -164,9 +168,11 @@ class SiteController extends Controller
 
     public function actionGraphs()
     {
-        $this->layout='main_map';
+        $this->layout = 'main_map';
+        $this->view->title = 'Sensor Graphs';
         return $this->render('Graphs');
     }
+
     /**
      * Displays about page.
      *

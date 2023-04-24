@@ -4,13 +4,11 @@
 
 use app\assets\AppAsset;
 use yii\helpers\Url;
-
-$this->title = 'GAIA V2';
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
 $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) . "'", \yii\web\View::POS_BEGIN);
-
 ?>
 
+<title>GAIA Platform</title>
 <header>
     <div class="container-zoom">
         <div class="item-zoom">

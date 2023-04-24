@@ -5,6 +5,8 @@
 use yii\helpers\Html;
 
 ?>
+<title>GAIA Platform | Graphs </title>
+
 <div class="container-fluid bg-light">
     <div class="container bg-light" style="padding-top: 3rem">
         <nav class="navbar navbar-dark bg-white" style="display: block;text-align: center">

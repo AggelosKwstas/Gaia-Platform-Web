@@ -9,10 +9,10 @@ use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 use yii\captcha\Captcha;
 
-$this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
+<title>GAIA Platform | Contact </title>
 
 <section class="contact-bg">
     <!--        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">-->

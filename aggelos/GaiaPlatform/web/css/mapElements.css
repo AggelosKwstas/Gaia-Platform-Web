@@ -39,7 +39,6 @@
 }
 
 
-
 .legend_h {
     visibility: hidden;
     display: block;
@@ -50,7 +49,8 @@
     .legend_info {
         display: none;
     }
-    .legend_h{
+
+    .legend_h {
         visibility: visible;
     }
 }
@@ -192,7 +192,8 @@ span.choose {
     color: #555;
     display: inherit
 }
-.container_map{
+
+.container_map {
     text-align: center
 }
 
@@ -209,11 +210,13 @@ span.choose {
     height: 100%;
     text-align: left
 }
+
 .dropdown .select {
     cursor: pointer;
     display: block;
     padding: 10px
 }
+
 .dropdown .select > i {
     font-size: 13px;
     color: #888;
@@ -222,21 +225,26 @@ span.choose {
     float: right;
     line-height: 20px
 }
+
 .dropdown:hover {
     box-shadow: 0 0 4px rgb(204, 204, 204)
 }
+
 .dropdown:active {
     background-color: #f8f8f8
 }
+
 .dropdown.active:hover,
 .dropdown.active {
     box-shadow: 0 0 4px rgb(204, 204, 204);
     border-radius: 2px 2px 0 0;
     background-color: #f8f8f8
 }
+
 .dropdown.active .select > i {
     transform: rotate(-90deg)
 }
+
 .dropdown .dropdown-menu {
     position: absolute;
     background-color: #fff;
@@ -249,24 +257,28 @@ span.choose {
     overflow-y: auto;
     z-index: 9
 }
+
 .dropdown .dropdown-menu li {
     padding: 10px;
     transition: all .2s ease-in-out;
     cursor: pointer;
 }
+
 .dropdown .dropdown-menu {
     padding: 0;
     list-style: none
 }
+
 .dropdown .dropdown-menu li:hover {
     background-color: #f2f2f2
 }
+
 .dropdown .dropdown-menu li:active {
     background-color: #e2e2e2
 }
 
 @media screen and (max-width: 280px) {
- .container_map{
-     width: 90px;
- }
+    .container_map {
+        width: 90px;
+    }
 }
