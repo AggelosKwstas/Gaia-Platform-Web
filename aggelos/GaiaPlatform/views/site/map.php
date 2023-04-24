@@ -22,7 +22,7 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
             <div class="container_map" style="z-index: 50000;position: absolute;top:15px;right:30px">
                 <div class="dropdown">
                     <div class="select">
-                        <span><b>Cycle stations</b></span>
+                        <span id="cycle_span"><b>Cycle stations</b></span>
                         <i id="cycle" class="fa fa-chevron-left"></i>
                     </div>
                     <input type="hidden" name="gender">

@@ -299,6 +299,7 @@ $('.dropdown').focusout(function () {
     $(this).find('.dropdown-menu').slideUp(300);
     $('#cycle').addClass('fa fa-chevron-left');
     $('#cycle').removeClass('fa fa-chevron-down');
+    $('#cycle_span').html('<b>Cycle stations</b>');
 });
 $('.dropdown .dropdown-menu li').click(function () {
     $(this).parents('.dropdown').find('span').text($(this).text());
@@ -324,8 +325,7 @@ $('.dropdown-menu li').click(function () {
             animate: true,
             duration: 1.5
         });
-    }
-    else if ($(this).parents('.dropdown').find('input').val() === 'Πανεπιστήμιο') {
+    } else if ($(this).parents('.dropdown').find('input').val() === 'Πανεπιστήμιο') {
         map2.flyTo([39.6216, 20.8596], 18, {
             animate: true,
             duration: 1.5
