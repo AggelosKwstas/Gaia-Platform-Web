@@ -252,7 +252,7 @@ span.choose {
 .dropdown .dropdown-menu li {
     padding: 10px;
     transition: all .2s ease-in-out;
-    cursor: pointer
+    cursor: pointer;
 }
 .dropdown .dropdown-menu {
     padding: 0;
@@ -263,4 +263,10 @@ span.choose {
 }
 .dropdown .dropdown-menu li:active {
     background-color: #e2e2e2
+}
+
+@media screen and (max-width: 280px) {
+ .container_map{
+     width: 90px;
+ }
 }

@@ -17,10 +17,10 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
     <section id="map_cta" class="cta">
         <div class="map-wrapper">
             <div id="map_full"></div>
-            <div class="container_map" style="z-index: 50000;position: absolute;top:15px;right:40px">
+            <div class="container_map" style="z-index: 50000;position: absolute;top:15px;right:30px">
                 <div class="dropdown">
                     <div class="select">
-                        <span>Cycle stations</span>
+                        <span><b>Cycle stations</b></span>
                         <i id="cycle" class="fa fa-chevron-left"></i>
                     </div>
                     <input type="hidden" name="gender">
@@ -28,6 +28,7 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
                         <li id="Γαρδίκι">Γαρδίκι</li>
                         <li id="Ελεούσα">Ελεούσα</li>
                         <li id="Άγιος Ιωάννης">Άγιος Ιωάννης</li>
+                        <li id="Πανεπιστήμιο">Πανεπιστήμιο</li>
                     </ul>
                 </div>
             </div>

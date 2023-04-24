@@ -274,9 +274,12 @@ if (navigator.userAgent.match(/Android/i)
     console.log('mobile')
     map2.on('popupopen', () => {
         $('.legend').hide();
+        $(".container_map").hide();
+
     })
     map2.on('popupclose', () => {
         $('.legend').show();
+        $(".container_map").show();
     })
 }
 
@@ -285,10 +288,9 @@ $('.dropdown').click(function () {
     $(this).attr('tabindex', 1).focus();
     $(this).toggleClass('active');
     $(this).find('.dropdown-menu').slideToggle(300);
-    if($(this).hasClass('active')){
+    if ($(this).hasClass('active')) {
         $('#cycle').addClass('fa fa-chevron-down');
-    }
-    else
+    } else
         $('#cycle').addClass('fa fa-chevron-left');
 
 });
@@ -307,21 +309,24 @@ $('.dropdown .dropdown-menu li').click(function () {
 
 
 $('.dropdown-menu li').click(function () {
-    if ( $(this).parents('.dropdown').find('input').val()=='Γαρδίκι') {
-        // map2.setView([39.7147,],35);
-        map2.flyTo([39.7147, 20.7572], 20, {
+    if ($(this).parents('.dropdown').find('input').val() === 'Γαρδίκι') {
+        map2.flyTo([39.7147, 20.7572], 18, {
+            animate: true,
+            duration: 1.5
+        });
+    } else if ($(this).parents('.dropdown').find('input').val() === 'Ελεούσα') {
+        map2.flyTo([39.7066, 20.7926], 18, {
+            animate: true,
+            duration: 1.5
+        });
+    } else if ($(this).parents('.dropdown').find('input').val() === 'Άγιος Ιωάννης') {
+        map2.flyTo([39.7027, 20.8122], 18, {
             animate: true,
             duration: 1.5
         });
     }
-    else if($(this).parents('.dropdown').find('input').val()=='Ελεούσα'){
-        map2.flyTo([39.7066, 20.7926], 20, {
-            animate: true,
-            duration: 1.5
-        });
-    }
-    else if($(this).parents('.dropdown').find('input').val()=='Άγιος Ιωάννης'){
-        map2.flyTo([39.7027, 20.8122], 20, {
+    else if ($(this).parents('.dropdown').find('input').val() === 'Πανεπιστήμιο') {
+        map2.flyTo([39.6216, 20.8596], 18, {
             animate: true,
             duration: 1.5
         });
