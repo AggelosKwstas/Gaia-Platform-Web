@@ -25,7 +25,7 @@ class BackendAsset extends AssetBundle
         'theme/font-awesome/css/all.css',
         'backend/css/sb-admin-2.min.css',
         'backend/css/loginPrivate.css',
-        '../css/styles.css',
+        'css/styles.css',
         'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css',
         'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
         'https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap',
