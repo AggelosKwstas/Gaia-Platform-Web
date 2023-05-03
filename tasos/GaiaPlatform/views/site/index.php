@@ -4,19 +4,15 @@
 
 use app\assets\AppAsset;
 use yii\helpers\Url;
-
-$this->title = 'GAIA V2';
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
 $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) . "'", \yii\web\View::POS_BEGIN);
-
 ?>
 
+<title>GAIA Platform</title>
 <header>
-    <!--    style="height:90vh!important;"-->
     <div class="container-zoom">
         <div class="item-zoom">
             <img src="asset/libe.png">
-
         </div>
         <div class="centered" style="color: white; padding-right: 28%">
             <div class="item" data-aos="fade-down" data-aos-duration="1300">
@@ -176,7 +172,6 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
                 <div class="drop drop-2"></div>
                 <div class="drop drop-3"></div>
             </div>
-
             <!-- <div class="progress"></div> -->
         </button>
         <script>
@@ -205,8 +200,21 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 
     </div>
 </section>
+<section class="bg-light">
+    <div class="item" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container pt-3" style="display: block;text-align: center">
+            <h4 class="display-6">Case Study - Urban Air Quality</h4>
+            <p style="font-size: 19px">
+                With the rise of urbanization, air pollution has become a growing concern for public health and the
+                environment. Using our sensors we have an efficient way to monitor air quality in real-time and generate
+                accurate data for analysis.
+                This case study monitors the city of Ioannina, Greece and demonstrates the potential of sensor
+                technology to address and solve critical environmental challenges.
+            </p>
+        </div>
+    </div>
+</section>
 
-<h4 class="legend_h">Case Study - Urban Air Quality</h4>
 <section class="cta">
     <div id="map_element"></div>
 

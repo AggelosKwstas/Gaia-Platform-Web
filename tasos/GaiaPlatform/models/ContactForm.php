@@ -15,6 +15,7 @@ class ContactForm extends Model
     public $subject;
     public $body;
     public $verifyCode;
+    public $reCaptcha;
 
 
     /**
@@ -28,7 +29,8 @@ class ContactForm extends Model
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator2::className(),
+                'uncheckedMessage' => 'Please confirm that you are not a bot.'],
         ];
     }
 
@@ -38,7 +40,7 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'reCaptcha' => 'Prove You Are Human',
         ];
     }
 
@@ -49,22 +51,17 @@ class ContactForm extends Model
      */
     public function contact($email)
     {
-
-
+        if ($this->validate()) {
             Yii::$app->mailer->compose()
                 ->setTo($email)
-                ->setFrom(Yii::$app->params['senderEmail'] )
-                ->setCc($this->email)
-                ->setHtmlBody("Do not reply on this email!
-                        
-                ")
+                ->setFrom([Yii::$app->params['senderEmail'] => Yii::$app->params['senderName']])
                 ->setReplyTo([$this->email => $this->name])
                 ->setSubject($this->subject)
                 ->setTextBody($this->body)
                 ->send();
 
             return true;
-
-
+        }
+        return false;
     }
 }

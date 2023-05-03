@@ -246,7 +246,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/sebastian/resource-operations" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/sebastian/type" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/sebastian/version" />
-      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/symfony/browser-kit" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/symfony/css-selector" />
@@ -258,7 +257,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/symfony/mailer" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/symfony/mime" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/symfony/polyfill-ctype" />
-      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/symfony/polyfill-iconv" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/symfony/polyfill-intl-grapheme" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/symfony/polyfill-intl-idn" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/symfony/polyfill-intl-normalizer" />
@@ -277,7 +275,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/yiisoft/yii2-debug" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/yiisoft/yii2-faker" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/yiisoft/yii2-gii" />
-      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/yiisoft/yii2-swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/yiisoft/yii2-symfonymailer" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/OldVersion1/vendor/behat/gherkin" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/OldVersion1/vendor/bower-asset/bootstrap" />
@@ -386,6 +383,18 @@
       <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/kartik-v/yii2-widget-fileinput" />
       <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/kartik-v/yii2-widget-select2" />
       <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/select2/select2" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/himiklab/yii2-recaptcha-widget" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/kartik-v/bootstrap-fileinput" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/kartik-v/yii2-bootstrap5-dropdown" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/kartik-v/yii2-dialog" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/kartik-v/yii2-grid" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/kartik-v/yii2-krajee-base" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/kartik-v/yii2-widget-datepicker" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/kartik-v/yii2-widget-fileinput" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/kartik-v/yii2-widget-select2" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/kekaadrenalin/yii2-module-recaptcha-v3" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/select2/select2" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/yiisoft/yii2-httpclient" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

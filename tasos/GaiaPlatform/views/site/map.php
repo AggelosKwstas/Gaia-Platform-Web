@@ -5,21 +5,38 @@
 
 use yii\helpers\Url;
 
-$this->title = 'GAIA V2';
-$this->registerJs("let uoi_object=".json_encode($content_uoi), \yii\web\View::POS_BEGIN);
-$this->registerJs("let gardiki_object=".json_encode($content_gardiki), \yii\web\View::POS_BEGIN);
-$this->registerJs("let ioannis_object=".json_encode($content_ioannis), \yii\web\View::POS_BEGIN);
-$this->registerJs("let eleousa_object=".json_encode($content_eleousa), \yii\web\View::POS_BEGIN);
+
+$this->registerJs("let uoi_object=" . json_encode($content_uoi), \yii\web\View::POS_BEGIN);
+$this->registerJs("let gardiki_object=" . json_encode($content_gardiki), \yii\web\View::POS_BEGIN);
+$this->registerJs("let ioannis_object=" . json_encode($content_ioannis), \yii\web\View::POS_BEGIN);
+$this->registerJs("let eleousa_object=" . json_encode($content_eleousa), \yii\web\View::POS_BEGIN);
 $this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\web\View::POS_BEGIN);
-$this->registerJs("let locationMap='" .  Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
+$this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
 ?>
+<title>GAIA Platform | Stations </title>
+
 <div>
-<section id="map_cta" class="cta" >
-    <div class="map-wrapper">
-    <div id="map_full"></div>
-    </div>
+    <section id="map_cta" class="cta">
+        <div class="map-wrapper">
+            <div id="map_full"></div>
+            <div class="container_map" style="z-index: 50000;position: absolute;top:15px;right:30px">
+                <div class="dropdown">
+                    <div class="select">
+                        <span id="cycle_span"><b>Cycle stations</b></span>
+                        <i id="cycle" class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="gender">
+                    <ul class="dropdown-menu">
+                        <li id="Γαρδίκι">Γαρδίκι</li>
+                        <li id="Ελεούσα">Ελεούσα</li>
+                        <li id="Άγιος Ιωάννης">Άγιος Ιωάννης</li>
+                        <li id="Πανεπιστήμιο">Πανεπιστήμιο</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div id="myModal" class="modal">
-            <div class="modal-content" >
+            <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="modal-body" style="font-size: 15px">
                     <h5><strong>Details on the methodology the AQ Index is calculated :</strong></h5>
@@ -54,39 +71,38 @@ $this->registerJs("let locationMap='" .  Url::to(['site/map']) . "'", \yii\web\V
                         <tbody>
                         <tr>
                             <td style="text-align: center"><b>O<sub>3</sub> (ppm)</b></td>
-                            <td style="color: #165C40;text-align: center">0-100</td>
-                            <td style="color: #FFCE13;text-align: center">100-240</td>
-                            <td style="color: #88070B;text-align: center">240-800</td>
+                            <td style="color: #01fb0a;text-align: center">0-100</td>
+                            <td style="color: #DECF37FF;text-align: center">100-240</td>
+                            <td style="color: #ff0032;text-align: center">240-800</td>
                         </tr>
                         <tr>
                             <td style="text-align: center"><b>PM 2.5 (μg/m3)</b></td>
-                            <td style="color: #165C40;text-align: center">0-20</td>
-                            <td style="color: #FFCE13;text-align: center">20-50</td>
-                            <td style="color: #88070B;text-align: center">50-800</td>
+                            <td style="color: #01fb0a;text-align: center">0-20</td>
+                            <td style="color: #DECF37FF;text-align: center">20-50</td>
+                            <td style="color: #ff0032;text-align: center">50-800</td>
                         </tr>
                         <tr>
                             <td style="text-align: center"><b>PM 10 (μg/m3)</b></td>
-                            <td style="color: #165C40;text-align: center">0-40</td>
-                            <td style="color: #FFCE13;text-align: center">40-100</td>
-                            <td style="color: #88070B;text-align: center">100-1200</td>
+                            <td style="color: #01fb0a;text-align: center">0-40</td>
+                            <td style="color: #DECF37FF;text-align: center">40-100</td>
+                            <td style="color: #ff0032;text-align: center">100-1200</td>
                         </tr>
                         <tr>
                             <td style="text-align: center"><b>SO<sub>2</sub> (ppm)</b></td>
-                            <td style="color: #165C40;text-align: center">0-100</td>
-                            <td style="color: #FFCE13;text-align: center">100-200</td>
-                            <td style="color: #88070B;text-align: center">200-1200</td>
+                            <td style="color: #01fb0a;text-align: center">0-100</td>
+                            <td style="color: #DECF37FF;text-align: center">100-200</td>
+                            <td style="color: #ff0032;text-align: center">200-1200</td>
                         </tr>
                         <tr>
                             <td style="text-align: center"><b>NO<sub>2</sub> (ppm)</b></td>
-                            <td style="color: #165C40;text-align: center">0-90</td>
-                            <td style="color: #FFCE13;text-align: center">90-230</td>
-                            <td style="color: #88070B;text-align: center">230-1000</td>
+                            <td style="color: #01fb0a;text-align: center">0-90</td>
+                            <td style="color: #DECF37FF;text-align: center">90-230</td>
+                            <td style="color: #ff0032;text-align: center">230-1000</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-</section>
+    </section>
 </div>
-
