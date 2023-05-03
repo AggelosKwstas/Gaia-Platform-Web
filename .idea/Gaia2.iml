@@ -377,6 +377,15 @@
       <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/himiklab/yii2-recaptcha-widget" />
       <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/kekaadrenalin/yii2-module-recaptcha-v3" />
       <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/yiisoft/yii2-httpclient" />
+      <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/kartik-v/bootstrap-fileinput" />
+      <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/kartik-v/yii2-bootstrap5-dropdown" />
+      <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/kartik-v/yii2-dialog" />
+      <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/kartik-v/yii2-grid" />
+      <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/kartik-v/yii2-krajee-base" />
+      <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/kartik-v/yii2-widget-datepicker" />
+      <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/kartik-v/yii2-widget-fileinput" />
+      <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/kartik-v/yii2-widget-select2" />
+      <excludeFolder url="file://$MODULE_DIR$/aggelos/GaiaPlatform/vendor/select2/select2" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
