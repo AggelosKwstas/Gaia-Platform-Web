@@ -106,4 +106,3 @@ $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\Vi
         </div>
     </section>
 </div>
-

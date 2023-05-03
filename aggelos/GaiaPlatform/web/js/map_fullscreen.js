@@ -4,11 +4,11 @@ function toFixed(num, fixed) {
     return num.toString().match(re)[0];
 }
 
-let url = window.location.href;
+let url_index = 'map';
+let mapString = locationMap.split("=")[1].split("%2F")[1];
 
-url = url.substring(url.lastIndexOf('8') + 1);
-
-if (url === locationMap) {
+if (url_index === mapString) {
+    console.log('on map');
     let element = document.getElementById("mainNav");
     element.classList.remove("fixed-top");
 }
@@ -299,7 +299,6 @@ $('.dropdown').focusout(function () {
     $(this).find('.dropdown-menu').slideUp(300);
     $('#cycle').addClass('fa fa-chevron-left');
     $('#cycle').removeClass('fa fa-chevron-down');
-    $('#cycle_span').html('<b>Cycle stations</b>');
 });
 $('.dropdown .dropdown-menu li').click(function () {
     $(this).parents('.dropdown').find('span').text($(this).text());
@@ -307,8 +306,6 @@ $('.dropdown .dropdown-menu li').click(function () {
     $('#cycle').addClass('fa fa-chevron-left');
 });
 /*End Dropdown Menu*/
-
-
 $('.dropdown-menu li').click(function () {
     if ($(this).parents('.dropdown').find('input').val() === 'Γαρδίκι') {
         map2.flyTo([39.7147, 20.7572], 18, {
