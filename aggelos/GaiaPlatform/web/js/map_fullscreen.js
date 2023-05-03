@@ -4,10 +4,11 @@ function toFixed(num, fixed) {
     return num.toString().match(re)[0];
 }
 
-let url_index = 'map';
-let mapString = locationMap.split("=")[1].split("%2F")[1];
-
-if (url_index === mapString) {
+let url = window.location.href;
+const parts = url.split("=");
+const lastPart = parts[parts.length - 1];
+const decodedLastPart = decodeURIComponent(lastPart);
+if (decodedLastPart === 'site/map') {
     console.log('on map');
     let element = document.getElementById("mainNav");
     element.classList.remove("fixed-top");
