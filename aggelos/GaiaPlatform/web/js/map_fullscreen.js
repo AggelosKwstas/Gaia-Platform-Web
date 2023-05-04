@@ -27,6 +27,11 @@ function fToC(f) {
     return toFixed(f, 1);
 }
 
+function checkMobile() {
+    const isMobile = /Android|webOS|iPhone/i.test(navigator.userAgent);
+    return isMobile;
+}
+
 function Redirect(id) {
     let found = false;
     if (id === 'uoiDiv') {
@@ -258,21 +263,19 @@ window.onclick = function (event) {
     }
 }
 
+
 legend.getContainer().addEventListener('mouseover', function () {
-    map2.dragging.disable();
+    map2.doubleClickZoom.disable();
+    if (!checkMobile())
+        map2.dragging.disable();
 });
 
 legend.getContainer().addEventListener('mouseout', function () {
     map2.dragging.enable();
+    map2.doubleClickZoom.enable();
 });
 
-map2.doubleClickZoom.disable();
-
-//close legend when popup is open on small devices.
-if (navigator.userAgent.match(/Android/i)
-    || navigator.userAgent.match(/webOS/i)
-    || navigator.userAgent.match(/iPhone/i)) {
-    console.log('mobile')
+if (checkMobile()) {
     map2.on('popupopen', () => {
         $('.legend').hide();
         $(".container_map").hide();
