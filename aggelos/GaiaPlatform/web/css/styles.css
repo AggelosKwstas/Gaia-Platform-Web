@@ -11643,8 +11643,8 @@ section {
 }
 
 #mainNav {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    /*padding-top: 1rem;*/
+    /*padding-bottom: 1rem;*/
     background-color: #fff;
     width: auto;
 }
@@ -11685,10 +11685,45 @@ section {
     display: inline-block;
 }
 
+img.main_logo {
+    height: 50px;
+}
+
 #mainNav .navbar-toggler {
     font-size: 0.875rem;
     padding: 0.75rem 1rem;
     color: #212529;
+}
+
+@media (max-width: 320px) {
+
+    #mainNav .navbar-toggler {
+        font-size: 0.65rem;
+        padding: 4px 3px 4px 3px;
+    }
+
+    #h_logo {
+        font-size: 12px;
+    }
+
+    img.main_logo {
+        height: 26px !important;
+    }
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 400px) {
+    #mainNav .navbar-toggler {
+        font-size: 0.75rem;
+        padding: 6px 4px 6px 4px;
+    }
+
+    #h_logo {
+        font-size: 15px;
+    }
+
+    img.main_logo {
+        height: 30px !important;
+    }
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
