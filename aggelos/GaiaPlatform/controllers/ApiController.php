@@ -10,7 +10,10 @@ use yii\web\Response;
 class ApiController extends Controller
 {
 
-    //Handle API calls
-
+    public function actionTesting($id)
+    {
+        die($id);
+        //Model logic
+    }
 
 }

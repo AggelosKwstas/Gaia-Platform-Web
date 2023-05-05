@@ -4,6 +4,21 @@ function toFixed(num, fixed) {
     return num.toString().match(re)[0];
 }
 
+//works only with xaamp directory
+function makeAjax(id) {
+    $.ajax({
+        url: baseUrl + '?r=api/testing&id=' + id,
+        data: {},
+        type: 'POST',
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+        }
+    });
+}
+
 let url = window.location.href;
 const parts = url.split("=");
 const lastPart = parts[parts.length - 1];
@@ -273,7 +288,7 @@ function Redirect(id) {
         map2._handlers.forEach(function (handler) {
             handler.disable();
         });
-
+        makeAjax(id);
         setTimeout(() => {
             window.location.href = locationGraphs;
         }, 1500);
