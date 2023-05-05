@@ -4,6 +4,7 @@
 
 use app\assets\AppAsset;
 use yii\helpers\Url;
+
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
 $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) . "'", \yii\web\View::POS_BEGIN);
 ?>
@@ -216,8 +217,8 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 </section>
 
 <section class="cta">
-    <div id="map_element"></div>
-
+    <div id="map_element" class="bstooltip" title='Click on the markers for a detailed view' data-placement='bottom'
+         data-toggle="tooltip"></div>
 </section>
 
 
