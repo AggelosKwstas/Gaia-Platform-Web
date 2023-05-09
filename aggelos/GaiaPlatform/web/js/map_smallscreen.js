@@ -118,6 +118,7 @@ function makeBlueChart() {
             {
                 z2: 9,
                 z: 9,
+                zlevel: 9,
                 color: colorPalette,
                 name: 'Fake Data',
                 type: 'line',
