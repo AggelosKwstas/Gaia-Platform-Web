@@ -1,5 +1,6 @@
 <?php
 
+
 namespace app\controllers;
 
 use Yii;
@@ -70,7 +71,7 @@ class BackendController extends Controller
      */
     public function actionLogin()
     {
-        $this->layout='backend_login';
+        $this->layout = 'backend_login';
 
         if (!Yii::$app->user->isGuest) {
             return $this->redirect(['backend/index']);
@@ -96,7 +97,7 @@ class BackendController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->redirect(['site/index']);
     }
 
     /**
