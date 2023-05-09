@@ -61,8 +61,7 @@ function makeBlueChart(title, name) {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                         {
                             offset: 0,
-                            color: '#FFFFF' +
-                                'F'
+                            color: '#FFFFFF'
                         },
                         {
                             offset: 1,
@@ -84,7 +83,7 @@ window.onload = function () {
     function initCharts() {
         chartIds.forEach((chartId) => {
             const chart = echarts.init(document.getElementById(chartId));
-            chart.setOption(makeBlueChart());
+            chart.setOption(makeBlueChart(title, name));
             barCharts[chartId] = chart;
         });
     }

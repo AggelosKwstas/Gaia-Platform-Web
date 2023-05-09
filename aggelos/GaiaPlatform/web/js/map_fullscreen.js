@@ -288,9 +288,8 @@ function Redirect(id) {
         map2._handlers.forEach(function (handler) {
             handler.disable();
         });
-        makeAjax(id);
         setTimeout(() => {
-            window.location.href = locationGraphs;
+            makeAjax(id);
         }, 1500);
     }
 }

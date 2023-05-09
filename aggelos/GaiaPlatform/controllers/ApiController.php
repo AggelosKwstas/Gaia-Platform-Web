@@ -12,8 +12,11 @@ class ApiController extends Controller
 
     public function actionTesting($id)
     {
-        die($id);
-        //Model logic
+        $title = 'Aggelos';
+        $name = 'kwstas';
+        $this->view->registerJs("var title = '" . $title . "';");
+        $this->view->registerJs("var name = '" . $name . "';");
+        return $this->redirect(['site/graphs', 'title' => $title, 'name' => $name]);
     }
 
 }
