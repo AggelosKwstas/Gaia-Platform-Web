@@ -74,6 +74,7 @@ function makeBlueChart(title, name) {
     };
 }
 
+//make sure page is laoded
 window.onload = function () {
 
     const chartIds = ['barChart1', 'barChart2', 'gaugeChart1'];

@@ -63,5 +63,13 @@ if (decodedLastPart_index === 'site/index') {
         window.location.href = locationMap;
     }
 
+    const markers = [marker3, marker4, marker5, marker6];
+
     map.on('click', onMapClick);
+
+    markers.forEach(marker => {
+        marker.on('click', onMapClick);
+    });
+
+
 }

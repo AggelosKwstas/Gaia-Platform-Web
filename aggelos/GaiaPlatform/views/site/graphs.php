@@ -4,6 +4,7 @@
 
 use yii\helpers\Html;
 
+$this->registerJsFile('js/graphs.js');
 ?>
 <title>GAIA Platform - Graphs </title>
 
