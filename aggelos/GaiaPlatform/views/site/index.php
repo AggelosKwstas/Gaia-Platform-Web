@@ -217,8 +217,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 </section>
 
 <section class="cta">
-    <div id="map_element" class="bstooltip" title='Click on the markers for a detailed view' data-placement='bottom'
-         data-toggle="tooltip"></div>
+    <div id="map_element"></div>
 </section>
 
 

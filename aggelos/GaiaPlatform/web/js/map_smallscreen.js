@@ -48,13 +48,13 @@ if (decodedLastPart_index === 'site/index') {
         maxZoom: 20,
     }).addTo(map);
 
-    marker3 = L.marker([39.6216, 20.8596], {icon: Icon}).addTo(map);
+    marker3 = L.marker([39.6216, 20.8596], {icon: Icon}).bindTooltip(`<b><em>Click on the station for a detailed view</em></b>`).addTo(map);
 
-    marker4 = L.marker([39.7147, 20.7572], {icon: Icon}).addTo(map);
+    marker4 = L.marker([39.7147, 20.7572], {icon: Icon}).bindTooltip(`<b><em>Click on the station for a detailed view</em></b>`).addTo(map);
 
-    marker5 = L.marker([39.7027, 20.8122], {icon: Icon}).addTo(map);
+    marker5 = L.marker([39.7027, 20.8122], {icon: Icon}).bindTooltip(`<b><em>Click on the station for a detailed view</em></b>`).addTo(map);
 
-    marker6 = L.marker([39.7066, 20.7926], {icon: Icon}).addTo(map);
+    marker6 = L.marker([39.7066, 20.7926], {icon: Icon}).bindTooltip(`<b><em>Click on the station for a detailed view</em></b>`).addTo(map);
 
     map.attributionControl.setPrefix();
 
@@ -142,21 +142,21 @@ function makeBlueChart() {
     };
 }
 
-$('.bstooltip').on('shown.bs.tooltip', function () {
-    var that = $(this);
-
-    var element = that[0];
-    if (element.myShowTooltipEventNum == null) {
-        element.myShowTooltipEventNum = 0;
-    } else {
-        element.myShowTooltipEventNum++;
-    }
-    var eventNum = element.myShowTooltipEventNum;
-
-    setTimeout(function () {
-        if (element.myShowTooltipEventNum === eventNum) {
-            that.tooltip('hide');
-        }
-        // else skip timeout event
-    }, 2000);
-});
+// $('.bstooltip').on('shown.bs.tooltip', function () {
+//     var that = $(this);
+//
+//     var element = that[0];
+//     if (element.myShowTooltipEventNum == null) {
+//         element.myShowTooltipEventNum = 0;
+//     } else {
+//         element.myShowTooltipEventNum++;
+//     }
+//     var eventNum = element.myShowTooltipEventNum;
+//
+//     setTimeout(function () {
+//         if (element.myShowTooltipEventNum === eventNum) {
+//             that.tooltip('hide');
+//         }
+//         // else skip timeout event
+//     }, 2000);
+// });
