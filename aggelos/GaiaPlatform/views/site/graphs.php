@@ -5,7 +5,7 @@
 use yii\helpers\Html;
 
 ?>
-<title>GAIA Platform | Graphs </title>
+<title>GAIA Platform - Graphs </title>
 
 <div class="container-fluid bg-light">
     <div class="container bg-light" style="padding-top: 3rem">

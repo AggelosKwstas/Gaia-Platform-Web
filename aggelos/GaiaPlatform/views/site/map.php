@@ -14,7 +14,7 @@ $this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
 $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_BEGIN);
 ?>
-<title>GAIA Platform | Stations </title>
+<title>GAIA Platform - Stations </title>
 
 <div>
     <section id="map_cta" class="cta">

@@ -12,7 +12,7 @@ use yii\captcha\Captcha;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<title>GAIA Platform | Contact </title>
+<title>GAIA Platform - Contact </title>
 
 <section class="contact-bg">
     <!--        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">-->
