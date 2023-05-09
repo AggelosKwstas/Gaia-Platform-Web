@@ -61,7 +61,8 @@ function makeBlueChart(title, name) {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                         {
                             offset: 0,
-                            color: '#FFFFFF'
+                            color: '#FFFFF' +
+                                'F'
                         },
                         {
                             offset: 1,
@@ -74,7 +75,7 @@ function makeBlueChart(title, name) {
     };
 }
 
-//make sure page is laoded
+//make sure page is laoded before the grapgs are displayed
 window.onload = function () {
 
     const chartIds = ['barChart1', 'barChart2', 'gaugeChart1'];
