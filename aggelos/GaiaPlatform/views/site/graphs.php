@@ -58,39 +58,26 @@ use yii\helpers\Html;
 $script = <<< JS
 
 
-let barChart1 = null;
-let barChart2 = null;
-let barChart3 = null;
+const chartIds = ['barChart1', 'barChart2', 'gaugeChart1'];
+const barCharts = {};
 
 function initCharts() {
-    if (!barChart1) {
-        barChart1 = echarts.init(document.getElementById('barChart1'));
-        barChart1.setOption(makeBlueChart());
-    }
-
-    if (!barChart2) {
-        barChart2 = echarts.init(document.getElementById('barChart2'));
-        barChart2.setOption(makeBlueChart());
-    }
-
-    if (!barChart3) {
-        barChart3 = echarts.init(document.getElementById('gaugeChart1'));
-        barChart3.setOption(makeBlueChart());
-    }
+    chartIds.forEach((chartId) => {
+        const chart = echarts.init(document.getElementById(chartId));
+        chart.setOption(makeBlueChart());
+        barCharts[chartId] = chart;
+    });
 }
 
 initCharts();
 
-   $(window).on('resize', function() {
-    if (barChart1 != null) {
-        barChart1.resize();
-    }
-    if (barChart2 != null) {
-        barChart2.resize();
-    }
-    if (barChart3 != null) {
-        barChart3.resize();
-    }
+$(window).on('resize', function() {
+    chartIds.forEach((chartId) => {
+        const chart = barCharts[chartId];
+        if (chart) {
+            chart.resize();
+        }
+    });
 });
 
    // gives warning
