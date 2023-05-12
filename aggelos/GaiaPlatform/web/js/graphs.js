@@ -1,3 +1,21 @@
+var decodeEntities = (function () {
+    var element = document.createElement('div');
+
+    function decodeHTMLEntities(str) {
+        if (str && typeof str === 'string') {
+            str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+            str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+            element.innerHTML = str;
+            str = element.textContent;
+            element.textContent = '';
+        }
+
+        return str;
+    }
+
+    return decodeHTMLEntities;
+})();
+
 function makeBlueChart(title, name) {
     let colorPalette = ['rgb(124, 181, 236)'];
     let base = +new Date(1988, 9, 3);
@@ -17,7 +35,7 @@ function makeBlueChart(title, name) {
         },
         title: {
             left: 'center',
-            text: title,
+            text: decodeEntities(title),
             fontWeight: 'lighter'
         },
         toolbox: {

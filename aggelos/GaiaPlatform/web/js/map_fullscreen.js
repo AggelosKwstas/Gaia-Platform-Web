@@ -257,14 +257,6 @@ if (decodedLastPart === 'site/map') {
     element.classList.remove("fixed-top");
 }
 
-(function () {
-    window.onpageshow = function (event) {
-        if (event.persisted) {
-            window.location.reload();
-        }
-    };
-})();
-
 function fToC(f) {
     f = f - 273.15;
     return toFixed(f, 1);
@@ -288,9 +280,7 @@ function Redirect(id) {
         map2._handlers.forEach(function (handler) {
             handler.disable();
         });
-        setTimeout(() => {
-            makeAjax(id);
-        }, 1500);
+        makeAjax(id);
     }
 }
 
