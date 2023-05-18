@@ -1,11 +1,3 @@
-(function () {
-    window.onpageshow = function (event) {
-        if (event.persisted) {
-            event.preventDefault();
-        }
-    };
-})();
-
 function toFixed(num, fixed) {
     var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
     return num.toString().match(re)[0];
@@ -84,15 +76,9 @@ if (decodedLastPart === 'site/map') {
   <hr>
   <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
-<img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png"><br>
- <b><u>Forecast stats</u></b><br>
- <b>Temperature: </b>${fToC(uoi_object['main']['temp'])} °C<br>
- <b>Wind: </b>${uoi_object['wind']['speed']} km/h - ${uoi_object['wind']['deg']} °<br>
- <b>Humidity: </b>${uoi_object['main']['humidity']} %<br>
- <b>Pressure: </b>${uoi_object['main']['pressure']} Pa<br>
- <b>Visibility: </b>${uoi_object['visibility']} m<br>
- <button id="uoiButton" onclick="Redirect('uoiDiv')" class="button_station button4"><b>View station</b></button>
-<div id="uoiDiv" style="height: 65px;width: 150px;display: none" class="oaerror warning"><b>Station is currently unavailable!</b></div><br>
+<img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
+<div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
+<button id="uoiButton" onclick="Redirect('uoiDiv')" class="button_station button4"><b>View station</b></button>
 </div>
 `);
 
@@ -275,20 +261,12 @@ function checkMobile() {
 }
 
 function Redirect(id) {
-    let found = false;
-    if (id === 'uoiDiv') {
-        document.getElementById('uoiDiv').style.display = 'block';
-        found = true;
-    }
+    document.getElementById(id).style.display = 'block';
 
-    if (found === false) {
-        document.getElementById(id).style.display = 'block';
-
-        map2._handlers.forEach(function (handler) {
-            handler.disable();
-        });
-        makeAjax(id);
-    }
+    map2._handlers.forEach(function (handler) {
+        handler.disable();
+    });
+    makeAjax(id);
 }
 
 /* Filter Stations */
