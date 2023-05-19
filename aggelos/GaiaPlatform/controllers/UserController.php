@@ -45,7 +45,19 @@ class UserController extends AuthedController
      */
     public function actionIndex()
     {
-        $this->redirect(['backend/user']);
+
+
+        $this->getOnlyManager();
+
+        $searchModel = new UserSearch();
+
+        $this->layout = 'basic';
+
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**
@@ -76,7 +88,7 @@ class UserController extends AuthedController
         $this->layout = 'basic';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect('@web/index.php?r=user%2Findex');
+            return $this->redirect(['backend/user']);
         }
 
         return $this->render('create', [

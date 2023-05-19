@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
-class BackendController extends Controller
+class BackendController extends AuthedController
 {
     /**
      * {@inheritdoc}

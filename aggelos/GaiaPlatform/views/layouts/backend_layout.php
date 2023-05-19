@@ -32,7 +32,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
     <?php $this->beginBody() ?>
     <div id="wrapper">
 
-        <ul class="navbar-nav sidebar sidebar-dark accordion toggled" style="background-color: #212121" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion toggled" style="background-color: #212121"
+            id="accordionSidebar">
 
             <a class="sidebar-brand d-flex align-items-center justify-content-center inactiveLink"
                style="color: white!important;">
@@ -43,7 +44,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item <?php
-            if(\yii\helpers\Url::current()==\yii\helpers\Url::to(['backend/index']))
+            if (\yii\helpers\Url::current() == \yii\helpers\Url::to(['backend/index']))
                 echo 'active';
             ?>">
                 <a class="nav-link" href="<?php
@@ -61,7 +62,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
 
 
             <div class="sidebar-heading">
-                Interface
+                Configure
             </div>
 
 
@@ -138,7 +139,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 <!---->
 
             <li class="nav-item <?php
-            if(\yii\helpers\Url::current()==\yii\helpers\Url::to(['backend/user']))
+            if (\yii\helpers\Url::current() == \yii\helpers\Url::to(['backend/user']))
                 echo 'active';
             ?>">
                 <a class="nav-link" href="<?php echo \yii\helpers\Url::to(['backend/user']) ?>">
@@ -148,8 +149,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
 
 
             <hr class="sidebar-divider d-none d-md-block">
-
-
 
 
         </ul>
@@ -223,12 +222,13 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <p class="modal-title" id="exampleModalLabel"><b>Ready to Leave?</b></p>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-body"><em>Select "Logout" below if you are ready to end your current session.</em>
+                    </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary"
