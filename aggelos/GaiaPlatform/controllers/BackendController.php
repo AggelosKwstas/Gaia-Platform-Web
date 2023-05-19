@@ -3,6 +3,7 @@
 
 namespace app\controllers;
 
+use app\models\search\UserSearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -27,7 +28,7 @@ class BackendController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index'],
+                        'actions' => ['index','user'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -64,6 +65,24 @@ class BackendController extends Controller
         return $this->render('index');
     }
 
+    public function actionUser()
+    {
+        $this->layout = 'backend_layout';
+        $searchModel = new UserSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        return $this->render('user', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+
+    public function actionUcreate()
+    {
+        $this->layout = 'backend_layout';
+        return $this->render('ucreate');
+    }
+    
     /**
      * Login action.
      *

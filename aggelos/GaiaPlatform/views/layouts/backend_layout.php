@@ -42,7 +42,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
 
             <hr class="sidebar-divider my-0">
 
-            <li class="nav-item active">
+            <li class="nav-item <?php
+            if(\yii\helpers\Url::current()==\yii\helpers\Url::to(['backend/index']))
+                echo 'active';
+            ?>">
                 <a class="nav-link" href="<?php
                 if (\yii\helpers\Url::current() == \yii\helpers\Url::to(['backend/index'])) {
                     echo '#page-top';
@@ -134,8 +137,11 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
                 <!--            </li>-->
                 <!---->
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo \yii\helpers\Url::to(['user/index']) ?>">
+            <li class="nav-item <?php
+            if(\yii\helpers\Url::current()==\yii\helpers\Url::to(['backend/user']))
+                echo 'active';
+            ?>">
+                <a class="nav-link" href="<?php echo \yii\helpers\Url::to(['backend/user']) ?>">
                     <i class="fas fa-fw fa-user fa-lg"></i>
                     <span>Users</span></a>
             </li>
