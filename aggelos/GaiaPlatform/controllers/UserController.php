@@ -37,25 +37,15 @@ class UserController extends AuthedController
         ];
     }
 
+    public $enableCsrfValidation = false;
+
     /**
      * Lists all User models.
      * @return mixed
      */
     public function actionIndex()
     {
-
-
-        $this->getOnlyManager();
-
-        $searchModel = new UserSearch();
-
-        $this->layout = 'basic';
-
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        $this->redirect(['backend/user']);
     }
 
     /**
@@ -80,7 +70,7 @@ class UserController extends AuthedController
     public function actionCreate()
     {
 
-//        $this->onlyAdmin;
+        $this->onlyAdmin;
         $model = new \app\models\dist\UserDist();
         $model->scenario = "create";
         $this->layout = 'basic';

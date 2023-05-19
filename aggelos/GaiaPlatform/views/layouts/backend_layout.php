@@ -32,7 +32,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
     <?php $this->beginBody() ?>
     <div id="wrapper">
 
-        <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #212121" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion toggled" style="background-color: #212121" id="accordionSidebar">
 
             <a class="sidebar-brand d-flex align-items-center justify-content-center inactiveLink"
                style="color: white!important;">
@@ -150,9 +150,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             <hr class="sidebar-divider d-none d-md-block">
 
 
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
 
 
         </ul>

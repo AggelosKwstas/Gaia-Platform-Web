@@ -79,10 +79,10 @@ class AuthedController extends CController
             parse_str(parse_url(Yii::$app->request->referrer)['query'], $query);
             $r = $query["r"];
             if (strpos($r, "/index") !== false) {
-                return $this->goBack(Yii::$app->request->referrer);
+                return $this->redirect(['backend/user']);
             }
         }
 
-        return $this->redirect(["index"]);
+        return $this->redirect(["backend/user"]);
     }
 }

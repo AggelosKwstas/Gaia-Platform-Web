@@ -28,7 +28,7 @@ class BackendController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','user'],
+                        'actions' => ['index','user','del'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -36,6 +36,7 @@ class BackendController extends Controller
             ],
         ];
     }
+    public $enableCsrfValidation = false;
 
     /**
      * {@inheritdoc}
@@ -77,12 +78,23 @@ class BackendController extends Controller
     }
 
 
-    public function actionUcreate()
+    public function actionCreate()
     {
-        $this->layout = 'backend_layout';
-        return $this->render('ucreate');
+
+//        $this->onlyAdmin;
+        $model = new \app\models\dist\UserDist();
+        $model->scenario = "create";
+        $this->layout = 'basic';
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect('@web/index.php?r=user%2Findex');
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
-    
+
     /**
      * Login action.
      *
