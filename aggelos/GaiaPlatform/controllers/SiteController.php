@@ -10,6 +10,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use webzop\notifications\Notification;
 
 
 class SiteController extends Controller
@@ -147,20 +148,23 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
+
     public function actionContact()
     {
         $this->view->title = 'Contact';
         $this->layout = 'main_map';
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
 
+        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+            Yii::$app->session->setFlash('success', 'Contact form submitted successfully.'); // Set success flash message
             return $this->refresh();
         }
+
         return $this->render('contact', [
             'model' => $model,
         ]);
     }
+
 
     public function actionMap()
     {
