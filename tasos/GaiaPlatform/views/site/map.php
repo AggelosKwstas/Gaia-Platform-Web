@@ -12,17 +12,18 @@ $this->registerJs("let ioannis_object=" . json_encode($content_ioannis), \yii\we
 $this->registerJs("let eleousa_object=" . json_encode($content_eleousa), \yii\web\View::POS_BEGIN);
 $this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\web\View::POS_BEGIN);
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
+$this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_BEGIN);
 ?>
-<title>GAIA Platform | Stations </title>
+<title>GAIA Platform - Stations </title>
 
 <div>
     <section id="map_cta" class="cta">
         <div class="map-wrapper">
             <div id="map_full"></div>
             <div class="container_map" style="z-index: 50000;position: absolute;top:15px;right:30px">
-                <div class="dropdown">
+                <div class="dropdown" style="width: 150px">
                     <div class="select">
-                        <span id="cycle_span"><b>Cycle stations</b></span>
+                        <span id="cycle_span"><i class="fa-solid fa-layer-group pull-left" style="font-size: 15px;"></i> <b>Cycle stations</b></span>
                         <i id="cycle" class="fa fa-chevron-left"></i>
                     </div>
                     <input type="hidden" name="gender">

@@ -13,7 +13,7 @@ $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<title>GAIA Platform | Login </title>
+<title>GAIA Platform - Login </title>
 
 
 <section class="contact-bg">

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "aos": "^2.3.4",
+    "leaflet-spin": "^1.1.2",
     "leaflet.smooth_marker_bouncing": "^3.0.2"
   }
 }

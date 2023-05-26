@@ -67,6 +67,13 @@
     color: #555;
 }
 
+#uoiButton {
+    cursor: not-allowed;
+}
+
+#uoiButton:hover {
+    background-color: white;
+}
 
 .legend h4 {
     text-align: center;

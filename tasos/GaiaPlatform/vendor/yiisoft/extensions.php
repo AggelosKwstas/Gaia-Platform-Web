@@ -140,4 +140,33 @@ return array (
       '@kartik/bs5dropdown' => $vendorDir . '/kartik-v/yii2-bootstrap5-dropdown/src',
     ),
   ),
+  'yiisoft/yii2-swiftmailer' => 
+  array (
+    'name' => 'yiisoft/yii2-swiftmailer',
+    'version' => '2.1.3.0',
+    'alias' => 
+    array (
+      '@yii/swiftmailer' => $vendorDir . '/yiisoft/yii2-swiftmailer/src',
+    ),
+  ),
+  'loveorigami/yii2-notification-wrapper' => 
+  array (
+    'name' => 'loveorigami/yii2-notification-wrapper',
+    'version' => '6.7.2.0',
+    'alias' => 
+    array (
+      '@lo/modules/noty' => $vendorDir . '/loveorigami/yii2-notification-wrapper/src',
+    ),
+    'bootstrap' => 'lo\\modules\\noty\\Bootstrap',
+  ),
+  'webzop/yii2-notifications' => 
+  array (
+    'name' => 'webzop/yii2-notifications',
+    'version' => '0.2.0.0',
+    'alias' => 
+    array (
+      '@webzop/notifications' => $vendorDir . '/webzop/yii2-notifications',
+    ),
+    'bootstrap' => 'webzop\\notifications\\Bootstrap',
+  ),
 );

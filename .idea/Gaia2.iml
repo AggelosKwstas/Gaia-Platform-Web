@@ -395,6 +395,11 @@
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/kekaadrenalin/yii2-module-recaptcha-v3" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/select2/select2" />
       <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/yiisoft/yii2-httpclient" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/loveorigami/yii2-notification-wrapper" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/swiftmailer/swiftmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/symfony/polyfill-iconv" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/webzop/yii2-notifications" />
+      <excludeFolder url="file://$MODULE_DIR$/tasos/GaiaPlatform/vendor/yiisoft/yii2-swiftmailer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
