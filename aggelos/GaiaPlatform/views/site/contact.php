@@ -1,6 +1,7 @@
 <?php
 /** @var yii\web\View $this */
 /** @var yii\bootstrap5\ActiveForm $form */
+
 /** @var app\models\ContactForm $model */
 
 use yii\bootstrap5\ActiveForm;
@@ -53,13 +54,14 @@ $this->params['breadcrumbs'][] = $this->title;
             <!-- Right Side -->
             <div class="right-side">
                 <div class="topic-text">Support</div>
-                <p>If you have technical problems to report or other questions, please fill out the following form to contact us. Thank you.</p>
+                <p>If you have technical problems to report or other questions, please fill out the following form to
+                    contact us. Thank you.</p>
 
                 <!-- Flash Message -->
                 <?php if (Yii::$app->session->hasFlash('success')): ?>
-                    <div class="alert alert-success" style="width: 400px!important;">
-                       <i class="fa fa-check"></i> <?= Yii::$app->session->getFlash('success') ?><br>
-                        We will get to you as soon as possible.
+                    <div class="alert alert-success alert-dismissable" style="width: 350px!important;">
+                        <i class="fa fa-check"></i> <?= Yii::$app->session->getFlash('success') ?><br>
+                        &nbsp; &nbsp; We will get to you as soon as possible.
                     </div>
                 <?php endif; ?>
 
