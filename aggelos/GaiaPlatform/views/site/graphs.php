@@ -32,11 +32,11 @@ $this->registerJsFile('js/graphs.js');
                     <div class="chart" id="barChart2" style="min-height: 400px;width:100%"></div>
                 </div>
             </div>
-            <!--            <div class="col-xs-12 col-sm-12 col-lg">-->
-            <!--                <div class="card">-->
-            <!--                    fgfgfgffg-->
-            <!--                </div>-->
-            <!--            </div>-->
+            <div class="col-xs-12 col-sm-12 col-lg">
+                <div class="card">
+                    fgfgfgffg
+                </div>
+            </div>
         </div>
         <div class="row p-3">
             <div class="col-xs-12 col-sm-12 col-lg">
@@ -44,16 +44,17 @@ $this->registerJsFile('js/graphs.js');
                     <div class="chart" id="gaugeChart1" style="min-height: 400px;width:100%"></div>
                 </div>
             </div>
-            <!--            <div class="col-xs-12 col-sm-12 col-lg">-->
-            <!--                <div class="card">-->
-            <!--                    <div class="chart" id="gaugeChart" style=" min-height: 400px"></div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--            <div class="col-xs-12 col-sm-12 col-lg">-->
-            <!--                <div class="card">-->
-            <!--                    <div class="chart" id="gaugeChart" style="min-height: 400px"></div>-->
-            <!--                </div>-->
-            <!--            </div>-->
+            <div class="col-xs-12 col-sm-12 col-lg">
+                <div class="card">
+                    <div class="chart" id="gaugeChart" style=" min-height: 400px"></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-lg">
+                <div class="card">
+                    <div class="chart" id="gaugeChart" style="min-height: 400px"></div>
+                </div>
+            </div>
         </div>
-    </div>
+
+
 </section>

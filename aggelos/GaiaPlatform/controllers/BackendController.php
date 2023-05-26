@@ -28,7 +28,7 @@ class BackendController extends AuthedController
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','user','del'],
+                        'actions' => ['index', 'user', 'del'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -36,6 +36,7 @@ class BackendController extends AuthedController
             ],
         ];
     }
+
     public $enableCsrfValidation = false;
 
     /**
@@ -118,6 +119,7 @@ class BackendController extends AuthedController
             'model' => $model,
         ]);
     }
+
 
     /**
      * Logout action.

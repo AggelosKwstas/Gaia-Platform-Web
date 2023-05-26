@@ -21,14 +21,14 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
         <div class="map-wrapper">
             <div id="map_full"></div>
             <div class="container_map" style="z-index: 50000;position: absolute;top:15px;right:30px">
-                <div class="dropdown" style="width: auto;">
+                <div class="dropdown" style="width: 150px">
                     <div class="select">
-                        <span id="cycle_span"><i class="fa-solid fa-layer-group"></i> <b>Cycle stations</b></span>
+                        <span id="cycle_span"><i class="fa-solid fa-layer-group pull-left" style="font-size: 15px;"></i> <b>Cycle stations</b></span>
                         <i id="cycle" class="fa fa-chevron-left"></i>
                     </div>
                     <input type="hidden" name="gender">
-                    <ul class="dropdown-menu" style="width: 200px; max-height: 200px; overflow-x: auto;">
-                    <li id="Γαρδίκι">Γαρδίκι</li>
+                    <ul class="dropdown-menu">
+                        <li id="Γαρδίκι">Γαρδίκι</li>
                         <li id="Ελεούσα">Ελεούσα</li>
                         <li id="Άγιος Ιωάννης">Άγιος Ιωάννης</li>
                         <li id="Πανεπιστήμιο">Πανεπιστήμιο</li>

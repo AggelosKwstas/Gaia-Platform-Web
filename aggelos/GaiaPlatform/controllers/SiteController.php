@@ -98,8 +98,23 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+
+        $this->layout = 'backend_login';
+
+        if (!Yii::$app->user->isGuest) {
+            return $this->redirect(['backend/index']);
+        }
+
         $this->view->title = 'Login';
-        return $this->redirect(['backend/login']);
+        $model = new LoginForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->redirect(['backend/index']);
+        }
+
+        return $this->render('login', [
+            'model' => $model,
+        ]);
     }
 
 
@@ -157,7 +172,6 @@ class SiteController extends Controller
         #change layout
         $this->view->title = 'Sensor Map';
         $this->layout = 'main_map';
-
         return $this->render('map', [
             'content_gardiki' => $gardiki,
             'content_ioannis' => $ioannis,
