@@ -23,16 +23,19 @@ function makeAjax(id) {
 
 
 let key = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
-let currentDate = new Date();
-const cd = currentDate.slice(11);
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+var yyyy = today.getFullYear();
+today = yyyy + '-' +mm + '-' + dd;
 let sensor_type_id = 12;
-let phrase = '_measurements';
-let apiMeasurementsPhrase = sensor_node_id + phrase;
+// let phrase = '_measurements';
+// let apiMeasurementsPhrase = sensor_node_id + phrase;
 
 
 function measurementsCall(id){
-    let url2 = "https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?sensor_node_id=" + id + "&date=" + cd + "&sensor_type_id=" + sensor_type_id + "";
-    console.log(cd);
+    let url2 = "https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?sensor_node_id=" + id + "&date=" + today + "&sensor_type_id=" + sensor_type_id + "";
+    console.log(today);
     $.ajax(url2, {
         method: 'GET',
         data: {
@@ -40,13 +43,13 @@ function measurementsCall(id){
         },
         success: function (data) {
             result = 0;
-            measurements = [];
-            timestamps = [];
+            sensorNode = [];
+            name = [];
 
             let time;
-            for (let index in data[apiMeasurementsPhrase]) {
+            for (let index in data['tbl_sensor_node']) {
 
-                let item = data[apiMeasurementsPhrase][index];
+                let item = data['tbl_sensor_node'][index];
                 measurements.push(item.value);
                 timestamps.push(item.timestamp);
             }
@@ -59,6 +62,39 @@ function measurementsCall(id){
 });
 }
 
+let sensorNode = [];
+let sensorName = [];
+// let sensorDescription = [];
+let sensorLongitude = [];
+let sensorLatitude = [];
+key2='99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
+let urlNode = "https://restapi.gaia-platform.eu/rest-api/items/readNode.php?project_id=2";
+$.ajax(urlNode, {
+    method: 'GET',
+    data: {
+        token_auth: key2,
+    },
+    success: function (data) {
+        result = 0;
+
+
+        for (let index in data['tbl_sensor_node']) {
+
+            let item = data['tbl_sensor_node'][index];
+            sensorNode.push(item.sensor_node_id);
+            sensorName.push(item.name);
+            sensorDescription.push(item.description);
+            sensorLongitude.push(item.longitude);
+            sensorLatitude.push(item.latitude);
+
+
+        }
+        // let size = measurements.length;
+        //console.log("log",sensorNode, sensorName, sensorDescription, sensorLongitude,  sensorLatitude);
+    }
+
+});
+let sensorDescription = [];
 let url = window.location.href;
 const parts = url.split("=");
 const lastPart = parts[parts.length - 1];
@@ -71,12 +107,15 @@ if (decodedLastPart === 'site/map') {
     const lng = 20.85619898364398;
 
 
+
     let config2 = {
         minZoom: 7,
         maxZoom: 18,
         zoomControl: false
     };
 
+    console.log(sensorDescription.map(({ foo }) => foo));
+    console.log( sensorName);
     let s = new Date().toLocaleString();
     map2 = L.map("map_full", config2).setView([lat, lng], zoom);
 
@@ -113,7 +152,7 @@ if (decodedLastPart === 'site/map') {
 
     marker3.bindPopup(`
 <div style="display: block;text-align: center">
-<h6><i class="fa fa-location-dot"></i>&nbsp;UOI</h6>
+<h6 ><i class="fa fa-location-dot"></i>&nbsp;UOI</h6>
   <hr>
   <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
@@ -127,7 +166,7 @@ if (decodedLastPart === 'site/map') {
 
 //gardiki -> node_id=1
     marker4.bindPopup(`<div style="display: block;text-align: center">
-<h6><i class="fa fa-location-dot"></i>&nbsp;Γαρδίκι</h6>
+<h6 id="station"><i class="fa fa-location-dot"></i></h6>
   <hr>
     <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
@@ -147,7 +186,7 @@ if (decodedLastPart === 'site/map') {
 //ioannis -> node_id=2
     marker5.bindPopup(`
 <div style="display: block;text-align: center">
- <h6><i class="fa fa-location-dot"></i>&nbsp;Άγιος Ιωάννης</h6>
+ <h6><i class="fa fa-location-dot"></i>&nbsp;</h6>
   <hr class="dotted">
     <b>Type: </b>Air Monitor<br>
  <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
