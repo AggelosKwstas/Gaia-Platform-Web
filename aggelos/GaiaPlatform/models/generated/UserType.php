@@ -1,28 +1,27 @@
 <?php
 
-namespace app\models\generated;
+namespace app\models;
 
 use Yii;
 
 /**
- * This is the model class for table "{{%user_type}}".
+ * This is the model class for table "user_type".
  *
  * @property int $id
  * @property string $name
- * @property string $pretty_name
- * @property string $date_created
- * @property string|null $date_updated
+ * @property string $created_at
+ * @property string|null $updated_at
  *
  * @property User[] $users
  */
-class UserType extends \app\models\Model
+class UserType extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return '{{%user_type}}';
+        return 'user_type';
     }
 
     /**
@@ -31,10 +30,9 @@ class UserType extends \app\models\Model
     public function rules()
     {
         return [
-            [['name', 'pretty_name'], 'required'],
-            [['date_created', 'date_updated'], 'safe'],
-            [['name', 'pretty_name'], 'string', 'max' => 127],
-            [['pretty_name'], 'unique'],
+            [['name'], 'required'],
+            [['created_at', 'updated_at'], 'safe'],
+            [['name'], 'string', 'max' => 128],
             [['name'], 'unique'],
         ];
     }
@@ -47,9 +45,8 @@ class UserType extends \app\models\Model
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
-            'pretty_name' => Yii::t('app', 'Pretty Name'),
-            'date_created' => Yii::t('app', 'Date Created'),
-            'date_updated' => Yii::t('app', 'Date Updated'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
         ];
     }
 
@@ -60,6 +57,6 @@ class UserType extends \app\models\Model
      */
     public function getUsers()
     {
-        return $this->hasMany(User::className(), ['user_type_id' => 'id']);
+        return $this->hasMany(User::class, ['user_type_id' => 'id']);
     }
 }

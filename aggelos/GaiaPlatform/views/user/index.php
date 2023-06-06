@@ -1,99 +1,57 @@
 <?php
 
-use app\helpers\Override\GridView;
-use kartik\select2\Select2;
+use app\models\User;
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
-use yii\widgets\Pjax;
+use yii\helpers\Url;
+use yii\grid\ActionColumn;
+use yii\grid\GridView;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\search\UserSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/** @var yii\web\View $this */
+/** @var app\models\UserSearch $searchModel */
+/** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = Yii::t('app', 'Users');
-Yii::$app->setHomeUrl('@web/index.php?r=backend%2Findex');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="index-page kt-portlet">
-    <div class="kt-portlet__head">
-        <div class="kt-portlet__head-label">
+<div class="user-index">
 
-            <h3 class="kt-portlet__head-title">
-                <?= Html::encode($this->title) ?>
+    <h1><?= Html::encode($this->title) ?></h1>
 
-            </h3>
+    <p>
+        <?= Html::a(Yii::t('app', 'Create User'), ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 
-        </div>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    </div>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
 
-    <div class="kt-portlet__body">
-        <?php if (Yii::$app->user->identity->isAdmin) { ?>
-            <p>
-                <?= Html::a(Yii::t('app', 'Create User'), ['create'], ['class' => 'btn btn-primary']) ?>
-            </p>
-        <?php } ?>
-        <?php Pjax::begin(); ?>
-        <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-        <?= GridView::widget([
-            'dataProvider' => $dataProvider,
-            'columns' => [
-                ['class' => 'kartik\grid\SerialColumn'],
-
-//            'id',
-
-                'username',
-                'email:email',
-                'firstname',
-                'lastname',
-                [
-
-                    'attribute' => 'gender_id',
-
-
-                    'value' => "gender.pretty_name",
-                    'filterType' => GridView::FILTER_SELECT2,
-                    'filter' => yii\helpers\ArrayHelper::map(app\models\pure\Gender::find()->orderBy("name asc")->all(), 'id', 'pretty_name'),
-                    'filterWidgetOptions' => [
-                        'theme' => Select2::THEME_BOOTSTRAP,
-
-
-                        'options' => ['prompt' => '             '],
-                        'pluginOptions' => ['allowClear' => true],
-                    ],
-                    'format' => 'raw'
-                ],
-                ["attribute" => "date_created",
-                    'filterType' => GridView::FILTER_DATE,
-                    'filterWidgetOptions' => [
-                        'readonly' => true,
-
-                        'pluginOptions' => [
-                            'format' => 'yyyy-mm-dd',
-                            'todayHighlight' => true,
-                            'autoclose' => true
-                        ]],
-                ],
-
-
-                //'user_type_id',
-                //'token',
-                //'country_id',
-                //'auth_key',
-                //'password_hash',
-                //'password_reset_token',
-
-                //'status',
-                //'date_created',
-                //'date_updated',
-                //'verification_token',
-
-                ['class' => 'yii\grid\ActionColumn'],
+            'id',
+            'username',
+            'email:email',
+            'password_hash',
+            'first_name',
+            //'last_name',
+            //'user_type_id',
+            //'gender_id',
+            //'country_id',
+            //'address',
+            //'verification_token',
+            //'password_reset_token',
+            //'token',
+            //'created_at',
+            //'updated_at',
+            [
+                'class' => ActionColumn::className(),
+                'urlCreator' => function ($action, User $model, $key, $index, $column) {
+                    return Url::toRoute([$action, 'id' => $model->id]);
+                 }
             ],
-        ]); ?>
+        ],
+    ]); ?>
 
-        <?php Pjax::end(); ?>
 
-    </div>
 </div>

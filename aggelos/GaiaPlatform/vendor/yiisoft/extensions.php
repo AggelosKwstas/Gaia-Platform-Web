@@ -169,4 +169,13 @@ return array (
     ),
     'bootstrap' => 'webzop\\notifications\\Bootstrap',
   ),
+  'yiisoft/yii2-mongodb' => 
+  array (
+    'name' => 'yiisoft/yii2-mongodb',
+    'version' => '3.0.1.0',
+    'alias' => 
+    array (
+      '@yii/mongodb' => $vendorDir . '/yiisoft/yii2-mongodb/src',
+    ),
+  ),
 );

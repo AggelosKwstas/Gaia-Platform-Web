@@ -18,6 +18,9 @@ function makeAjax(id) {
     });
 }
 
+
+
+
 let url = window.location.href;
 const parts = url.split("=");
 const lastPart = parts[parts.length - 1];
@@ -70,78 +73,78 @@ if (decodedLastPart === 'site/map') {
 
     marker3 = L.marker([39.6216, 20.8596], {icon: greyIcon}).addTo(map2);
 
-    marker3.bindPopup(`
-<div style="display: block;text-align: center">
-<h6><i class="fa fa-location-dot"></i>&nbsp;UOI</h6>
-  <hr>
-  <b>Type: </b>Air Monitor<br>
- <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
-<img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
-<div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
-<button id="uoiButton" onclick="Redirect('uoiDiv')" class="button_station button4"><b>View station</b></button>
-</div>
-`);
-
-    marker4 = L.marker([39.7147, 20.7572], {icon: greenIcon}).addTo(map2);
-
-//gardiki -> node_id=1
-    marker4.bindPopup(`<div style="display: block;text-align: center">
-<h6><i class="fa fa-location-dot"></i>&nbsp;Γαρδίκι</h6>
-  <hr>
-    <b>Type: </b>Air Monitor<br>
- <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
-<img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
- <b><u>Forecast stats</u></b><br>
- <b>Temperature: </b>${fToC(gardiki_object['main']['temp'])} °C<br>
- <b>Wind: </b>${gardiki_object['wind']['speed']} km/h - ${gardiki_object['wind']['deg']} °<br>
- <b>Humidity: </b>${gardiki_object['main']['humidity']} %<br>
- <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
- <b>Visibility: </b>${gardiki_object['visibility']} m<br>
- <button onclick="Redirect('1')" class="button_station button4"><b>View station</b></button><br>
-<div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-</div>`);
-
-    marker5 = L.marker([39.7027, 20.8122], {icon: greenIcon}).addTo(map2);
-
-//ioannis -> node_id=2
-    marker5.bindPopup(`
-<div style="display: block;text-align: center">
- <h6><i class="fa fa-location-dot"></i>&nbsp;Άγιος Ιωάννης</h6>
-  <hr class="dotted">
-    <b>Type: </b>Air Monitor<br>
- <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
-<img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
- <b><u>Forecast stats</u></b><br>
- <b>Temperature: </b>${fToC(ioannis_object['main']['temp'])} °C<br>
- <b>Wind: </b>${ioannis_object['wind']['speed']} km/h - ${ioannis_object['wind']['deg']} °<br>
- <b>Humidity: </b>${ioannis_object['main']['humidity']} %<br>
- <b>Pressure: </b>${ioannis_object['main']['pressure']} Pa<br>
- <b>Visibility: </b>${ioannis_object['visibility']} m<br>
-  <button onclick="Redirect('2')" class="button_station button4"><b>View station</b></button><br>
-<div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-</div>
-`);
-
-    marker6 = L.marker([39.7066, 20.7926], {icon: greenIcon}).addTo(map2);
-
-//eleousa -> node_id=3
-    marker6.bindPopup(`
-<div style="display: block;text-align: center">
- <h6><i class="fa fa-location-dot"></i>&nbsp;Ελεούσα</h6>
-  <hr class="dotted">
-      <b>Type: </b>Air Monitor<br>
- <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
-<img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${eleousa_object['weather'][0]['icon']}.png"><br>
- <b><u>Forecast stats</u></b><br>
- <b>Temperature: </b>${fToC(eleousa_object['main']['temp'])} °C<br>
- <b>Wind: </b>${eleousa_object['wind']['speed']} km/h - ${eleousa_object['wind']['deg']} °<br>
- <b>Humidity: </b>${eleousa_object['main']['humidity']} %<br>
- <b>Pressure: </b>${eleousa_object['main']['pressure']} Pa<br>
- <b>Visibility: </b>${eleousa_object['visibility']} m<br>
- <button onclick="Redirect('3')" class="button_station button4"><b>View station</b></button><br>
-<div id="3" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-</div>
-`);
+//     marker3.bindPopup(`
+// <div style="display: block;text-align: center">
+// <h6><i class="fa fa-location-dot"></i>&nbsp;UOI</h6>
+//   <hr>
+//   <b>Type: </b>Air Monitor<br>
+//  <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
+// <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
+// <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
+// <button id="uoiButton" onclick="Redirect('uoiDiv')" class="button_station button4"><b>View station</b></button>
+// </div>
+// `);
+//
+//     marker4 = L.marker([39.7147, 20.7572], {icon: greenIcon}).addTo(map2);
+//
+// //gardiki -> node_id=1
+//     marker4.bindPopup(`<div style="display: block;text-align: center">
+// <h6><i class="fa fa-location-dot"></i>&nbsp;Γαρδίκι</h6>
+//   <hr>
+//     <b>Type: </b>Air Monitor<br>
+//  <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
+// <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
+//  <b><u>Forecast stats</u></b><br>
+//  <b>Temperature: </b>${fToC(gardiki_object['main']['temp'])} °C<br>
+//  <b>Wind: </b>${gardiki_object['wind']['speed']} km/h - ${gardiki_object['wind']['deg']} °<br>
+//  <b>Humidity: </b>${gardiki_object['main']['humidity']} %<br>
+//  <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
+//  <b>Visibility: </b>${gardiki_object['visibility']} m<br>
+//  <button onclick="Redirect('1')" class="button_station button4"><b>View station</b></button><br>
+// <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+// </div>`);
+//
+//     marker5 = L.marker([39.7027, 20.8122], {icon: greenIcon}).addTo(map2);
+//
+// //ioannis -> node_id=2
+//     marker5.bindPopup(`
+// <div style="display: block;text-align: center">
+//  <h6><i class="fa fa-location-dot"></i>&nbsp;Άγιος Ιωάννης</h6>
+//   <hr class="dotted">
+//     <b>Type: </b>Air Monitor<br>
+//  <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
+// <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
+//  <b><u>Forecast stats</u></b><br>
+//  <b>Temperature: </b>${fToC(ioannis_object['main']['temp'])} °C<br>
+//  <b>Wind: </b>${ioannis_object['wind']['speed']} km/h - ${ioannis_object['wind']['deg']} °<br>
+//  <b>Humidity: </b>${ioannis_object['main']['humidity']} %<br>
+//  <b>Pressure: </b>${ioannis_object['main']['pressure']} Pa<br>
+//  <b>Visibility: </b>${ioannis_object['visibility']} m<br>
+//   <button onclick="Redirect('2')" class="button_station button4"><b>View station</b></button><br>
+// <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+// </div>
+// `);
+//
+//     marker6 = L.marker([39.7066, 20.7926], {icon: greenIcon}).addTo(map2);
+//
+// //eleousa -> node_id=3
+//     marker6.bindPopup(`
+// <div style="display: block;text-align: center">
+//  <h6><i class="fa fa-location-dot"></i>&nbsp;Ελεούσα</h6>
+//   <hr class="dotted">
+//       <b>Type: </b>Air Monitor<br>
+//  <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
+// <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${eleousa_object['weather'][0]['icon']}.png"><br>
+//  <b><u>Forecast stats</u></b><br>
+//  <b>Temperature: </b>${fToC(eleousa_object['main']['temp'])} °C<br>
+//  <b>Wind: </b>${eleousa_object['wind']['speed']} km/h - ${eleousa_object['wind']['deg']} °<br>
+//  <b>Humidity: </b>${eleousa_object['main']['humidity']} %<br>
+//  <b>Pressure: </b>${eleousa_object['main']['pressure']} Pa<br>
+//  <b>Visibility: </b>${eleousa_object['visibility']} m<br>
+//  <button onclick="Redirect('3')" class="button_station button4"><b>View station</b></button><br>
+// <div id="3" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+// </div>
+// `);
 
     var legend = L.control({position: "topleft"});
 

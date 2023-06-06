@@ -32,6 +32,7 @@ class ComposerStaticInitba5e629b0d65bdfc39df7912f510c2a2
         array (
             'yii\\symfonymailer\\' => 18,
             'yii\\swiftmailer\\' => 16,
+            'yii\\mongodb\\' => 12,
             'yii\\httpclient\\' => 15,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
@@ -136,6 +137,10 @@ class ComposerStaticInitba5e629b0d65bdfc39df7912f510c2a2
         'yii\\swiftmailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer/src',
+        ),
+        'yii\\mongodb\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-mongodb/src',
         ),
         'yii\\httpclient\\' => 
         array (

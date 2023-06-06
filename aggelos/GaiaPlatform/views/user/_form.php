@@ -1,89 +1,47 @@
 <?php
 
-use app\models\pure\Gender;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use kartik\file\FileInput;
-use yii\helpers\ArrayHelper;
-use app\models\pure\UserType;
-use kartik\date\DatePicker;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\pure\User */
-/* @var $form yii\widgets\ActiveForm */
+/** @var yii\web\View $this */
+/** @var app\models\User $model */
+/** @var yii\widgets\ActiveForm $form */
 ?>
 
 <div class="user-form">
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
-    <?= $form->field($model, 'firstname')->textInput(['maxlength' => true]) ?>
+    <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'lastname')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'password_repeat')->passwordInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'password_hash')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
 
-    <?php
+    <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
 
-    echo $form->field($model, 'date_born')->widget(DatePicker::className(), [
-        'type' => DatePicker::TYPE_COMPONENT_APPEND,
-        'options' => ['placeholder' => ' '],
-        'removeButton' => false,
-        'pluginOptions' => [
-            'format' => 'yyyy-mm-dd',
-            'todayHighlight' => true
-        ]
-    ])
-    ?>
+    <?= $form->field($model, 'user_type_id')->textInput() ?>
 
+    <?= $form->field($model, 'gender_id')->textInput() ?>
 
-    <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'country_id')->textInput() ?>
 
+    <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'verification_token')->textInput(['maxlength' => true]) ?>
 
-    <?=
-    $form->field($model, 'gender_id')->dropDownList(
-        ArrayHelper::map(Gender::find()->orderBy("name asc")->all(), 'id', 'pretty_name')
-    )
-    ?>
+    <?= $form->field($model, 'password_reset_token')->textInput(['maxlength' => true]) ?>
 
-    <?=
+    <?= $form->field($model, 'token')->textInput(['maxlength' => true]) ?>
 
-    $form->field($model, 'user_type_id')->dropDownList(
-        ArrayHelper::map(UserType::getAllRestrictedCurrent(), 'id', 'pretty_name')
-    );
-    ?>
+    <?= $form->field($model, 'created_at')->textInput() ?>
 
-
-    <?=
-
-
-    $form->field($model->imageInstance(), 'image')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'image/*'],
-        "language" => Yii::$app->language,
-        'pluginOptions' => [
-            'initialPreview' => [
-                $model->image_id ? Html::img($model->image->getFullImagePath()) : null
-            ],
-            'showCaption' => false,
-            'showCancel' => false,
-            'showRemove' => false,
-            'showUpload' => false,
-            'browseClass' => 'btn btn-primary btn-block',
-            'browseIcon' => '<i class="glyphicon glyphicon-camera"></i> ',
-            'browseLabel' => Yii::t('app', "Image Upload"),
-
-        ]
-    ])
-    ?>
-
+    <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-primary' : 'btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

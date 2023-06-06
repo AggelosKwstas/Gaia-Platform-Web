@@ -4,6 +4,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'timeZone' => 'Europe/Athens',
     'name' => 'GAIA Platform',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
