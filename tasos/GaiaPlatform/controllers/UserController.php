@@ -37,6 +37,8 @@ class UserController extends AuthedController
         ];
     }
 
+    public $enableCsrfValidation = false;
+
     /**
      * Lists all User models.
      * @return mixed
@@ -80,13 +82,13 @@ class UserController extends AuthedController
     public function actionCreate()
     {
 
-//        $this->onlyAdmin;
+        $this->onlyAdmin;
         $model = new \app\models\dist\UserDist();
         $model->scenario = "create";
         $this->layout = 'basic';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect('@web/index.php?r=user%2Findex');
+            return $this->redirect(['backend/user']);
         }
 
         return $this->render('create', [

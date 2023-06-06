@@ -4,9 +4,92 @@
 
 use app\assets\AppAsset;
 use yii\helpers\Url;
+
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
 $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) . "'", \yii\web\View::POS_BEGIN);
 ?>
+<?php if (Yii::$app->controller->action->id === 'index'): ?>
+    <?php $this->registerJs("
+//api upproach
+//const coordinates = [
+//  [39.6216, 20.8596],
+//  [39.7147, 20.7572],
+//  [39.7027, 20.8122],
+//  [39.7066, 20.7926]
+//];
+//
+//for (const coord of coordinates) {
+//  let icon;
+//  
+//  if (/* condition for selecting a specific icon */) {
+//    // Assign the specific icon based on the condition
+//    icon = SpecificIcon;
+//  } else {
+//    // Assign a default icon
+//    icon = DefaultIcon;
+//  }
+//
+//  L.marker(coord, { icon })
+//    .bindTooltip('<b><em>Click on the station for a detailed view</em></b>')
+//    .addTo(map);
+//}
+
+// Configuration
+const config1 = {
+    minZoom: 7,
+    maxZoom: 18,
+    zoomControl: false,
+};
+
+// Map initialization
+const zoom = 11;
+const lat = 39.6711248555161;
+const lng = 20.85619898364398;
+const map = L.map('map_element', config1).setView([lat, lng], zoom);
+
+// LeafIcon customization
+const LeafIcon = L.Icon.extend({
+    options: {
+        iconSize: [25, 30],
+        popupAnchor: [-1, -15]
+    }
+});
+
+// Creating LeafIcon instance
+const Icon = new LeafIcon({
+    iconUrl: 'asset/stationGreen.png',
+});
+
+// Adding tile layer to the map
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 20,
+}).addTo(map);
+
+// Adding markers to the map with tooltips
+const marker3 = L.marker([39.6216, 20.8596], {icon: Icon}).bindTooltip('<b><em>Click on the station for a detailed view</em></b>').addTo(map);
+const marker4 = L.marker([39.7147, 20.7572], {icon: Icon}).bindTooltip('<b><em>Click on the station for a detailed view</em></b>').addTo(map);
+const marker5 = L.marker([39.7027, 20.8122], {icon: Icon}).bindTooltip('<b><em>Click on the station for a detailed view</em></b>').addTo(map);
+const marker6 = L.marker([39.7066, 20.7926], {icon: Icon}).bindTooltip('<b><em>Click on the station for a detailed view</em></b>').addTo(map);
+
+// Customizing attribution control
+map.attributionControl.setPrefix();
+
+// Function to handle map click events
+function onMapClick() {
+    window.location.href = locationMap;
+}
+
+// Setting up map click event listeners
+const markers = [marker3, marker4, marker5, marker6];
+map.on('click', onMapClick);
+markers.forEach(marker => {
+    marker.on('click', onMapClick);
+});
+
+    ");
+    ?>
+<?php endif; ?>
+
 
 <title>GAIA Platform</title>
 <header>
@@ -217,7 +300,6 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 
 <section class="cta">
     <div id="map_element"></div>
-
 </section>
 
 

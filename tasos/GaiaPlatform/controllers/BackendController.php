@@ -1,7 +1,9 @@
 <?php
 
+
 namespace app\controllers;
 
+use app\models\search\UserSearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -10,7 +12,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
-class BackendController extends Controller
+class BackendController extends AuthedController
 {
     /**
      * {@inheritdoc}
@@ -26,7 +28,7 @@ class BackendController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index'],
+                        'actions' => ['index', 'user', 'del'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -34,6 +36,8 @@ class BackendController extends Controller
             ],
         ];
     }
+
+    public $enableCsrfValidation = false;
 
     /**
      * {@inheritdoc}
@@ -63,6 +67,35 @@ class BackendController extends Controller
         return $this->render('index');
     }
 
+    public function actionUser()
+    {
+        $this->layout = 'backend_layout';
+        $searchModel = new UserSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        return $this->render('user', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+
+    public function actionCreate()
+    {
+
+//        $this->onlyAdmin;
+        $model = new \app\models\dist\UserDist();
+        $model->scenario = "create";
+        $this->layout = 'basic';
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect('@web/index.php?r=user%2Findex');
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+
     /**
      * Login action.
      *
@@ -70,7 +103,7 @@ class BackendController extends Controller
      */
     public function actionLogin()
     {
-        $this->layout='backend_login';
+        $this->layout = 'backend_login';
 
         if (!Yii::$app->user->isGuest) {
             return $this->redirect(['backend/index']);
@@ -87,6 +120,7 @@ class BackendController extends Controller
         ]);
     }
 
+
     /**
      * Logout action.
      *
@@ -96,7 +130,7 @@ class BackendController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->redirect(['site/index']);
     }
 
     /**

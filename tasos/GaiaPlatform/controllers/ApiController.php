@@ -9,8 +9,15 @@ use yii\web\Response;
 
 class ApiController extends Controller
 {
+    public $enableCsrfValidation = false;
+    public function actionTesting($id)
+    {
 
-    //Handle API calls
-
+        $title = 'Aggelos';
+        $name = 'kwstas';
+        $this->view->registerJs("var title = '" . $title . "';");
+        $this->view->registerJs("var name = '" . $name . "';");
+        return $this->redirect(['site/graphs', 'title' => $title, 'name' => $name]);
+    }
 
 }

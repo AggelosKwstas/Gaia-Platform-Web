@@ -39,13 +39,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             } else
                 echo \yii\helpers\Url::to(['site/index']);
             ?>"><img class="main_logo"
-                     src="asset/maybe.png"
-                     style="height: 50px!important;">
+                     src="asset/maybe.png">
                 <h id="h_logo">GAIA PLATFORM</h>
             </a>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto me-0 my-3 my-lg-0">
-            </div>
         </div>
     </nav>
     <?php echo $content ?>
