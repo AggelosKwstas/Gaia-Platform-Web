@@ -35,6 +35,9 @@ class ApiController extends Controller
             //write sensorType to a file, won't use it in a query
             $sensorType = \app\models\pure\Sensor::find()->select('id,hour_limit,eight_hours,day_limit,month_limit,year_limit')->where(['like', 'name', $id])->one();
 
+
+
+
             if ($sensorType && $val != -1) {
                 //get sensor based on id
                 $sensor = \app\models\Node::findOne($sensorId);
