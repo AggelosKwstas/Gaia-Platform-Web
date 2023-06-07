@@ -25,9 +25,9 @@ function makeAjax(id) {
 // today = yyyy + '-' +mm + '-' + dd;
 // let phrase = '_measurements';
 // let apiMeasurementsPhrase = sensor_node_id + phrase;
+
 let sensorTypeId = [];
 let measurementValue = [];
-
 function lastMeasurementsCall(id, callback){
     let key = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
     let lastMeasurementsURL = "https://restapi.gaia-platform.eu/rest-api/items/readLast.php?sensor_node_id=" + id +"";
@@ -37,7 +37,8 @@ function lastMeasurementsCall(id, callback){
             token_auth: key,
         },
         success: function (data) {
-            result = 0;
+            sensorTypeId = [];
+            measurementValue = [];
             for (let index in data) {
                 let item = data[index];
                 sensorTypeId.push(item.sensor_type_id);
@@ -54,15 +55,20 @@ let sensorName = [];
 let sensorDescription = [];
 let sensorLongitude = [];
 let sensorLatitude = [];
-key2='99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
-let nodeURL = "https://restapi.gaia-platform.eu/rest-api/items/readNode.php?project_id=2";
 function nodeApiCall(callback) {
+    key2='99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
+    let nodeURL = "https://restapi.gaia-platform.eu/rest-api/items/readNode.php?project_id=2";
     $.ajax(nodeURL, {
         method: 'GET',
         data: {
             token_auth: key2,
         },
         success: function (data) {
+            sensorNode = [];
+            sensorName = [];
+            sensorDescription = [];
+            sensorLongitude = [];
+            sensorLatitude = [];
             for (let index in data['tbl_sensor_node']) {
                 let item = data['tbl_sensor_node'][index];
                 sensorNode.push(item.sensor_node_id);
@@ -76,7 +82,37 @@ function nodeApiCall(callback) {
     });
 }
 
-
+let typeId =[];
+let typeDescription = [];
+let minTypeValue = [];
+let maxTypeValue = [];
+let typeUnit = [];
+function typeCall(id, callback) {
+    key3='99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
+    let typeURL = "https://restapi.gaia-platform.eu/rest-api/items/readNodeType.php?sensor_node_id="+ id +"";
+    $.ajax(typeURL, {
+        method: 'GET',
+        data: {
+            token_auth: key3,
+        },
+        success: function (data) {
+            typeId =[];
+            typeDescription = [];
+            minTypeValue = [];
+            maxTypeValue = [];
+            typeUnit = [];
+            for (let index in data['tbl_sensor_type']) {
+                let item = data['tbl_sensor_type'][index];
+                typeId.push(item.sensor_type_id);
+                typeDescription.push(item.description);
+                minTypeValue.push(item.min_value);
+                maxTypeValue.push(item.max_value);
+                typeUnit.push(item.unit);
+            }
+            callback(id);
+        }
+    });
+}
 
 let url = window.location.href;
 const parts = url.split("=");
@@ -130,89 +166,95 @@ if (decodedLastPart === 'site/map') {
 
     nodeApiCall(function (){
         console.log("finished");
-        console.log(sensorDescription[1]);
 
         marker3 = L.marker([39.6216, 20.8596], {icon: greyIcon}).addTo(map2);
-        marker3.bindPopup(`
+        popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6>
+        <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
         <b>Type: </b>${sensorName[0]}<br>
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
         <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
-        <button id="uoiButton" onclick="Redirect('uoiDiv')" class="button_station button4"><b>View station</b></button>
-        </div>`);
+        <button id="uoiButton" onclick="Redirect('uoiDiv')" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button>
+        </div>`;
+        marker3.bindPopup(popup);
 
         //gardiki
         marker4 = L.marker([39.7147, 20.7572], {icon: greenIcon}).addTo(map2);
         console.log(sensorNode[1]);
-        lastMeasurementsCall(sensorNode[1], function(id) {
             marker4.bindPopup(`<div style="display: block;text-align: center">
             <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6></div>
-            <hr>
+            <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
+            <hr class="dotted">
             <b>Type: </b>${sensorName[1]}<br>
             <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
             <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
             <b><u>Τελευταίες Μετρήσεις</u></b><br>
-            
             <b>Temperature: </b>${fToC(gardiki_object['main']['temp'])} °C<br>
             <b>Wind: </b>${gardiki_object['wind']['speed']} km/h - ${gardiki_object['wind']['deg']} °<br>
             <b>Humidity: </b>${gardiki_object['main']['humidity']} %<br>
             <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
             <b>Visibility: </b>${gardiki_object['visibility']} m<br>
-            <button onclick="Redirect('1')" class="button_station button4"><b>View station</b></button><br>
+            <button onclick="Redirect(sensorNode[1])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
             <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             </div>`);
 
+        marker5 = L.marker([39.7027, 20.8122], {icon: greenIcon}).addTo(map2);
+        lastMeasurementsCall(sensorNode[2], function(id) {
+            // console.log(measurementValue[2])
+            typeCall(sensorNode[2], function(id) {
+                marker5.bindPopup(`
+                <div style="display: block;text-align: center">
+                <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[2]}</h6>
+                <img style="height:7rem;" src="../asset/sensorImages/sensorAgiosIoannis.jpg">
+                <hr class="dotted">
+                <b>Type: </b>${sensorName[2]}<br>
+                <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
+                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
+                <b><u>Τελευταίες Μετρήσεις</u></b><br>
+                ${(() => {
+                    let loopContent1 = '';
+                    for (let i = 0; i < measurementValue.length; i++) {
+                        loopContent1 += `<b>${typeDescription[i]}:</b> ${measurementValue[i]} ${typeUnit[i]}<br>`;
+                    }
+                    return loopContent1;
+                })()}
+                <button onclick="Redirect(sensorNode[2])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
+                <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
+                `);
+            });
         });
 
-
-        marker5 = L.marker([39.7027, 20.8122], {icon: greenIcon}).addTo(map2);
-        marker5.bindPopup(`
-        <div style="display: block;text-align: center">
-        <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[2]}</h6>
-        <hr class="dotted">
-        <b>Type: </b>${sensorName[2]}<br>
-        <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
-        <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
-        <b><u>Forecast stats</u></b><br>
-        <b>Temperature: </b>${fToC(ioannis_object['main']['temp'])} °C<br>
-        <b>Wind: </b>${ioannis_object['wind']['speed']} km/h - ${ioannis_object['wind']['deg']} °<br>
-        <b>Humidity: </b>${ioannis_object['main']['humidity']} %<br>
-        <b>Pressure: </b>${ioannis_object['main']['pressure']} Pa<br>
-        <b>Visibility: </b>${ioannis_object['visibility']} m<br>
-        <button onclick="Redirect('2')" class="button_station button4"><b>View station</b></button><br>
-        <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-        </div>
-        `);
-
         marker6 = L.marker([39.7066, 20.7926], {icon: greenIcon}).addTo(map2);
-        marker6.bindPopup(`
-        <div style="display: block;text-align: center">
-        <h6><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
-        <hr class="dotted">
-          <b>Type: </b>${sensorName[3]}<br>
-        <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
-        <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${eleousa_object['weather'][0]['icon']}.png"><br>
-        <b><u>Forecast stats</u></b><br>
-        <b>Temperature: </b>${fToC(eleousa_object['main']['temp'])} °C<br>
-        <b>Wind: </b>${eleousa_object['wind']['speed']} km/h - ${eleousa_object['wind']['deg']} °<br>
-        <b>Humidity: </b>${eleousa_object['main']['humidity']} %<br>
-        <b>Pressure: </b>${eleousa_object['main']['pressure']} Pa<br>
-        <b>Visibility: </b>${eleousa_object['visibility']} m<br>
-        <button onclick="Redirect('3')" class="button_station button4"><b>View station</b></button><br>
-        <div id="3" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-        </div>
-        `);
-
-    })
-
-
-
-
-
-
+        lastMeasurementsCall(sensorNode[3], function(id) {
+            let sensor6 = sensorNode[3];
+            typeCall(sensorNode[3], function(id) {
+                marker6.bindPopup(`
+                <div style="display: block;text-align: center">
+                <h6><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
+                <img style="height:7rem;" src="../asset/sensorImages/sensorEleousa.jpg">
+                <hr class="dotted">
+                  <b>Type: </b>${sensorName[3]}<br>
+                <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
+                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${eleousa_object['weather'][0]['icon']}.png"><br>
+                <b><u>Τελευταίες Μετρήσεις</u></b><br>
+                ${(() => {
+                    let loopContent2 = '';
+                    for (let i = 0; i < typeDescription.length; i++) {
+                        loopContent2 += `<b>${typeDescription[i]}:</b> ${measurementValue[i]} ${typeUnit[i]}<br>`;
+                    }
+                    return loopContent2;
+                })()}
+                <button onclick="Redirect(sensorNode[3])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
+                <div id="3" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
+                `);
+            });
+        });
+    });
 
     var legend = L.control({position: "topleft"});
 
@@ -332,13 +374,13 @@ function checkMobile() {
 }
 
 function Redirect(id) {
-    document.getElementById(id).style.display = 'block';
+    // document.getElementById(id).style.display = 'block';
+    //
+    // map2._handlers.forEach(function (handler) {
+    //     handler.disable();
+    // });
 
-    map2._handlers.forEach(function (handler) {
-        handler.disable();
-    });
-    measurementsCall(id);
-    // makeAjax(id);
+    makeAjax(id);
 }
 
 /* Filter Stations */
