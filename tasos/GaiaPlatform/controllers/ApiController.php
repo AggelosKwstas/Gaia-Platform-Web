@@ -10,14 +10,12 @@ use yii\web\Response;
 class ApiController extends Controller
 {
     public $enableCsrfValidation = false;
-    public function actionTesting($id)
+    public function actionTesting($id,$title)
     {
-            
-        $title = 'Aggelos';
-        $id = '6';
-        $this->view->registerJs("var title = '" . $title . "';");
+
+        $this->view->registerJs("var title = '" . base64_decode($title) . "';");
         $this->view->registerJs("var name = '" . $id . "';");
-        return $this->redirect(['site/graphs', 'title' => $title, 'name' => $id]);
+        return $this->redirect(['site/graphs', 'title' => base64_decode($title), 'name' => $id]);
     }
 
 }

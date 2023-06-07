@@ -4,9 +4,9 @@ function toFixed(num, fixed) {
 }
 
 //works only with xaamp directory
-function makeAjax(id) {
+function makeAjax(id,title) {
     $.ajax({
-        url:  './?r=api/testing&id=' + id,
+        url:  './?r=api/testing&id=' + id +"&title=" +decodeURI(title),
         data: {},
         type: 'POST',
         success: function (response) {
@@ -248,7 +248,7 @@ if (decodedLastPart === 'site/map') {
                     }
                     return loopContent2;
                 })()}
-                <button onclick="Redirect(sensorNode[3])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
+                <button onclick="Redirect(sensorNode[3],sensorDescription[3])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
                 <div id="3" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 `);
@@ -373,14 +373,14 @@ function checkMobile() {
     return isMobile;
 }
 
-function Redirect(id) {
+function Redirect(id,title) {
     // document.getElementById(id).style.display = 'block';
     //
     // map2._handlers.forEach(function (handler) {
     //     handler.disable();
     // });
 
-    makeAjax(id);
+    makeAjax(id,title);
 }
 
 /* Filter Stations */
