@@ -14,6 +14,18 @@ function makeAjax(id, title) {
     });
 }
 
+
+function convertSubscriptTagsToCharacters(str) {
+    var regex = /<sub>(.*?)<\/sub>/g;
+    return str.replace(regex, function (match, p1) {
+        return p1.replace(/./g, function (char) {
+            var charCode = char.charCodeAt(0);
+            var subscriptCode = charCode + 8272;
+            return String.fromCharCode(subscriptCode);
+        });
+    });
+}
+
 function fixTimestamp(timestamp) {
     var time = timestamp.split(' ')[1];
 
@@ -23,13 +35,123 @@ function fixTimestamp(timestamp) {
 
     var period = hour >= 12 ? 'PM' : 'AM';
 
-// Convert 24-hour format to 12-hour format
+    // Convert 24-hour format to 12-hour format
     if (hour > 12) {
         hour -= 12;
     }
 
     var formattedTime = hour + ':' + minute + ':' + second + ' ' + period;
     return formattedTime;
+}
+
+function checkQuality(o3, pm10, pm2, so2, no2) {
+// ,pm10,pm25,so2,no2
+    let conditions_bad = [];
+    let conditions_fair = [];
+
+    let found_bad = false;
+
+    let fair_o3 = false;
+    let bad_o3 = false;
+
+    let fair_pm2 = false;
+    let bad_pm2 = false;
+
+    let fair_pm1 = false;
+    let bad_pm1 = false;
+
+    let fair_so2 = false;
+    let bad_so2 = false;
+
+    let fair_no2 = false;
+    let bad_no2 = false;
+
+    if (o3 >= 0.04 && o3 <= 0.2) {
+        fair_o3 = true;
+    } else if (o3 >= 0.2) {
+        bad_o3 = true;
+    }
+
+    if (pm10 >= 50 && pm10 <= 200) {
+        fair_pm1 = true;
+    } else if (pm10 >= 200) {
+        bad_pm1 = true;
+    }
+
+    if (pm2 >= 25 && pm2 <= 100) {
+        fair_pm2 = true;
+    } else if (pm2 >= 100) {
+        bad_pm2 = true;
+    }
+
+    if (so2 >= 0.1 && so2 <= 0.3) {
+        fair_so2 = true;
+    } else if (so2 >= 0.3) {
+        bad_so2 = true;
+    }
+
+    if (no2 >= 0.1 && no2 <= 0.2) {
+        fair_no2 = true;
+    } else if (no2 >= 0.2) {
+        bad_no2 = true;
+    }
+
+    if (bad_o3) {
+        conditions_bad.push('O<sub>3</sub>');
+        found_bad = true;
+    }
+
+    if (bad_pm1) {
+        conditions_bad.push('PM 10');
+        found_bad = true;
+    }
+
+
+    if (bad_pm2) {
+        conditions_bad.push('PM 2.5');
+        found_bad = true;
+    }
+
+    if (bad_so2) {
+        found_bad = true;
+        conditions_bad.push('SO<sub>2</sub>');
+    }
+
+    if (bad_no2) {
+        conditions_bad.push('NO<sub>2</sub>');
+        found_bad = true;
+    }
+
+    if (fair_o3) {
+        conditions_fair.push('O<sub>3</sub>')
+    }
+
+    if (fair_pm1) {
+        conditions_fair.push('PM 10')
+    }
+
+    if (fair_pm2) {
+        conditions_fair.push('PM 2.5')
+    }
+
+    if (fair_so2) {
+        conditions_fair.push('SO<sub>2</sub>')
+    }
+
+    if (fair_no2) {
+        conditions_fair.push('NO<sub>2</sub>')
+    }
+
+    if (found_bad) {
+        return {icon: redIcon, condition: conditions_bad, flag: 'bad'}
+    }
+
+    if (!found_bad) {
+        return {icon: orangeIcon, condition: conditions_fair, flag: 'fair'}
+    }
+
+    return {icon: greenIcon, condition: null, flag: null};
+
 }
 
 let sensorTypeId = [];
@@ -195,7 +317,7 @@ if (decodedLastPart === 'site/map') {
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6>
         <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
-        <b>Status: </b><u style="color: red">Inactive</u><br>
+        <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[0]}<br>
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
@@ -204,15 +326,35 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                     marker3.bindPopup(popup);
                 } else if (found === false) {
-                    marker3.setIcon(redIcon);
+                    let icon = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).icon
+                    let objects = [];
+                    objects = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).condition
+                    let flag = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).flag
+                    marker3.setIcon(icon);
                     marker3.bindPopup(`<div style="display: block;text-align: center">
                         <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6></div>
                         <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
                         <hr class="dotted">
+                                  ${(() => {
+                        let loopContent0 = '';
+                        if (flag === 'bad') {
+                            loopContent0 += `<div><b><u>Bad due to:</u></b></div>`;
+                            for (let i = 0; i < objects.length; i++) {
+                                loopContent0 += `<li style="color: red;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
+                            }
+                        } else if (flag === 'fair') {
+                            loopContent0 += `<div><b><u>Fair due to:</u></b></div>`;
+                            for (let i = 0; i < objects.length; i++) {
+                                loopContent0 += `<li style="color: orange;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
+                            }
+                        }
+                        return loopContent0;
+                    })()}
+                        <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
                         <b>Type: </b>${sensorName[0]}<br>
                         <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
                         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
-                        <b>Today at:</b><br>
+                        <b>Today at:</b><br>F
                         ${fixTimestamp(timestamp)}<br>
                         <b><u>Sensor Readings:</u></b><br>
                             ${(() => {
@@ -240,6 +382,7 @@ if (decodedLastPart === 'site/map') {
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
         <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
+        <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[1]}<br>
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
@@ -248,11 +391,31 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                             marker4.bindPopup(popup);
                         } else if (found === false) {
-                            marker4.setIcon(redIcon);
+                            let icon = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).icon
+                            let objects = [];
+                            objects = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).condition
+                            let flag = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).flag
+                            marker4.setIcon(icon);
                             marker4.bindPopup(`<div style="display: block;text-align: center">
                 <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6></div>
                 <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
                 <hr class="dotted">
+                                  ${(() => {
+                                let loopContent0 = '';
+                                if (flag === 'bad') {
+                                    loopContent0 += `<div><b><u>Bad due to:</u></b></div>`;
+                                    for (let i = 0; i < objects.length; i++) {
+                                        loopContent0 += `<li style="color: red;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
+                                    }
+                                } else if (flag === 'fair') {
+                                    loopContent0 += `<div><b><u>Fair due to:</u></b></div>`;
+                                    for (let i = 0; i < objects.length; i++) {
+                                        loopContent0 += `<li style="color: orange;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
+                                    }
+                                }
+                                return loopContent0;
+                            })()}
+                        <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
                 <b>Type: </b>${sensorName[1]}<br>
                 <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
                 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
@@ -284,6 +447,7 @@ if (decodedLastPart === 'site/map') {
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
         <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
+        <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[1]}<br>
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
@@ -292,12 +456,32 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                                     marker5.bindPopup(popup);
                                 } else if (found === false) {
-                                    marker5.setIcon(redIcon);
+                                    let icon = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).icon
+                                    let objects = [];
+                                    objects = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).condition
+                                    let flag = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).flag
+                                    marker5.setIcon(icon);
                                     marker5.bindPopup(`
                 <div style="display: block;text-align: center">
                 <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[2]}</h6>
                 <img style="height:7rem;" src="../asset/sensorImages/sensorAgiosIoannis.jpg">
                 <hr class="dotted">
+                                    ${(() => {
+                                        let loopContent0 = '';
+                                        if (flag === 'bad') {
+                                            loopContent0 += `<div><b><u>Bad due to:</u></b></div>`;
+                                            for (let i = 0; i < objects.length; i++) {
+                                                loopContent0 += `<li style="color: red;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
+                                            }
+                                        } else if (flag === 'fair') {
+                                            loopContent0 += `<div><b><u>Fair due to:</u></b></div>`;
+                                            for (let i = 0; i < objects.length; i++) {
+                                                loopContent0 += `<li style="color: orange;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
+                                            }
+                                        }
+                                        return loopContent0;
+                                    })()}
+                        <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
                 <b>Type: </b>${sensorName[2]}<br>
                 <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
                 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
@@ -330,6 +514,7 @@ if (decodedLastPart === 'site/map') {
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
         <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
+                <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[3]}<br>
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
@@ -338,12 +523,32 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                                             marker6.bindPopup(popup);
                                         } else if (found === false) {
-                                            marker6.setIcon(redIcon);
+                                            let icon = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).icon
+                                            let objects = [];
+                                            objects = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).condition
+                                            let flag = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).flag
+                                            marker6.setIcon(icon);
                                             marker6.bindPopup(`
                 <div style="display: block;text-align: center">
                 <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
                 <img style="height:7rem;" src="../asset/sensorImages/sensorAgiosIoannis.jpg">
                 <hr class="dotted">
+                                       ${(() => {
+                                                let loopContent0 = '';
+                                                if (flag === 'bad') {
+                                                    loopContent0 += `<div><b><u>Bad due to:</u></b></div>`;
+                                                    for (let i = 0; i < objects.length; i++) {
+                                                        loopContent0 += `<li style="color: red;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
+                                                    }
+                                                } else if (flag === 'fair') {
+                                                    loopContent0 += `<div><b><u>Fair due to:</u></b></div>`;
+                                                    for (let i = 0; i < objects.length; i++) {
+                                                        loopContent0 += `<li style="color: orange;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
+                                                    }
+                                                }
+                                                return loopContent0;
+                                            })()}
+                                        <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
                 <b>Type: </b>${sensorName[3]}<br>
                 <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
                 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
