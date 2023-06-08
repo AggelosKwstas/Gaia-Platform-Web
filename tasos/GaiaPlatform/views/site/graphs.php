@@ -9,7 +9,10 @@ use yii\helpers\Html;
 $this->registerJsFile('js/echarts.js');
 $this->registerJsFile('js/graphs.js');
 ?>
+
 <title>GAIA Platform - Graphs </title>
+
+
 
 <div class="container-fluid bg-light">
     <div class="container bg-light" style="padding-top: 3rem">
@@ -24,12 +27,21 @@ $this->registerJsFile('js/graphs.js');
         <div class="row p-3">
             <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chart" id="barChart1" style=" min-height: 400px;width:100%"></div>
+
+<!--                    <figure class="highcharts-figure">-->
+<!--                        <div id="container-speed" class="chart-container"></div>-->
+<!--                        <div id="container-rpm" class="chart-container"></div>-->
+<!--                    </figure>-->
+
+<!--                    <div class="chart" id="barChart1" style=" min-height: 400px;width:100%"></div>-->
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-lg">
                 <div class="card">
-                    <div class="chart" id="barChart2" style="min-height: 400px;width:100%"></div>
+                    <figure class="highcharts-figure">
+                        <div id="container"></div>
+                    </figure>
+<!--                    <div class="chart" id="barChart2" style="min-height: 400px;width:100%"></div>-->
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-lg">
@@ -58,3 +70,20 @@ $this->registerJsFile('js/graphs.js');
 
 
 </section>
+
+<!---->
+<!--<div class="loading-screen">-->
+<!--    <div class="loading-text">-->
+<!--        <div class="container_loader">-->
+<!--            <div class="sound-wave">-->
+<!--                <span></span>-->
+<!--                <span></span>-->
+<!--                <span></span>-->
+<!--                <span></span>-->
+<!--                <span></span>-->
+<!--                <span></span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="loading">Gathering sensor nodes...</div>-->
+<!--    </div>-->
+<!--</div>-->

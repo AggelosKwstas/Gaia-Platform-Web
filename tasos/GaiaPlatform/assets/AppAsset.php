@@ -25,6 +25,7 @@ class AppAsset extends AssetBundle
         'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css',
         'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css',
         'theme/font-awesome/css/all.css',
+        'theme\Highcharts-11.0.0\code\css\highcharts.css',
         'https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap',
         'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap',
         'https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap',
@@ -36,12 +37,19 @@ class AppAsset extends AssetBundle
         'css/modal.css',
         'css/mapElements.css',
         'css/contactUs.css',
-        'css/graphs.css',
+        'css/loader.css',
+//        'css/gaugeHighcharts.css',
+        'css/lineChartHighcharts.css',
+//        'css/graphs.css',
         'https://unpkg.com/aos@2.3.1/dist/aos.css'
     ];
 
     public $js = [
         'theme/font-awesome/js/all.js',
+        'theme/Highcharts-11.0.0/code/highcharts.js',
+        'theme/Highcharts-11.0.0/code/highcharts-more.js',
+//        'theme/Highcharts-11.0.0/code/modules/solid-gauge.js',
+        'js/graphs.js',
         'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js',
         'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
         'js/downloadCloud.js',
