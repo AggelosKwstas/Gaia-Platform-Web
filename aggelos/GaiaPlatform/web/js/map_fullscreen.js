@@ -14,16 +14,27 @@ function makeAjax(id, title) {
     });
 }
 
-// var today = new Date();
-// var dd = String(today.getDate()).padStart(2, '0');
-// var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-// var yyyy = today.getFullYear();
-// today = yyyy + '-' +mm + '-' + dd;
-// let phrase = '_measurements';
-// let apiMeasurementsPhrase = sensor_node_id + phrase;
+function fixTimestamp(timestamp) {
+    var time = timestamp.split(' ')[1];
+
+    var hour = parseInt(time.split(':')[0]);
+    var minute = time.split(':')[1];
+    var second = time.split(':')[2];
+
+    var period = hour >= 12 ? 'PM' : 'AM';
+
+// Convert 24-hour format to 12-hour format
+    if (hour > 12) {
+        hour -= 12;
+    }
+
+    var formattedTime = hour + ':' + minute + ':' + second + ' ' + period;
+    return formattedTime;
+}
 
 let sensorTypeId = [];
 let measurementValue = [];
+let timestamp = null;
 let found = false;
 let counter = 0;
 
@@ -39,8 +50,10 @@ function lastMeasurementsCall(id, callback) {
             } else {
                 sensorTypeId = [];
                 measurementValue = [];
+                timestamp = null;
                 for (let index in data) {
                     let item = data[index];
+                    timestamp = item.timestamp;
                     sensorTypeId.push(item.sensor_type_id);
                     measurementValue.push(item.value);
                 }
@@ -174,13 +187,15 @@ if (decodedLastPart === 'site/map') {
         lastMeasurementsCall(sensorNode[0], function (id) {
             typeCall(sensorNode[0], function (id) {
                 counter++;
+                let marker3 = L.marker([sensorLatitude[0], sensorLongitude[0]]).addTo(map2);
                 if (found === true) {
-                    marker3 = L.marker([sensorLatitude[0], sensorLongitude[0]], {icon: greyIcon}).addTo(map2);
+                    marker3.setIcon(greyIcon);
                     popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6>
         <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
+        <b>Status: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[0]}<br>
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
@@ -189,7 +204,7 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                     marker3.bindPopup(popup);
                 } else if (found === false) {
-                    marker3 = L.marker([sensorLatitude[0], sensorLongitude[0]], {icon: greenIcon}).addTo(map2);
+                    marker3.setIcon(redIcon);
                     marker3.bindPopup(`<div style="display: block;text-align: center">
                         <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6></div>
                         <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
@@ -197,7 +212,9 @@ if (decodedLastPart === 'site/map') {
                         <b>Type: </b>${sensorName[0]}<br>
                         <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
                         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
-                        <b><u>Sensor Readings</u></b><br>
+                        <b>Today at:</b><br>
+                        ${fixTimestamp(timestamp)}<br>
+                        <b><u>Sensor Readings:</u></b><br>
                             ${(() => {
                         let loopContent0 = '';
                         for (let i = 0; i < measurementValue.length; i++) {
@@ -215,8 +232,9 @@ if (decodedLastPart === 'site/map') {
                 lastMeasurementsCall(sensorNode[1], function (id) {
                     typeCall(sensorNode[1], function (id) {
                         counter++;
+                        marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]]).addTo(map2);
                         if (found === true) {
-                            marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]], {icon: greyIcon}).addTo(map2);
+                            marker4.setIcon(greyIcon);
                             popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
@@ -230,7 +248,7 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                             marker4.bindPopup(popup);
                         } else if (found === false) {
-                            marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]], {icon: greenIcon}).addTo(map2);
+                            marker4.setIcon(redIcon);
                             marker4.bindPopup(`<div style="display: block;text-align: center">
                 <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6></div>
                 <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
@@ -238,7 +256,9 @@ if (decodedLastPart === 'site/map') {
                 <b>Type: </b>${sensorName[1]}<br>
                 <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
                 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
-                <b><u>Sensor Readings</u></b><br>
+                  <b>Today at:</b><br>
+                        ${fixTimestamp(timestamp)}<br>
+                <b><u>Sensor Readings:</u></b><br>
                     ${(() => {
                                 let loopContent0 = '';
                                 for (let i = 0; i < measurementValue.length; i++) {
@@ -256,8 +276,9 @@ if (decodedLastPart === 'site/map') {
                         lastMeasurementsCall(sensorNode[2], function (id) {
                             typeCall(sensorNode[2], function (id) {
                                 counter++;
+                                marker5 = L.marker([sensorLatitude[2], sensorLongitude[2]], {icon: greyIcon}).addTo(map2);
                                 if (found === true) {
-                                    marker5 = L.marker([sensorLatitude[2], sensorLongitude[2]], {icon: greyIcon}).addTo(map2);
+                                    marker5.setIcon(greyIcon);
                                     popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
@@ -271,7 +292,7 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                                     marker5.bindPopup(popup);
                                 } else if (found === false) {
-                                    marker5 = L.marker([sensorLatitude[2], sensorLongitude[2]], {icon: greenIcon}).addTo(map2);
+                                    marker5.setIcon(redIcon);
                                     marker5.bindPopup(`
                 <div style="display: block;text-align: center">
                 <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[2]}</h6>
@@ -280,7 +301,9 @@ if (decodedLastPart === 'site/map') {
                 <b>Type: </b>${sensorName[2]}<br>
                 <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
                 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
-                <b><u>Sensor Readings</u></b><br>
+                  <b>Today at:</b><br>
+                        ${fixTimestamp(timestamp)}<br>
+                <b><u>Sensor Readings:</u></b><br>
                 ${(() => {
                                         let loopContent1 = '';
                                         for (let i = 0; i < measurementValue.length; i++) {
@@ -299,8 +322,9 @@ if (decodedLastPart === 'site/map') {
                                 lastMeasurementsCall(sensorNode[3], function (id) {
                                     typeCall(sensorNode[3], function (id) {
                                         counter++;
+                                        marker6 = L.marker([sensorLatitude[3], sensorLongitude[3]]).addTo(map2);
                                         if (found === true) {
-                                            marker6 = L.marker([sensorLatitude[3], sensorLongitude[3]], {icon: greyIcon}).addTo(map2);
+                                            marker6.setIcon(greyIcon);
                                             popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
@@ -314,7 +338,7 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                                             marker6.bindPopup(popup);
                                         } else if (found === false) {
-                                            marker6 = L.marker([sensorLatitude[3], sensorLongitude[3]], {icon: greenIcon}).addTo(map2);
+                                            marker6.setIcon(redIcon);
                                             marker6.bindPopup(`
                 <div style="display: block;text-align: center">
                 <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
@@ -323,7 +347,9 @@ if (decodedLastPart === 'site/map') {
                 <b>Type: </b>${sensorName[3]}<br>
                 <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
                 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
-                <b><u>Sensor Readings</u></b><br>
+                 <b>Today at:</b><br>
+                        ${fixTimestamp(timestamp)}<br>
+                <b><u>Sensor Readings:</u></b><br>
                 ${(() => {
                                                 let loopContent1 = '';
                                                 for (let i = 0; i < measurementValue.length; i++) {
