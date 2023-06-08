@@ -6,23 +6,21 @@ function toFixed(num, fixed) {
 //works only with xaamp directory
 function makeAjax(id, title) {
     $.ajax({
-        url: './?r=api/testing&id=' + id + "&title=" + title,
-        data: {},
-        type: 'POST',
-        success: function (response) {
+        url: './?r=api/testing&id=' + id + "&title=" + title, data: {}, type: 'POST', success: function (response) {
             console.log(response);
-        },
-        error: function (xhr, status, error) {
+        }, error: function (xhr, status, error) {
             console.log(error);
         }
     });
 }
 
-function checkQuality(O3) {
-    console.log(O3);
-// ,pm2,pm10,so2,no2
-    return greenIcon;
-}
+// var today = new Date();
+// var dd = String(today.getDate()).padStart(2, '0');
+// var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+// var yyyy = today.getFullYear();
+// today = yyyy + '-' +mm + '-' + dd;
+// let phrase = '_measurements';
+// let apiMeasurementsPhrase = sensor_node_id + phrase;
 
 let sensorTypeId = [];
 let measurementValue = [];
@@ -34,11 +32,9 @@ function lastMeasurementsCall(id, callback) {
     let lastMeasurementsURL = "https://restapi.gaia-platform.eu/rest-api/items/readLast.php?sensor_node_id=" + id + "";
 
     $.ajax(lastMeasurementsURL, {
-        method: 'GET',
-        data: {
+        method: 'GET', data: {
             token_auth: key,
-        },
-        success: function (data) {
+        }, success: function (data) {
             if (data === null) {
             } else {
                 sensorTypeId = [];
@@ -50,8 +46,7 @@ function lastMeasurementsCall(id, callback) {
                 }
                 callback(id, counter);
             }
-        },
-        error: function (error) {
+        }, error: function (error) {
             found = true;
             callback(found);
             console.log(`Error ${error}`);
@@ -70,11 +65,9 @@ function nodeApiCall(callback) {
     key2 = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
     let nodeURL = "https://restapi.gaia-platform.eu/rest-api/items/readNode.php?project_id=2";
     $.ajax(nodeURL, {
-        method: 'GET',
-        data: {
+        method: 'GET', data: {
             token_auth: key2,
-        },
-        success: function (data) {
+        }, success: function (data) {
             sensorNode = [];
             sensorName = [];
             sensorDescription = [];
@@ -103,11 +96,9 @@ function typeCall(id, callback) {
     key3 = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
     let typeURL = "https://restapi.gaia-platform.eu/rest-api/items/readNodeType.php?sensor_node_id=" + id + "";
     $.ajax(typeURL, {
-        method: 'GET',
-        data: {
+        method: 'GET', data: {
             token_auth: key3,
-        },
-        success: function (data) {
+        }, success: function (data) {
             typeId = [];
             typeDescription = [];
             minTypeValue = [];
@@ -138,9 +129,7 @@ if (decodedLastPart === 'site/map') {
     const lng = 20.85619898364398;
 
     let config2 = {
-        minZoom: 7,
-        maxZoom: 18,
-        zoomControl: false
+        minZoom: 7, maxZoom: 18, zoomControl: false
     };
 
     let s = new Date().toLocaleString();
@@ -148,8 +137,7 @@ if (decodedLastPart === 'site/map') {
 
     LeafIcon = L.Icon.extend({
         options: {
-            iconSize: [25, 32],
-            popupAnchor: [-1, -15]
+            iconSize: [25, 32], popupAnchor: [-1, -15]
         }
     });
 
@@ -176,6 +164,7 @@ if (decodedLastPart === 'site/map') {
     map2.attributionControl.setPrefix();
 
     function checkCompletion() {
+        console.log(counter);
         if (counter === 4) {
             $('#loader').fadeOut('fast');
         }
@@ -185,9 +174,8 @@ if (decodedLastPart === 'site/map') {
         lastMeasurementsCall(sensorNode[0], function (id) {
             typeCall(sensorNode[0], function (id) {
                 counter++;
-                let marker3 = L.marker([sensorLatitude[0], sensorLongitude[0]]).addTo(map2);
                 if (found === true) {
-                    marker3.setIcon(greyIcon);
+                    marker3 = L.marker([sensorLatitude[0], sensorLongitude[0]], {icon: greyIcon}).addTo(map2);
                     popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6>
@@ -201,7 +189,7 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                     marker3.bindPopup(popup);
                 } else if (found === false) {
-                    marker3.setIcon(checkQuality(measurementValue[0]));
+                    marker3 = L.marker([sensorLatitude[0], sensorLongitude[0]], {icon: greenIcon}).addTo(map2);
                     marker3.bindPopup(`<div style="display: block;text-align: center">
                         <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6></div>
                         <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
@@ -220,20 +208,16 @@ if (decodedLastPart === 'site/map') {
                         <button onclick="Redirect(sensorNode[0],sensorDescription[0])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
                         <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                         </div>`);
-
                 }
                 found = false;
                 checkCompletion();
-            });
-        });
 
-        lastMeasurementsCall(sensorNode[1], function (id) {
-            typeCall(sensorNode[1], function (id) {
-                counter++;
-                let marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]]).addTo(map2);
-                if (found === true) {
-                    marker4.setIcon(greyIcon);
-                    popup = `
+                lastMeasurementsCall(sensorNode[1], function (id) {
+                    typeCall(sensorNode[1], function (id) {
+                        counter++;
+                        if (found === true) {
+                            marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]], {icon: greyIcon}).addTo(map2);
+                            popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
         <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
@@ -244,10 +228,10 @@ if (decodedLastPart === 'site/map') {
         <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
         <button id="uoiButton" onclick="Redirect('uoiDiv')" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button>
         </div>`;
-                    marker4.bindPopup(popup);
-                } else if (found === false) {
-                    marker4.setIcon(checkQuality(measurementValue[0]));
-                    marker4.bindPopup(`<div style="display: block;text-align: center">
+                            marker4.bindPopup(popup);
+                        } else if (found === false) {
+                            marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]], {icon: greenIcon}).addTo(map2);
+                            marker4.bindPopup(`<div style="display: block;text-align: center">
                 <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6></div>
                 <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
                 <hr class="dotted">
@@ -256,28 +240,25 @@ if (decodedLastPart === 'site/map') {
                 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
                 <b><u>Sensor Readings</u></b><br>
                     ${(() => {
-                        let loopContent0 = '';
-                        for (let i = 0; i < measurementValue.length; i++) {
-                            loopContent0 += `<b>${typeDescription[i]}:</b> ${measurementValue[i]} ${typeUnit[i]}<br>`;
-                        }
-                        return loopContent0;
-                    })()}
+                                let loopContent0 = '';
+                                for (let i = 0; i < measurementValue.length; i++) {
+                                    loopContent0 += `<b>${typeDescription[i]}:</b> ${measurementValue[i]} ${typeUnit[i]}<br>`;
+                                }
+                                return loopContent0;
+                            })()}
                 <button onclick="Redirect(sensorNode[1],sensorDescription[1])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
                 <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>`);
-                }
-                found = false;
-                checkCompletion();
-            });
-        });
+                        }
+                        found = false;
+                        checkCompletion();
 
-        lastMeasurementsCall(sensorNode[2], function (id) {
-            typeCall(sensorNode[2], function (id) {
-                counter++;
-                let marker5 = L.marker([sensorLatitude[2], sensorLongitude[2]]).addTo(map2);
-                if (found === true) {
-                    marker5.setIcon(greyIcon);
-                    popup = `
+                        lastMeasurementsCall(sensorNode[2], function (id) {
+                            typeCall(sensorNode[2], function (id) {
+                                counter++;
+                                if (found === true) {
+                                    marker5 = L.marker([sensorLatitude[2], sensorLongitude[2]], {icon: greyIcon}).addTo(map2);
+                                    popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
         <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
@@ -288,10 +269,10 @@ if (decodedLastPart === 'site/map') {
         <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
         <button id="uoiButton" onclick="Redirect('uoiDiv')" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button>
         </div>`;
-                    marker5.bindPopup(popup);
-                } else if (found === false) {
-                    marker5.setIcon(checkQuality(measurementValue[0]));
-                    marker5.bindPopup(`
+                                    marker5.bindPopup(popup);
+                                } else if (found === false) {
+                                    marker5 = L.marker([sensorLatitude[2], sensorLongitude[2]], {icon: greenIcon}).addTo(map2);
+                                    marker5.bindPopup(`
                 <div style="display: block;text-align: center">
                 <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[2]}</h6>
                 <img style="height:7rem;" src="../asset/sensorImages/sensorAgiosIoannis.jpg">
@@ -301,80 +282,78 @@ if (decodedLastPart === 'site/map') {
                 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
                 <b><u>Sensor Readings</u></b><br>
                 ${(() => {
-                        let loopContent1 = '';
-                        for (let i = 0; i < measurementValue.length; i++) {
-                            loopContent1 += `<b>${typeDescription[i]}:</b> ${measurementValue[i]} ${typeUnit[i]}<br>`;
-                        }
-                        return loopContent1;
-                    })()}
+                                        let loopContent1 = '';
+                                        for (let i = 0; i < measurementValue.length; i++) {
+                                            loopContent1 += `<b>${typeDescription[i]}:</b> ${measurementValue[i]} ${typeUnit[i]}<br>`;
+                                        }
+                                        return loopContent1;
+                                    })()}
                 <button onclick="Redirect(sensorNode[2],sensorDescription[2])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
                 <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 `);
-                }
-                found = false;
-                checkCompletion();
-            });
-        });
+                                }
+                                found = false;
+                                checkCompletion();
 
-        lastMeasurementsCall(sensorNode[3], function (id) {
-            let sensor6 = sensorNode[3];
-            typeCall(sensorNode[3], function (id) {
-                counter++;
-                let marker6 = L.marker([sensorLatitude[3], sensorLongitude[3]]).addTo(map2);
-                if (found === true) {
-                    marker6.setIcon(greenIcon);
-                    popup = `
+                                lastMeasurementsCall(sensorNode[3], function (id) {
+                                    typeCall(sensorNode[3], function (id) {
+                                        counter++;
+                                        if (found === true) {
+                                            marker6 = L.marker([sensorLatitude[3], sensorLongitude[3]], {icon: greyIcon}).addTo(map2);
+                                            popup = `
         <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
+        <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
         <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
-        <b>Type: </b>${sensorName[1]}<br>
+        <b>Type: </b>${sensorName[3]}<br>
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
         <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
         <button id="uoiButton" onclick="Redirect('uoiDiv')" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button>
         </div>`;
-                    marker6.bindPopup(popup);
-                } else if (found === false) {
-                    marker6.setIcon(checkQuality(measurementValue[0]));
-                    marker6.bindPopup(`
+                                            marker6.bindPopup(popup);
+                                        } else if (found === false) {
+                                            marker6 = L.marker([sensorLatitude[3], sensorLongitude[3]], {icon: greenIcon}).addTo(map2);
+                                            marker6.bindPopup(`
                 <div style="display: block;text-align: center">
-                <h6><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
-                <img style="height:7rem;" src="../asset/sensorImages/sensorEleousa.jpg">
+                <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
+                <img style="height:7rem;" src="../asset/sensorImages/sensorAgiosIoannis.jpg">
                 <hr class="dotted">
-                  <b>Type: </b>${sensorName[3]}<br>
-                <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
-                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${eleousa_object['weather'][0]['icon']}.png"><br>
+                <b>Type: </b>${sensorName[3]}<br>
+                <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
+                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
                 <b><u>Sensor Readings</u></b><br>
                 ${(() => {
-                        let loopContent2 = '';
-                        for (let i = 0; i < typeDescription.length; i++) {
-                            loopContent2 += `<b>${typeDescription[i]}:</b> ${measurementValue[i]} ${typeUnit[i]}<br>`;
-                        }
-                        return loopContent2;
-                    })()}
+                                                let loopContent1 = '';
+                                                for (let i = 0; i < measurementValue.length; i++) {
+                                                    loopContent1 += `<b>${typeDescription[i]}:</b> ${measurementValue[i]} ${typeUnit[i]}<br>`;
+                                                }
+                                                return loopContent1;
+                                            })()}
                 <button onclick="Redirect(sensorNode[3],sensorDescription[3])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
-                <div id="3" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 `);
-                }
+                                        }
+                                        found = false;
+                                        checkCompletion();
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
             });
-            found = false;
-            checkCompletion();
         });
     });
+
 
     var legend = L.control({position: "topleft"});
 
     legend.onAdd = function (map) {
         var div = L.DomUtil.create("div", "legend");
-        div.innerHTML += " <div class='con-tool right'>  <h4 style='color: black;padding-left: 0.5rem;cursor:help;'>Air Quality</h4><div class='tool'><span style='font-family: Georgia, serif;'><em>Filter the staions by clicking on the color codes.</em></span></div> </div><br>" +
-            '<i class="circle_dot" id="greenFilter" style="background: #01fb0a;cursor: pointer" onclick="greenButton()"></i><span><b>Good</b></span><br>' +
-            '<i class="circle_dot" id="yellowFilter" style="background: #ffeb00;cursor: pointer" onclick="yellowButton()"></i><span><b>Fair</b></span><br>' +
-            '<i class="circle_dot" id="redFilter" style="background: #ff0032;cursor: pointer" onclick="redButton()"></i><span><b>Bad</b></span><br>' +
-            '<i class="circle_dot" id="grayFilter" style="background: grey;cursor: pointer" onclick="grayButton()"></i><span><b>No data</b></span><br>' +
-            '<a id="myBtn" style="text-decoration: none;font-size: 15px" href="javascript:void(0);">Legend explained</a><br>';
+        div.innerHTML += " <div class='con-tool right'>  <h4 style='color: black;padding-left: 0.5rem;cursor:help;'>Air Quality</h4><div class='tool'><span style='font-family: Georgia, serif;'><em>Filter the staions by clicking on the color codes.</em></span></div> </div><br>" + '<i class="circle_dot" id="greenFilter" style="background: #01fb0a;cursor: pointer" onclick="greenButton()"></i><span><b>Good</b></span><br>' + '<i class="circle_dot" id="yellowFilter" style="background: #ffeb00;cursor: pointer" onclick="yellowButton()"></i><span><b>Fair</b></span><br>' + '<i class="circle_dot" id="redFilter" style="background: #ff0032;cursor: pointer" onclick="redButton()"></i><span><b>Bad</b></span><br>' + '<i class="circle_dot" id="grayFilter" style="background: grey;cursor: pointer" onclick="grayButton()"></i><span><b>No data</b></span><br>' + '<a id="myBtn" style="text-decoration: none;font-size: 15px" href="javascript:void(0);">Legend explained</a><br>';
         return div;
     };
 
@@ -400,8 +379,7 @@ if (decodedLastPart === 'site/map') {
 
     legend.getContainer().addEventListener('mouseover', function () {
         map2.doubleClickZoom.disable();
-        if (!checkMobile())
-            map2.dragging.disable();
+        if (!checkMobile()) map2.dragging.disable();
     });
 
     legend.getContainer().addEventListener('mouseout', function () {
@@ -428,8 +406,7 @@ if (decodedLastPart === 'site/map') {
         $(this).find('.dropdown-menu').slideToggle(300);
         if ($(this).hasClass('active')) {
             $('#cycle').addClass('fa fa-chevron-down');
-        } else
-            $('#cycle').addClass('fa fa-chevron-left');
+        } else $('#cycle').addClass('fa fa-chevron-left');
 
     });
     $('.dropdown').focusout(function () {
@@ -447,23 +424,19 @@ if (decodedLastPart === 'site/map') {
     $('.dropdown-menu li').click(function () {
         if ($(this).parents('.dropdown').find('input').val() === 'Γαρδίκι') {
             map2.flyTo([39.7147, 20.7572], 18, {
-                animate: true,
-                duration: 1.5
+                animate: true, duration: 1.5
             });
         } else if ($(this).parents('.dropdown').find('input').val() === 'Ελεούσα') {
             map2.flyTo([39.7066, 20.7926], 18, {
-                animate: true,
-                duration: 1.5
+                animate: true, duration: 1.5
             });
         } else if ($(this).parents('.dropdown').find('input').val() === 'Άγιος Ιωάννης') {
             map2.flyTo([39.7027, 20.8122], 18, {
-                animate: true,
-                duration: 1.5
+                animate: true, duration: 1.5
             });
         } else if ($(this).parents('.dropdown').find('input').val() === 'Πανεπιστήμιο') {
             map2.flyTo([39.6216, 20.8596], 18, {
-                animate: true,
-                duration: 1.5
+                animate: true, duration: 1.5
             });
         }
     });
