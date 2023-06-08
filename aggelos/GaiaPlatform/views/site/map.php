@@ -106,4 +106,21 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
             </div>
         </div>
     </section>
+    <div id="loader">
+        <div class="loading-screen">
+            <div class="loading-text">
+                <div class="container_loader">
+                    <div class="sound-wave">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="loading">Initializing map elements...</div>
+            </div>
+        </div>
+    </div>
 </div>

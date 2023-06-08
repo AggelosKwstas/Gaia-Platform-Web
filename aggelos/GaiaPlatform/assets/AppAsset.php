@@ -37,6 +37,7 @@ class AppAsset extends AssetBundle
         'css/mapElements.css',
         'css/contactUs.css',
         'css/graphs.css',
+        'css/loader.css',
         'https://unpkg.com/aos@2.3.1/dist/aos.css'
     ];
 
