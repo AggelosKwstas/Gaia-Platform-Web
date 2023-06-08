@@ -18,13 +18,11 @@ function makeAjax(id, title) {
     });
 }
 
-// var today = new Date();
-// var dd = String(today.getDate()).padStart(2, '0');
-// var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-// var yyyy = today.getFullYear();
-// today = yyyy + '-' +mm + '-' + dd;
-// let phrase = '_measurements';
-// let apiMeasurementsPhrase = sensor_node_id + phrase;
+function checkQuality(O3) {
+    console.log(O3);
+// ,pm2,pm10,so2,no2
+    return greenIcon;
+}
 
 let sensorTypeId = [];
 let measurementValue = [];
@@ -179,16 +177,17 @@ if (decodedLastPart === 'site/map') {
 
     function checkCompletion() {
         if (counter === 4) {
-         $('#loader').fadeOut('fast');
+            $('#loader').fadeOut('fast');
         }
     }
 
     nodeApiCall(function () {
         lastMeasurementsCall(sensorNode[0], function (id) {
             typeCall(sensorNode[0], function (id) {
-                    counter++;
+                counter++;
+                let marker3 = L.marker([sensorLatitude[0], sensorLongitude[0]]).addTo(map2);
                 if (found === true) {
-                    marker3 = L.marker([sensorLatitude[0], sensorLongitude[0]], {icon: greyIcon}).addTo(map2);
+                    marker3.setIcon(greyIcon);
                     popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6>
@@ -202,7 +201,7 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                     marker3.bindPopup(popup);
                 } else if (found === false) {
-                    marker3 = L.marker([sensorLatitude[0], sensorLongitude[0]], {icon: greenIcon}).addTo(map2);
+                    marker3.setIcon(checkQuality(measurementValue[0]));
                     marker3.bindPopup(`<div style="display: block;text-align: center">
                         <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6></div>
                         <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
@@ -230,9 +229,10 @@ if (decodedLastPart === 'site/map') {
 
         lastMeasurementsCall(sensorNode[1], function (id) {
             typeCall(sensorNode[1], function (id) {
-                    counter++;
+                counter++;
+                let marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]]).addTo(map2);
                 if (found === true) {
-                    marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]], {icon: greyIcon}).addTo(map2);
+                    marker4.setIcon(greyIcon);
                     popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
@@ -246,7 +246,7 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                     marker4.bindPopup(popup);
                 } else if (found === false) {
-                    marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]], {icon: greenIcon}).addTo(map2);
+                    marker4.setIcon(checkQuality(measurementValue[0]));
                     marker4.bindPopup(`<div style="display: block;text-align: center">
                 <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6></div>
                 <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
@@ -273,9 +273,10 @@ if (decodedLastPart === 'site/map') {
 
         lastMeasurementsCall(sensorNode[2], function (id) {
             typeCall(sensorNode[2], function (id) {
-                    counter++;
+                counter++;
+                let marker5 = L.marker([sensorLatitude[2], sensorLongitude[2]]).addTo(map2);
                 if (found === true) {
-                    marker5 = L.marker([sensorLatitude[2], sensorLongitude[2]], {icon: greyIcon}).addTo(map2);
+                    marker5.setIcon(greyIcon);
                     popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
@@ -289,7 +290,7 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                     marker5.bindPopup(popup);
                 } else if (found === false) {
-                    marker5 = L.marker([sensorLatitude[2], sensorLongitude[2]], {icon: greenIcon}).addTo(map2);
+                    marker5.setIcon(checkQuality(measurementValue[0]));
                     marker5.bindPopup(`
                 <div style="display: block;text-align: center">
                 <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[2]}</h6>
@@ -319,9 +320,10 @@ if (decodedLastPart === 'site/map') {
         lastMeasurementsCall(sensorNode[3], function (id) {
             let sensor6 = sensorNode[3];
             typeCall(sensorNode[3], function (id) {
-                    counter++;
+                counter++;
+                let marker6 = L.marker([sensorLatitude[3], sensorLongitude[3]]).addTo(map2);
                 if (found === true) {
-                    marker6 = L.marker([sensorLatitude[3], sensorLongitude[3]], {icon: greyIcon}).addTo(map2);
+                    marker6.setIcon(greenIcon);
                     popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
@@ -335,7 +337,7 @@ if (decodedLastPart === 'site/map') {
         </div>`;
                     marker6.bindPopup(popup);
                 } else if (found === false) {
-                    marker6 = L.marker([sensorLatitude[3], sensorLongitude[3]], {icon: greenIcon}).addTo(map2);
+                    marker6.setIcon(checkQuality(measurementValue[0]));
                     marker6.bindPopup(`
                 <div style="display: block;text-align: center">
                 <h6><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
