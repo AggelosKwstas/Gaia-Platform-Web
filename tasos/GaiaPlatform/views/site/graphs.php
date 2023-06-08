@@ -4,8 +4,8 @@
 
 use yii\helpers\Html;
 
-$this->registerJs("let title=" . json_encode($title), \yii\web\View::POS_BEGIN);
-$this->registerJs("let name=" . json_encode($name), \yii\web\View::POS_BEGIN);
+    //$this->registerJs("let title=" . json_encode($title), \yii\web\View::POS_BEGIN);
+    //$this->registerJs("let name=" . json_encode($id), \yii\web\View::POS_BEGIN);
 $this->registerJsFile('js/echarts.js');
 $this->registerJsFile('js/graphs.js');
 ?>
@@ -14,7 +14,7 @@ $this->registerJsFile('js/graphs.js');
 <div class="container-fluid bg-light">
     <div class="container bg-light" style="padding-top: 3rem">
         <nav class="navbar navbar-dark bg-white" style="display: block;text-align: center">
-            <p style="color: black">hghghgh</p>
+            <?php echo '<h1 style="color: black">' . $title . '</h1>';?>
         </nav>
     </div>
 </div>
