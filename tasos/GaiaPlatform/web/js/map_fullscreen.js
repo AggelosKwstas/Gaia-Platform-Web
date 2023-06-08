@@ -6,7 +6,7 @@ function toFixed(num, fixed) {
 //works only with xaamp directory
 function makeAjax(id,title) {
     $.ajax({
-        url:  './?r=api/testing&id=' + id +"&title=" +decodeURI(title),
+        url:  './?r=api/testing&id=' + id +"&title=" +title,
         data: {},
         type: 'POST',
         success: function (response) {
@@ -45,7 +45,6 @@ function lastMeasurementsCall(id, callback){
                 measurementValue.push(item.value);
             }
             callback(id);
-            console.log(sensorTypeId, measurementValue);
 }
 });
 }
@@ -78,6 +77,7 @@ function nodeApiCall(callback) {
                 sensorLatitude.push(item.latitude);
             }
             callback();
+            console.log("Node: ", sensorNode);
         }
     });
 }
@@ -183,23 +183,30 @@ if (decodedLastPart === 'site/map') {
 
         //gardiki
         marker4 = L.marker([39.7147, 20.7572], {icon: greenIcon}).addTo(map2);
-        console.log(sensorNode[1]);
-            marker4.bindPopup(`<div style="display: block;text-align: center">
-            <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6></div>
-            <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
-            <hr class="dotted">
-            <b>Type: </b>${sensorName[1]}<br>
-            <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
-            <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
-            <b><u>Τελευταίες Μετρήσεις</u></b><br>
-            <b>Temperature: </b>${fToC(gardiki_object['main']['temp'])} °C<br>
-            <b>Wind: </b>${gardiki_object['wind']['speed']} km/h - ${gardiki_object['wind']['deg']} °<br>
-            <b>Humidity: </b>${gardiki_object['main']['humidity']} %<br>
-            <b>Pressure: </b>${gardiki_object['main']['pressure']} Pa<br>
-            <b>Visibility: </b>${gardiki_object['visibility']} m<br>
-            <button onclick="Redirect(sensorNode[1])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
-            <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-            </div>`);
+        lastMeasurementsCall(sensorNode[1], function(id) {
+            // console.log(measurementValue[2])
+            typeCall(sensorNode[1], function(id) {
+            console.log(sensorNode[1]);
+                marker4.bindPopup(`<div style="display: block;text-align: center">
+                <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6></div>
+                <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
+                <hr class="dotted">
+                <b>Type: </b>${sensorName[1]}<br>
+                <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
+                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
+                <b><u>Sensor Readings</u></b><br>
+                    ${(() => {
+                    let loopContent0 = '';
+                    for (let i = 0; i < measurementValue.length; i++) {
+                        loopContent0 += `<b>${typeDescription[i]}:</b> ${measurementValue[i]} ${typeUnit[i]}<br>`;
+                    }
+                    return loopContent0;
+                })()}
+                <button onclick="Redirect(sensorNode[1],sensorDescription[1])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
+                <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>`);
+            });
+        });
 
         marker5 = L.marker([39.7027, 20.8122], {icon: greenIcon}).addTo(map2);
         lastMeasurementsCall(sensorNode[2], function(id) {
@@ -213,7 +220,7 @@ if (decodedLastPart === 'site/map') {
                 <b>Type: </b>${sensorName[2]}<br>
                 <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
                 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
-                <b><u>Τελευταίες Μετρήσεις</u></b><br>
+                <b><u>Sensor Readings</u></b><br>
                 ${(() => {
                     let loopContent1 = '';
                     for (let i = 0; i < measurementValue.length; i++) {
@@ -221,7 +228,7 @@ if (decodedLastPart === 'site/map') {
                     }
                     return loopContent1;
                 })()}
-                <button onclick="Redirect(sensorNode[2])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
+                <button onclick="Redirect(sensorNode[2],sensorDescription[2])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
                 <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 `);
@@ -240,7 +247,7 @@ if (decodedLastPart === 'site/map') {
                   <b>Type: </b>${sensorName[3]}<br>
                 <b>Status: </b>${eleousa_object['weather'][0]['main']}<br>
                 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${eleousa_object['weather'][0]['icon']}.png"><br>
-                <b><u>Τελευταίες Μετρήσεις</u></b><br>
+                <b><u>Sensor Readings</u></b><br>
                 ${(() => {
                     let loopContent2 = '';
                     for (let i = 0; i < typeDescription.length; i++) {
@@ -379,7 +386,6 @@ function Redirect(id,title) {
     // map2._handlers.forEach(function (handler) {
     //     handler.disable();
     // });
-
     makeAjax(id,title);
 }
 
