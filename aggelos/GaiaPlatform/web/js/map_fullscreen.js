@@ -159,14 +159,14 @@ let measurementValue = [];
 let timestamp = null;
 let found = false;
 let counter = 0;
+let apiToken = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
 
 function lastMeasurementsCall(id, callback) {
-    let key = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
     let lastMeasurementsURL = "https://restapi.gaia-platform.eu/rest-api/items/readLast.php?sensor_node_id=" + id + "";
 
     $.ajax(lastMeasurementsURL, {
         method: 'GET', data: {
-            token_auth: key,
+            token_auth: apiToken,
         }, success: function (data) {
             if (data === null) {
             } else {
@@ -197,11 +197,10 @@ let sensorLongitude = [];
 let sensorLatitude = [];
 
 function nodeApiCall(callback) {
-    key2 = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
     let nodeURL = "https://restapi.gaia-platform.eu/rest-api/items/readNode.php?project_id=2";
     $.ajax(nodeURL, {
         method: 'GET', data: {
-            token_auth: key2,
+            token_auth: apiToken,
         }, success: function (data) {
             sensorNode = [];
             sensorName = [];
@@ -228,11 +227,10 @@ let maxTypeValue = [];
 let typeUnit = [];
 
 function typeCall(id, callback) {
-    key3 = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
     let typeURL = "https://restapi.gaia-platform.eu/rest-api/items/readNodeType.php?sensor_node_id=" + id + "";
     $.ajax(typeURL, {
         method: 'GET', data: {
-            token_auth: key3,
+            token_auth: apiToken,
         }, success: function (data) {
             typeId = [];
             typeDescription = [];
@@ -299,8 +297,8 @@ if (decodedLastPart === 'site/map') {
     map2.attributionControl.setPrefix();
 
     function checkCompletion() {
-        console.log(counter);
         if (counter === 4) {
+            console.log('Initilization completed')
             $('#loader').fadeOut('fast');
         }
     }
