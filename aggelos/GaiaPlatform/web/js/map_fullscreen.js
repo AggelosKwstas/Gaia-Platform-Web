@@ -45,7 +45,7 @@ function fixTimestamp(timestamp) {
 }
 
 function checkQuality(o3, pm10, pm2, so2, no2) {
-// ,pm10,pm25,so2,no2
+    // ,pm10,pm25,so2,no2
     let conditions_bad = [];
     let conditions_fair = [];
 
@@ -322,7 +322,7 @@ if (decodedLastPart === 'site/map') {
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
         <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
-        <button id="uoiButton" onclick="Redirect('uoiDiv')" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button>
+        <button class="button_station button4" style="cursor: not-allowed">View station</button>
         </div>`;
                     marker3.bindPopup(popup);
                 } else if (found === false) {
@@ -364,7 +364,7 @@ if (decodedLastPart === 'site/map') {
                         }
                         return loopContent0;
                     })()}
-                        <button onclick="Redirect(sensorNode[0],sensorDescription[0])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
+                        <button onclick="Redirect(sensorNode[0],sensorDescription[0])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
                         <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                         </div>`);
                 }
@@ -387,7 +387,7 @@ if (decodedLastPart === 'site/map') {
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
         <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
-        <button id="uoiButton" onclick="Redirect('uoiDiv')" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button>
+        <button class="button_station button4" style="cursor: not-allowed">View station</button>
         </div>`;
                             marker4.bindPopup(popup);
                         } else if (found === false) {
@@ -429,7 +429,7 @@ if (decodedLastPart === 'site/map') {
                                 }
                                 return loopContent0;
                             })()}
-                <button onclick="Redirect(sensorNode[1],sensorDescription[1])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
+                <button onclick="Redirect(sensorNode[1],sensorDescription[1])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
                 <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>`);
                         }
@@ -452,7 +452,7 @@ if (decodedLastPart === 'site/map') {
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
         <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
-        <button id="uoiButton" onclick="Redirect('uoiDiv')" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button>
+        <button class="button_station button4" style="cursor: not-allowed">View station</button>
         </div>`;
                                     marker5.bindPopup(popup);
                                 } else if (found === false) {
@@ -495,7 +495,7 @@ if (decodedLastPart === 'site/map') {
                                         }
                                         return loopContent1;
                                     })()}
-                <button onclick="Redirect(sensorNode[2],sensorDescription[2])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
+                <button onclick="Redirect(sensorNode[2],sensorDescription[2])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
                 <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 `);
@@ -519,7 +519,7 @@ if (decodedLastPart === 'site/map') {
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
         <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
-        <button id="uoiButton" onclick="Redirect('uoiDiv')" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button>
+        <button class="button_station button4" style="cursor: not-allowed">View station</button>
         </div>`;
                                             marker6.bindPopup(popup);
                                         } else if (found === false) {
@@ -562,7 +562,7 @@ if (decodedLastPart === 'site/map') {
                                                 }
                                                 return loopContent1;
                                             })()}
-                <button onclick="Redirect(sensorNode[3],sensorDescription[3])" class="btn btn-primary  px-3 mb-2 mb-lg-0"><b>View station</b></button><br>
+                <button onclick="Redirect(sensorNode[3],sensorDescription[3])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
                 <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 `);
