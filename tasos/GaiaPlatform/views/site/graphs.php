@@ -3,11 +3,11 @@
 /** @var yii\web\View $this */
 
 use yii\helpers\Html;
-
-    //$this->registerJs("let title=" . json_encode($title), \yii\web\View::POS_BEGIN);
-    //$this->registerJs("let name=" . json_encode($id), \yii\web\View::POS_BEGIN);
+//$this->registerJs("let title=" . json_encode($title), \yii\web\View::POS_BEGIN);
+//$this->registerJs("let id=" . json_encode($id), \yii\web\View::POS_BEGIN);
 $this->registerJsFile('js/echarts.js');
 $this->registerJsFile('js/graphs.js');
+
 ?>
 
 <title>GAIA Platform - Graphs </title>

@@ -1,135 +1,60 @@
+const day = new Date().getDate();
+const month = new Date().getMonth() + 1; // Months are zero-based
+const year = new Date().getFullYear();
+const dateFormatted = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+console.log(dateFormatted);
 
+// measurementInit='_measurements';
 
-typeId = [];
-typeDescription = [];
-minTypeValue = [];
-maxTypeValue = [];
-typeUnit = [];
+const urls = ['https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=6&date=' + dateFormatted + '&sensor_type_id=3',
+    'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=6&date=' + dateFormatted + '&sensor_type_id=4',
+    'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=6&date=' + dateFormatted + '&sensor_type_id=5',
+    'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=6&date=' + dateFormatted + '&sensor_type_id=6',
+    'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=6&date=' + dateFormatted + '&sensor_type_id=8',
+    'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=6&date=' + dateFormatted + '&sensor_type_id=9',
+    'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=6&date=' + dateFormatted + '&sensor_type_id=10',
+    'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=6&date=' + dateFormatted + '&sensor_type_id=11',
+    'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=6&date=' + dateFormatted + '&sensor_type_id=12',
+    'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=6&date=' + dateFormatted + '&sensor_type_id=13',
+    'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=6&date=' + dateFormatted + '&sensor_type_id=14'];
 
-// function typeCall(id, callback) {
-    key3 = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
-    id=5;
-    typeURL = "https://restapi.gaia-platform.eu/rest-api/items/readNodeType.php?sensor_node_id=" + id + "";
-    $.ajax(typeURL, {
-        method: 'GET', data: {
-            token_auth: key3,
-        }, success: function (data) {
-            typeId = [];
-            typeDescription = [];
-            minTypeValue = [];
-            maxTypeValue = [];
-            typeUnit = [];
-            for (let index in data['tbl_sensor_type']) {
-                let item = data['tbl_sensor_type'][index];
-                typeId.push(item.sensor_type_id);
-                typeDescription.push(item.description);
-                minTypeValue.push(item.min_value);
-                maxTypeValue.push(item.max_value);
-                typeUnit.push(item.unit);
-            }
-            // callback(id);
-            console.log(typeId);
-        }
-    });
-// }
-
-
-// function lastMeasurementsCall(id, callback) {
-    let key = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
-    let lastMeasurementsURL = "https://restapi.gaia-platform.eu/rest-api/items/readLast.php?sensor_node_id=" + id + "";
-
-    $.ajax(lastMeasurementsURL, {
-        method: 'GET', data: {
-            token_auth: key,
-        }, success: function (data) {
-            if (data === null) {
-            } else {
-                sensorTypeId = [];
-                measurementValue = [];
-                for (let index in data) {
-                    let item = data[index];
-                    sensorTypeId.push(item.sensor_type_id);
-                    measurementValue.push(item.value);
-                }
-                // callback(id, counter);
-            }
-        }
-        // , error: function (error) {
-        //     found = true;
-        //     callback(found);
-        //     console.log(`Error ${error}`);
+let measurements = [];
+const results = [];
+const requests = urls.map(url => fetch(url).then(response => response.json()));
+Promise.all(requests)
+    .then(responseData => {
+        responseData.forEach(data => {
+            measurements = data['6_measurements'];
+            console.log(measurements.length);
+            //  results[0]['6_measurements'][0]['timestamp']
+            results.push(measurements);
+        });
+        console.log(measurements);
+        // for(let i = 0; i < results.length; i++){
         // }
+    })
+    .then(() => {
+        console.log('All requests completed');
+        console.log(results.length);
+        console.log(results);
+        const timestamps = [];
+        for (let j = 0; j < measurements.length; j++) {
+            timestamps.push(results[0][j]['timestamp']);
+        }
+        let objects = [];
+        for (let i = 0; i < results.length; i++) {
+            objects = [];
+            for (let j = 0; j < measurements.length; j++) {
+                objects.push(results[i][j]['value'])
+            }
+          if(i===0)
+              makeBlueChart(objects,timestamps,'O3');
+        }
+
+    })
+    .catch(error => {
+        console.error('Error occurred:', error);
     });
-// }
-//
-//
-// let sensorNode = [];
-// let sensorName = [];
-// let sensorDescription = [];
-// let sensorLongitude = [];
-// let sensorLatitude = [];
-//
-// function nodeApiCall(callback) {
-//     key2 = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
-//     let nodeURL = "https://restapi.gaia-platform.eu/rest-api/items/readNode.php?project_id=2";
-//     $.ajax(nodeURL, {
-//         method: 'GET', data: {
-//             token_auth: key2,
-//         }, success: function (data) {
-//             sensorNode = [];
-//             sensorName = [];
-//             sensorDescription = [];
-//             sensorLongitude = [];
-//             sensorLatitude = [];
-//             for (let index in data['tbl_sensor_node']) {
-//                 let item = data['tbl_sensor_node'][index];
-//                 sensorNode.push(item.sensor_node_id);
-//                 sensorName.push(item.name);
-//                 sensorDescription.push(item.description);
-//                 sensorLongitude.push(item.longitude);
-//                 sensorLatitude.push(item.latitude);
-//             }
-//             callback();
-//         }
-//     });
-// }
-//
-// let typeId = [];
-// let typeDescription = [];
-// let minTypeValue = [];
-// let maxTypeValue = [];
-// let typeUnit = [];
-//
-// function typeCall(id, callback) {
-//     key3 = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
-//     let typeURL = "https://restapi.gaia-platform.eu/rest-api/items/readNodeType.php?sensor_node_id=" + id + "";
-//     $.ajax(typeURL, {
-//         method: 'GET', data: {
-//             token_auth: key3,
-//         }, success: function (data) {
-//             typeId = [];
-//             typeDescription = [];
-//             minTypeValue = [];
-//             maxTypeValue = [];
-//             typeUnit = [];
-//             for (let index in data['tbl_sensor_type']) {
-//                 let item = data['tbl_sensor_type'][index];
-//                 typeId.push(item.sensor_type_id);
-//                 typeDescription.push(item.description);
-//                 minTypeValue.push(item.min_value);
-//                 maxTypeValue.push(item.max_value);
-//                 typeUnit.push(item.unit);
-//             }
-//             callback(id);
-//         }
-//     });
-// }
-//
-// function readMeasurements(nodeId,  typeId){
-//     key1 = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
-//     url = 'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?sensor_node_id=4&date=2023-06-08&sensor_type_id=3';
-//
-// }
 
 
 var decodeEntities = (function () {

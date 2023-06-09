@@ -12,9 +12,7 @@ class ApiController extends Controller
     public $enableCsrfValidation = false;
     public function actionTesting($id,$title)
     {
-//        $this->view->registerJs("var title = '" . $title . "';");
-//        $this->view->registerJs("var name = '" . $id . "';");
-        return $this->redirect(['site/graphs', 'title' => $title, 'name' => $id]);
+        return $this->redirect(['site/graphs', 'id' => $id, 'title' => $title]);
     }
 
 }

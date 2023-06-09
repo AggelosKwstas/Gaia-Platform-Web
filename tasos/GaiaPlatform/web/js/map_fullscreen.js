@@ -6,7 +6,8 @@ function toFixed(num, fixed) {
 //works only with xaamp directory
 function makeAjax(id, title) {
     $.ajax({
-        url: './?r=api/testing&id=' + id + "&title=" + title, data: {}, type: 'POST', success: function (response) {
+        url: './?r=api/testing&title=' + title + "&id=" + id,
+        data: {}, type: 'POST', success: function (response) {
             console.log(response);
         }, error: function (xhr, status, error) {
             console.log(error);
