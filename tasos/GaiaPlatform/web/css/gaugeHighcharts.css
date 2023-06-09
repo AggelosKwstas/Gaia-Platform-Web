@@ -1,3 +1,6 @@
+/*watermark remove*/
+.highcharts-container > svg > .highcharts-credits {display: none;}
+
 .highcharts-figure .chart-container {
     width: 300px;
     height: 200px;
