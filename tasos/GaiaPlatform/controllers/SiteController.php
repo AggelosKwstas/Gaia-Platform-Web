@@ -186,7 +186,7 @@ class SiteController extends Controller
 
     public function actionGraphs($id='',$title='')
     {
-        $this->layout = 'main_map';
+        $this->layout = 'graphs_layout';
         $this->view->title = 'Sensor Graphs';
         return $this->render('graphs', [
             'title' => $title,
