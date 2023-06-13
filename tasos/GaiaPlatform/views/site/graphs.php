@@ -26,7 +26,7 @@ $this->registerCss('css/graphs.css');
             <div class="col-xs-6 col-sm-5 col-lg-3">
                 <div class="card">
                     <figure class="highcharts-figure" id="1" >
-                        <div id="container-speed" class="chart-container"></div>
+                        <div id="Temp1" class="chart-container"></div>
                     </figure>
 <!--                    <div class="chart" id="barChart1" style=" min-height: 400px;width:100%"></div>-->
                 </div>
@@ -34,7 +34,7 @@ $this->registerCss('css/graphs.css');
             <div class="col-xs-6 col-sm-5 col-lg-3">
                 <div class="card">
                     <figure class="highcharts-figure" id="2">
-                        <div id="container-speed" class="chart-container"></div>
+                        <div id="Temp2" class="chart-container"></div>
                     </figure>
                 </div>
             </div>

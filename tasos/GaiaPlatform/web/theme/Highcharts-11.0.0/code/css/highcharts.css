@@ -83,7 +83,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         /* UI colors */
-        --highcharts-background-color: rgb(255, 255, 255);
+        --highcharts-background-color: transparent;
 
         /*
             Neutral color variations

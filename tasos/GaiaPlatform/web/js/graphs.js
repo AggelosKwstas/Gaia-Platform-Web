@@ -13,6 +13,42 @@ var decodeEntities = (function () {
     }
     return decodeHTMLEntities;
 })();
+let nodeTypeURL = ['https://restapi.gaia-platform.eu/rest-api/items/readNodeType.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id='+ nodeId +''];
+
+let nodeTypes = [];
+const typeDescriptions =[];
+const min_value = [];
+const max_value =[];
+const typeUnit =[];
+const typeResults = [];
+const typeRequests = nodeTypeURL.map(url => fetch(url).then(response => response.json()));
+Promise.all(typeRequests)
+    .then(responseData => {
+        responseData.forEach(data => {
+            nodeTypes = data['tbl_sensor_type'];
+            typeResults.push(nodeTypes);
+        });
+    })
+    .then(() => {
+
+        console.log('All requests completed 1');
+        console.log(typeResults);
+
+        for (let j = 0; j < nodeTypes.length; j++){
+            typeDescriptions.push(typeResults[0][j]['description']);
+            min_value.push(typeResults[0][j]['min_value']);
+            max_value.push(typeResults[0][j]['max_value']);
+            typeUnit.push((typeResults[0][j]['unit']))
+        }
+        console.log(typeDescriptions, min_value,max_value, typeUnit);
+
+    })
+    .catch(error => {
+        console.error('Error occurred:', error);
+    });
+
+
+
 
 const day = new Date().getDate();
 const month = new Date().getMonth() + 1; // Months are zero-based
@@ -28,7 +64,6 @@ for(let id in typeIds){
     url= 'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id='+ nodeId +'&date=' + dateFormatted + '&sensor_type_id='+typeIds[id]+'';
     urls.push(url);
 }
-
 
 let measurements = [];
 const results = [];
@@ -64,7 +99,12 @@ Promise.all(requests)
             console.log(objects);
 
             if(i===0){
-                gaugeChart('Temp');
+                gaugeChart('Gauge1', typeDescriptions[i], lastMeasurement[i], min_value[i], max_value[i], typeUnit[i]);
+                console.log(lastMeasurement[i]);
+                console.log("min val", min_value[i], typeUnit[i])
+            }
+            if(i===1){
+                gaugeChart('Temp2', 'Gay', lastMeasurement[i]);
             }
         }
         console.log('last',lastMeasurement);
@@ -73,7 +113,7 @@ Promise.all(requests)
         console.error('Error occurred:', error);
     });
 
-function gaugeChart(measurementName){
+function gaugeChart(targetElementId, measurementName, measurementValue, min, max, unit){
     var gaugeOptions = {
         chart: {
             type: 'solidgauge'
@@ -134,7 +174,7 @@ function gaugeChart(measurementName){
     };
 
     // The speed gauge
-    var chartSpeed = Highcharts.chart('container-speed', Highcharts.merge(gaugeOptions, {
+    var chartSpeed = Highcharts.chart(targetElementId, Highcharts.merge(gaugeOptions, {
         yAxis: {
             min: 0,
             max: 200,
@@ -148,8 +188,8 @@ function gaugeChart(measurementName){
         },
 
         series: [{
-            name: 'Speed',
-            data: [80   ],
+            name: measurementName,
+            data: [measurementValue],
             dataLabels: {
                 format:
                     '<div style="text-align:center">' +
@@ -164,26 +204,26 @@ function gaugeChart(measurementName){
 
     }));
 
-    // Bring life to the dials
-    setInterval(function () {
-        // Speed
-        var point,
-            newVal,
-            inc;
-
-        if (chartSpeed) {
-            point = chartSpeed.series[0].points[0];
-            inc = Math.round((Math.random() - 0.5) * 100);
-            newVal = point.y + inc;
-
-            if (newVal < 0 || newVal > 200) {
-                newVal = point.y - inc;
-            }
-
-            point.update(newVal);
-        }
-
-    }, 2000);
+    // // Bring life to the dials
+    // setInterval(function () {
+    //     // Speed
+    //     var point,
+    //         newVal,
+    //         inc;
+    //
+    //     if (chartSpeed) {
+    //         point = chartSpeed.series[0].points[0];
+    //         inc = Math.round((Math.random() - 0.5) * 100);
+    //         newVal = point.y + inc;
+    //
+    //         if (newVal < 0 || newVal > 200) {
+    //             newVal = point.y - inc;
+    //         }
+    //
+    //         point.update(newVal);
+    //     }
+    //
+    // }, 2000);
 
 }
 
