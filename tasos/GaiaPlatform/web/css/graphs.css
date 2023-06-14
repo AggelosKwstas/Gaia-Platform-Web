@@ -1,4 +1,6 @@
-body{
-    background-color: #e5e9ec
+.graphs-container{
+    background-color: white;!important;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    width: calc(100% - 8rem);
 }
-

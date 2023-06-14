@@ -371,8 +371,8 @@ g.highcharts-series,
 
 /* Default colors */
 .highcharts-color-0 {
-    fill: var(--highcharts-color-0);
-    stroke: var(--highcharts-color-0);
+    /*fill: var(--highcharts-color-0);*/
+    /*stroke: var(--highcharts-color-0);*/
 }
 
 .highcharts-color-1 {

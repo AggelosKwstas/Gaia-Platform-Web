@@ -13,13 +13,13 @@ var decodeEntities = (function () {
     }
     return decodeHTMLEntities;
 })();
-let nodeTypeURL = ['https://restapi.gaia-platform.eu/rest-api/items/readNodeType.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id='+ nodeId +''];
 
+let nodeTypeURL = ['https://restapi.gaia-platform.eu/rest-api/items/readNodeType.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id='+ nodeId +''];
 let nodeTypes = [];
 const typeDescriptions =[];
 const min_value = [];
 const max_value =[];
-const typeUnit =[];
+const typeUnits =[];
 const typeResults = [];
 const typeRequests = nodeTypeURL.map(url => fetch(url).then(response => response.json()));
 Promise.all(typeRequests)
@@ -38,16 +38,14 @@ Promise.all(typeRequests)
             typeDescriptions.push(typeResults[0][j]['description']);
             min_value.push(typeResults[0][j]['min_value']);
             max_value.push(typeResults[0][j]['max_value']);
-            typeUnit.push((typeResults[0][j]['unit']))
+            typeUnits.push((typeResults[0][j]['unit']))
         }
-        console.log(typeDescriptions, min_value,max_value, typeUnit);
+        console.log(typeDescriptions, min_value,max_value, typeUnits);
 
     })
     .catch(error => {
         console.error('Error occurred:', error);
     });
-
-
 
 
 const day = new Date().getDate();
@@ -98,20 +96,24 @@ Promise.all(requests)
             }
             console.log(objects);
 
-            if(i===0){
-                gaugeChart('Gauge1', typeDescriptions[i], lastMeasurement[i], min_value[i], max_value[i], typeUnit[i]);
-                console.log(lastMeasurement[i]);
-                console.log("min val", min_value[i], typeUnit[i])
+        }
+        for(let k =0; k<results.length; k++)
+        {
+            let adder = k +1;
+            let chartName = 'Gauge';
+            let sum = chartName+adder;
+            if (k!==3){
+                gaugeChart(sum, typeDescriptions[k], lastMeasurement[k], min_value[k], max_value[k], typeUnits[k]);
+
             }
-            if(i===1){
-                gaugeChart('Temp2', 'Gay', lastMeasurement[i]);
-            }
+            console.log(lastMeasurement[k]);
         }
         console.log('last',lastMeasurement);
     })
     .catch(error => {
         console.error('Error occurred:', error);
     });
+
 
 function gaugeChart(targetElementId, measurementName, measurementValue, min, max, unit){
     var gaugeOptions = {
@@ -123,7 +125,7 @@ function gaugeChart(targetElementId, measurementName, measurementValue, min, max
 
         pane: {
             center: ['50%', '85%'],
-            size: '140%',
+            size: '90%',
             startAngle: -90,
             endAngle: 90,
             background: {
@@ -146,8 +148,8 @@ function gaugeChart(targetElementId, measurementName, measurementValue, min, max
         // the value axis
         yAxis: {
             stops: [
-                [0.1, '#55BF3B'], // green
-                [0.5, '#DDDF0D'], // yellow
+                [0.3, '#55BF3B'], // green
+                [0.6, '#DDDF0D'], // yellow
                 [0.9, '#DF5353'] // red
             ],
             lineWidth: 0,
@@ -158,7 +160,7 @@ function gaugeChart(targetElementId, measurementName, measurementValue, min, max
                 y: -70
             },
             labels: {
-                y: 16
+                y: 40
             }
         },
 
@@ -176,11 +178,12 @@ function gaugeChart(targetElementId, measurementName, measurementValue, min, max
     // The speed gauge
     var chartSpeed = Highcharts.chart(targetElementId, Highcharts.merge(gaugeOptions, {
         yAxis: {
-            min: 0,
-            max: 200,
+            min: min,
+            max: max,
+            tickInterval: 0,
             title: {
                 text: measurementName
-            }
+            },
         },
 
         credits: {
@@ -194,39 +197,22 @@ function gaugeChart(targetElementId, measurementName, measurementValue, min, max
                 format:
                     '<div style="text-align:center">' +
                     '<span style="font-size:25px">{y}</span><br/>' +
-                    '<span style="font-size:12px;opacity:0.4">km/h</span>' +
+                    '<span style="font-size:12px;opacity:0.4">'+ decodeEntities(unit) +'</span>' +
                     '</div>'
             },
             tooltip: {
-                valueSuffix: ' km/h'
+                valueSuffix: decodeEntities(unit)
             }
         }]
 
     }));
 
-    // // Bring life to the dials
-    // setInterval(function () {
-    //     // Speed
-    //     var point,
-    //         newVal,
-    //         inc;
-    //
-    //     if (chartSpeed) {
-    //         point = chartSpeed.series[0].points[0];
-    //         inc = Math.round((Math.random() - 0.5) * 100);
-    //         newVal = point.y + inc;
-    //
-    //         if (newVal < 0 || newVal > 200) {
-    //             newVal = point.y - inc;
-    //         }
-    //
-    //         point.update(newVal);
-    //     }
-    //
-    // }, 2000);
-
 }
 
+function lineChart(targetElementId, measurementName, measurementValue, min, max, unit)
+{
+
+}
 
 $(document).ready(function(){
 
