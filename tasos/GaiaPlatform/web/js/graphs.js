@@ -1,4 +1,3 @@
-console.log("ready");
 var decodeEntities = (function () {
     var element = document.createElement('div');
     function decodeHTMLEntities(str) {
@@ -104,10 +103,16 @@ Promise.all(requests)
             let sum = chartName+adder;
             if (k!==3){
                 gaugeChart(sum, typeDescriptions[k], lastMeasurement[k], min_value[k], max_value[k], typeUnits[k]);
+            }
+            else if(k===3){
+                initBattery(lastMeasurement[k]);
 
             }
             console.log(lastMeasurement[k]);
         }
+        lineCharts("chart-container1");
+        lineCharts('chart-container2');
+
         console.log('last',lastMeasurement);
     })
     .catch(error => {
@@ -209,9 +214,81 @@ function gaugeChart(targetElementId, measurementName, measurementValue, min, max
 
 }
 
-function lineChart(targetElementId, measurementName, measurementValue, min, max, unit)
-{
+// function lineChart(targetElementId, measurementName, measurementValue, min, max, unit)
+// {
 
+// }
+
+function initBattery(level) {
+    const batteryLiquid = document.querySelector('.battery__liquid'),
+        batteryStatus = document.querySelector('.battery__status'),
+        batteryPercentage = document.querySelector('.battery__percentage')
+
+    navigator.getBattery().then(() => {
+        updateBattery = () => {
+            batteryPercentage.innerHTML = level + '%'
+            batteryPercentage.valueOf(level);
+            batteryLiquid.style.height = `${parseInt(level)}%`
+
+            if (level === 100) {
+                batteryStatus.innerHTML = `Full battery <i class="ri-battery-2-fill green-color"></i>`
+            }
+            if (level > 20 && level < 100) {
+                batteryStatus.innerHTML = `Moderate Battery <i class="ri-battery-2-fill green-color"></i>`
+            }
+            else if (level <= 20) {
+                batteryStatus.innerHTML = `Low battery <i class="ri-plug-line animated-red"></i>`
+            }
+            else {
+                batteryStatus.innerHTML = ''
+            }
+
+            if (level <= 20) {
+                batteryLiquid.classList.add('gradient-color-red')
+                batteryLiquid.classList.remove('gradient-color-orange', 'gradient-color-yellow', 'gradient-color-green')
+            }
+            else if (level <= 40) {
+                batteryLiquid.classList.add('gradient-color-orange')
+                batteryLiquid.classList.remove('gradient-color-red', 'gradient-color-yellow', 'gradient-color-green')
+            }
+            else if (level <= 80) {
+                batteryLiquid.classList.add('gradient-color-yellow')
+                batteryLiquid.classList.remove('gradient-color-red', 'gradient-color-orange', 'gradient-color-green')
+            }
+            else {
+                batteryLiquid.classList.add('gradient-color-green')
+                batteryLiquid.classList.remove('gradient-color-red', 'gradient-color-orange', 'gradient-color-yellow')
+            }
+        }
+        updateBattery()
+    })
+}
+function lineCharts(targetElementId, measurementName, measurementValues, unit) {
+console.log("lineCharts");
+    Highcharts.chart(targetElementId, {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: measurementName
+        },
+        xAxis: {
+            type: 'logarithmic',
+            title: {
+                text: 'X Axis Title'
+            }
+        },
+        yAxis: {
+            type: 'logarithmic',
+            title: {
+                text: 'Y Axis Title'
+            }
+        },
+        series: [{
+            name: 'Series Name',
+            data: [measurementValues]
+        }]
+    });
 }
 
 $(document).ready(function(){
