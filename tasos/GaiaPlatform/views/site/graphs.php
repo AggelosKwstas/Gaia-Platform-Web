@@ -11,110 +11,20 @@ $this->registerCss('css/graphs.css');
 ?>
 
 <title>GAIA Platform - Graphs </title>
-<!--<div class="container-fluid bg-light">-->
-<!--    <div class="container bg-light" style="padding-top: 3rem">-->
-<!--        <nav class="navbar navbar-dark bg-white" style="display: block;text-align: center">-->
-<!---->
-<!--        </nav>-->
-<!--    </div>-->
-<!--</div>-->
 
-<section style="padding-top: 1rem!important; background-color: #e5e9ec;">
-<!--    <div>--><?php //echo '<h1 style="color: black">' . $title . '</h1>';?><!--</div>-->
+<section style="padding-top: 4rem!important; background-color: #e5e9ec;">
 
-    <div class="graphs-container" style="background-color: white;!important;">
-        <div class="grid-title" style="background-color:#07786e;height:40px;display: flex;
-        justify-content: center;">
-            <?php echo '<h4 style="color: white;margin-top:5px;">Most Recent Values for ' . $title . '</h4>';?>
-        </div>
-        <div class="row p-5" style="display: flex; justify-content: center;">
-            <div class="col-sm-3" style="width:20%!important;">
-                <div class="card" style=" border-color: transparent">
-                    <figure class="highcharts-figure">
-                        <div id="Gauge1" class="chart-container"></div>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-sm-3" style="width:20%!important;">
-                <div class="card" style=" border-color: transparent">
-                    <figure class="highcharts-figure">
-                        <div id="Gauge2" class="chart-container"></div>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-sm-3 " style="width:20%!important;">
-                <div class="card" style=" border-color: transparent">
-                    <figure class="highcharts-figure">
-                        <div id="Gauge3" class="chart-container"></div>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-sm-3 " style="width:20%!important;">
-                <div class="card" style=" border-color: transparent">
-                    <figure class="highcharts-figure">
-                        <div id="Gauge5" class="chart-container"></div>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-sm-3" style="width:20%!important;">
-                <div class="card" style=" border-color: transparent">
-                    <figure class="highcharts-figure">
-                        <div id="Gauge6" class="chart-container"></div>
-                    </figure>
-                </div>
-            </div>
-        </div>
-
-        <div class="row p-5" style="display: flex; justify-content: center;">
-            <div class="col-sm-3" style="width:20%!important;">
-                <div class="card" style=" border-color: transparent">
-                    <figure class="highcharts-figure">
-                        <div id="Gauge7" class="chart-container"></div>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-sm-3" style="width:20%!important;">
-                <div class="card" style=" border-color: transparent">
-                    <figure class="highcharts-figure">
-                        <div id="Gauge8" class="chart-container"></div>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-sm-3 " style="width:20%!important;">
-                <div class="card" style=" border-color: transparent">
-                    <figure class="highcharts-figure">
-                        <div id="Gauge9" class="chart-container"></div>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-sm-3 " style="width:20%!important;">
-                <div class="card" style=" border-color: transparent">
-                    <figure class="highcharts-figure">
-                        <div id="Gauge10" class="chart-container"></div>
-                    </figure>
-                </div>
-            </div>
-                <div class="col-sm-3" style="width:20%!important;">
-                    <div class="card" style=" border-color: transparent">
-                        <figure class="highcharts-figure">
-                            <div id="Gauge11" class="chart-container"></div>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-</section>
-
-
-<section class="battery">
+<div class="battery">
+    <div class="grid-title" style="background-color:#07786e;height:50px;width: 100%;
+        display:flex; justify-content: center;">
+        <?php echo '<h2 style="color: white;margin-top:7px;">' . $title . '</h2>';?>
+    </div>
     <div class="battery__card">
         <div class="battery__data">
-            <p class="battery__text">Battery Level</p>
+            <p class="battery__text">Sensor Node Battery</p>
             <h1 class="battery__percentage">
             </h1>
 
-            <p class="battery__status">
-                Low battery <i class="ri-plug-line"></i>
-            </p>
         </div>
 
         <div class="battery__pill">
@@ -123,18 +33,136 @@ $this->registerCss('css/graphs.css');
             </div>
         </div>
     </div>
+</div>
 </section>
+<section style="padding-top: 1rem!important; background-color: #e5e9ec;height:auto!important;">
+
+    <div class="graphs-container" style="background-color: white;!important;">
+        <div class="grid-title" style="background-color:#07786e;height:40px;display: flex;
+        justify-content: center;">
+            <?php echo '<h4 style="color: white;margin-top:5px;">Most Recent Values for ' . $title . '</h4>';?>
+        </div>
+        <div class="row p-5" style="display: flex; justify-content: center;">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" >
+                    <figure class="highcharts-figure">
+                        <div id="Gauge1" class="chart-container"></div>
+                    </figure>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" >
+                    <figure class="highcharts-figure">
+                        <div id="Gauge2" class="chart-container"></div>
+                    </figure>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 " >
+                    <figure class="highcharts-figure">
+                        <div id="Gauge3" class="chart-container"></div>
+                    </figure>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" >
+                    <figure class="highcharts-figure">
+                        <div id="Gauge5" class="chart-container"></div>
+                    </figure>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" >
+                    <figure class="highcharts-figure">
+                        <div id="Gauge6" class="chart-container"></div>
+                    </figure>
+            </div>
+        </div>
+
+        <div class="row p-5" style="display: flex; justify-content: center;">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <figure class="highcharts-figure">
+                        <div id="Gauge7" class="chart-container"></div>
+                    </figure>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <figure class="highcharts-figure">
+                        <div id="Gauge8" class="chart-container"></div>
+                    </figure>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <figure class="highcharts-figure">
+                        <div id="Gauge9" class="chart-container"></div>
+                    </figure>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <figure class="highcharts-figure">
+                        <div id="Gauge10" class="chart-container"></div>
+                    </figure>
+            </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                        <figure class="highcharts-figure">
+                            <div id="Gauge11" class="chart-container"></div>
+                        </figure>
+                </div>
+            </div>
+</section>
+
+
 <section style="padding-top: 1rem!important; background-color: #e5e9ec;">
     <div class="graphs-container" style="background-color: white;!important;">
+        <div class="grid-title" style="background-color:#07786e;height:40px;display: flex;
+        justify-content: center;">
+            <?php echo '<h2 style="color: white;margin-top:5px;">Todays Values for ' . $title . '</h2>';?>
+        </div>
         <div class="row p-2" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
                 <div class="card" style=" border-color: transparent">
-                        <div id="chart-container1" ></div>
+                        <div id="Line1" ></div>
                 </div>
             </div>
             <div class="col-sm-6" >
                 <div class="card" style=" border-color: transparent">
-                    <div id="chart-container2" ></div>
+                    <div id="Line2" ></div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2" style="display: flex; justify-content: center;">
+            <div class="col-sm-6" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="Line3" ></div>
+                </div>
+            </div>
+            <div class="col-sm-6" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="Line5" ></div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2" style="display: flex; justify-content: center;">
+            <div class="col-sm-6" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="Line6" ></div>
+                </div>
+            </div>
+            <div class="col-sm-6" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="Line7" ></div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2" style="display: flex; justify-content: center;">
+            <div class="col-sm-6" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="Line8" ></div>
+                </div>
+            </div>
+            <div class="col-sm-6" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="Line9" ></div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2" style="display: flex; justify-content: center;">
+            <div class="col-sm-6" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="Line10" ></div>
+                </div>
+            </div>
+            <div class="col-sm-6" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="Line11" ></div>
                 </div>
             </div>
         </div>

@@ -31,16 +31,13 @@ Promise.all(typeRequests)
     .then(() => {
 
         console.log('All requests completed 1');
-        console.log(typeResults);
 
         for (let j = 0; j < nodeTypes.length; j++){
             typeDescriptions.push(typeResults[0][j]['description']);
             min_value.push(typeResults[0][j]['min_value']);
             max_value.push(typeResults[0][j]['max_value']);
-            typeUnits.push((typeResults[0][j]['unit']))
+            typeUnits.push((typeResults[0][j]['unit']));
         }
-        console.log(typeDescriptions, min_value,max_value, typeUnits);
-
     })
     .catch(error => {
         console.error('Error occurred:', error);
@@ -74,15 +71,17 @@ Promise.all(requests)
     })
     .then(() => {
         $('#loader').fadeOut('fast');
-        console.log('All requests completed');
+        console.log('All requests completed 2');
         const timestamps = [];
+        const timestampsSliced = [];
         for (let j = 0; j < measurements.length; j++) {
             timestamps.push(results[0][j]['timestamp']);
+            timestampsSliced.push(timestamps[j].slice(11,19));
         }
         let objects = [];
         let lastMeasurement = [];
         let cycleCounter = measurements.length;
-        console.log("len",measurements.length);
+
         for (let i = 0; i < results.length; i++) {
             objects = [];
             cycleCounter = measurements.length;
@@ -93,32 +92,30 @@ Promise.all(requests)
                     lastMeasurement.push(results[i][j]['value'])
                 }
             }
-            console.log(objects);
-
+            if(i!==3){
+                let add = i +1;
+                let lineName = 'Line';
+                let lineSum = lineName+add;
+                lineCharts(lineSum, typeDescriptions[i], objects, timestampsSliced, typeUnits[i]);
+            }
         }
+
         for(let k =0; k<results.length; k++)
         {
             let adder = k +1;
-            let chartName = 'Gauge';
-            let sum = chartName+adder;
+            let gaugeName = 'Gauge';
+            let gaugeSum = gaugeName+adder;
             if (k!==3){
-                gaugeChart(sum, typeDescriptions[k], lastMeasurement[k], min_value[k], max_value[k], typeUnits[k]);
+                gaugeChart(gaugeSum, typeDescriptions[k], lastMeasurement[k], min_value[k], max_value[k], typeUnits[k]);
             }
             else if(k===3){
                 initBattery(lastMeasurement[k]);
-
             }
-            console.log(lastMeasurement[k]);
         }
-        lineCharts("chart-container1");
-        lineCharts('chart-container2');
-
-        console.log('last',lastMeasurement);
     })
     .catch(error => {
         console.error('Error occurred:', error);
     });
-
 
 function gaugeChart(targetElementId, measurementName, measurementValue, min, max, unit){
     var gaugeOptions = {
@@ -149,7 +146,6 @@ function gaugeChart(targetElementId, measurementName, measurementValue, min, max
         tooltip: {
             enabled: false
         },
-
         // the value axis
         yAxis: {
             stops: [
@@ -214,11 +210,6 @@ function gaugeChart(targetElementId, measurementName, measurementValue, min, max
 
 }
 
-// function lineChart(targetElementId, measurementName, measurementValue, min, max, unit)
-// {
-
-// }
-
 function initBattery(level) {
     const batteryLiquid = document.querySelector('.battery__liquid'),
         batteryStatus = document.querySelector('.battery__status'),
@@ -229,19 +220,6 @@ function initBattery(level) {
             batteryPercentage.innerHTML = level + '%'
             batteryPercentage.valueOf(level);
             batteryLiquid.style.height = `${parseInt(level)}%`
-
-            if (level === 100) {
-                batteryStatus.innerHTML = `Full battery <i class="ri-battery-2-fill green-color"></i>`
-            }
-            if (level > 20 && level < 100) {
-                batteryStatus.innerHTML = `Moderate Battery <i class="ri-battery-2-fill green-color"></i>`
-            }
-            else if (level <= 20) {
-                batteryStatus.innerHTML = `Low battery <i class="ri-plug-line animated-red"></i>`
-            }
-            else {
-                batteryStatus.innerHTML = ''
-            }
 
             if (level <= 20) {
                 batteryLiquid.classList.add('gradient-color-red')
@@ -263,8 +241,8 @@ function initBattery(level) {
         updateBattery()
     })
 }
-function lineCharts(targetElementId, measurementName, measurementValues, unit) {
-console.log("lineCharts");
+
+function lineCharts(targetElementId, measurementName, measurementValues, measurementTimestamps, measurementUnits) {
     Highcharts.chart(targetElementId, {
         chart: {
             type: 'line'
@@ -273,27 +251,31 @@ console.log("lineCharts");
             text: measurementName
         },
         xAxis: {
-            type: 'logarithmic',
-            title: {
-                text: 'X Axis Title'
-            }
+            categories: measurementTimestamps,
         },
         yAxis: {
-            type: 'logarithmic',
-            title: {
-                text: 'Y Axis Title'
-            }
+            categories: [],
+            gridLineWidth: 0,
+            gridLineColor: 'transparent',
         },
-        series: [{
-            name: 'Series Name',
-            data: [measurementValues]
-        }]
+        series: [
+            {
+                data: measurementValues,
+                name: decodeEntities(measurementUnits),
+                marker: {
+                    radius: 5,
+                },
+                animation: {
+                    duration: 700,
+                    easing: 'easeOutBounce',
+                    defer: 500,
+                },
+            },
+        ],
     });
 }
 
 $(document).ready(function(){
-
-
         console.log("function ready");
 
 
