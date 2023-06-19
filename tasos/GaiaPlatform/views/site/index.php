@@ -10,29 +10,7 @@ $this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/up
 ?>
 <?php if (Yii::$app->controller->action->id === 'index'): ?>
     <?php $this->registerJs("
-//api upproach
-//const coordinates = [
-//  [39.6216, 20.8596],
-//  [39.7147, 20.7572],
-//  [39.7027, 20.8122],
-//  [39.7066, 20.7926]
-//];
-//
-//for (const coord of coordinates) {
-//  let icon;
-//  
-//  if (/* condition for selecting a specific icon */) {
-//    // Assign the specific icon based on the condition
-//    icon = SpecificIcon;
-//  } else {
-//    // Assign a default icon
-//    icon = DefaultIcon;
-//  }
-//
-//  L.marker(coord, { icon })
-//    .bindTooltip('<b><em>Click on the station for a detailed view</em></b>')
-//    .addTo(map);
-//}
+
 
 // Configuration
 const config1 = {

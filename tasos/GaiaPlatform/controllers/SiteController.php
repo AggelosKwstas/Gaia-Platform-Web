@@ -184,16 +184,13 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionGraphs()
+    public function actionGraphs($id='',$title='')
     {
-        $title = Yii::$app->request->getQueryParam('title');
-        $name = Yii::$app->request->getQueryParam('name');
-
-        $this->layout = 'main_map';
+        $this->layout = 'graphs_layout';
         $this->view->title = 'Sensor Graphs';
         return $this->render('graphs', [
             'title' => $title,
-            'name' => $name,
+            'id' => $id,
         ]);
     }
 

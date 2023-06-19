@@ -1,0 +1,17 @@
+.graphs-container{
+    background-color: white;!important;
+    height:auto !important;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    width: calc(100% - 8rem);
+}
+
+/*.battery-container{*/
+/*    height:300px;*/
+/*    background-color: white;!important;*/
+/*    margin-left: 50rem;*/
+/*    margin-right: 50rem;*/
+/*    width: calc(100% - 100rem);*/
+
+/*    !*width:25rem;*!*/
+/*}*/
