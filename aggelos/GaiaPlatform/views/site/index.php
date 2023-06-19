@@ -168,10 +168,10 @@ markers.forEach(marker => {
                         <div style="text-align: center">
                             <b>SOLAR POWERED</b><br>
                             <p>
-                                Every sensor node is equipped with a rechargeable battery, which can be replenished
-                                using an internal or external solar panel. The batteries are designed with a 6600mAh
-                                capacity, ensuring uninterrupted operation even during periods with no access to
-                                sunlight.
+                                The GAIA platform offers fast and hassle-free installation, minimizing maintenance
+                                costs. Its versatility enables a wide range of services and applications to cater to
+                                diverse needs. With robust equipment and network scalability, the platform ensures
+                                seamless growth and adaptability for future requirements.
                             </p>
                         </div>
                     </div>
@@ -185,9 +185,10 @@ markers.forEach(marker => {
                             <b>POWERFULL SENSOR NETWORKS
                             </b><br>
                             <p>
-                                By leveraging Wi-Fi and 3G/GPRS radios, it is possible to establish a direct connection
-                                for transmitting the sensor data to the Internet, thereby obviating the necessity of an
-                                intermediary gateway. This way they enable the seamless transfer of data.
+                                The GAIA platform excels in providing fast installation and minimal maintenance costs,
+                                making it an efficient and cost-effective solution. It offers a wide range of diverse
+                                services and applications, while its robust equipment and network scalability ensure
+                                seamless growth and adaptability.
                             </p>
                         </div>
                     </div>
@@ -212,7 +213,7 @@ markers.forEach(marker => {
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-lg" data-aos="fade-right" data-aos-duration="1000">
+            <div class="col-xs-12 col-sm-12 col-lg" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
                 <div class="p-1">
                     <div class="container-type" style="background-color: white">
                         <img src="asset/cloud-data.png" class="container-image" style="width: 70px">
@@ -229,7 +230,7 @@ markers.forEach(marker => {
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-lg" data-aos="fade-right" data-aos-duration="1000">
+            <div class="col-xs-12 col-sm-12 col-lg" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
                 <div class="p-1">
                     <div class="container-type" style="background-color: white">
                         <img src="asset/internet.png" class="container-image" style="width: 70px">
