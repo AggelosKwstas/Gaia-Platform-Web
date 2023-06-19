@@ -13,7 +13,7 @@ $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, shrink-to-fit=yes']);
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
-$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset/maybe.png']);
+$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset/BadgeGaiaPlatform.png']);
 ?>
 <?php $this->beginPage() ?>
 
@@ -24,7 +24,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content=""/>
         <meta name="author" content=""/>
-        <link rel="icon" type="image/x-icon" href="asset/maybe.png"/>
+        <link rel="icon" type="image/x-icon" href="asset/LogoGaiaPlatform.png"/>
         <?php $this->head() ?>
     </head>
     <body id="page-top">
@@ -39,8 +39,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             } else
                 echo \yii\helpers\Url::to(['site/index']);
             ?>"><img class="main_logo"
-                     src="asset/maybe.png">
-                <h id="h_logo">GAIA PLATFORM</h>
+                     src="asset/LogoGaiaPlatform.png">
+<!--                <h id="h_logo">GAIA PLATFORM</h>-->
             </a>
         </div>
     </nav>

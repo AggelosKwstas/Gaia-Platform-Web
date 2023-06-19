@@ -13,6 +13,8 @@ var decodeEntities = (function () {
     return decodeHTMLEntities;
 })();
 
+
+
 let nodeTypeURL = ['https://restapi.gaia-platform.eu/rest-api/items/readNodeType.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id='+ nodeId +''];
 let nodeTypes = [];
 const typeDescriptions =[];
@@ -260,6 +262,7 @@ function lineCharts(targetElementId, measurementName, measurementValues, measure
         },
         series: [
             {
+                color: '#30730e',
                 data: measurementValues,
                 name: decodeEntities(measurementUnits),
                 marker: {
@@ -276,7 +279,67 @@ function lineCharts(targetElementId, measurementName, measurementValues, measure
 }
 
 $(document).ready(function(){
-        console.log("function ready");
+
+    $(function () {
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('YYYY MM, D') + ' - ' + end.format('YYYY MM, D'));
+        }
+
+        $('#reportrange').daterangepicker({
+            drops: 'up',
+            opens: 'center',
+            startDate: start,
+            endDate: end,
+            maxDate: end,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+
+        cb(start, end);
 
 
+    });
+    $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+        document.getElementById('loading').style.display = 'inline-block';
+        let measurementInit1 = '_measurements';
+        let measurementFilter1 = nodeId + measurementInit1;
+
+        let readDateURL = ['https://restapi.gaia-platform.eu/rest-api/items/readDates.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=' + nodeId + '&date1=' + picker.startDate.format('YYYY-MM-DD') + '&date2=' + picker.endDate.format('YYYY-MM-DD') + '&sensor_type_id='];
+        let readMeasurementType = [];
+        const readTimestamp = [];
+        const readTypeId = [];
+        const readValues = [];
+        const readResults = [];
+        const readRequests = readDateURL.map(url => fetch(url).then(response => response.json()));
+        Promise.all(readRequests)
+            .then(responseData => {
+                $('#loading').fadeOut('fast');
+                responseData.forEach(data => {
+                    readMeasurementType = data[measurementFilter1];
+                    console.log(readMeasurementType);
+                    readResults.push(readMeasurementType);
+
+                });
+            })
+            .then(() => {
+                console.log('All requests completed 3');
+                for (let j = 0; j < readMeasurementType.length; j++) {
+                    readTimestamp.push(readResults[0][j]['timestamp']);
+                    readTypeId.push(readResults[0][j]['sensor_type_id']);
+                    readValues.push(readResults[0][j]['value']);
+                }
+                console.log("Last:", readTimestamp, readTypeId, readValues);
+            })
+            .catch(error => {
+                console.error('Error occurred:', error);
+            });
+    });
 })

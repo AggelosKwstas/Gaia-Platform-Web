@@ -25,7 +25,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
         <meta name="description" content=""/>
         <meta name="author" content=""/>
 
-        <link rel="icon" type="image/x-icon" href="asset/maybe.png"/>
+        <link rel="icon" type="image/x-icon" href="asset/LogoGaiaPlatform.png"/>
         <?php $this->head() ?>
     </head>
     <body id="page-top">

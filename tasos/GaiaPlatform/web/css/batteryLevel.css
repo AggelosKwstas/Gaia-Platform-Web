@@ -67,8 +67,8 @@ body {
     height: 150px;
     background-color: var(--container-color);
     padding: 0.2rem 2rem;
-    /*border-radius: 1.5rem;*/
-    display: grid;
+    border-radius: 1.5rem;
+    display: flex;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
 }
@@ -212,7 +212,7 @@ body {
 /* For medium devices */
 @media screen and (min-width: 430px) {
     .battery__card {
-        width: 312px;
+        width: 900px;
     }
 }
 
