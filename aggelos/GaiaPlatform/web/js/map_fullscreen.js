@@ -313,7 +313,6 @@ if (decodedLastPart === 'site/map') {
                     popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6>
-        <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
         <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[0]}<br>
@@ -331,7 +330,6 @@ if (decodedLastPart === 'site/map') {
                     marker3.setIcon(icon);
                     marker3.bindPopup(`<div style="display: block;text-align: center">
                         <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6></div>
-                        <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
                         <hr class="dotted">
                                   ${(() => {
                         let loopContent0 = '';
@@ -378,7 +376,6 @@ if (decodedLastPart === 'site/map') {
                             popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
-        <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
         <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[1]}<br>
@@ -396,7 +393,6 @@ if (decodedLastPart === 'site/map') {
                             marker4.setIcon(icon);
                             marker4.bindPopup(`<div style="display: block;text-align: center">
                 <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6></div>
-                <img style="height:7rem;" src="../asset/sensorImages/sensorGardiki.jpg">
                 <hr class="dotted">
                                   ${(() => {
                                 let loopContent0 = '';
@@ -442,11 +438,10 @@ if (decodedLastPart === 'site/map') {
                                     marker5.setIcon(greyIcon);
                                     popup = `
         <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
-        <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
+        <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[2]}</h6>
         <hr>
         <b>State: </b><u style="color: red">Inactive</u><br>
-        <b>Type: </b>${sensorName[1]}<br>
+        <b>Type: </b>${sensorName[2]}<br>
         <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
         <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
         <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
@@ -462,7 +457,6 @@ if (decodedLastPart === 'site/map') {
                                     marker5.bindPopup(`
                 <div style="display: block;text-align: center">
                 <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[2]}</h6>
-                <img style="height:7rem;" src="../asset/sensorImages/sensorAgiosIoannis.jpg">
                 <hr class="dotted">
                                     ${(() => {
                                         let loopContent0 = '';
@@ -510,7 +504,6 @@ if (decodedLastPart === 'site/map') {
                                             popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
-        <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
                 <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[3]}<br>
@@ -529,7 +522,6 @@ if (decodedLastPart === 'site/map') {
                                             marker6.bindPopup(`
                 <div style="display: block;text-align: center">
                 <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
-                <img style="height:7rem;" src="../asset/sensorImages/sensorAgiosIoannis.jpg">
                 <hr class="dotted">
                                        ${(() => {
                                                 let loopContent0 = '';

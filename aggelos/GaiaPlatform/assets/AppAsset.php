@@ -47,6 +47,7 @@ class AppAsset extends AssetBundle
         'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
         'js/downloadCloud.js',
         'js/map_fullscreen.js',
+        'js/graphs.js',
         'https://unpkg.com/aos@2.3.1/dist/aos.js'
     ];
 
