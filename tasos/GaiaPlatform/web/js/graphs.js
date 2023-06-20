@@ -324,9 +324,7 @@ $(document).ready(function(){
                 $('#loading').fadeOut('fast');
                 responseData.forEach(data => {
                     readMeasurementType = data[measurementFilter1];
-                    console.log(readMeasurementType);
                     readResults.push(readMeasurementType);
-
                 });
             })
             .then(() => {
@@ -336,10 +334,23 @@ $(document).ready(function(){
                     readTypeId.push(readResults[0][j]['sensor_type_id']);
                     readValues.push(readResults[0][j]['value']);
                 }
+                let ccounter =0;
+                for(let i = 0; i < readTypeId.length; i++){
+                    if(readTypeId[i]==typeIds[i]){
+                        console.log(readTypeId[i]);
+                    }
+                }
+                console.log(ccounter);
                 console.log("Last:", readTimestamp, readTypeId, readValues);
             })
             .catch(error => {
                 console.error('Error occurred:', error);
             });
+
+            // for(let i = 0; i < readTypeId.length; j++){
+            //     if(i==3){
+            //         console.log("i=3",readTypeId[i]);
+            //     }
+            // }
     });
 })
