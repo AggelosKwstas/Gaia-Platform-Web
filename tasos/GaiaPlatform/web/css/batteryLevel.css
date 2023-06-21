@@ -79,7 +79,7 @@ body {
 }
 
 .battery__percentage {
-    font-size: var(--biggest-font-size);
+    font-size: var(--normal-font-size);
 }
 
 .battery__status {

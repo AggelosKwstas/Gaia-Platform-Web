@@ -15,15 +15,13 @@ $this->registerCss('css/graphs.css');
 <section style="padding-top: 4rem!important; background-color: #e5e9ec;display: grid;">
 
 <div class="battery">
-<!--    <div class="grid-title" style="background-color:#07786e;height:50px;width: 100%;-->
-<!--        display:flex; justify-content: center;">-->
-<!--        --><?php //echo '<h2 style="color: white;margin-top:7px;">' . $title . '</h2>';?>
-<!--    </div>-->
+
     <div class="battery__card">
+        <img src="/asset/libeliumSensor.png">
         <div class="battery__data" style="margin:2rem">
-            <p class="battery__text">Air Station 4</p>
-            <p class="battery__text">Eleousa Air Monitor</p>
-            <p class="battery__text">16:03:54 AM</p>
+            <?php echo '<p class="battery__text">' . $name . '</p>';?>
+            <?php echo '<p class="battery__text">' . $title . '</p>';?>
+            <?php echo '<p class="battery__text">' . $time . '</p>';?>
         </div>
         <div style="  border-left: 6px solid green;
   height: 104%;"></div>
@@ -40,8 +38,7 @@ $this->registerCss('css/graphs.css');
     </div>
 </div>
 </section>
-<section style="padding-top: 1rem!important; background-color: #e5e9ec;height:auto!important;">
-
+<section style="padding-top: 1rem!important;padding-bottom: 5px!important; background-color: #e5e9ec;height:auto!important;">
     <div class="graphs-container" style="background-color: white;!important;">
         <div class="grid-title" style="background-color:#07786e;height:40px;display: flex;
         justify-content: center;">
@@ -105,20 +102,20 @@ $this->registerCss('css/graphs.css');
 </section>
 
 
-<section style="padding-top: 1rem!important; background-color: #e5e9ec;padding-bottom: 1rem!important;">
-    <div class="graphs-container" style="background-color: white;!important;">
-        <div class="grid-title" style="background-color:#07786e;height:40px;display: flex;
-        justify-content: center;">
-            <?php echo '<h2 style="color: white;margin-top:5px;">Todays Values for ' . $title . '</h2>';?>
-        </div>
+<section style="padding-top:5px; background-color: #e5e9ec;padding-bottom: 1rem!important;">
+    <div class="graphs-container" style="background-color: #e5e9ec;!important;">
+<!--        <div class="grid-title" style="background-color:#07786e;height:40px;display: flex;-->
+<!--        justify-content: center;">-->
+<!--            --><?php //echo '<h2 style="color: white;margin-top:5px;">Todays Values for ' . $title . '</h2>';?>
+<!--        </div>-->
         <div class="row p-2" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card"  style=" border-color: transparent">
                         <div id="Line1" ></div>
                 </div>
             </div>
             <div class="col-sm-6" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card"  style=" border-color: transparent">
                     <div id="Line2" ></div>
                 </div>
             </div>
@@ -173,18 +170,79 @@ $this->registerCss('css/graphs.css');
         </div>
     </div>
 </section>
+
 <section style="padding-top: 1rem!important;">
     <div class="container" style="display:flex; justify-content:center;">
         <span class="col-md-4" id="reportrange"
-           style="width:20rem;margin-top:65px;margin-left: 115px;background: white; cursor: pointer; padding: 5px 10px; border: 5px solid #165C40;height: 40px;">
+           style="width:20rem;margin-top:65px;margin-left: 115px;background: white; cursor: pointer; padding: 5px 10px; border: 5px solid #30730e;height: 40px;">
             <i class="fa fa-calendar"></i>&nbsp;
             <span></span><i class="fa fa-caret-down"></i>
         </span>
         <span></br</span>
 
+
     </div>
 </section>
+
 <div id="loading" class="lds-facebook"><div></div><div></div><div></div></div>
+<section id="hiddenSection" style="display:none;padding-top: 1rem!important; background-color: #e5e9ec;padding-bottom: 1rem!important;">
+    <div class="graphs-container" style="background-color: white;!important;">
+
+            <div class="col-lg-12" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="o3Chart" ></div>
+                </div>
+            </div>
+            <div class="col-lg-12" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="tempChart" ></div>
+                </div>
+            </div>
+            <div class="col-lg-12" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="humidChart" ></div>
+                </div>
+            </div>
+            <div class="col-lg-12" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="pm1Chart" ></div>
+                </div>
+            </div>
+            <div class="col-lg-12" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="pm25Chart" ></div>
+                </div>
+            </div>
+            <div class="col-lg-12" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="pm10Chart" ></div>
+                </div>
+            </div>
+            <div class="col-lg-12" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="so2Chart" ></div>
+                </div>
+            </div>
+            <div class="col-lg-12" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="noChart" ></div>
+                </div>
+            </div>
+            <div class="col-lg-12" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="no2Chart" ></div>
+                </div>
+            </div>
+            <div class="col-lg-12" >
+                <div class="card" style=" border-color: transparent">
+                    <div id="presChart" ></div>
+                </div>
+            </div>
+
+    </div>
+</section>
+
+
 
 <div id="loader">
     <div class="loading-screen">

@@ -184,13 +184,15 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionGraphs($id='',$title='')
+    public function actionGraphs($id='',$title='',$name='',$time='')
     {
         $this->layout = 'graphs_layout';
         $this->view->title = 'Sensor Graphs';
         return $this->render('graphs', [
             'title' => $title,
             'id' => $id,
+            'name' => $name,
+            'time' => $time
         ]);
     }
 

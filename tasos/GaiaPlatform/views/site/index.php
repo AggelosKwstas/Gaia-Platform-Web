@@ -115,85 +115,119 @@ markers.forEach(marker => {
                 </div>
             </div>
 
-
 </section>
 
-<section class="bg-light" style="display: block;text-align: left">
-    <div class="container" style="text-align: center">
-        <div class="row">
-            <div class="col">
-                <div class="item" data-aos="fade-down" data-aos-duration="1000">
-                    <h5><b>POWERFUL SENSOR NETWORKS</b></h5>
-                </div>
-                <div class="item" data-aos="fade-right" data-aos-duration="1000">
-                    <p>
-                        Fast installation and minimum maintenance costs. Diverse services and applications. Robust
-                        equipment
-                        and network scalability.
-                    </p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="item" data-aos="fade-down" data-aos-duration="1000">
-                    <h5><b>OVER 50 SENSOR TYPES</b></h5>
-                </div>
-                <div class="item" data-aos="fade-up" data-aos-duration="1000">
-                    <p>
-                        Sensors for measuring air quality, water quality, ions concentration, container levels,
-                        structural
-                        health, noise, agriculture parameters, security parameters, radioactivity levels etc.
-                    </p>
+<section class="bg-light">
+    <div class="container px-4">
+        <div class="row gx-3">
+            <div class="col-xs-12 col-sm-12 col-lg" data-aos="fade-right" data-aos-duration="1000">
+                <div class="p-1">
+                    <div class="container-type" style="background-color: white">
+                        <img src="asset/cards/pol.png" class="container-image" style="width: 80px">
+                        <div style="text-align: center;">
+                            <b>OVER 50 SENSOR TYPES</b><br>
+                            <p>
+                                These sensor measurements play a crucial role in various fields such as environmental monitoring,
+                                infrastructure management, smart cities, industrial processes, healthcare,
+                                and scientific research, enabling data-driven decision-making and improving the overall quality of life.
+<!--                                The sensors encompass a wide range of measurements including air quality, water quality,-->
+<!--                                ion concentration, container levels, structural health, noise levels, agricultural-->
+<!--                                parameters, security parameters, radioactivity levels, etc.<br>-->
+                            </p>
+                            <p></p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="item" data-aos="fade-down" data-aos-duration="1000">
-                    <h5><b>SOLAR POWERED</b></h5>
-                </div>
-                <div class="item" data-aos="fade-left" data-aos-duration="1000">
-                    <p>
-                        Each sensor node has a battery that can be recharged using an internal or external solar panel.
-                        Batteries have a 6600mAh load that ensures non-stop working time, even in days with no sunlight
-                        at
-                        all.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="item" data-aos="fade-right" data-aos-duration="1000">
-                    <h5><b>MULTIPLE RADIO OPTIONS</b></h5>
-                </div>
-                <div class="item" data-aos="fade-right" data-aos-duration="1000">
-                    <p>
-                        WiFi and 3G/GPRS radios can be used in order to send the sensor data directly to the Internet
-                        without using an intermediate gateway.
-                    </p>
+            <div class="col-xs-12 col-sm-12 col-lg" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                <div class="p-1">
+                    <div class="container-type" style="background-color: white">
+                        <img src="asset/cards/solar-panel.png" class="container-image" style="width: 80px">
+                        <div style="text-align: center">
+                            <b>SOLAR POWERED</b><br>
+                            <p>
+                                The GAIA platform offers fast and hassle-free installation, minimizing maintenance
+                                costs. Its versatility enables a wide range of services and applications to cater to
+                                diverse needs. With robust equipment and network scalability, the platform ensures
+                                seamless growth and adaptability for future requirements.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="item" data-aos="fade-up" data-aos-duration="1000">
-                    <h5><b>GEOLOCATION TRACKING</b></h5>
-                </div>
-                <div class="item" data-aos="fade-up" data-aos-duration="1000">
-                    <p>
-                        3G+GPS and GPRS+GPS modules allow the implementation of realtime tracking applications in an
-                        easy way.
-                    </p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="item" data-aos="fade-left" data-aos-duration="1000">
-                    <h5><b>SENSORS TO THE CLOUD</b></h5>
-                </div>
-                <div class="item" data-aos="fade-left" data-aos-duration="1000">
-                    <p>
-                        Connect any sensor the GAIA platform and deploy Internet of Things (IoT), machine-to-machine
-                        (M2M) or Smart Cities projects with minimum time to market.
-                    </p>
+            <div class="col-xs-12 col-sm-12 col-lg" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+                <div class="p-1">
+                    <div class="container-type" style="background-color: white">
+                        <img src="asset/cards/sensor.png" class="container-image" style="width: 80px">
+                        <div style="text-align: center">
+                            <b>POWERFULL SENSOR NETWORKS
+                            </b><br>
+                            <p>
+                                The GAIA platform excels in providing fast installation and minimal maintenance costs,
+                                making it an efficient and cost-effective solution. It offers a wide range of diverse
+                                services and applications, while its robust equipment and network scalability ensure
+                                seamless growth and adaptability.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="row gx-3 pt-3">
+            <div class="col-xs-12 col-sm-12 col-lg" data-aos="fade-right" data-aos-duration="1000">
+                <div class="p-1">
+                    <div class="container-type" style="background-color: white">
+                        <img src="asset/cards/globe.png" class="container-image" style="width: 70px">
+                        <div style="text-align: center;padding-top:0.2rem">
+                            <b>GEOLOCATION TRACKING
+                            </b><br>
+                            <p>
+                                The integration of 3G+GPS and GPRS+GPS modules enables the implementation of real-time
+                                tracking applications in a seamless and user-friendly manner. These modules combine the
+                                power of GPS technology with 3G or GPRS cellular communication, providing accurate and
+                                efficient tracking.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-lg" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                <div class="p-1">
+                    <div class="container-type" style="background-color: white">
+                        <img src="asset/cards/cloud-data.png" class="container-image" style="width: 70px">
+                        <div style="text-align: center;padding-top:0.2rem">
+                            <b>SENSORS TO THE CLOUD
+                            </b><br>
+                            <p>
+                                The GAIA platform enables seamless sensor connectivity and expedites IoT, M2M, or Smart
+                                Cities projects. It supports diverse sensor types, ensuring minimal time to market and
+                                eliminating the need for an intermediary gateway, revolutionizing the deployment of
+                                groundbreaking developments in the field.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-lg" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+                <div class="p-1">
+                    <div class="container-type" style="background-color: white">
+                        <img src="asset/cards/internet.png" class="container-image" style="width: 70px">
+                        <div style="text-align: center">
+                            <b>MULTIPLE RADIO OPTIONS
+                            </b><br>
+                            <p>
+                                By harnessing the advanced functionalities offered by Wi-Fi and 3G/GPRS radios, an
+                                exciting opportunity arises to establish a seamless and unbroken connection for
+                                transmitting sensor data directly to the Internet. This groundbreaking development
+                                eliminates the necessity for an intermediary gateway.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </section>
 
 

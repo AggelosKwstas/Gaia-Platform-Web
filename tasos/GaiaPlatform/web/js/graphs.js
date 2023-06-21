@@ -307,6 +307,27 @@ $(document).ready(function(){
 
 
     });
+    const o3Timestamp = [];
+    const o3Value = [];
+    const tempTimestamp = [];
+    const tempValue = [];
+    const humidTimestamp = [];
+    const humidValue = [];
+    const pm1Timestamp = [];
+    const pm1Value = [];
+    const pm25Timestamp = [];
+    const pm25Value = [];
+    const pm10Timestamp = [];
+    const pm10Value = [];
+    const so2Timestamp = [];
+    const so2Value = [];
+    const noTimestamp = [];
+    const noValue = [];
+    const no2Timestamp = [];
+    const no2Value = [];
+    const presTimestamp = [];
+    const presValue = [];
+
     $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
         document.getElementById('loading').style.display = 'inline-block';
         let measurementInit1 = '_measurements';
@@ -329,6 +350,7 @@ $(document).ready(function(){
             })
             .then(() => {
                 console.log('All requests completed 3');
+                document.getElementById('hiddenSection').style.display = 'inline-block';
                 for (let j = 0; j < readMeasurementType.length; j++) {
                     readTimestamp.push(readResults[0][j]['timestamp']);
                     readTypeId.push(readResults[0][j]['sensor_type_id']);
@@ -336,10 +358,58 @@ $(document).ready(function(){
                 }
                 let ccounter =0;
                 for(let i = 0; i < readTypeId.length; i++){
-                    if(readTypeId[i]==typeIds[i]){
-                        console.log(readTypeId[i]);
+                    if(readTypeId[i]===3){
+                        o3Value.push(readValues[i]);
+                        o3Timestamp.push(readTimestamp[i].slice(11,19));
                     }
+                    if(readTypeId[i]===4){
+                        tempValue.push(readValues[i]);
+                        tempTimestamp.push(readTimestamp[i].slice(11,19));
+                    }
+                    if(readTypeId[i]===5){
+                        humidValue.push(readValues[i]);
+                        humidTimestamp.push(readTimestamp[i].slice(11,19));
+                    }
+                    if(readTypeId[i]===8){
+                        pm1Value.push(readValues[i]);
+                        pm1Timestamp.push(readTimestamp[i].slice(11,19));
+                    }
+                    if(readTypeId[i]===9){
+                        pm25Value.push(readValues[i]);
+                        pm25Timestamp.push(readTimestamp[i].slice(11,19));
+                    }
+                    if(readTypeId[i]===10){
+                        pm10Value.push(readValues[i]);
+                        pm10Timestamp.push(readTimestamp[i].slice(11,19));
+                    }
+                    if(readTypeId[i]===11){
+                        so2Value.push(readValues[i]);
+                        so2Timestamp.push(readTimestamp[i].slice(11,19));
+                    }
+                    if(readTypeId[i]===12){
+                        noValue.push(readValues[i]);
+                        noTimestamp.push(readTimestamp[i].slice(11,19));
+                    }
+                    if(readTypeId[i]===13){
+                        no2Value.push(readValues[i]);
+                        no2Timestamp.push(readTimestamp[i].slice(11,19));
+                    }
+                    if(readTypeId[i]===14){
+                        presValue.push(readValues[i]);
+                        presTimestamp.push(readTimestamp[i].slice(11,19));
+                    }
+
                 }
+                lineCharts('o3Chart', '03', o3Value, o3Timestamp, 'ppm');
+                lineCharts('tempChart', 'Environment Temperature', tempValue, tempTimestamp, decodeEntities('&deg;C'));
+                lineCharts('humidChart', 'Humidity', humidValue, humidTimestamp, '%');
+                lineCharts('pm1Chart', 'PM 1.0', pm1Value, pm1Timestamp, decodeEntities('μg/m3'));
+                lineCharts('pm25Chart', 'PM 2.5', pm25Value, pm25Timestamp, decodeEntities('μg/m3'));
+                lineCharts('pm10Chart', 'PM 10', pm10Value, pm10Timestamp, decodeEntities('μg/m3'));
+                lineCharts('so2Chart', 'SO2', so2Value, so2Timestamp, 'ppm');
+                lineCharts('noChart', 'NO', noValue, noTimestamp, 'ppm');
+                lineCharts('no2Chart', 'NO2', no2Value, no2Timestamp, 'ppm');
+                lineCharts('presChart', 'Pressure', presValue, presTimestamp, 'Pa');
                 console.log(ccounter);
                 console.log("Last:", readTimestamp, readTypeId, readValues);
             })
@@ -347,10 +417,5 @@ $(document).ready(function(){
                 console.error('Error occurred:', error);
             });
 
-            // for(let i = 0; i < readTypeId.length; j++){
-            //     if(i==3){
-            //         console.log("i=3",readTypeId[i]);
-            //     }
-            // }
     });
 })
