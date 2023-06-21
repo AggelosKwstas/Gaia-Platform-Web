@@ -290,3 +290,25 @@ span.choose {
         width: 90px;
     }
 }
+
+
+.map-row {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    align-items: flex-end;
+}
+
+.map-column {
+    padding: 2px;
+
+}
+
+.map-column.type-description {
+    font-weight: bold;
+}
+
+.value-container {
+    display: flex;
+    justify-content: flex-end;
+}
