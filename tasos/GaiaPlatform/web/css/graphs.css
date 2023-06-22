@@ -1,5 +1,5 @@
 .graphs-container{
-    background-color: white;!important;
+    background-color: white;
     height:auto !important;
     margin-left: 4rem;
     margin-right: 4rem;
@@ -16,6 +16,31 @@
 
 /*    !*width:25rem;*!*/
 /*}*/
+
+/*avergage min max table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    width: 5%; /* Adjust the width value as needed */
+    padding: 10px;
+}
+
+th {
+    background-color: #30730e;
+    color: #fff;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e6e6e6;
+}
 
 /*small loader for readDates graphs*/
 .lds-facebook {

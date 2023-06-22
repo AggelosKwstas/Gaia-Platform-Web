@@ -23,8 +23,8 @@ $this->registerCss('css/graphs.css');
             <?php echo '<p class="battery__text">' . $title . '</p>';?>
             <?php echo '<p class="battery__text">' . $time . '</p>';?>
         </div>
-        <div style="  border-left: 6px solid green;
-  height: 104%;"></div>
+<!--        <div style="  border-left: 6px solid green;-->
+<!--  height: 104%;"></div>-->
         <div class="battery__data" style="margin:2rem">
             <p class="battery__text">Sensor Node Battery</p>
             <h1 class="battery__percentage">
@@ -39,8 +39,8 @@ $this->registerCss('css/graphs.css');
 </div>
 </section>
 <section style="padding-top: 1rem!important;padding-bottom: 5px!important; background-color: #e5e9ec;height:auto!important;">
-    <div class="graphs-container" style="background-color: white;!important;">
-        <div class="grid-title" style="background-color:#07786e;height:40px;display: flex;
+    <div class="graphs-container" style="border-radius:25px;background-color: white;!important;">
+        <div class="grid-title" style="background-color:#30730e;height:40px;display: flex;
         justify-content: center;">
             <?php echo '<h4 style="color: white;margin-top:5px;">Most Recent Values for ' . $title . '</h4>';?>
         </div>
@@ -173,21 +173,92 @@ $this->registerCss('css/graphs.css');
 
 <section style="padding-top: 1rem!important;">
     <div class="container" style="display:flex; justify-content:center;">
+        <div class="card" style=" border-color: white">
+            <img src="asset/graphs/stacked-area-chart.png" height="120" alt="" loading="lazy"
+            style="margin-top: -3px;"/>
+            <p class="battery__text">Select between two dates,<br> to show specific measurements average values.</p>
+
         <span class="col-md-4" id="reportrange"
-           style="width:20rem;margin-top:65px;margin-left: 115px;background: white; cursor: pointer; padding: 5px 10px; border: 5px solid #30730e;height: 40px;">
+           style="width:100%;background: white; cursor: pointer; padding: 5px 10px; border: 5px solid #30730e;height: 40px;">
             <i class="fa fa-calendar"></i>&nbsp;
             <span></span><i class="fa fa-caret-down"></i>
         </span>
         <span></br</span>
 
-
     </div>
 </section>
 
 <div id="loading" class="lds-facebook"><div></div><div></div><div></div></div>
-<section id="hiddenSection" style="display:none;padding-top: 1rem!important; background-color: #e5e9ec;padding-bottom: 1rem!important;">
-    <div class="graphs-container" style="background-color: white;!important;">
+<section id="hiddenSection1" style="display:none;padding-top: 1rem!important; background-color: #e5e9ec;padding-bottom: 1rem!important;">
+    <div class="graphs-container" style="background-color: white!important;">
+        <table>
+            <thead>
+            <tr>
+                <th>Description</th>
+                <th>O3</th>
+                <th>Environment Temperature</th>
+                <th>Humidity</th>
+                <th>PM 1.0</th>
+                <th>PM 2.5</th>
+                <th>PM 10</th>
+                <th>SO2</th>
+                <th>NO</th>
+                <th>NO2</th>
+                <th>Pressure</th>
+<!--                <th>dasdas</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Average</td>
+                <td id="average-o3"></td>
+                <td id="average-temp"></td>
+                <td id="average-humid"></td>
+                <td id="average-pm1"></td>
+                <td id="average-pm25"></td>
+                <td id="average-pm10"></td>
+                <td id="average-so2"></td>
+                <td id="average-no"></td>
+                <td id="average-no2"></td>
+                <td id="average-pres"></td>
+<!--                <td>fsdfsd</td>-->
+            </tr>
+            <tr>
+                <td>Min</td>
+                <td id="min-o3"></td>
+                <td id="min-temp"></td>
+                <td id="min-humid"></td>
+                <td id="min-pm1"></td>
+                <td id="min-pm25"></td>
+                <td id="min-pm10"></td>
+                <td id="min-so2"></td>
+                <td id="min-no"></td>
+                <td id="min-no2"></td>
+                <td id="min-pres"></td>
+<!--                <td>fdsfs</td>-->
+            </tr>
+            <tr>
+                <td>Max</td>
+                <td id="max-o3"></td>
+                <td id="max-temp"></td>
+                <td id="max-humid"></td>
+                <td id="max-pm1"></td>
+                <td id="max-pm25"></td>
+                <td id="max-pm10"></td>
+                <td id="max-so2"></td>
+                <td id="max-no"></td>
+                <td id="max-no2"></td>
+                <td id="max-pres"></td>
+<!--                <td>fsdfsd</td>-->
+            </tr>
 
+            </tbody>
+        </table>
+
+    </div>
+</section>
+<section id="hiddenSection2" style="display:none;padding-top: 1rem!important; background-color: #e5e9ec;padding-bottom: 1rem!important;">
+    <div class="graphs-container" style="background-color: white;!important;">
             <div class="col-lg-12" >
                 <div class="card" style=" border-color: transparent">
                     <div id="o3Chart" ></div>

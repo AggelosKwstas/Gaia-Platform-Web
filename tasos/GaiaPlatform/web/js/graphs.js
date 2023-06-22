@@ -13,6 +13,30 @@ var decodeEntities = (function () {
     return decodeHTMLEntities;
 })();
 
+function findAverageMinMax(numbers) {
+    if (numbers.length === 0) {
+        return {
+            average: 0,
+            min: 0,
+            max: 0
+        }; // Return default values for an empty array or handle it according to your requirements
+    }
+
+    var sum = numbers.reduce(function(acc, num) {
+        return acc + num;
+    }, 0);
+
+    var ave = sum / numbers.length;
+    var average = ave.toFixed(3);
+    var min = Math.min.apply(null, numbers);
+    var max = Math.max.apply(null, numbers);
+
+    return {
+        average: average,
+        min: min,
+        max: max
+    };
+}
 
 
 let nodeTypeURL = ['https://restapi.gaia-platform.eu/rest-api/items/readNodeType.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id='+ nodeId +''];
@@ -350,7 +374,8 @@ $(document).ready(function(){
             })
             .then(() => {
                 console.log('All requests completed 3');
-                document.getElementById('hiddenSection').style.display = 'inline-block';
+                document.getElementById('hiddenSection1').style.display = 'inline-block';
+                document.getElementById('hiddenSection2').style.display = 'inline-block';
                 for (let j = 0; j < readMeasurementType.length; j++) {
                     readTimestamp.push(readResults[0][j]['timestamp']);
                     readTypeId.push(readResults[0][j]['sensor_type_id']);
@@ -401,17 +426,64 @@ $(document).ready(function(){
 
                 }
                 lineCharts('o3Chart', '03', o3Value, o3Timestamp, 'ppm');
+                var o3Stats = findAverageMinMax(o3Value);
+                document.getElementById('average-o3').textContent = o3Stats.average;
+                document.getElementById('min-o3').textContent = o3Stats.min;
+                document.getElementById('max-o3').textContent = o3Stats.max;
+
                 lineCharts('tempChart', 'Environment Temperature', tempValue, tempTimestamp, decodeEntities('&deg;C'));
+                var tempStats = findAverageMinMax(tempValue);
+                document.getElementById('average-temp').textContent = tempStats.average;
+                document.getElementById('min-temp').textContent = tempStats.min;
+                document.getElementById('max-temp').textContent = tempStats.max;
+
                 lineCharts('humidChart', 'Humidity', humidValue, humidTimestamp, '%');
+                var humidStats = findAverageMinMax(humidValue);
+                document.getElementById('average-humid').textContent = humidStats.average;
+                document.getElementById('min-humid').textContent = humidStats.min;
+                document.getElementById('max-humid').textContent = humidStats.max;
+
                 lineCharts('pm1Chart', 'PM 1.0', pm1Value, pm1Timestamp, decodeEntities('μg/m3'));
+                var pm1Stats = findAverageMinMax(pm1Value);
+                document.getElementById('average-pm1').textContent = pm1Stats.average;
+                document.getElementById('min-pm1').textContent = pm1Stats.min;
+                document.getElementById('max-pm1').textContent = pm1Stats.max;
+
                 lineCharts('pm25Chart', 'PM 2.5', pm25Value, pm25Timestamp, decodeEntities('μg/m3'));
+                var pm25Stats = findAverageMinMax(pm25Value);
+                document.getElementById('average-pm25').textContent = pm25Stats.average;
+                document.getElementById('min-pm25').textContent = pm25Stats.min;
+                document.getElementById('max-pm25').textContent = pm25Stats.max;
+
                 lineCharts('pm10Chart', 'PM 10', pm10Value, pm10Timestamp, decodeEntities('μg/m3'));
+                var pm10Stats = findAverageMinMax(pm10Value);
+                document.getElementById('average-pm10').textContent = pm10Stats.average;
+                document.getElementById('min-pm10').textContent = pm10Stats.min;
+                document.getElementById('max-pm10').textContent = pm10Stats.max;
+
                 lineCharts('so2Chart', 'SO2', so2Value, so2Timestamp, 'ppm');
+                var so2Stats = findAverageMinMax(so2Value);
+                document.getElementById('average-so2').textContent = so2Stats.average;
+                document.getElementById('min-so2').textContent = so2Stats.min;
+                document.getElementById('max-so2').textContent = so2Stats.max;
+
                 lineCharts('noChart', 'NO', noValue, noTimestamp, 'ppm');
+                var noStats = findAverageMinMax(noValue);
+                document.getElementById('average-no').textContent = noStats.average;
+                document.getElementById('min-no').textContent = noStats.min;
+                document.getElementById('max-no').textContent = noStats.max;
+
                 lineCharts('no2Chart', 'NO2', no2Value, no2Timestamp, 'ppm');
+                var no2Stats = findAverageMinMax(no2Value);
+                document.getElementById('average-no2').textContent = no2Stats.average;
+                document.getElementById('min-no2').textContent = no2Stats.min;
+                document.getElementById('max-no2').textContent = no2Stats.max;
+
                 lineCharts('presChart', 'Pressure', presValue, presTimestamp, 'Pa');
-                console.log(ccounter);
-                console.log("Last:", readTimestamp, readTypeId, readValues);
+                var pressureStats = findAverageMinMax(presValue);
+                document.getElementById('average-pres').textContent = pressureStats.average;
+                document.getElementById('min-pres').textContent = pressureStats.min;
+                document.getElementById('max-pres').textContent = pressureStats.max;
             })
             .catch(error => {
                 console.error('Error occurred:', error);
