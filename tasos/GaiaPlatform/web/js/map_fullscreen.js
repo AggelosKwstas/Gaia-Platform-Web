@@ -4,9 +4,9 @@ function toFixed(num, fixed) {
 }
 
 //works only with xaamp directory
-function makeAjax(id, title) {
+function makeAjax(id, title, name, time) {
     $.ajax({
-        url: './?r=api/testing&title=' + title + "&id=" + id,
+        url: './?r=api/testing&title=' + title + "&id=" + id +"&name="+ name + "&time="+ time,
         data: {}, type: 'POST', success: function (response) {
             console.log(response);
         }, error: function (xhr, status, error) {
@@ -365,7 +365,7 @@ if (decodedLastPart === 'site/map') {
                         }
                         return loopContent0;
                     })()}
-                        <button onclick="Redirect(sensorNode[0],sensorDescription[0])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
+                        <button onclick="Redirect(sensorNode[0],sensorDescription[0],sensorName[0],fixTimestamp(timestamp))" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
                         <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                         </div>`);
                 }
@@ -430,7 +430,7 @@ if (decodedLastPart === 'site/map') {
                                 }
                                 return loopContent0;
                             })()}
-                <button onclick="Redirect(sensorNode[1],sensorDescription[1])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
+                <button onclick="Redirect(sensorNode[1],sensorDescription[1],sensorName[1],fixTimestamp(timestamp))" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
                 <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>`);
                         }
@@ -496,7 +496,7 @@ if (decodedLastPart === 'site/map') {
                                         }
                                         return loopContent1;
                                     })()}
-                <button onclick="Redirect(sensorNode[2],sensorDescription[2])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
+                <button onclick="Redirect(sensorNode[2],sensorDescription[2],sensorName[2],fixTimestamp(timestamp))" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
                 <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 `);
@@ -563,7 +563,7 @@ if (decodedLastPart === 'site/map') {
                                                 }
                                                 return loopContent1;
                                             })()}
-                <button onclick="Redirect(sensorNode[3],sensorDescription[3])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
+                <button onclick="Redirect(sensorNode[3],sensorDescription[3],sensorName[3],fixTimestamp(timestamp))" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
                 <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 `);
@@ -687,13 +687,14 @@ function checkMobile() {
     return isMobile;
 }
 
-function Redirect(id, title) {
+function Redirect(id, title, name, time) {
     // document.getElementById(id).style.display = 'block';
     //
     // map2._handlers.forEach(function (handler) {
     //     handler.disable();
     // });
-    makeAjax(id, title);
+
+    makeAjax(id, title, name, time);
 }
 
 /* Filter Stations */

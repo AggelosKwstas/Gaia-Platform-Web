@@ -391,3 +391,28 @@ body {
     from {transform: rotate(0deg)}
     to {transform: rotate(1turn)}
 }
+
+.container-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-type {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    transition: transform 0.3s;
+
+}
+
+.container-type:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+.grid-container {
+    display: grid!important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px!important;
+}

@@ -6,6 +6,7 @@
     width: calc(100% - 8rem);
 }
 
+
 /*.battery-container{*/
 /*    height:300px;*/
 /*    background-color: white;!important;*/
@@ -20,6 +21,7 @@
 .lds-facebook {
     display: none;
     position: relative;
+    left: 50%;
     width: 80px;
     height: 80px;
 }
