@@ -46,39 +46,15 @@ $this->registerCss('css/graphs.css');
 
     </div>
 </section>
-<!--<section style="padding-top: 4rem!important; background-color: #e5e9ec;display: grid;">-->
-<!---->
-<!--<div class="battery">-->
-<!---->
-<!--    <div class="battery__card">-->
-<!--        <img src="/asset/libeliumSensor.png">-->
-<!--        <div class="battery__data" style="margin:2rem">-->
-<!--            --><?php //echo '<p class="battery__text">' . $name . '</p>';?>
-<!--            --><?php //echo '<p class="battery__text">' . $title . '</p>';?>
-<!--            --><?php //echo '<p class="battery__text">' . $time . '</p>';?>
-<!--        </div>-->
 
-<!--        <div class="battery__data" style="margin:2rem">-->
-<!--            <p class="battery__text">Sensor Node Battery</p>-->
-<!--            <h1 class="battery__percentage">-->
-<!--            </h1>-->
-<!--        </div>-->
-<!--        <div class="battery__pill" style="margin:2rem">-->
-<!--            <div class="battery__level">-->
-<!--                <div class="battery__liquid"></div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--</section>-->
 <div class="grid-title-container">
-<div class="grid-title" style="border-radius:25px;background-color:#292725;display: flex;
+<div class="grid-title" style="border-radius:4px;background-color:#292725;display: flex;
         justify-content: center;">
-    <?php echo '<i class="fa-solid fa-chart-column fa-lg" style="margin-top:8px;color: #ffffff;"></i><h4 style="color: white;margin-top:5px;font-family: Calibri; ">  Most Recent Values for ' . $title . '</h4>';?>
+    <?php echo '<i class="fa-solid fa-chart-column fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:20px; ">&nbsp&nbspMost Recent Values for ' . $title . '</span>';?>
 </div>
 </div>
 <section style="padding-top: 0.3rem!important;padding-bottom: 5px!important; background-color: #e5e9ec;height:auto!important;">
-    <div class="graphs-container" style="border-radius:25px;background-color: white;!important;">
+    <div class="graphs-container" style="border-radius:4px;background-color: white;!important;">
         <div class="row" style="display: flex; justify-content: center;">
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" >
                     <figure class="highcharts-figure">
@@ -139,11 +115,7 @@ $this->registerCss('css/graphs.css');
 
 <section style="padding-top:5px; background-color: #e5e9ec;padding-bottom: 1rem!important;">
     <div class="graphs-container" style="background-color: #e5e9ec;!important;">
-<!--        <div class="grid-title" style="background-color:#07786e;height:40px;display: flex;-->
-<!--        justify-content: center;">-->
-<!--            --><?php //echo '<h2 style="color: white;margin-top:5px;">Todays Values for ' . $title . '</h2>';?>
-<!--        </div>-->
-        <div class="row p-2" style="display: flex; justify-content: center;">
+        <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
                 <div class="card"  style=" border-color: transparent">
                         <div id="Line1" ></div>
@@ -155,7 +127,7 @@ $this->registerCss('css/graphs.css');
                 </div>
             </div>
         </div>
-        <div class="row p-2" style="display: flex; justify-content: center;">
+        <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
                 <div class="card" style=" border-color: transparent">
                     <div id="Line3" ></div>
@@ -167,7 +139,7 @@ $this->registerCss('css/graphs.css');
                 </div>
             </div>
         </div>
-        <div class="row p-2" style="display: flex; justify-content: center;">
+        <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
                 <div class="card" style=" border-color: transparent">
                     <div id="Line6" ></div>
@@ -179,7 +151,7 @@ $this->registerCss('css/graphs.css');
                 </div>
             </div>
         </div>
-        <div class="row p-2" style="display: flex; justify-content: center;">
+        <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
                 <div class="card" style=" border-color: transparent">
                     <div id="Line8" ></div>
@@ -191,7 +163,7 @@ $this->registerCss('css/graphs.css');
                 </div>
             </div>
         </div>
-        <div class="row p-2" style="display: flex; justify-content: center;">
+        <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
                 <div class="card" style=" border-color: transparent">
                     <div id="Line10" ></div>
@@ -205,23 +177,26 @@ $this->registerCss('css/graphs.css');
         </div>
     </div>
 </section>
-
-<section style="padding-top: 1rem!important;">
-    <div class="container" style="display:flex; justify-content:center;">
-        <div class="card" style=" border-color: white">
-            <img src="asset/graphs/stacked-area-chart.png" height="120" alt="" loading="lazy"
-            style="margin-top: -3px;"/>
-            <p class="battery__text">Select between two dates,<br> to show specific measurements average values.</p>
-
-        <span class="col-md-4" id="reportrange"
-           style="width:100%;background: white; cursor: pointer; padding: 5px 10px; border: 5px solid #30730e;height: 40px;">
+<section style="padding-top: 4rem!important; background-color: #e5e9ec;">
+    <div class='card-container' style="margin-left 10rem; justify-content: center; align-items: center;">
+        <div class='card-left' style="width: 150%;">
+            <div class='card-image' style="">
+                <img src="asset/graphs/stacked-area-chart.png" alt="" loading="lazy"
+                     style="object-fit: scale-down"/>
+            </div>
+            <div class='card-text' style="width: 80%">
+                <p class="battery__text">Select between two dates,<br> to show specific measurements average values.</p><br>
+                <span class="col-md-4" id="reportrange"
+                      style="width:100%;background: white; cursor: pointer; padding: 5px 10px; border: 5px solid #292725;height: 40px;">
             <i class="fa fa-calendar"></i>&nbsp;
             <span></span><i class="fa fa-caret-down"></i>
         </span>
-        <span></br</span>
-
+                <span></br</span>
+            </div>
+        </div>
     </div>
 </section>
+
 
 <div id="loading" class="lds-facebook"><div></div><div></div><div></div></div>
 <section id="hiddenSection1" style="display:none;padding-top: 1rem!important; background-color: #e5e9ec;padding-bottom: 1rem!important;">
@@ -293,7 +268,7 @@ $this->registerCss('css/graphs.css');
     </div>
 </section>
 <section id="hiddenSection2" style="display:none;padding-top: 1rem!important; background-color: #e5e9ec;padding-bottom: 1rem!important;">
-    <div class="graphs-container" style="background-color: white;!important;">
+    <div class="graphs-container" style="border-radius:4px;">
             <div class="col-lg-12" >
                 <div class="card" style=" border-color: transparent">
                     <div id="o3Chart" ></div>

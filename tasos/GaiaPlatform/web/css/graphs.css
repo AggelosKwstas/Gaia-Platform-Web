@@ -1,16 +1,18 @@
 .graphs-container{
     background-color: white;
     height:auto !important;
-    margin-left: 4rem;
-    margin-right: 4rem;
-    width: calc(100% - 8rem);
+    margin-left: 6rem;
+    margin-right: 6rem;
+    width: calc(100% - 12rem);
 }
 .grid-title-container{
-    margin-left: 4rem;
-    margin-right: 4rem;
-    width: calc(100% - 8rem);
+    margin-left: 6rem;
+    margin-right: 6rem;
+    width: calc(100% - 12rem);
 }
-
+.card{
+    border-radius: 4px !important;
+}
 /*.battery-container{*/
 /*    height:300px;*/
 /*    background-color: white;!important;*/
@@ -33,7 +35,7 @@ th, td {
 }
 
 th {
-    background-color: #30730e;
+    background-color: #292725;
     color: #fff;
     text-align: left;
 }
