@@ -7,6 +7,9 @@ use yii\helpers\Html;
 $this->registerJs("let nodeId=" . json_encode($id), \yii\web\View::POS_BEGIN);
 //$this->registerJsFile('js/echarts.js',['depends' => 'yii\web\JqueryAsset']);
 //$this->registerJsFile('js/graphs.js',['depends' => 'yii\web\JqueryAsset']);
+//$this->registerJs("let gardiki_object=" . json_encode($content_gardiki), \yii\web\View::POS_BEGIN);
+//$this->registerJs("let ioannis_object=" . json_encode($content_ioannis), \yii\web\View::POS_BEGIN);
+//$this->registerJs("let eleousa_object=" . json_encode($content_eleousa), \yii\web\View::POS_BEGIN);
 $this->registerCss('css/graphs.css');
 
 ?>
@@ -19,7 +22,7 @@ $this->registerCss('css/graphs.css');
     </ol>
 <section style="padding-top: 4rem!important; background-color: #e5e9ec;">
     <div class='card-container'>
-        <div class='card-left'>
+        <div class='card-left' style="background-color: white">
             <div class='card-image'>
                 <img src="/asset/libeliumSensor.png" >
             </div>
@@ -29,7 +32,17 @@ $this->registerCss('css/graphs.css');
                 <?php echo '<p class="battery__text">' . $time . '</p>';?>
             </div>
         </div>
-        <div class='card-right'>
+        <div class='mid-card' style="background-color: white">
+            <div class='card-text'>
+                <span><b>Weather Forecast</b></span><br>
+                <?php echo '<b> Type: </b>' . $title  ;?><br>
+                <?php echo '<b> Status: </b>' . $content_gardiki['weather'][0]['main']  ;?><br>
+                <?php echo '<img class="forecast" style="padding-left: 20px;height: 100px;width: 95px" src="http://openweathermap.org/img/w/'. $content_gardiki['weather'][0]['icon'] .'.png"></img>' ;?><br>
+<!--                <b>Status: </b>${content_gardiki['weather'][0]['main']}<br>-->
+<!--                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>-->
+            </div>
+        </div>
+        <div class='card-right' style="background-color: white">
             <div class='card-image'>
                 <div class="battery__pill" style="margin:2rem">
                     <div class="battery__level">

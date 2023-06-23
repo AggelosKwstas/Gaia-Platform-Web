@@ -186,9 +186,15 @@ class SiteController extends Controller
 
     public function actionGraphs($id='',$title='',$name='',$time='')
     {
+        $gardiki = $this->makeWeatherCalls(39.7147, 20.7572);
+        $ioannis = $this->makeWeatherCalls(39.7027, 20.8122);
+        $eleousa = $this->makeWeatherCalls(39.7066, 20.7926);
         $this->layout = 'graphs_layout';
         $this->view->title = 'Sensor Graphs';
         return $this->render('graphs', [
+            'content_gardiki' => $gardiki,
+            'content_ioannis' => $ioannis,
+            'content_eleousa' => $eleousa,
             'title' => $title,
             'id' => $id,
             'name' => $name,
