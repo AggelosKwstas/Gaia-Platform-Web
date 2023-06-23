@@ -5,7 +5,11 @@
     margin-right: 4rem;
     width: calc(100% - 8rem);
 }
-
+.grid-title-container{
+    margin-left: 4rem;
+    margin-right: 4rem;
+    width: calc(100% - 8rem);
+}
 
 /*.battery-container{*/
 /*    height:300px;*/

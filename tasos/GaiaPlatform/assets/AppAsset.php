@@ -42,6 +42,7 @@ class AppAsset extends AssetBundle
         'css/gaugeHighcharts.css',
         'css/lineChartHighcharts.css',
         'css/batteryLevel.css',
+        'css/pillCards.css',
 //        'css/graphs.css',
         'https://unpkg.com/aos@2.3.1/dist/aos.css'
     ];

@@ -119,7 +119,8 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
                         <span></span>
                     </div>
                 </div>
-                <div class="loading">Initializing map elements...</div>
+                <div class="loading">Initializing map elements...</div><br /><br />
+                <img src="asset/LogoGaiaPlatform.png" style="margin-left:30%">
             </div>
         </div>
     </div>

@@ -8,43 +8,78 @@ $this->registerJs("let nodeId=" . json_encode($id), \yii\web\View::POS_BEGIN);
 //$this->registerJsFile('js/echarts.js',['depends' => 'yii\web\JqueryAsset']);
 //$this->registerJsFile('js/graphs.js',['depends' => 'yii\web\JqueryAsset']);
 $this->registerCss('css/graphs.css');
+
 ?>
 
 <title>GAIA Platform - Graphs </title>
-
-<section style="padding-top: 4rem!important; background-color: #e5e9ec;display: grid;">
-
-<div class="battery">
-
-    <div class="battery__card">
-        <img src="/asset/libeliumSensor.png">
-        <div class="battery__data" style="margin:2rem">
-            <?php echo '<p class="battery__text">' . $name . '</p>';?>
-            <?php echo '<p class="battery__text">' . $title . '</p>';?>
-            <?php echo '<p class="battery__text">' . $time . '</p>';?>
-        </div>
-<!--        <div style="  border-left: 6px solid green;-->
-<!--  height: 104%;"></div>-->
-        <div class="battery__data" style="margin:2rem">
-            <p class="battery__text">Sensor Node Battery</p>
-            <h1 class="battery__percentage">
-            </h1>
-        </div>
-        <div class="battery__pill" style="margin:2rem">
-            <div class="battery__level">
-                <div class="battery__liquid"></div>
+    <ol class="breadcrumb" style="background-color: #e5e9ec;margin-top: 30px;margin-left: 50px;">
+        <li class="breadcrumb-item"><a style="color:grey" href="<?= \yii\helpers\Url::to(['site/index']) ?>">Home</a></li>
+        <li class="breadcrumb-item"> <a style="color: grey" href="<?= \yii\helpers\Url::to(['site/map']) ?>">Stations Overview</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: gray" id="nodeId">  <?php echo $title  ?>  </li>
+    </ol>
+<section style="padding-top: 4rem!important; background-color: #e5e9ec;">
+    <div class='card-container'>
+        <div class='card-left'>
+            <div class='card-image'>
+                <img src="/asset/libeliumSensor.png" >
+            </div>
+            <div class='card-text'>
+                <?php echo '<p class="battery__text">' . $name . '</p>';?>
+                <?php echo '<p class="battery__text">' . $title . '</p>';?>
+                <?php echo '<p class="battery__text">' . $time . '</p>';?>
             </div>
         </div>
-    </div>
-</div>
-</section>
-<section style="padding-top: 1rem!important;padding-bottom: 5px!important; background-color: #e5e9ec;height:auto!important;">
-    <div class="graphs-container" style="border-radius:25px;background-color: white;!important;">
-        <div class="grid-title" style="background-color:#30730e;height:40px;display: flex;
-        justify-content: center;">
-            <?php echo '<h4 style="color: white;margin-top:5px;">Most Recent Values for ' . $title . '</h4>';?>
+        <div class='card-right'>
+            <div class='card-image'>
+                <div class="battery__pill" style="margin:2rem">
+                    <div class="battery__level">
+                        <div class="battery__liquid"></div>
+                    </div>
+                </div>
+            </div>
+            <div class='card-text'>
+                <p class="battery__text">Sensor Node Battery</p>
+                <h1 class="battery__percentage">
+                </h1>
+            </div>
         </div>
-        <div class="row p-5" style="display: flex; justify-content: center;">
+
+    </div>
+</section>
+<!--<section style="padding-top: 4rem!important; background-color: #e5e9ec;display: grid;">-->
+<!---->
+<!--<div class="battery">-->
+<!---->
+<!--    <div class="battery__card">-->
+<!--        <img src="/asset/libeliumSensor.png">-->
+<!--        <div class="battery__data" style="margin:2rem">-->
+<!--            --><?php //echo '<p class="battery__text">' . $name . '</p>';?>
+<!--            --><?php //echo '<p class="battery__text">' . $title . '</p>';?>
+<!--            --><?php //echo '<p class="battery__text">' . $time . '</p>';?>
+<!--        </div>-->
+
+<!--        <div class="battery__data" style="margin:2rem">-->
+<!--            <p class="battery__text">Sensor Node Battery</p>-->
+<!--            <h1 class="battery__percentage">-->
+<!--            </h1>-->
+<!--        </div>-->
+<!--        <div class="battery__pill" style="margin:2rem">-->
+<!--            <div class="battery__level">-->
+<!--                <div class="battery__liquid"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</section>-->
+<div class="grid-title-container">
+<div class="grid-title" style="border-radius:25px;background-color:#292725;display: flex;
+        justify-content: center;">
+    <?php echo '<i class="fa-solid fa-chart-column fa-lg" style="margin-top:8px;color: #ffffff;"></i><h4 style="color: white;margin-top:5px;font-family: Calibri; ">  Most Recent Values for ' . $title . '</h4>';?>
+</div>
+</div>
+<section style="padding-top: 0.3rem!important;padding-bottom: 5px!important; background-color: #e5e9ec;height:auto!important;">
+    <div class="graphs-container" style="border-radius:25px;background-color: white;!important;">
+        <div class="row" style="display: flex; justify-content: center;">
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" >
                     <figure class="highcharts-figure">
                         <div id="Gauge1" class="chart-container"></div>
@@ -72,7 +107,7 @@ $this->registerCss('css/graphs.css');
             </div>
         </div>
 
-        <div class="row p-5" style="display: flex; justify-content: center;">
+        <div class="row" style="display: flex; justify-content: center;">
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                     <figure class="highcharts-figure">
                         <div id="Gauge7" class="chart-container"></div>
@@ -328,7 +363,8 @@ $this->registerCss('css/graphs.css');
                     <span></span>
                 </div>
             </div>
-            <div class="loading">Gathering sensor nodes...</div>
+            <div class="loading">Gathering sensor nodes...</div><br /><br />
+            <img src="asset/LogoGaiaPlatform.png" style="margin-left:30%">
         </div>
     </div>
 </div>

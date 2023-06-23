@@ -279,24 +279,24 @@ if (decodedLastPart === 'site/map') {
 
     LeafIcon = L.Icon.extend({
         options: {
-            iconSize: [25, 32], popupAnchor: [-1, -15]
+            iconSize: [30, 40], popupAnchor: [-1, -15]
         }
     });
 
     greenIcon = new LeafIcon({
-        iconUrl: 'asset/stationGreen.png',
+        iconUrl: 'asset/markers/greenMarker.png',
     })
 
     redIcon = new LeafIcon({
-        iconUrl: 'asset/stationRed.png',
+        iconUrl: 'asset/markers/RedMarker.png',
     })
 
     orangeIcon = new LeafIcon({
-        iconUrl: 'asset/stationOrange.png',
+        iconUrl: 'asset/markers/orangeMarker.png',
     })
 
     greyIcon = new LeafIcon({
-        iconUrl: 'asset/stationGrey.png',
+        iconUrl: 'asset/markers/GreyMarker.png',
     })
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
