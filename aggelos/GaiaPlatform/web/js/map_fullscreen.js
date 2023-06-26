@@ -195,6 +195,19 @@ function lastMeasurementsCall(id, callback) {
     });
 }
 
+function formatString(str) {
+    let length = str.split(' ').length;
+    let string = '';
+
+    if (length === 3) {
+        return str.split(' ')[0];
+    } else if (length > 3) {
+        for (let i = 0; i < length - 2; i++) {
+            string += ' ' + str.split(' ')[i]
+        }
+        return string;
+    }
+}
 
 let sensorNode = [];
 let sensorName = [];
@@ -318,7 +331,7 @@ if (decodedLastPart === 'site/map') {
                     marker3.setIcon(greyIcon);
                     popup = `
         <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6>
+        <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[0])}</h6>
         <hr>
         <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[0]}<br>
@@ -336,7 +349,7 @@ if (decodedLastPart === 'site/map') {
                     marker3.setIcon(icon);
                     marker3.bindPopup(`>
                     <div style="display: block;text-align: center"
-                        <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[0]}</h6></div>
+                         <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[0])}</h6></div>
                         <hr class="dotted">
                                   ${(() => {
                         let loopContent0 = '';
@@ -364,12 +377,18 @@ if (decodedLastPart === 'site/map') {
                             ${(() => {
                         let loopContent0 = '';
                         for (let i = 0; i < measurementValue.length; i++) {
+                            if (i == 1)
+                                typeDescription[i] = typeDescription[i].split(' ')[1];
+                            if (i == 3)
+                                typeDescription[i] = typeDescription[i].split(' ')[2];
                             loopContent0 += `<div class="map-row"><div class="map-column"><b>${typeDescription[i]}:</b></div><div class="map-column"><div class="value-container">${measurementValue[i]} ${typeUnit[i]}<br></div></div></div>`;
                         }
                         return loopContent0;
                     })()}
-                        <button onclick="Redirect(sensorNode[0],sensorDescription[0])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
-                        <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                       <div class="centered-button">
+                       <button onclick="Redirect(sensorNode[0],sensorDescription[0])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
+                       </div>
+                       <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                         `);
                 }
                 found = false;
@@ -383,7 +402,7 @@ if (decodedLastPart === 'site/map') {
                             marker4.setIcon(greyIcon);
                             popup = `
         <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6>
+        <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[1])}</h6>
         <hr>
         <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[1]}<br>
@@ -401,8 +420,15 @@ if (decodedLastPart === 'site/map') {
                             marker4.setIcon(icon);
                             marker4.bindPopup(`
                    <div style="display: block;text-align: center">
-                <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${sensorDescription[1]}</h6></div>
+                <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[1])}</h6><br>
+                </div>
                 <hr class="dotted">
+                <b>Type: </b>${sensorName[1]}<br>
+                <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
+                     <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
+                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
+                  <b>Today at:</b><br>
+                        ${fixTimestamp(timestamp)}<br>
                                   ${(() => {
                                 let loopContent0 = '';
                                 if (flag === 'bad') {
@@ -418,17 +444,15 @@ if (decodedLastPart === 'site/map') {
                                 }
                                 return loopContent0;
                             })()}
-                        <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
-                <b>Type: </b>${sensorName[1]}<br>
-                <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
-                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
-                  <b>Today at:</b><br>
-                        ${fixTimestamp(timestamp)}<br>
-                         <b><u>Sensor Readings:</u></b><br>
-                </div> 
+                                         <b><u>Sensor Readings:</u></b><br>
+                                            </div> 
                     ${(() => {
                                 let loopContent0 = '';
                                 for (let i = 0; i < measurementValue.length; i++) {
+                                    if (i == 1)
+                                        typeDescription[i] = typeDescription[i].split(' ')[1];
+                                    if (i == 3)
+                                        typeDescription[i] = typeDescription[i].split(' ')[2];
                                     loopContent0 += `
   <div class="map-row">
     <div class="map-column type-description">${typeDescription[i]}:</div>
@@ -439,7 +463,9 @@ if (decodedLastPart === 'site/map') {
                                 }
                                 return loopContent0;
                             })()}
+                         <div class="centered-button">
                 <button onclick="Redirect(sensorNode[1],sensorDescription[1])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
+                </div>
                 <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 `);
                         }
@@ -454,7 +480,7 @@ if (decodedLastPart === 'site/map') {
                                     marker5.setIcon(greyIcon);
                                     popup = `
         <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[2]}</h6>
+        <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[2])}</h6>
         <hr>
         <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[2]}<br>
@@ -471,10 +497,17 @@ if (decodedLastPart === 'site/map') {
                                     let flag = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).flag
                                     marker5.setIcon(icon);
                                     marker5.bindPopup(`
-                <div style="display: block;text-align: center">
-                <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[2]}</h6>
+                   <div style="display: block;text-align: center">
+                <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[2])}</h6><br>
+                </div>
                 <hr class="dotted">
-                                    ${(() => {
+                <b>Type: </b>${sensorName[2]}<br>
+                <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
+                     <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
+                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
+                  <b>Today at:</b><br>
+                        ${fixTimestamp(timestamp)}<br>
+                                  ${(() => {
                                         let loopContent0 = '';
                                         if (flag === 'bad') {
                                             loopContent0 += `<div><b><u>Bad due to:</u></b></div>`;
@@ -489,17 +522,15 @@ if (decodedLastPart === 'site/map') {
                                         }
                                         return loopContent0;
                                     })()}
-                        <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
-                <b>Type: </b>${sensorName[2]}<br>
-                <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
-                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
-                  <b>Today at:</b><br>
-                        ${fixTimestamp(timestamp)}<br>
-                <b><u>Sensor Readings:</u></b><br>
-                      </div>
-                                ${(() => {
+                                         <b><u>Sensor Readings:</u></b><br>
+                                            </div> 
+                    ${(() => {
                                         let loopContent0 = '';
                                         for (let i = 0; i < measurementValue.length; i++) {
+                                            if (i == 1)
+                                                typeDescription[i] = typeDescription[i].split(' ')[1];
+                                            if (i == 3)
+                                                typeDescription[i] = typeDescription[i].split(' ')[2];
                                             loopContent0 += `
   <div class="map-row">
     <div class="map-column type-description">${typeDescription[i]}:</div>
@@ -510,8 +541,10 @@ if (decodedLastPart === 'site/map') {
                                         }
                                         return loopContent0;
                                     })()}
+                         <div class="centered-button">
                 <button onclick="Redirect(sensorNode[2],sensorDescription[2])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
-                <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
+                <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 `);
                                 }
                                 found = false;
@@ -525,7 +558,7 @@ if (decodedLastPart === 'site/map') {
                                             marker6.setIcon(greyIcon);
                                             popup = `
         <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
+        <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[3])}</h6>
         <hr>
                 <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[3]}<br>
@@ -542,10 +575,17 @@ if (decodedLastPart === 'site/map') {
                                             let flag = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).flag
                                             marker6.setIcon(icon);
                                             marker6.bindPopup(`
-                <div style="display: block;text-align: center">
-                <h6 id="station"><i class="fa fa-location-dot"></i> ${sensorDescription[3]}</h6>
+                   <div style="display: block;text-align: center">
+                <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[3])}</h6><br>
+                </div>
                 <hr class="dotted">
-                                       ${(() => {
+                <b>Type: </b>${sensorName[3]}<br>
+                <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
+                     <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
+                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
+                  <b>Today at:</b><br>
+                        ${fixTimestamp(timestamp)}<br>
+                                  ${(() => {
                                                 let loopContent0 = '';
                                                 if (flag === 'bad') {
                                                     loopContent0 += `<div><b><u>Bad due to:</u></b></div>`;
@@ -560,17 +600,15 @@ if (decodedLastPart === 'site/map') {
                                                 }
                                                 return loopContent0;
                                             })()}
-                                        <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
-                <b>Type: </b>${sensorName[3]}<br>
-                <b>Status: </b>${ioannis_object['weather'][0]['main']}<br>
-                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${ioannis_object['weather'][0]['icon']}.png"><br>
-                 <b>Today at:</b><br>
-                        ${fixTimestamp(timestamp)}<br>
-                <b><u>Sensor Readings:</u></b><br>
-                </div>
-                        ${(() => {
+                                         <b><u>Sensor Readings:</u></b><br>
+                                            </div> 
+                    ${(() => {
                                                 let loopContent0 = '';
                                                 for (let i = 0; i < measurementValue.length; i++) {
+                                                    if (i == 1)
+                                                        typeDescription[i] = typeDescription[i].split(' ')[1];
+                                                    if (i == 3)
+                                                        typeDescription[i] = typeDescription[i].split(' ')[2];
                                                     loopContent0 += `
   <div class="map-row">
     <div class="map-column type-description">${typeDescription[i]}:</div>
@@ -581,8 +619,10 @@ if (decodedLastPart === 'site/map') {
                                                 }
                                                 return loopContent0;
                                             })()}
+                         <div class="centered-button">
                 <button onclick="Redirect(sensorNode[3],sensorDescription[3])" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
-                <div id='2' class="lds-roller" style="display: none;padding-left: 35px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
+                <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 `);
                                         }
                                         found = false;
