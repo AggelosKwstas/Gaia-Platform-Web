@@ -5,11 +5,8 @@
 
 use yii\helpers\Url;
 
-
 $this->registerJs("let uoi_object=" . json_encode($content_uoi), \yii\web\View::POS_BEGIN);
 $this->registerJs("let gardiki_object=" . json_encode($content_gardiki), \yii\web\View::POS_BEGIN);
-$this->registerJs("let ioannis_object=" . json_encode($content_ioannis), \yii\web\View::POS_BEGIN);
-$this->registerJs("let eleousa_object=" . json_encode($content_eleousa), \yii\web\View::POS_BEGIN);
 $this->registerJs("let locationGraphs='" . Url::to(['site/graphs']) . "'", \yii\web\View::POS_BEGIN);
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
 $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_BEGIN);
@@ -26,12 +23,8 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
                         <span id="cycle_span"><i class="fa-solid fa-layer-group pull-left" style="font-size: 15px;"></i> <b>Cycle stations</b></span>
                         <i id="cycle" class="fa fa-chevron-left"></i>
                     </div>
-                    <input type="hidden" name="gender">
-                    <ul class="dropdown-menu">
-                        <li id="Γαρδίκι">Γαρδίκι</li>
-                        <li id="Ελεούσα">Ελεούσα</li>
-                        <li id="Άγιος Ιωάννης">Άγιος Ιωάννης</li>
-                        <li id="Πανεπιστήμιο">Πανεπιστήμιο</li>
+                    <input type="hidden" name="gender" id="dropdown_input">
+                    <ul class="dropdown-menu" id="cycle_dropdown" style="font-weight: bold!important;">
                     </ul>
                 </div>
             </div>
