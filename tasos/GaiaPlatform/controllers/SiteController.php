@@ -191,10 +191,32 @@ class SiteController extends Controller
         $eleousa = $this->makeWeatherCalls(39.7066, 20.7926);
         $this->layout = 'graphs_layout';
         $this->view->title = 'Sensor Graphs';
+        if($id == '4'){
+            return $this->render('graphs', [
+                'content' => $gardiki,
+                'title' => $title,
+                'id' => $id,
+                'name' => $name,
+                'time' => $time]);
+            }
+        elseif($id == '5'){
+            return $this->render('graphs', [
+                'content' => $ioannis,
+                'title' => $title,
+                'id' => $id,
+                'name' => $name,
+                'time' => $time]);
+            }
+        elseif($id == '6'){
+            return $this->render('graphs', [
+                'content' => $eleousa,
+                'title' => $title,
+                'id' => $id,
+                'name' => $name,
+                'time' => $time]);
+            }
         return $this->render('graphs', [
-            'content_gardiki' => $gardiki,
-            'content_ioannis' => $ioannis,
-            'content_eleousa' => $eleousa,
+
             'title' => $title,
             'id' => $id,
             'name' => $name,

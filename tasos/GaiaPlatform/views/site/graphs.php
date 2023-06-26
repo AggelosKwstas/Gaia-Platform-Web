@@ -13,7 +13,6 @@ $this->registerJs("let nodeId=" . json_encode($id), \yii\web\View::POS_BEGIN);
 $this->registerCss('css/graphs.css');
 
 ?>
-
 <title>GAIA Platform - Graphs </title>
     <ol class="breadcrumb" style="background-color: #e5e9ec;margin-top: 30px;margin-left: 50px;">
         <li class="breadcrumb-item"><a style="color:grey" href="<?= \yii\helpers\Url::to(['site/index']) ?>">Home</a></li>
@@ -33,13 +32,11 @@ $this->registerCss('css/graphs.css');
             </div>
         </div>
         <div class='mid-card' style="background-color: white">
-            <div class='card-text'>
+            <div class='card-text' style="margin-top:1rem;">
                 <span><b>Weather Forecast</b></span><br>
                 <?php echo '<b> Type: </b>' . $title  ;?><br>
-                <?php echo '<b> Status: </b>' . $content_gardiki['weather'][0]['main']  ;?><br>
-                <?php echo '<img class="forecast" style="padding-left: 20px;height: 100px;width: 95px" src="http://openweathermap.org/img/w/'. $content_gardiki['weather'][0]['icon'] .'.png"></img>' ;?><br>
-<!--                <b>Status: </b>${content_gardiki['weather'][0]['main']}<br>-->
-<!--                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>-->
+                <?php echo '<b> Status: </b>' . $content['weather'][0]['main']  ;?><br>
+                <?php echo '<img class="forecast" style="padding-left: 20px;height: 80px;width: 75px" src="http://openweathermap.org/img/w/'. $content['weather'][0]['icon'] .'.png"></img>' ;?><br>
             </div>
         </div>
         <div class='card-right' style="background-color: white">
@@ -190,9 +187,10 @@ $this->registerCss('css/graphs.css');
         </div>
     </div>
 </section>
+
 <section style="padding-top: 4rem!important; background-color: #e5e9ec;">
     <div class='card-container' style="margin-left 10rem; justify-content: center; align-items: center;">
-        <div class='card-left' style="width: 150%;">
+        <div class='card-left' style="width: 100%;grid-column: auto/span 3;background-color:white">
             <div class='card-image' style="">
                 <img src="asset/graphs/stacked-area-chart.png" alt="" loading="lazy"
                      style="object-fit: scale-down"/>
@@ -207,7 +205,10 @@ $this->registerCss('css/graphs.css');
                 <span></br</span>
             </div>
         </div>
+
     </div>
+
+
 </section>
 
 
@@ -280,55 +281,63 @@ $this->registerCss('css/graphs.css');
 
     </div>
 </section>
-<section id="hiddenSection2" style="display:none;padding-top: 1rem!important; background-color: #e5e9ec;padding-bottom: 1rem!important;">
-    <div class="graphs-container" style="border-radius:4px;">
+
+<div class="grid-title-container" id="grid-title" style="display:none;padding-top:2rem">
+    <div class="grid-title" style="border-radius:4px;background-color:#292725;display: flex;
+        justify-content: center;">
+        <?php echo '<i class="fa-solid fa-chart-pie fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:20px; ">&nbsp&nbspData Analysis for selected date range: <span id="date1Value"></span> to <span id="date2Value"></span>.</span>';?>
+    </div>
+</div>
+
+<section id="hiddenSection2" style="display:none;padding-top: 0.3rem!important; background-color: #e5e9ec;padding-bottom: 1rem!important;">
+    <div class="graphs-container" style="border-radius:4px;background-color: #e5e9ec;">
             <div class="col-lg-12" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="o3Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="tempChart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="humidChart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="pm1Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="pm25Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="pm10Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="so2Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="noChart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="no2Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style=" border-color: transparent">
+                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="presChart" ></div>
                 </div>
             </div>

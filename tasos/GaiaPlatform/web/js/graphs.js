@@ -278,11 +278,13 @@ function lineCharts(targetElementId, measurementName, measurementValues, measure
         },
         xAxis: {
             categories: measurementTimestamps,
+            tickInterval: 18
         },
         yAxis: {
             categories: [],
             gridLineWidth: 0,
             gridLineColor: 'transparent',
+            tickInterval: 10
         },
         series: [
             {
@@ -297,6 +299,7 @@ function lineCharts(targetElementId, measurementName, measurementValues, measure
                     easing: 'easeOutBounce',
                     defer: 500,
                 },
+
             },
         ],
     });
@@ -356,7 +359,8 @@ $(document).ready(function(){
         document.getElementById('loading').style.display = 'inline-block';
         let measurementInit1 = '_measurements';
         let measurementFilter1 = nodeId + measurementInit1;
-
+        document.getElementById("date1Value").textContent = picker.startDate.format('YYYY-MM-DD');
+        document.getElementById("date2Value").textContent = picker.endDate.format('YYYY-MM-DD');
         let readDateURL = ['https://restapi.gaia-platform.eu/rest-api/items/readDates.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=' + nodeId + '&date1=' + picker.startDate.format('YYYY-MM-DD') + '&date2=' + picker.endDate.format('YYYY-MM-DD') + '&sensor_type_id='];
         let readMeasurementType = [];
         const readTimestamp = [];
@@ -374,8 +378,10 @@ $(document).ready(function(){
             })
             .then(() => {
                 console.log('All requests completed 3');
+
                 document.getElementById('hiddenSection1').style.display = 'inline-block';
                 document.getElementById('hiddenSection2').style.display = 'inline-block';
+                document.getElementById('grid-title').style.display = 'inline-block';
                 for (let j = 0; j < readMeasurementType.length; j++) {
                     readTimestamp.push(readResults[0][j]['timestamp']);
                     readTypeId.push(readResults[0][j]['sensor_type_id']);
