@@ -212,6 +212,27 @@ function formatString(str) {
     }
 }
 
+/*Dropdown Menu*/
+$('.dropdown').click(function () {
+    $(this).attr('tabindex', 1).focus();
+    $(this).toggleClass('active');
+    $(this).find('.dropdown-menu').slideToggle(300);
+    if ($(this).hasClass('active')) {
+        $('#cycle').addClass('fa fa-chevron-down');
+    } else $('#cycle').addClass('fa fa-chevron-left');
+
+});
+$('.dropdown').focusout(function () {
+    $(this).removeClass('active');
+    $(this).find('.dropdown-menu').slideUp(300);
+    $('#cycle').addClass('fa fa-chevron-left');
+    $('#cycle').removeClass('fa fa-chevron-down');
+});
+$('.dropdown .dropdown-menu li').click(function () {
+    $(this).parents('.dropdown').find('span').text($(this).text());
+    $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+    $('#cycle').addClass('fa fa-chevron-left');
+});
 
 let sensorNode = [];
 let sensorName = [];
@@ -239,6 +260,25 @@ function nodeApiCall(callback) {
                 sensorLongitude.push(item.longitude);
                 sensorLatitude.push(item.latitude);
             }
+
+            $(document).ready(function () {
+                var dropdown = document.getElementById('cycle_dropdown');
+                sensorDescription.forEach(function (value) {
+                    var li = document.createElement('li');
+                    li.textContent = formatString(value);
+                    dropdown.appendChild(li);
+                });
+
+                $('.dropdown-menu li').click(function () {
+                    for (let i = 0; i < sensorDescription.length; i++) {
+                        if ($(this).text() === formatString(sensorDescription[i])) {
+                            map2.flyTo([sensorLatitude[i], sensorLongitude[i]], 18, {
+                                animate: true, duration: 1.5
+                            });
+                        }
+                    }
+                });
+            });
             callback();
         }
     });
@@ -701,47 +741,26 @@ if (decodedLastPart === 'site/map') {
         })
     }
 
-    /*Dropdown Menu*/
-    $('.dropdown').click(function () {
-        $(this).attr('tabindex', 1).focus();
-        $(this).toggleClass('active');
-        $(this).find('.dropdown-menu').slideToggle(300);
-        if ($(this).hasClass('active')) {
-            $('#cycle').addClass('fa fa-chevron-down');
-        } else $('#cycle').addClass('fa fa-chevron-left');
 
-    });
-    $('.dropdown').focusout(function () {
-        $(this).removeClass('active');
-        $(this).find('.dropdown-menu').slideUp(300);
-        $('#cycle').addClass('fa fa-chevron-left');
-        $('#cycle').removeClass('fa fa-chevron-down');
-    });
-    $('.dropdown .dropdown-menu li').click(function () {
-        $(this).parents('.dropdown').find('span').text($(this).text());
-        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
-        $('#cycle').addClass('fa fa-chevron-left');
-    });
-    /*End Dropdown Menu*/
-    $('.dropdown-menu li').click(function () {
-        if ($(this).parents('.dropdown').find('input').val() === 'Γαρδίκι') {
-            map2.flyTo([39.7147, 20.7572], 18, {
-                animate: true, duration: 1.5
-            });
-        } else if ($(this).parents('.dropdown').find('input').val() === 'Ελεούσα') {
-            map2.flyTo([39.7066, 20.7926], 18, {
-                animate: true, duration: 1.5
-            });
-        } else if ($(this).parents('.dropdown').find('input').val() === 'Άγιος Ιωάννης') {
-            map2.flyTo([39.7027, 20.8122], 18, {
-                animate: true, duration: 1.5
-            });
-        } else if ($(this).parents('.dropdown').find('input').val() === 'Πανεπιστήμιο') {
-            map2.flyTo([39.6216, 20.8596], 18, {
-                animate: true, duration: 1.5
-            });
-        }
-    });
+    // $('.dropdown-menu li').click(function () {
+    //     if ($(this).parents('.dropdown').find('input').val() === 'Γαρδίκι') {
+    //         map2.flyTo([39.7147, 20.7572], 18, {
+    //             animate: true, duration: 1.5
+    //         });
+    //     } else if ($(this).parents('.dropdown').find('input').val() === 'Ελεούσα') {
+    //         map2.flyTo([39.7066, 20.7926], 18, {
+    //             animate: true, duration: 1.5
+    //         });
+    //     } else if ($(this).parents('.dropdown').find('input').val() === 'Άγιος Ιωάννης') {
+    //         map2.flyTo([39.7027, 20.8122], 18, {
+    //             animate: true, duration: 1.5
+    //         });
+    //     } else if ($(this).parents('.dropdown').find('input').val() === 'Πανεπιστήμιο') {
+    //         map2.flyTo([39.6216, 20.8596], 18, {
+    //             animate: true, duration: 1.5
+    //         });
+    //     }
+    // });
 
     let element = document.getElementById("mainNav");
     element.classList.remove("fixed-top");
