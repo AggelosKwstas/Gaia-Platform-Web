@@ -21,7 +21,7 @@ $this->registerCss('css/graphs.css');
     </ol>
 <section style="padding-top: 4rem!important; background-color: #e5e9ec;">
     <div class='card-container'>
-        <div class='card-left' style="background-color: white">
+        <div class='card-left' style="background-color: white;transform-origin: center; transform: scale(1);">
             <div class='card-image'>
                 <img src="/asset/libeliumSensor.png" >
             </div>
@@ -172,32 +172,42 @@ $this->registerCss('css/graphs.css');
                 </div>
             </div>
             <div class="col-sm-6" >
+                <div class="item" data-aos="fade-left" data-aos-duration="1000">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line7" ></div>
                 </div>
+                </div>
             </div>
         </div>
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
+                <div class="item" data-aos="fade-right" data-aos-duration="1000">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line8" ></div>
                 </div>
+                </div>
             </div>
             <div class="col-sm-6" >
+                <div class="item" data-aos="fade-left" data-aos-duration="1000">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line9" ></div>
+                </div>
                 </div>
             </div>
         </div>
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
+                <div class="item" data-aos="fade-right" data-aos-duration="1000">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line10" ></div>
                 </div>
+                </div>
             </div>
             <div class="col-sm-6" >
+                <div class="item" data-aos="fade-left" data-aos-duration="1000">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line11" ></div>
+                </div>
                 </div>
             </div>
         </div>

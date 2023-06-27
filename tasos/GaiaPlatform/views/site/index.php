@@ -6,7 +6,7 @@ use app\assets\AppAsset;
 use yii\helpers\Url;
 
 $this->registerJs("let locationMap='" . Url::to(['site/map']) . "'", \yii\web\View::POS_BEGIN);
-$this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIAsetup.exe']) . "'", \yii\web\View::POS_BEGIN);
+$this->registerJs("let downloadUrl='" . Url::to(['site/download', 'path' => '/upload/', 'file' => 'GAIA Platform_1.1.0_x64_en-US.msi']) . "'", \yii\web\View::POS_BEGIN);
 ?>
 <?php if (Yii::$app->controller->action->id === 'index'): ?>
     <?php $this->registerJs("
@@ -127,9 +127,12 @@ markers.forEach(marker => {
                         <div style="text-align: center;">
                             <b>OVER 50 SENSOR TYPES</b><br>
                             <p>
-                                These sensor measurements play a crucial role in various fields such as environmental monitoring,
-                                infrastructure management, smart cities, industrial processes, healthcare,
-                                and scientific research, enabling data-driven decision-making and improving the overall quality of life.
+                                The sensors encompass a wide range of measurements including air quality, water quality, ion concentration,
+                                container levels, noise levels, agricultural parameters, security parameters,
+                                radioactivity levels, and many more, making them indispensable tools for comprehensive monitoring and analysis in various industries and applications.
+<!--                                These sensor measurements play a crucial role in various fields such as environmental monitoring,-->
+<!--                                infrastructure management, smart cities, industrial processes, healthcare,-->
+<!--                                and scientific research, enabling data-driven decision-making and improving the overall quality of life.-->
 <!--                                The sensors encompass a wide range of measurements including air quality, water quality,-->
 <!--                                ion concentration, container levels, structural health, noise levels, agricultural-->
 <!--                                parameters, security parameters, radioactivity levels, etc.<br>-->
@@ -230,14 +233,13 @@ markers.forEach(marker => {
     </div>
 </section>
 
-
 <section>
     <div class="container" style="display:block;text-align:center">
         <div class="item" data-aos="fade-down" data-aos-duration="1000">
             <h2 class="display-4 lh-1 mb-4" style="position:center">Gaia Platform Stable Version</h2>
         </div>
         <div class="item" data-aos="fade-up" data-aos-duration="1000">
-            <p class="lead fw-normal text-muted mb-5 mb-lg-0">You can now download Gaia Platform version 1.0 for
+            <p class="lead fw-normal text-muted mb-5 mb-lg-0">You can now download Gaia Platform version 1.1.0 for
                 Windows.</p>
         </div>
 
@@ -267,7 +269,6 @@ markers.forEach(marker => {
                 <div class="drop drop-2"></div>
                 <div class="drop drop-3"></div>
             </div>
-            <!-- <div class="progress"></div> -->
         </button>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
