@@ -97,6 +97,9 @@ Promise.all(requests)
     })
     .then(() => {
         $('#loader').fadeOut('fast');
+        AOS.init({
+            once: true,
+        });
         console.log('All requests completed 2');
         const timestamps = [];
         const timestampsSliced = [];

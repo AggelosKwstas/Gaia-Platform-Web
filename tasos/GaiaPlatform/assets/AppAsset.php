@@ -43,8 +43,8 @@ class AppAsset extends AssetBundle
         'css/lineChartHighcharts.css',
         'css/batteryLevel.css',
         'css/pillCards.css',
-//        'css/graphs.css',
         'https://unpkg.com/aos@2.3.1/dist/aos.css'
+
     ];
 
     public $js = [
@@ -55,12 +55,14 @@ class AppAsset extends AssetBundle
         'theme/Highcharts-11.0.0/code/modules/solid-gauge.js',
         'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js',
         'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js',
+
         'js/graphs.js',
         'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js',
         'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
         'js/downloadCloud.js',
         'js/map_fullscreen.js',
         'https://unpkg.com/aos@2.3.1/dist/aos.js'
+
     ];
 
     public $depends = [

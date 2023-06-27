@@ -26,19 +26,20 @@ $this->registerCss('css/graphs.css');
                 <img src="/asset/libeliumSensor.png" >
             </div>
             <div class='card-text'>
-                <?php echo '<p class="battery__text">' . $name . '</p>';?>
+                <?php echo '<p class="battery__text"><b>' . $name . '</b></p>';?>
                 <?php echo '<p class="battery__text">' . $title . '</p>';?>
                 <?php echo '<p class="battery__text">' . $time . '</p>';?>
             </div>
         </div>
         <div class='mid-card' style="background-color: white">
             <div class='card-text' style="margin-top:1rem;">
-                <span><b>Weather Forecast</b></span><br>
-                <?php echo '<b> Type: </b>' . $title  ;?><br>
-                <?php echo '<b> Status: </b>' . $content['weather'][0]['main']  ;?><br>
+                <p class="battery__text"><b>Weather Forecast</b></p>
+                <?php echo '<p class="battery__text"><b> Type: </b>' . $title . '</p>' ;?>
+                <?php echo '<p class="battery__text"><b> Status: </b>' . $content['weather'][0]['main'] . '</p>';?>
                 <?php echo '<img class="forecast" style="padding-left: 20px;height: 80px;width: 75px" src="http://openweathermap.org/img/w/'. $content['weather'][0]['icon'] .'.png"></img>' ;?><br>
             </div>
         </div>
+
         <div class='card-right' style="background-color: white">
             <div class='card-image'>
                 <div class="battery__pill" style="margin:2rem">
@@ -48,7 +49,7 @@ $this->registerCss('css/graphs.css');
                 </div>
             </div>
             <div class='card-text'>
-                <p class="battery__text">Sensor Node Battery</p>
+                <p class="battery__text"><b>Sensor Node Battery</b></p>
                 <h1 class="battery__percentage">
                 </h1>
             </div>
@@ -57,13 +58,17 @@ $this->registerCss('css/graphs.css');
     </div>
 </section>
 
+<div class="item" data-aos="fade-down" data-aos-duration="1000">
 <div class="grid-title-container">
 <div class="grid-title" style="border-radius:4px;background-color:#292725;display: flex;
         justify-content: center;">
     <?php echo '<i class="fa-solid fa-chart-column fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:20px; ">&nbsp&nbspMost Recent Values for ' . $title . '</span>';?>
 </div>
 </div>
+</div>
+
 <section style="padding-top: 0.3rem!important;padding-bottom: 5px!important; background-color: #e5e9ec;height:auto!important;">
+    <div class="item" data-aos="fade-down" data-aos-duration="1000">
     <div class="graphs-container" style="border-radius:4px;background-color: white;!important;">
         <div class="row" style="display: flex; justify-content: center;">
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" >
@@ -120,6 +125,7 @@ $this->registerCss('css/graphs.css');
                         </figure>
                 </div>
             </div>
+    </div>
 </section>
 
 
@@ -127,32 +133,42 @@ $this->registerCss('css/graphs.css');
     <div class="graphs-container" style="background-color: #e5e9ec;!important;">
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
+                <div class="item" data-aos="fade-right" data-aos-duration="1000">
                 <div class="card"  style=" border-color: transparent">
                         <div id="Line1" ></div>
                 </div>
+                </div>
             </div>
             <div class="col-sm-6" >
+                <div class="item" data-aos="fade-left" data-aos-duration="1000">
                 <div class="card"  style=" border-color: transparent">
                     <div id="Line2" ></div>
                 </div>
+                </div>
             </div>
         </div>
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
+                <div class="item" data-aos="fade-right" data-aos-duration="1000">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line3" ></div>
                 </div>
+                </div>
             </div>
             <div class="col-sm-6" >
+                <div class="item" data-aos="fade-left" data-aos-duration="1000">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line5" ></div>
+                </div>
                 </div>
             </div>
         </div>
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
+                <div class="item" data-aos="fade-right" data-aos-duration="1000">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line6" ></div>
+                </div>
                 </div>
             </div>
             <div class="col-sm-6" >
