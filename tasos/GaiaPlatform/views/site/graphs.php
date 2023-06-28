@@ -33,8 +33,17 @@ $this->registerCss('css/graphs.css');
         </div>
         <div class='mid-card' style="background-color: white">
             <div class='card-text' style="margin-top:1rem;">
-                <p class="battery__text"><b>Weather Forecast</b></p>
-                <?php echo '<p class="battery__text"><b> Type: </b>' . $title . '</p>' ;?>
+                <div class="container-horizontal">
+                    <img src="/asset/graphs/temperature.png" style="height:40px;width:50px;" alt="Temperature Icon"/>
+                    <p id="tempCard" class="battery__text"></p>&nbsp&nbsp
+                    <img src="/asset/graphs/humidity.png" style="height:40px;width:50px;" alt="Humidity Icon"/>
+                    <p id="humidCard" class="battery__text"></p>&nbsp&nbsp
+                    <img src="/asset/graphs/gauge.png" style="height:40px;width:50px;" alt="Air Pressure Icon"/>
+                    <p id="pressCard" class="battery__text"></p>
+                </div>
+<br>
+<!--                <p class="battery__text"><b>Weather Forecast</b></p>-->
+<!--                --><?php //echo '<p class="battery__text"><b> Type: </b>' . $title . '</p>' ;?>
                 <?php echo '<p class="battery__text"><b> Status: </b>' . $content['weather'][0]['main'] . '</p>';?>
                 <?php echo '<img class="forecast" style="padding-left: 20px;height: 80px;width: 75px" src="http://openweathermap.org/img/w/'. $content['weather'][0]['icon'] .'.png"></img>' ;?><br>
             </div>
@@ -60,9 +69,9 @@ $this->registerCss('css/graphs.css');
 
 <div class="item" data-aos="fade-down" data-aos-duration="1000">
 <div class="grid-title-container">
-<div class="grid-title" style="border-radius:4px;background-color:#292725;display: flex;
+<div class="grid-title" style="text-align:left;border-radius:4px;background-color:#292725;
         justify-content: center;">
-    <?php echo '<i class="fa-solid fa-chart-column fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:20px; ">&nbsp&nbspMost Recent Values for ' . $title . '</span>';?>
+    &nbsp<?php echo '<i class="fa-solid fa-chart-column fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:20px; ">&nbsp&nbspMost Recent Values for ' . $title . '</span>';?>
 </div>
 </div>
 </div>
@@ -307,11 +316,13 @@ $this->registerCss('css/graphs.css');
 
     </div>
 </section>
+<div>
 
-<div class="grid-title-container" id="grid-title" style="display:none;padding-top:2rem">
-    <div class="grid-title" style="border-radius:4px;background-color:#292725;display: flex;
+</div>
+<div class="grid-title-container" id="grid-title" style="display:none;">
+    <div class="grid-title" style="border-radius:4px;background-color:#292725;
         justify-content: center;">
-        <?php echo '<i class="fa-solid fa-chart-pie fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:20px; ">&nbsp&nbspData Analysis for selected date range: <span id="date1Value"></span> to <span id="date2Value"></span>.</span>';?>
+        &nbsp<?php echo '<i class="fa-solid fa-chart-pie fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:20px; ">&nbsp&nbspData Analysis for selected date range: <span id="date1Value"></span> to <span id="date2Value"></span>.</span>';?>
     </div>
 </div>
 

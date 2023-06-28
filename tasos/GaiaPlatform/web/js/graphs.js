@@ -136,10 +136,23 @@ Promise.all(requests)
             let gaugeSum = gaugeName+adder;
             if (k!==3){
                 gaugeChart(gaugeSum, typeDescriptions[k], lastMeasurement[k], min_value[k], max_value[k], typeUnits[k]);
+                if(k===1){
+                    var cardTemp = document.getElementById("tempCard");
+                    cardTemp.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
+                }
+                if(k===2){
+                    var cardHumid = document.getElementById("humidCard");
+                    cardHumid.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
+                }
+                if(k===10){
+                    var cardPress = document.getElementById("pressCard");
+                    cardPress.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
+                }
             }
             else if(k===3){
                 initBattery(lastMeasurement[k]);
             }
+
         }
     })
     .catch(error => {
@@ -394,43 +407,43 @@ $(document).ready(function(){
                 for(let i = 0; i < readTypeId.length; i++){
                     if(readTypeId[i]===3){
                         o3Value.push(readValues[i]);
-                        o3Timestamp.push(readTimestamp[i].slice(11,19));
+                        o3Timestamp.push(readTimestamp[i]);
                     }
                     if(readTypeId[i]===4){
                         tempValue.push(readValues[i]);
-                        tempTimestamp.push(readTimestamp[i].slice(11,19));
+                        tempTimestamp.push(readTimestamp[i]);
                     }
                     if(readTypeId[i]===5){
                         humidValue.push(readValues[i]);
-                        humidTimestamp.push(readTimestamp[i].slice(11,19));
+                        humidTimestamp.push(readTimestamp[i]);
                     }
                     if(readTypeId[i]===8){
                         pm1Value.push(readValues[i]);
-                        pm1Timestamp.push(readTimestamp[i].slice(11,19));
+                        pm1Timestamp.push(readTimestamp[i]);
                     }
                     if(readTypeId[i]===9){
                         pm25Value.push(readValues[i]);
-                        pm25Timestamp.push(readTimestamp[i].slice(11,19));
+                        pm25Timestamp.push(readTimestamp[i]);
                     }
                     if(readTypeId[i]===10){
                         pm10Value.push(readValues[i]);
-                        pm10Timestamp.push(readTimestamp[i].slice(11,19));
+                        pm10Timestamp.push(readTimestamp[i]);
                     }
                     if(readTypeId[i]===11){
                         so2Value.push(readValues[i]);
-                        so2Timestamp.push(readTimestamp[i].slice(11,19));
+                        so2Timestamp.push(readTimestamp[i]);
                     }
                     if(readTypeId[i]===12){
                         noValue.push(readValues[i]);
-                        noTimestamp.push(readTimestamp[i].slice(11,19));
+                        noTimestamp.push(readTimestamp[i]);
                     }
                     if(readTypeId[i]===13){
                         no2Value.push(readValues[i]);
-                        no2Timestamp.push(readTimestamp[i].slice(11,19));
+                        no2Timestamp.push(readTimestamp[i]);
                     }
                     if(readTypeId[i]===14){
                         presValue.push(readValues[i]);
-                        presTimestamp.push(readTimestamp[i].slice(11,19));
+                        presTimestamp.push(readTimestamp[i]);
                     }
 
                 }

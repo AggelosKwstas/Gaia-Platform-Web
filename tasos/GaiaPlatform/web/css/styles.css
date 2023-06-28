@@ -12112,3 +12112,29 @@ translate3d( 0, 0, 0);
 /*        padding:50px;*/
 /*    }*/
 /*}*/
+
+h3.h3Hover {
+    --s: 0.1em;
+    /* the thickness of the line */
+    --c: #5caa32;
+    /* the color */
+
+    color: #0000;
+    padding-bottom: var(--s);
+    background:
+            linear-gradient(90deg, var(--c) 50%, #000 0) calc(100% - var(--_p, 0%))/200% 100%,
+            linear-gradient(var(--c) 0 0) 0% 100%/var(--_p, 0%) var(--s) no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text, padding-box;
+    transition: 0.5s;
+}
+
+h3.h3Hover:hover {
+    --_p: 100%
+}
+
+h3.h3Hover {
+    /*font-family: system-ui, sans-serif;*/
+    font-size: 3rem;
+    cursor: pointer;
+}

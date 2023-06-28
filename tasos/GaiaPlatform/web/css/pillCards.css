@@ -6,6 +6,17 @@ body {
 * {
     box-sizing: border-box;
 }
+.container-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-horizontal img {
+    height: 40px;
+    width: 50px;
+    margin-right: 10px;
+}
 .card-container {
     width: 100%;
     display: grid;

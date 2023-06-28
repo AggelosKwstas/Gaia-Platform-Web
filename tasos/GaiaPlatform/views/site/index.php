@@ -166,10 +166,9 @@ markers.forEach(marker => {
                             <b>POWERFULL SENSOR NETWORKS
                             </b><br>
                             <p>
-                                The GAIA platform excels in providing fast installation and minimal maintenance costs,
-                                making it an efficient and cost-effective solution. It offers a wide range of diverse
-                                services and applications, while its robust equipment and network scalability ensure
-                                seamless growth and adaptability.
+                                GAIA platform excels in providing fast installation and low maintenance costs.
+                                It offers a wide range of diverse services, while its robust equipment and network scalability ensure seamless growth and adaptability.
+                                The GAIA platform's robust data security ensure the protection and confidentiality of sensitive information.
                             </p>
                         </div>
                     </div>
@@ -236,7 +235,7 @@ markers.forEach(marker => {
 <section>
     <div class="container" style="display:block;text-align:center">
         <div class="item" data-aos="fade-down" data-aos-duration="1000">
-            <h2 class="display-4 lh-1 mb-4" style="position:center">Gaia Platform Stable Version</h2>
+            <h3 class="h3Hover" style="position:center">Gaia Platform Stable Version</h3>
         </div>
         <div class="item" data-aos="fade-up" data-aos-duration="1000">
             <p class="lead fw-normal text-muted mb-5 mb-lg-0">You can now download Gaia Platform version 1.1.0 for
@@ -299,7 +298,8 @@ markers.forEach(marker => {
 <section class="bg-light">
     <div class="item" data-aos="fade-up" data-aos-duration="1000">
         <div class="container pt-3" style="display: block;text-align: center">
-            <h4 class="display-6">Case Study - Urban Air Quality</h4>
+<!--            <h4 class="display-6">Case Study - Urban Air Quality</h4>-->
+            <h3 class="h3Hover">Case Study - Urban Air Quality</h3>
             <p style="font-size: 19px">
                 With the rise of urbanization, air pollution has become a growing concern for public health and the
                 environment. Using our sensors we have an efficient way to monitor air quality in real-time and generate
