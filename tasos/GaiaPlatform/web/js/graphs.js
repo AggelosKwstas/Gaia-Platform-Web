@@ -294,7 +294,7 @@ function lineCharts(targetElementId, measurementName, measurementValues, measure
         },
         xAxis: {
             categories: measurementTimestamps,
-            tickInterval: 18
+            tickInterval: 6
         },
         yAxis: {
             categories: [],

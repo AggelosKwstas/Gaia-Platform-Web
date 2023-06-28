@@ -34,18 +34,18 @@ $this->registerCss('css/graphs.css');
         <div class='mid-card' style="background-color: white">
             <div class='card-text' style="margin-top:1rem;">
                 <div class="container-horizontal">
-                    <img src="/asset/graphs/temperature.png" style="height:40px;width:50px;" alt="Temperature Icon"/>
+                    <img src="/asset/graphs/temperature.png" style="height:50px;width:50px;" alt="Temperature Icon"/>
                     <p id="tempCard" class="battery__text"></p>&nbsp&nbsp
-                    <img src="/asset/graphs/humidity.png" style="height:40px;width:50px;" alt="Humidity Icon"/>
+                    <img src="/asset/graphs/humidity.png" style="height:50px;width:50px;" alt="Humidity Icon"/>
                     <p id="humidCard" class="battery__text"></p>&nbsp&nbsp
-                    <img src="/asset/graphs/gauge.png" style="height:40px;width:50px;" alt="Air Pressure Icon"/>
+                    <img src="/asset/graphs/gauge.png" style="height:50px;width:50px;" alt="Air Pressure Icon"/>
                     <p id="pressCard" class="battery__text"></p>
                 </div>
 <br>
 <!--                <p class="battery__text"><b>Weather Forecast</b></p>-->
 <!--                --><?php //echo '<p class="battery__text"><b> Type: </b>' . $title . '</p>' ;?>
                 <?php echo '<p class="battery__text"><b> Status: </b>' . $content['weather'][0]['main'] . '</p>';?>
-                <?php echo '<img class="forecast" style="padding-left: 20px;height: 80px;width: 75px" src="http://openweathermap.org/img/w/'. $content['weather'][0]['icon'] .'.png"></img>' ;?><br>
+                <?php echo '<img class="forecast" style="padding-left: 20px;height: 70px;width: 65px" src="http://openweathermap.org/img/w/'. $content['weather'][0]['icon'] .'.png"></img>' ;?><br>
             </div>
         </div>
 
@@ -156,64 +156,72 @@ $this->registerCss('css/graphs.css');
                 </div>
             </div>
         </div>
+    </div>
+        <div class="graphs-container" style="background-color: #e5e9ec;!important;">
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
-                <div class="item" data-aos="fade-right" data-aos-duration="1000">
+                <div class="item" data-aos="fade-right" data-aos-duration="1400">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line3" ></div>
                 </div>
                 </div>
             </div>
             <div class="col-sm-6" >
-                <div class="item" data-aos="fade-left" data-aos-duration="1000">
+                <div class="item" data-aos="fade-left" data-aos-duration="1400">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line5" ></div>
                 </div>
                 </div>
             </div>
         </div>
+        </div>
+    <div class="graphs-container" style="background-color: #e5e9ec;!important;">
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
-                <div class="item" data-aos="fade-right" data-aos-duration="1000">
+                <div class="item" data-aos="fade-right" data-aos-duration="1800">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line6" ></div>
                 </div>
                 </div>
             </div>
             <div class="col-sm-6" >
-                <div class="item" data-aos="fade-left" data-aos-duration="1000">
+                <div class="item" data-aos="fade-left" data-aos-duration="1800">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line7" ></div>
                 </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="graphs-container" style="background-color: #e5e9ec;!important;">
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
-                <div class="item" data-aos="fade-right" data-aos-duration="1000">
+                <div class="item" data-aos="fade-right" data-aos-duration="2200">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line8" ></div>
                 </div>
                 </div>
             </div>
             <div class="col-sm-6" >
-                <div class="item" data-aos="fade-left" data-aos-duration="1000">
+                <div class="item" data-aos="fade-left" data-aos-duration="2200">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line9" ></div>
                 </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="graphs-container" style="background-color: #e5e9ec;!important;">
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
-                <div class="item" data-aos="fade-right" data-aos-duration="1000">
+                <div class="item" data-aos="fade-right" data-aos-duration="2600">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line10" ></div>
                 </div>
                 </div>
             </div>
             <div class="col-sm-6" >
-                <div class="item" data-aos="fade-left" data-aos-duration="1000">
+                <div class="item" data-aos="fade-left" data-aos-duration="2600">
                 <div class="card" style=" border-color: transparent">
                     <div id="Line11" ></div>
                 </div>
@@ -398,7 +406,7 @@ $this->registerCss('css/graphs.css');
                 </div>
             </div>
             <div class="loading">Gathering sensor nodes...</div><br /><br />
-            <img src="asset/LogoGaiaPlatform.png" style="margin-left:30%">
+            <img src="asset/LogoGaiaPlatform.png" style="margin-left:25%;width:200px;height:50px;">
         </div>
     </div>
 </div>
