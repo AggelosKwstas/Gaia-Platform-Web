@@ -340,19 +340,19 @@ if (decodedLastPart === 'site/map') {
     });
 
     greenIcon = new LeafIcon({
-        iconUrl: 'asset/markers/greenMarker.png',
+        iconUrl: 'asset/markers/stationGreen.png',
     })
 
     redIcon = new LeafIcon({
-        iconUrl: 'asset/markers/RedMarker.png',
+        iconUrl: 'asset/markers/stationRed.png',
     })
 
     orangeIcon = new LeafIcon({
-        iconUrl: 'asset/markers/orangeMarker.png',
+        iconUrl: 'asset/markers/stationOrange.png',
     })
 
     greyIcon = new LeafIcon({
-        iconUrl: 'asset/markers/GreyMarker.png',
+        iconUrl: 'asset/markers/stationGray.png',
     })
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -752,26 +752,6 @@ if (decodedLastPart === 'site/map') {
     }
 
 
-    // $('.dropdown-menu li').click(function () {
-    //     if ($(this).parents('.dropdown').find('input').val() === 'Γαρδίκι') {
-    //         map2.flyTo([39.7147, 20.7572], 18, {
-    //             animate: true, duration: 1.5
-    //         });
-    //     } else if ($(this).parents('.dropdown').find('input').val() === 'Ελεούσα') {
-    //         map2.flyTo([39.7066, 20.7926], 18, {
-    //             animate: true, duration: 1.5
-    //         });
-    //     } else if ($(this).parents('.dropdown').find('input').val() === 'Άγιος Ιωάννης') {
-    //         map2.flyTo([39.7027, 20.8122], 18, {
-    //             animate: true, duration: 1.5
-    //         });
-    //     } else if ($(this).parents('.dropdown').find('input').val() === 'Πανεπιστήμιο') {
-    //         map2.flyTo([39.6216, 20.8596], 18, {
-    //             animate: true, duration: 1.5
-    //         });
-    //     }
-    // });
-
     let element = document.getElementById("mainNav");
     element.classList.remove("fixed-top");
 }
@@ -787,12 +767,6 @@ function checkMobile() {
 }
 
 function Redirect(id, title, name, time) {
-    // document.getElementById(id).style.display = 'block';
-    //
-    // map2._handlers.forEach(function (handler) {
-    //     handler.disable();
-    // });
-
     makeAjax(id, title, name, time);
 }
 
@@ -801,11 +775,11 @@ let greenPressed = false
 
 function greenButton() {
     if (!greenPressed) {
-        $('.leaflet-pane img[src="asset/stationGreen.png"]').hide();
+        $('.leaflet-pane img[src="asset/markers/stationGreen.png"]').hide();
         document.getElementById('greenFilter').style.backgroundColor = '#D3D3D3';
         greenPressed = true
     } else {
-        $('.leaflet-pane img[src="asset/stationGreen.png"]').show();
+        $('.leaflet-pane img[src="asset/markers/stationGreen.png"]').show();
         document.getElementById('greenFilter').style.backgroundColor = '#20de28';
         greenPressed = false
     }
@@ -815,11 +789,11 @@ let yellowPressed = false
 
 function yellowButton() {
     if (!yellowPressed) {
-        $('.leaflet-pane img[src="asset/stationOrange.png"]').hide();
+        $('.leaflet-pane img[src="asset/markers/stationOrange.png"]').hide();
         document.getElementById('yellowFilter').style.backgroundColor = '#D3D3D3';
         yellowPressed = true
     } else {
-        $('.leaflet-pane img[src="asset/stationOrange.png"]').show();
+        $('.leaflet-pane img[src="asset/markers/stationOrange.png"]').show();
         document.getElementById('yellowFilter').style.backgroundColor = '#ffea00';
         yellowPressed = false
     }
@@ -829,11 +803,11 @@ let redPressed = false
 
 function redButton() {
     if (!redPressed) {
-        $('.leaflet-pane img[src="asset/stationRed.png"]').hide();
+        $('.leaflet-pane img[src="asset/markers/stationRed.png"]').hide();
         document.getElementById('redFilter').style.backgroundColor = '#D3D3D3';
         redPressed = true
     } else {
-        $('.leaflet-pane img[src="asset/stationRed.png"]').show();
+        $('.leaflet-pane img[src="asset/markers/stationRed.png"]').show();
         document.getElementById('redFilter').style.backgroundColor = '#ff0032';
         redPressed = false
     }
@@ -843,11 +817,11 @@ let grayPressed = false
 
 function grayButton() {
     if (!grayPressed) {
-        $('.leaflet-pane img[src="asset/stationGrey.png"]').hide();
+        $('.leaflet-pane img[src="asset/markers/stationGrey.png"]').hide();
         document.getElementById('grayFilter').style.backgroundColor = '#D3D3D3';
         grayPressed = true
     } else {
-        $('.leaflet-pane img[src="asset/stationGrey.png"]').show();
+        $('.leaflet-pane img[src="asset/markers/stationGrey.png"]').show();
         document.getElementById('grayFilter').style.backgroundColor = '#808080';
         grayPressed = false
     }

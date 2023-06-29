@@ -35,7 +35,7 @@ const LeafIcon = L.Icon.extend({
 
 // Creating LeafIcon instance
 const Icon = new LeafIcon({
-    iconUrl: 'asset/stationGreen.png',
+    iconUrl: 'asset/markers/stationGreen.png',
 });
 
 // Adding tile layer to the map

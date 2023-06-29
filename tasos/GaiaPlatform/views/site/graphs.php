@@ -391,7 +391,6 @@ $this->registerCss('css/graphs.css');
 </section>
 
 
-
 <div id="loader">
     <div class="loading-screen">
         <div class="loading-text">
@@ -406,7 +405,7 @@ $this->registerCss('css/graphs.css');
                 </div>
             </div>
             <div class="loading">Gathering sensor nodes...</div><br /><br />
-            <img src="asset/LogoGaiaPlatform.png" style="margin-left:25%;width:200px;height:50px;">
+            <img src="asset/LogoGaiaPlatform.png" style="margin-left:35%;">
         </div>
     </div>
 </div>

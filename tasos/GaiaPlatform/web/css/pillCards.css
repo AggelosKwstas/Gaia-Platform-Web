@@ -134,10 +134,10 @@ body {
     /* Existing CSS properties */
     transition: transform 0.3s ease-in-out;
 }
-
 .card-right:hover .card-image{
     transform: translateX(10px);
 }
+
 .card-left:hover .card-image {
     transform: translateX(-10px);
 }
