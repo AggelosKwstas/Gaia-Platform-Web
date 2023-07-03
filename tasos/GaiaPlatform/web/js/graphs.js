@@ -203,7 +203,7 @@ function gaugeChart(targetElementId, measurementName, measurementValue, min, max
                 y: -70
             },
             labels: {
-                y: 40
+                y: 16
             }
         },
 

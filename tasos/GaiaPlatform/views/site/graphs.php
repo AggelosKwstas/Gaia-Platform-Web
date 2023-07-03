@@ -21,7 +21,7 @@ $this->registerCss('css/graphs.css');
     </ol>
 <section style="padding-top: 4rem!important; background-color: #e5e9ec;">
     <div class='card-container'>
-        <div class='card-left' style="background-color: white;transform-origin: center; transform: scale(1);">
+        <div class='card-left' style="background-color: white;transform-origin: center;">
             <div class='card-image'>
                 <img src="/asset/libeliumSensor.png" >
             </div>
@@ -33,6 +33,7 @@ $this->registerCss('css/graphs.css');
         </div>
         <div class='mid-card' style="background-color: white">
             <div class='card-text' style="margin-top:1rem;">
+                <p class="battery-text"><b>Temperature&nbsp&nbsp&nbsp Humidity&nbsp&nbsp&nbsp&nbsp Air Pressure</b></p>
                 <div class="container-horizontal">
                     <img src="/asset/graphs/temperature.png" style="height:50px;width:50px;" alt="Temperature Icon"/>
                     <p id="tempCard" class="battery__text"></p>&nbsp&nbsp
@@ -41,11 +42,9 @@ $this->registerCss('css/graphs.css');
                     <img src="/asset/graphs/gauge.png" style="height:50px;width:50px;" alt="Air Pressure Icon"/>
                     <p id="pressCard" class="battery__text"></p>
                 </div>
-<br>
-<!--                <p class="battery__text"><b>Weather Forecast</b></p>-->
-<!--                --><?php //echo '<p class="battery__text"><b> Type: </b>' . $title . '</p>' ;?>
+
                 <?php echo '<p class="battery__text"><b> Status: </b>' . $content['weather'][0]['main'] . '</p>';?>
-                <?php echo '<img class="forecast" style="padding-left: 20px;height: 70px;width: 65px" src="http://openweathermap.org/img/w/'. $content['weather'][0]['icon'] .'.png"></img>' ;?><br>
+                <?php echo '<img class="forecast" style="padding-left: 20px;height: 60px;width: 65px" src="http://openweathermap.org/img/w/'. $content['weather'][0]['icon'] .'.png"></img>' ;?><br>
             </div>
         </div>
 
@@ -139,90 +138,90 @@ $this->registerCss('css/graphs.css');
 
 
 <section style="padding-top:5px; background-color: #e5e9ec;padding-bottom: 1rem!important;">
-    <div class="graphs-container" style="background-color: #e5e9ec;!important;">
+    <div class="graphs-container-unhovered" style="background-color: #e5e9ec;!important;">
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
                 <div class="item" data-aos="fade-right" data-aos-duration="1000">
-                <div class="card"  style=" border-color: transparent">
+                <div class="card card-hover"  style=" border-color: transparent">
                         <div id="Line1" ></div>
                 </div>
                 </div>
             </div>
             <div class="col-sm-6" >
                 <div class="item" data-aos="fade-left" data-aos-duration="1000">
-                <div class="card"  style=" border-color: transparent">
+                <div class="card card-hover"  style=" border-color: transparent">
                     <div id="Line2" ></div>
                 </div>
                 </div>
             </div>
         </div>
     </div>
-        <div class="graphs-container" style="background-color: #e5e9ec;!important;">
+        <div class="graphs-container-unhovered" style="background-color: #e5e9ec;!important;">
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
                 <div class="item" data-aos="fade-right" data-aos-duration="1400">
-                <div class="card" style=" border-color: transparent">
+                <div class="card card-hover" style=" border-color: transparent">
                     <div id="Line3" ></div>
                 </div>
                 </div>
             </div>
             <div class="col-sm-6" >
                 <div class="item" data-aos="fade-left" data-aos-duration="1400">
-                <div class="card" style=" border-color: transparent">
+                <div class="card card-hover" style=" border-color: transparent">
                     <div id="Line5" ></div>
                 </div>
                 </div>
             </div>
         </div>
         </div>
-    <div class="graphs-container" style="background-color: #e5e9ec;!important;">
+    <div class="graphs-container-unhovered" style="background-color: #e5e9ec;!important;">
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
                 <div class="item" data-aos="fade-right" data-aos-duration="1800">
-                <div class="card" style=" border-color: transparent">
+                <div class="card card-hover" style=" border-color: transparent">
                     <div id="Line6" ></div>
                 </div>
                 </div>
             </div>
             <div class="col-sm-6" >
                 <div class="item" data-aos="fade-left" data-aos-duration="1800">
-                <div class="card" style=" border-color: transparent">
+                <div class="card card-hover" style=" border-color: transparent">
                     <div id="Line7" ></div>
                 </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="graphs-container" style="background-color: #e5e9ec;!important;">
+    <div class="graphs-container-unhovered" style="background-color: #e5e9ec;!important;">
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
                 <div class="item" data-aos="fade-right" data-aos-duration="2200">
-                <div class="card" style=" border-color: transparent">
+                <div class="card card-hover" style=" border-color: transparent">
                     <div id="Line8" ></div>
                 </div>
                 </div>
             </div>
             <div class="col-sm-6" >
                 <div class="item" data-aos="fade-left" data-aos-duration="2200">
-                <div class="card" style=" border-color: transparent">
+                <div class="card card-hover" style=" border-color: transparent">
                     <div id="Line9" ></div>
                 </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="graphs-container" style="background-color: #e5e9ec;!important;">
+    <div class="graphs-container-unhovered" style="background-color: #e5e9ec;!important;">
         <div class="row p-1" style="display: flex; justify-content: center;">
             <div class="col-sm-6" >
                 <div class="item" data-aos="fade-right" data-aos-duration="2600">
-                <div class="card" style=" border-color: transparent">
+                <div class="card card-hover" style=" border-color: transparent">
                     <div id="Line10" ></div>
                 </div>
                 </div>
             </div>
             <div class="col-sm-6" >
                 <div class="item" data-aos="fade-left" data-aos-duration="2600">
-                <div class="card" style=" border-color: transparent">
+                <div class="card card-hover" style=" border-color: transparent">
                     <div id="Line11" ></div>
                 </div>
                 </div>
@@ -335,54 +334,54 @@ $this->registerCss('css/graphs.css');
 </div>
 
 <section id="hiddenSection2" style="display:none;padding-top: 0.3rem!important; background-color: #e5e9ec;padding-bottom: 1rem!important;">
-    <div class="graphs-container" style="border-radius:4px;background-color: #e5e9ec;">
+    <div class="graphs-container-unhovered" style="border-radius:4px;background-color: #e5e9ec;">
             <div class="col-lg-12" >
-                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
+                <div class="card card-hover" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="o3Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
+                <div class="card card-hover" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="tempChart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
+                <div class="card card-hover" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="humidChart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
+                <div class="card card-hover" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="pm1Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
+                <div class="card card-hover" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="pm25Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
+                <div class="card card-hover" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="pm10Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
+                <div class="card card-hover" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="so2Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
+                <div class="card card-hover" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="noChart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
+                <div class="card card-hover" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="no2Chart" ></div>
                 </div>
             </div>
             <div class="col-lg-12" >
-                <div class="card" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
+                <div class="card card-hover" style="border-color: transparent;margin-bottom:10px; border-radius:4px;">
                     <div id="presChart" ></div>
                 </div>
             </div>
@@ -405,7 +404,7 @@ $this->registerCss('css/graphs.css');
                 </div>
             </div>
             <div class="loading">Gathering sensor nodes...</div><br /><br />
-            <img src="asset/LogoGaiaPlatform.png" style="margin-left:35%;">
+            <img src="asset/LogoGaiaPlatform.png" style="margin-left:30%;">
         </div>
     </div>
 </div>

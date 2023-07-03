@@ -705,7 +705,7 @@ if (decodedLastPart === 'site/map') {
             '<i class="circle_dot" id="yellowFilter" style="background: #ffeb00;cursor: pointer" onclick="yellowButton()"></i><span><b>Fair</b></span><br>' +
             '<i class="circle_dot" id="redFilter" style="background: #ff0032;cursor: pointer" onclick="redButton()"></i><span><b>Bad</b></span><br>' +
             '<i class="circle_dot" id="grayFilter" style="background: grey;cursor: pointer" onclick="grayButton()"></i><span><b>No data</b></span><br>' +
-            '<a id="myBtn" style="text-decoration: none;font-size: 15px" href="javascript:void(0);">Legend explained</a><br></div>';
+            '<button id="myBtn" class="btn btn-primary  px-3 mb-2 mb-lg-0" style="text-decoration: none;font-size: 15px" href="javascript:void(0);">Legend explained</button><br></div>';
         return div;
     };
 

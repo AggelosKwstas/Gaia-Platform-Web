@@ -41,14 +41,14 @@
 }
 
 .contact-bg {
-    padding-left: 65vh;
+    padding-left: 30vh;
     background: url("../asset/libeBlur.jpg") no-repeat center fixed;
     background-size: cover;
 }
 
 .container-contact {
-    position: center;
-    width: 59%;
+    justify-content: center;
+    width: 90%;
     height: 70%;
     background: #fff;
     border-radius: 25px;

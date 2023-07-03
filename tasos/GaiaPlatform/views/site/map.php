@@ -33,67 +33,113 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
         </div>
         <div id="myModal" class="modal">
             <div class="modal-content">
-                <span class="close">&times;</span>
+                <span class="close">&nbsp&nbsp&times;</span>
                 <div class="modal-body" style="font-size: 15px">
-                    <h5><strong>Details on the methodology the AQ Index is calculated :</strong></h5>
+                    <h3><b>Case Study - Air Quality Index at Ioannina,Greece</b></h3>
                     <p>
-                        <em>The markers on the map represent the locations of air quality monitoring stations , their
-                            colour corresponds to the air quality index at that station.
+                        <em>The map markers indicate the positions of air quality monitoring stations,
+                            and the color assigned to each marker corresponds to the air quality index recorded at that specific station.
+                            <br>The index is determined by considering concentration values of up to five primary pollutants, which include:
                         </em>
-                        <br>
-                        The Index is based on concentration values for up to five key pollutants, including:
+
                     <ul>
-                        <li><b>particulate matter (PM<sub>10</sub>)</b></li>
-                        <li><b>fine particulate matter (PM<sub>2.5</sub>)</b></li>
-                        <li><b>ozone (O<sub>3</sub>)</b></li>
-                        <li><b>nitrogen dioxide (NO<sub>2</sub>)</b></li>
-                        <li><b>sulphur dioxide (SO2)</b></li>
+                        <li><b>Particulate matter  (PM<sub>10</sub>)</b></li>
+                        <li><b>Fine particulate matter (PM<sub>2.5</sub>)</b></li>
+                        <li><b>Ozone (O<sub>3</sub>)</b></li>
+                        <li><b>Nitrogen dioxide (NO<sub>2</sub>)</b></li>
+                        <li><b>Sulphur dioxide (SO2)</b></li>
                     </ul>
-                    <em> *Index levels for pollutants NO<sub>2</sub> , O<sub>3</sub> , SO2 are based on hourly
-                        concentrations , <br>
-                        while PM<sub>10</sub> and PM<sub>2.5</sub> are based on daily running means.</em>
+                    <em> For all the pollutants (NO2, O3, SO2, PM10 and PM2.5), the air quality index levels are typically determined based on <b>latest</b> concentration measurements.
+                        By analyzing the latest concentration data of these key pollutants, the air quality index provides a comprehensive assessment of the current air quality at each monitoring station.
+                        This approach allows for a more immediate understanding of the overall air pollution levels in a given area, as it takes into account the most recent measurements available for PM10 and PM2.5 pollutants.</em>
+                    <br>
                     <br>
                     <h5><strong>Bands of concentrations and index levels :</strong></h5>
                     <table class="styled-table" style="align-items: center">
                         <thead>
                         <tr>
-                            <th style="text-align: center"><i style="font-size: 30px" class="fa fa-info-circle"></i>
+                            <th style="text-align: left"><i style="font-size: 30px" class="fa fa-info-circle"></i>
                             </th>
-                            <th style="text-align: center">Good</th>
-                            <th style="text-align: center">Fair</th>
-                            <th style="text-align: center">Bad</th>
+                            <th style="text-align: left">Good</th>
+                            <th style="text-align: left">Fair</th>
+                            <th style="text-align: left">Bad</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td style="text-align: center"><b>O<sub>3</sub> (ppm)</b></td>
-                            <td style="color: #01fb0a;text-align: center">0-100</td>
-                            <td style="color: #DECF37FF;text-align: center">100-240</td>
-                            <td style="color: #ff0032;text-align: center">240-800</td>
+                            <td style="text-align: left"><b>O<sub>3</sub> (ppm)</b></td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #01FB0AFF;"></span>
+                                <span>&#8804; 0.04</span>
+                            </td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #DECF37FF;"></span>
+                                <span>0.04-0.2</span>
+                            </td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #ff0032;"></span>
+                                <span>&#8805; 0.2</span>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="text-align: center"><b>PM 2.5 (μg/m3)</b></td>
-                            <td style="color: #01fb0a;text-align: center">0-20</td>
-                            <td style="color: #DECF37FF;text-align: center">20-50</td>
-                            <td style="color: #ff0032;text-align: center">50-800</td>
+                            <td style="text-align: left"><b>PM 2.5 (μg/m3)</b></td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #01FB0AFF;"></span>
+                                <span>&#8804; 25</span>
+                            </td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #DECF37FF;"></span>
+                                <span>25-100</span>
+                            </td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #ff0032;"></span>
+                                <span>&#8805; 100</span>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="text-align: center"><b>PM 10 (μg/m3)</b></td>
-                            <td style="color: #01fb0a;text-align: center">0-40</td>
-                            <td style="color: #DECF37FF;text-align: center">40-100</td>
-                            <td style="color: #ff0032;text-align: center">100-1200</td>
+                            <td style="text-align: left"><b>PM 10 (μg/m3)</b></td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #01FB0AFF;"></span>
+                                <span>&#8804; 50</span>
+                            </td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #DECF37FF;"></span>
+                                <span>50-200</span>
+                            </td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #ff0032;"></span>
+                                <span>&#8805; 100</span>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="text-align: center"><b>SO<sub>2</sub> (ppm)</b></td>
-                            <td style="color: #01fb0a;text-align: center">0-100</td>
-                            <td style="color: #DECF37FF;text-align: center">100-200</td>
-                            <td style="color: #ff0032;text-align: center">200-1200</td>
+                            <td style="text-align: left"><b>SO<sub>2</sub> (ppm)</b></td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #01FB0AFF;"></span>
+                                <span>&#8804; 0.1</span>
+                            </td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #DECF37FF;"></span>
+                                <span>0.1-0.3</span>
+                            </td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #ff0032;"></span>
+                                <span>&#8805; 0.3</span>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="text-align: center"><b>NO<sub>2</sub> (ppm)</b></td>
-                            <td style="color: #01fb0a;text-align: center">0-90</td>
-                            <td style="color: #DECF37FF;text-align: center">90-230</td>
-                            <td style="color: #ff0032;text-align: center">230-1000</td>
+                            <td style="text-align: left"><b>NO<sub>2</sub> (ppm)</b></td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #01FB0AFF;"></span>
+                                <span>&#8804; 0.1</span>
+                            </td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #DECF37FF;"></span>
+                                <span>0.1-0.2</span>
+                            </td>
+                            <td style="text-align: left">
+                                <span style="display: inline-block; width: 20px; height: 20px; background-color: #ff0032;"></span>
+                                <span>&#8805; 0.2</span>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -115,7 +161,7 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
                     </div>
                 </div>
                 <div class="loading">Initializing map elements...</div><br /><br />
-                <img src="asset/LogoGaiaPlatform.png" style="margin-left:35%;">
+                <img src="asset/LogoGaiaPlatform.png" style="margin-left:30%;">
             </div>
         </div>
     </div>
