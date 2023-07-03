@@ -704,7 +704,7 @@ if (decodedLastPart === 'site/map') {
             '<i class="circle_dot" id="greenFilter" style="background: #01fb0a;cursor: pointer" onclick="greenButton()"></i><span><b>Good</b></span><br>' +
             '<i class="circle_dot" id="yellowFilter" style="background: #ffeb00;cursor: pointer" onclick="yellowButton()"></i><span><b>Fair</b></span><br>' +
             '<i class="circle_dot" id="redFilter" style="background: #ff0032;cursor: pointer" onclick="redButton()"></i><span><b>Bad</b></span><br>' +
-            '<i class="circle_dot" id="grayFilter" style="background: grey;cursor: pointer" onclick="grayButton()"></i><span><b>No data</b></span><br>' +
+            '<i class="circle_dot" id="grayFilter" style="background: #808080;cursor: pointer" onclick="grayButton()"></i><span><b>No data</b></span><br>' +
             '<button id="myBtn" class="btn btn-primary  px-3 mb-2 mb-lg-0" style="text-decoration: none;font-size: 15px" href="javascript:void(0);">Legend explained</button><br></div>';
         return div;
     };
@@ -817,11 +817,11 @@ let grayPressed = false
 
 function grayButton() {
     if (!grayPressed) {
-        $('.leaflet-pane img[src="asset/markers/stationGrey.png"]').hide();
+        $('.leaflet-pane img[src="asset/markers/stationGray.png"]').hide();
         document.getElementById('grayFilter').style.backgroundColor = '#D3D3D3';
         grayPressed = true
     } else {
-        $('.leaflet-pane img[src="asset/markers/stationGrey.png"]').show();
+        $('.leaflet-pane img[src="asset/markers/stationGray.png"]').show();
         document.getElementById('grayFilter').style.backgroundColor = '#808080';
         grayPressed = false
     }
