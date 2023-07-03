@@ -242,7 +242,7 @@ markers.forEach(marker => {
                 Windows.</p>
         </div>
 
-        <button type="button" class="icon" onclick="downloadGaia()" title="Download GAIA">
+        <button1 type="button" class="icon" onclick="downloadGaia()" title="Download GAIA">
             <div class="cloud">
                 <div class="puff puff-1"></div>
                 <div class="puff puff-2"></div>
@@ -268,7 +268,7 @@ markers.forEach(marker => {
                 <div class="drop drop-2"></div>
                 <div class="drop drop-3"></div>
             </div>
-        </button>
+        </button1>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 this.querySelector(".icon").addEventListener("click", function () {
