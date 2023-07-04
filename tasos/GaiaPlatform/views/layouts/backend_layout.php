@@ -13,7 +13,7 @@ $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, shrink-to-fit=yes']);
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
-$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset/maybe.png']);
+$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset/BadgeGaiaPlatform.png']);
 
 ?>
 <?php $this->beginPage() ?>
@@ -25,7 +25,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content=""/>
         <meta name="author" content=""/>
-        <link rel="icon" type="image/x-icon" href="asset/maybe.png"/>
+        <link rel="icon" type="image/x-icon" href="asset/BadgeGaiaPlatform.png"/>
         <?php $this->head() ?>
     </head>
     <body id="page-top">
@@ -38,7 +38,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
             <a class="sidebar-brand d-flex align-items-center justify-content-center inactiveLink"
                style="color: white!important;">
                 <div class="sidebar-brand-text">GAIA Backend</div>
-                <img src="asset/maybe.png" style="width: 3rem;position: relative;left: 5px">
+                <img src="asset/BadgeGaiaPlatform.png" style="width: 3rem;position: relative;left: 5px">
             </a>
 
             <hr class="sidebar-divider my-0">

@@ -203,7 +203,7 @@ function gaugeChart(targetElementId, measurementName, measurementValue, min, max
                 y: -70
             },
             labels: {
-                y: 16
+                y: 20
             }
         },
 
@@ -239,7 +239,7 @@ function gaugeChart(targetElementId, measurementName, measurementValue, min, max
             dataLabels: {
                 format:
                     '<div style="text-align:center">' +
-                    '<span style="font-size:25px">{y}</span><br/>' +
+                    '<span style="font-size:19px">{y}</span><br/>' +
                     '<span style="font-size:12px;opacity:0.4">'+ decodeEntities(unit) +'</span>' +
                     '</div>'
             },
