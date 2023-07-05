@@ -136,18 +136,18 @@ Promise.all(requests)
             let gaugeSum = gaugeName+adder;
             if (k!==3){
                 measurementsView(gaugeSum, typeDescriptions[k], lastMeasurement[k], min_value[k], max_value[k], typeUnits[k]);
-                if(k===1){
-                    var cardTemp = document.getElementById("tempCard");
-                    cardTemp.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
-                }
-                if(k===2){
-                    var cardHumid = document.getElementById("humidCard");
-                    cardHumid.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
-                }
-                if(k===10){
-                    var cardPress = document.getElementById("pressCard");
-                    cardPress.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
-                }
+                // if(k===1){
+                //     var cardTemp = document.getElementById("tempCard");
+                //     cardTemp.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
+                // }
+                // if(k===2){
+                //     var cardHumid = document.getElementById("humidCard");
+                //     cardHumid.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
+                // }
+                // if(k===10){
+                //     var cardPress = document.getElementById("pressCard");
+                //     cardPress.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
+                // }
             }
             else if(k===3){
                 initBattery(lastMeasurement[k]);

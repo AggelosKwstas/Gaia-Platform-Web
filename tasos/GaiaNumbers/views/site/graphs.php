@@ -33,17 +33,17 @@ $this->registerCss('css/graphs.css');
         </div>
         <div class='mid-card' style="background-color: white">
             <div class='card-text' style="margin-top:1rem;">
-                <p class="battery-text"><b>Temperature&nbsp&nbsp&nbsp Humidity&nbsp&nbsp&nbsp&nbsp Air Pressure</b></p>
-                <div class="container-horizontal">
-                    <img src="/asset/graphs/temperature.png" style="height:50px;width:50px;" alt="Temperature Icon"/>
-                    <p id="tempCard" class="battery__text"></p>&nbsp&nbsp
-                    <img src="/asset/graphs/humidity.png" style="height:50px;width:50px;" alt="Humidity Icon"/>
-                    <p id="humidCard" class="battery__text"></p>&nbsp&nbsp
-                    <img src="/asset/graphs/gauge.png" style="height:50px;width:50px;" alt="Air Pressure Icon"/>
-                    <p id="pressCard" class="battery__text"></p>
-                </div>
-
-                <?php echo '<p class="battery__text"><b> Status: </b>' . $content['weather'][0]['main'] . '</p>';?>
+<!--                <p class="battery-text"><b>Temperature&nbsp&nbsp&nbsp Humidity&nbsp&nbsp&nbsp&nbsp Air Pressure</b></p>-->
+<!--                <div class="container-horizontal">-->
+<!--                    <img src="/asset/graphs/temperature.png" style="height:50px;width:50px;" alt="Temperature Icon"/>-->
+<!--                    <p id="tempCard" class="battery__text"></p>&nbsp&nbsp-->
+<!--                    <img src="/asset/graphs/humidity.png" style="height:50px;width:50px;" alt="Humidity Icon"/>-->
+<!--                    <p id="humidCard" class="battery__text"></p>&nbsp&nbsp-->
+<!--                    <img src="/asset/graphs/gauge.png" style="height:50px;width:50px;" alt="Air Pressure Icon"/>-->
+<!--                    <p id="pressCard" class="battery__text"></p>-->
+<!--                </div>-->
+                <?php echo '<h4 class="battery__text h4Hover"><strong> Weather Forecast </strong></h4>';?>
+                <?php echo '<h5><strong> Status: </strong>' . $content['weather'][0]['main'] . '</h5>';?>
                 <?php echo '<img class="forecast" style="padding-left: 20px;height: 60px;width: 65px" src="http://openweathermap.org/img/w/'. $content['weather'][0]['icon'] .'.png"></img>' ;?><br>
             </div>
         </div>

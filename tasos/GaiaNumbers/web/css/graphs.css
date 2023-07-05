@@ -24,7 +24,7 @@
 h4.h4Hover {
     --s: 0.1em;
     /* the thickness of the line */
-    --c: black;
+    --c: #5caa32;
     /* the color */
 
     color: #0000;
