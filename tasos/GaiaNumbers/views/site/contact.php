@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <title>GAIA Platform - Contact</title>
-<section class="contact-bg">
+<section class="contact-bg" style="padding-top: 15vh!important;">
     <div class="container-contact bg-light">
         <div class="content">
             <!-- Left Side -->
