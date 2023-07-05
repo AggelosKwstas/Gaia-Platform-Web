@@ -135,7 +135,7 @@ Promise.all(requests)
             let gaugeName = 'Gauge';
             let gaugeSum = gaugeName+adder;
             if (k!==3){
-                gaugeChart(gaugeSum, typeDescriptions[k], lastMeasurement[k], min_value[k], max_value[k], typeUnits[k]);
+                measurementsView(gaugeSum, typeDescriptions[k], lastMeasurement[k], min_value[k], max_value[k], typeUnits[k]);
                 if(k===1){
                     var cardTemp = document.getElementById("tempCard");
                     cardTemp.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
@@ -158,7 +158,7 @@ Promise.all(requests)
     .catch(error => {
         console.error('Error occurred:', error);
     });
-function gaugeChart(targetElementId, measurementName, measurementValue, min, max, unit){
+function measurementsView(targetElementId, measurementName, measurementValue, min, max, unit){
 var card = document.getElementById(targetElementId);
 
     // Create and set the measurement name element
@@ -179,101 +179,7 @@ var card = document.getElementById(targetElementId);
     card.appendChild(rangeElement);
 
 }
-// card.textContent = measurementName
-// card.textContent = Math.floor(measurementValue)+decodeEntities(unit);
 
-// function gaugeChart(targetElementId, measurementName, measurementValue, min, max, unit){
-//     var gaugeOptions = {
-//         chart: {
-//             type: 'solidgauge'
-//         },
-//
-//         title: null,
-//
-//         pane: {
-//             center: ['50%', '85%'],
-//             size: '90%',
-//             startAngle: -90,
-//             endAngle: 90,
-//             background: {
-//                 backgroundColor:
-//                     Highcharts.defaultOptions.legend.backgroundColor || '#EEE',
-//                 innerRadius: '60%',
-//                 outerRadius: '100%',
-//                 shape: 'arc'
-//             }
-//         },
-//
-//         exporting: {
-//             enabled: false
-//         },
-//
-//         tooltip: {
-//             enabled: false
-//         },
-//         // the value axis
-//         yAxis: {
-//             stops: [
-//                 [0.3, '#55BF3B'], // green
-//                 [0.6, '#DDDF0D'], // yellow
-//                 [0.9, '#DF5353'] // red
-//             ],
-//             lineWidth: 0,
-//             tickWidth: 0,
-//             minorTickInterval: null,
-//             tickAmount: 2,
-//             title: {
-//                 y: -70
-//             },
-//             labels: {
-//                 y: 20
-//             }
-//         },
-//
-//         plotOptions: {
-//             solidgauge: {
-//                 dataLabels: {
-//                     y: 5,
-//                     borderWidth: 0,
-//                     useHTML: true
-//                 }
-//             }
-//         }
-//     };
-//
-//     // The speed gauge
-//     var chartSpeed = Highcharts.chart(targetElementId, Highcharts.merge(gaugeOptions, {
-//         yAxis: {
-//             min: min,
-//             max: max,
-//             tickInterval: 0,
-//             title: {
-//                 text: measurementName
-//             },
-//         },
-//
-//         credits: {
-//             enabled: false
-//         },
-//
-//         series: [{
-//             name: measurementName,
-//             data: [measurementValue],
-//             dataLabels: {
-//                 format:
-//                     '<div style="text-align:center">' +
-//                     '<span style="font-size:19px">{y}</span><br/>' +
-//                     '<span style="font-size:12px;opacity:0.4">'+ decodeEntities(unit) +'</span>' +
-//                     '</div>'
-//             },
-//             tooltip: {
-//                 valueSuffix: decodeEntities(unit)
-//             }
-//         }]
-//
-//     }));
-//
-// }
 
 function initBattery(level) {
     const batteryLiquid = document.querySelector('.battery__liquid'),
