@@ -74,33 +74,38 @@ $this->registerCss('css/graphs.css');
 </div>
 </div>
 </div>
-
 <section style="padding-top: 0.3rem!important;padding-bottom: 5px!important; background-color: #e5e9ec;height:auto!important;">
     <div class="item" data-aos="fade-down" data-aos-duration="1000">
     <div class="graphs-container" style="border-radius:4px;background-color: white;!important;">
         <div class="row" style="display: flex; justify-content: center;">
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" >
                     <figure class="highcharts-figure">
-                        <div id="Gauge1" class="chart-container"></div>
+                        <img src="/asset/values/o3.png" style="height:3rem;width:3rem; margin-right:8px;"/>
+                        <div id="Gauge1" class="chart-container">
+                        </div>
                     </figure>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" >
                     <figure class="highcharts-figure">
+                        <img src="/asset/values/thermometer.png" style="height:3rem;width:3rem"/>
                         <div id="Gauge2" class="chart-container"></div>
                     </figure>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 " >
                     <figure class="highcharts-figure">
+                        <img src="/asset/values/humidity.png" style="height:3rem;width:3rem"/>
                         <div id="Gauge3" class="chart-container"></div>
                     </figure>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" >
                     <figure class="highcharts-figure">
+                        <img src="/asset/values/pm1.png" style="height:3rem;width:3rem;margin-right:8px;"/>
                         <div id="Gauge5" class="chart-container"></div>
                     </figure>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" >
                     <figure class="highcharts-figure">
+                        <img src="/asset/values/pm25.png" style="height:4rem;width:4rem"/>
                         <div id="Gauge6" class="chart-container"></div>
                     </figure>
             </div>
@@ -109,26 +114,31 @@ $this->registerCss('css/graphs.css');
         <div class="row" style="display: flex; justify-content: center;">
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                     <figure class="highcharts-figure">
+                        <img src="/asset/values/pm10.png" style="height:3rem;width:3rem;margin-right:8px;"/>
                         <div id="Gauge7" class="chart-container"></div>
                     </figure>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                     <figure class="highcharts-figure">
+                        <img src="/asset/values/so2.png" style="height:5rem;width:5rem"/>
                         <div id="Gauge8" class="chart-container"></div>
                     </figure>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                     <figure class="highcharts-figure">
+                        <img src="/asset/values/no.png" style="height:3rem;width:3rem;margin-right:8px;"/>
                         <div id="Gauge9" class="chart-container"></div>
                     </figure>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                     <figure class="highcharts-figure">
+                        <img src="/asset/values/no2.png" style="height:3rem;width:3rem;margin-right:8px;"/>
                         <div id="Gauge10" class="chart-container"></div>
                     </figure>
             </div>
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                         <figure class="highcharts-figure">
+                            <img src="/asset/values/pressure.jpg" style="height:3rem;width:3rem"/>
                             <div id="Gauge11" class="chart-container"></div>
                         </figure>
                 </div>

@@ -158,99 +158,122 @@ Promise.all(requests)
     .catch(error => {
         console.error('Error occurred:', error);
     });
-
 function gaugeChart(targetElementId, measurementName, measurementValue, min, max, unit){
-    var gaugeOptions = {
-        chart: {
-            type: 'solidgauge'
-        },
+var card = document.getElementById(targetElementId);
 
-        title: null,
+    // Create and set the measurement name element
+    var measurementNameElement = document.createElement('h3');
+    // measurementNameElement.classList.add('h4Hover');
+    measurementNameElement.style.color = '#5caa32';
+    measurementNameElement.innerText = decodeEntities(measurementName);
+    card.appendChild(measurementNameElement);
 
-        pane: {
-            center: ['50%', '85%'],
-            size: '90%',
-            startAngle: -90,
-            endAngle: 90,
-            background: {
-                backgroundColor:
-                    Highcharts.defaultOptions.legend.backgroundColor || '#EEE',
-                innerRadius: '60%',
-                outerRadius: '100%',
-                shape: 'arc'
-            }
-        },
+    // Create and set the measurement value element
+    var measurementValueElement = document.createElement('h5');
+    measurementValueElement.innerText = measurementValue + ' ' + decodeEntities(unit);
+    card.appendChild(measurementValueElement);
 
-        exporting: {
-            enabled: false
-        },
-
-        tooltip: {
-            enabled: false
-        },
-        // the value axis
-        yAxis: {
-            stops: [
-                [0.3, '#55BF3B'], // green
-                [0.6, '#DDDF0D'], // yellow
-                [0.9, '#DF5353'] // red
-            ],
-            lineWidth: 0,
-            tickWidth: 0,
-            minorTickInterval: null,
-            tickAmount: 2,
-            title: {
-                y: -70
-            },
-            labels: {
-                y: 20
-            }
-        },
-
-        plotOptions: {
-            solidgauge: {
-                dataLabels: {
-                    y: 5,
-                    borderWidth: 0,
-                    useHTML: true
-                }
-            }
-        }
-    };
-
-    // The speed gauge
-    var chartSpeed = Highcharts.chart(targetElementId, Highcharts.merge(gaugeOptions, {
-        yAxis: {
-            min: min,
-            max: max,
-            tickInterval: 0,
-            title: {
-                text: measurementName
-            },
-        },
-
-        credits: {
-            enabled: false
-        },
-
-        series: [{
-            name: measurementName,
-            data: [measurementValue],
-            dataLabels: {
-                format:
-                    '<div style="text-align:center">' +
-                    '<span style="font-size:19px">{y}</span><br/>' +
-                    '<span style="font-size:12px;opacity:0.4">'+ decodeEntities(unit) +'</span>' +
-                    '</div>'
-            },
-            tooltip: {
-                valueSuffix: decodeEntities(unit)
-            }
-        }]
-
-    }));
+    // Create and set the min-max range element
+    var rangeElement = document.createElement('h8');
+    rangeElement.innerText = 'Range: '+ min + ' - ' +max + '(' +decodeEntities(unit)+')';
+    card.appendChild(rangeElement);
 
 }
+// card.textContent = measurementName
+// card.textContent = Math.floor(measurementValue)+decodeEntities(unit);
+
+// function gaugeChart(targetElementId, measurementName, measurementValue, min, max, unit){
+//     var gaugeOptions = {
+//         chart: {
+//             type: 'solidgauge'
+//         },
+//
+//         title: null,
+//
+//         pane: {
+//             center: ['50%', '85%'],
+//             size: '90%',
+//             startAngle: -90,
+//             endAngle: 90,
+//             background: {
+//                 backgroundColor:
+//                     Highcharts.defaultOptions.legend.backgroundColor || '#EEE',
+//                 innerRadius: '60%',
+//                 outerRadius: '100%',
+//                 shape: 'arc'
+//             }
+//         },
+//
+//         exporting: {
+//             enabled: false
+//         },
+//
+//         tooltip: {
+//             enabled: false
+//         },
+//         // the value axis
+//         yAxis: {
+//             stops: [
+//                 [0.3, '#55BF3B'], // green
+//                 [0.6, '#DDDF0D'], // yellow
+//                 [0.9, '#DF5353'] // red
+//             ],
+//             lineWidth: 0,
+//             tickWidth: 0,
+//             minorTickInterval: null,
+//             tickAmount: 2,
+//             title: {
+//                 y: -70
+//             },
+//             labels: {
+//                 y: 20
+//             }
+//         },
+//
+//         plotOptions: {
+//             solidgauge: {
+//                 dataLabels: {
+//                     y: 5,
+//                     borderWidth: 0,
+//                     useHTML: true
+//                 }
+//             }
+//         }
+//     };
+//
+//     // The speed gauge
+//     var chartSpeed = Highcharts.chart(targetElementId, Highcharts.merge(gaugeOptions, {
+//         yAxis: {
+//             min: min,
+//             max: max,
+//             tickInterval: 0,
+//             title: {
+//                 text: measurementName
+//             },
+//         },
+//
+//         credits: {
+//             enabled: false
+//         },
+//
+//         series: [{
+//             name: measurementName,
+//             data: [measurementValue],
+//             dataLabels: {
+//                 format:
+//                     '<div style="text-align:center">' +
+//                     '<span style="font-size:19px">{y}</span><br/>' +
+//                     '<span style="font-size:12px;opacity:0.4">'+ decodeEntities(unit) +'</span>' +
+//                     '</div>'
+//             },
+//             tooltip: {
+//                 valueSuffix: decodeEntities(unit)
+//             }
+//         }]
+//
+//     }));
+//
+// }
 
 function initBattery(level) {
     const batteryLiquid = document.querySelector('.battery__liquid'),
