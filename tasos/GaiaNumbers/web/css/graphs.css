@@ -42,7 +42,7 @@ h4.h4Hover:hover {
 }
 
 h4.h4Hover {
-    /*font-family: system-ui, sans-serif;*/
+    font-family: system-ui, Roboto Lite;
     font-size: 2rem;
     cursor: pointer;
 }
