@@ -99,12 +99,17 @@ markers.forEach(marker => {
                 </div>
                 <div class="item" data-aos="fade-up" data-aos-duration="1000">
                     <p style="font-size: 19px;">
-                        Our platform helps to enable real-time monitoring and measurement of the air quality index in
-                        the environment. These sensors are designed to detect and measure the concentration of various
-                        pollutants such as PM2.5, PM10, CO2 and other harmful gases. The platform is designed to be easy
-                        to use, making it convenient for you to access the air quality data whenever you need it.
-                        In addition to personal use, GAIA platform is also used for public health purposes, such as
-                        tracking air pollution levels in cities and industrial areas.
+<!--                        Our platform helps to enable real-time monitoring and measurement of the air quality index in-->
+<!--                        the environment. These sensors are designed to detect and measure the concentration of various-->
+<!--                        pollutants such as PM2.5, PM10, CO2 and other harmful gases. The platform is designed to be easy-->
+<!--                        to use, making it convenient for you to access the air quality data whenever you need it.-->
+<!--                        In addition to personal use, GAIA platform is also used for public health purposes, such as-->
+<!--                        tracking air pollution levels in cities and industrial areas.-->
+                        GAIA Platform is dedicated to promoting environmental sustainability by providing real-time monitoring and measurement of both air and water quality indices.
+                        Through advanced sensor technology, our platform enables the detection and measurement of various pollutants, including PM2.5, PM10, CO2, and other harmful gases, in the air.
+                        Simultaneously, it also offers comprehensive monitoring of water quality parameters such as pH, turbidity, dissolved oxygen, and chemical contaminants.
+                        With an intuitive interface and user-friendly design, accessing and interpreting the data becomes effortless, allowing users to make informed decisions regarding their environmental well-being.
+
                     </p>
                 </div>
             </div>

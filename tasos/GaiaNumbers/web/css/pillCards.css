@@ -1,5 +1,5 @@
 body {
-    font-family: "Trebuchet MS", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15.5px;
 }
 
@@ -89,7 +89,7 @@ body {
 .card-text p {
     margin: 0;
     line-height: 1.35em;
-    color: #334455;
+    /*color: #334455;*/
 }
 
 /*midcardstart*/
@@ -118,7 +118,7 @@ body {
 .card-text p {
     margin: 0;
     line-height: 1.35em;
-    color: #334455;
+    /*color: #334455;*/
 }
 /*midcardend*/
 
