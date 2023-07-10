@@ -64,12 +64,11 @@ class SiteController extends Controller
         return $decoded;
     }
 
-    function fiveWeatherCalls()
+    function threeWeatherCalls($lat, $long)
     {
         #make api call
         $ch = curl_init();
-        $url = "https://api.openweathermap.org/data/2.5/forecast?q=Ioannina&APPID=697f06f42d81bbda7d75e9349aefc162&cnt=5";
-        https://api.openweathermap.org/data/2.5/forecast/daily?lat=39.7147&lon=20.7572&cnt=3&appid=697f06f42d81bbda7d75e9349aefc162
+        $url = "https://api.openweathermap.org/data/2.5/forecast?lat=$lat&lon=$long&cnt=3&appid=697f06f42d81bbda7d75e9349aefc162";
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
@@ -207,12 +206,14 @@ class SiteController extends Controller
 
     public function actionGraphs($id='',$title='',$name='',$time='')
     {
-        $weatherCalls = $this->fiveWeatherCalls();
+        $gardiki = $this->threeWeatherCalls(39.7147, 20.7572);
+        $ioannis = $this->threeWeatherCalls(39.7027, 20.8122);
+        $eleousa = $this->threeWeatherCalls(39.7066, 20.7926);
         $this->layout = 'graphs_layout';
         $this->view->title = 'Sensor Graphs';
         if($id == '4'){
             return $this->render('graphs', [
-                'content' => $weatherCalls,
+                'content' => $gardiki,
                 'title' => $title,
                 'id' => $id,
                 'name' => $name,
@@ -220,7 +221,7 @@ class SiteController extends Controller
             }
         elseif($id == '5'){
             return $this->render('graphs', [
-                'content' => $weatherCalls,
+                'content' => $ioannis,
                 'title' => $title,
                 'id' => $id,
                 'name' => $name,
@@ -228,7 +229,7 @@ class SiteController extends Controller
             }
         elseif($id == '6'){
             return $this->render('graphs', [
-                'content' => $weatherCalls,
+                'content' => $eleousa,
                 'title' => $title,
                 'id' => $id,
                 'name' => $name,

@@ -20,14 +20,7 @@ $this->registerCss('css/graphs.css');
         <li class="breadcrumb-item active" aria-current="page" style="color: gray" id="nodeId">  <?php echo $title  ?>  </li>
     </ol>
 
-<?php foreach ($content['list'] as $day): ?>
-    <?php $weather = $day['weather'][0]; ?>
-    <div>
-        <p>Date: <?php echo $day['dt_txt']; ?></p>
-        <p>Status: <?php echo $weather['description']; ?></p>
-        <img src="https://openweathermap.org/img/w/<?php echo $weather['icon']; ?>.png" alt="Weather Icon">
-    </div>
-<?php endforeach; ?>
+
 
 <section style="padding-top: 4rem!important; background-color: #e5e9ec;">
     <div class='card-container'>
@@ -42,8 +35,17 @@ $this->registerCss('css/graphs.css');
             </div>
         </div>
         <div class='mid-card' style="background-color: white">
-            <div class='card-text' style="margin-top:1rem;">
+            <div class='card-text'>
                 <?php echo '<h4 class="battery__text h4Hover"><strong> Weather Forecast </strong></h4>';?>
+                <?php foreach ($content['list'] as $day): ?>
+                    <?php $weather = $day['weather'][0]; ?>
+                    <div class="weather-item">
+                        <img src="https://openweathermap.org/img/w/<?php echo $weather['icon']; ?>.png" style="height: 50px;width: 55px" alt="Weather Icon">
+                        <p style="font-size:12px;"><?php echo date('Y-m-d', strtotime($day['dt_txt']));?></p>
+                        <p style="font-size:12px;"><?php echo date('H:i', strtotime($day['dt_txt']));?></p>
+                        <p style="font-size:14px;"><b>Status:</b> <?php echo $weather['description']; ?></p>
+                        </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
@@ -62,7 +64,7 @@ $this->registerCss('css/graphs.css');
             </div>
             <div class='card-text' style="width: 40%;">
                 <?php echo '<p class="battery__text"><b>' . $title . '</b></p>';?>
-                 <?php echo '<p class="battery__text">Battery Left: <b><span id="batteryLevelValue"></span> </b></p>';?>
+                 <?php echo '<p class="battery__text">Battery Level: <b><span id="batteryLevelValue"></span> </b></p>';?>
                 <h1 id="battery_percentage">
                 </h1>
             </div>`

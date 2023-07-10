@@ -245,7 +245,8 @@ function battery(batteryLevel){
                     color: '#D3D3D3'
                 }
             ]
-        }]
+        }],
+        exporting: false
     });
 }
 $(document).ready(function(){
