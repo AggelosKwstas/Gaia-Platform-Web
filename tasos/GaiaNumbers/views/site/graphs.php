@@ -19,6 +19,16 @@ $this->registerCss('css/graphs.css');
         <li class="breadcrumb-item"> <a style="color: grey" href="<?= \yii\helpers\Url::to(['site/map']) ?>">Stations Overview</a></li>
         <li class="breadcrumb-item active" aria-current="page" style="color: gray" id="nodeId">  <?php echo $title  ?>  </li>
     </ol>
+
+<?php foreach ($content['list'] as $day): ?>
+    <?php $weather = $day['weather'][0]; ?>
+    <div>
+        <p>Date: <?php echo $day['dt_txt']; ?></p>
+        <p>Status: <?php echo $weather['description']; ?></p>
+        <img src="https://openweathermap.org/img/w/<?php echo $weather['icon']; ?>.png" alt="Weather Icon">
+    </div>
+<?php endforeach; ?>
+
 <section style="padding-top: 4rem!important; background-color: #e5e9ec;">
     <div class='card-container'>
         <div class='card-left' style="background-color: white;transform-origin: center;">
@@ -33,25 +43,29 @@ $this->registerCss('css/graphs.css');
         </div>
         <div class='mid-card' style="background-color: white">
             <div class='card-text' style="margin-top:1rem;">
-                <?php echo '<h4 class="battery__text h4Hover"><strong> Weather Forecast </strong></h4>';?>
-                <?php echo '<h5><strong> Status: </strong>' . $content['weather'][0]['main'] . '</h5>';?>
-                <?php echo '<img class="forecast" style="padding-left: 20px;height: 60px;width: 65px" src="http://openweathermap.org/img/w/'. $content['weather'][0]['icon'] .'.png"></img>' ;?><br>
+
             </div>
         </div>
 
         <div class='card-right' style="background-color: white">
-            <div class='card-image'>
-                <div class="battery__pill" style="margin:2rem">
-                    <div class="battery__level">
-                        <div class="battery__liquid"></div>
-                    </div>
-                </div>
+            <div class='card-image' style="width:50%">
+
+<!--                <div class="battery__pill" style="margin:2rem">-->
+<!--                    <div class="battery__level">-->
+<!--                        <div class="battery__liquid"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="highcharts-background" style="background-color:transparent !important;">-->
+                <div id="cont" style="margin-right:3.5rem;width:400px; height:200px;background-color:transparent">
+<!--                </div>-->
             </div>
-            <div class='card-text'>
-                <p class="battery__text"><b>Sensor Node Battery</b></p>
-                <h1 class="battery__percentage">
+            </div>
+            <div class='card-text' style="width: 40%;">
+                <?php echo '<p class="battery__text"><b>' . $title . '</b></p>';?>
+                 <?php echo '<p class="battery__text">Battery Left: <b><span id="batteryLevelValue"></span> </b></p>';?>
+                <h1 id="battery_percentage">
                 </h1>
-            </div>
+            </div>`
         </div>
 
     </div>
@@ -61,7 +75,7 @@ $this->registerCss('css/graphs.css');
 <div class="grid-title-container">
 <div class="grid-title" style="text-align:left;border-radius:4px;background-color:#292725;
         justify-content: center;">
-    &nbsp<?php echo '<i class="fa-solid fa-chart-column fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:20px; ">&nbsp&nbspMost Recent Values for ' . $title . '</span>';?>
+    &nbsp<?php echo '<i class="fa-solid fa-chart-column fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:17px;font-family: sans-serif !important; ">&nbsp&nbspMost Recent Values for ' . $title . '</span>';?>
 </div>
 </div>
 </div>
@@ -330,7 +344,7 @@ $this->registerCss('css/graphs.css');
 <div class="grid-title-container" id="grid-title" style="display:none;">
     <div class="grid-title" style="border-radius:4px;background-color:#292725;
         justify-content: center;">
-        &nbsp<?php echo '<i class="fa-solid fa-chart-pie fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:20px; ">&nbsp&nbspData Analysis for selected date range: <span id="date1Value"></span> to <span id="date2Value"></span>.</span>';?>
+        &nbsp<?php echo '<i class="fa-solid fa-chart-pie fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:17px;font-family: sans-serif !important; ">&nbsp&nbspData Analysis for selected date range: <span id="date1Value"></span> to <span id="date2Value"></span>.</span>';?>
     </div>
 </div>
 

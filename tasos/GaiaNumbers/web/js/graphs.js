@@ -136,21 +136,9 @@ Promise.all(requests)
             let gaugeSum = gaugeName+adder;
             if (k!==3){
                 measurementsView(gaugeSum, typeDescriptions[k], lastMeasurement[k], min_value[k], max_value[k], typeUnits[k]);
-                // if(k===1){
-                //     var cardTemp = document.getElementById("tempCard");
-                //     cardTemp.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
-                // }
-                // if(k===2){
-                //     var cardHumid = document.getElementById("humidCard");
-                //     cardHumid.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
-                // }
-                // if(k===10){
-                //     var cardPress = document.getElementById("pressCard");
-                //     cardPress.textContent = Math.floor(lastMeasurement[k])+decodeEntities(typeUnits[k]);
-                // }
             }
             else if(k===3){
-                initBattery(lastMeasurement[k]);
+                battery(lastMeasurement[k]);
             }
 
         }
@@ -158,6 +146,10 @@ Promise.all(requests)
     .catch(error => {
         console.error('Error occurred:', error);
     });
+
+
+
+
 function measurementsView(targetElementId, measurementName, measurementValue, min, max, unit){
 var card = document.getElementById(targetElementId);
 
@@ -180,38 +172,6 @@ var card = document.getElementById(targetElementId);
 
 }
 
-
-function initBattery(level) {
-    const batteryLiquid = document.querySelector('.battery__liquid'),
-        batteryStatus = document.querySelector('.battery__status'),
-        batteryPercentage = document.querySelector('.battery__percentage')
-
-    navigator.getBattery().then(() => {
-        updateBattery = () => {
-            batteryPercentage.innerHTML = level + '%'
-            batteryPercentage.valueOf(level);
-            batteryLiquid.style.height = `${parseInt(level)}%`
-
-            if (level <= 20) {
-                batteryLiquid.classList.add('gradient-color-red')
-                batteryLiquid.classList.remove('gradient-color-orange', 'gradient-color-yellow', 'gradient-color-green')
-            }
-            else if (level <= 40) {
-                batteryLiquid.classList.add('gradient-color-orange')
-                batteryLiquid.classList.remove('gradient-color-red', 'gradient-color-yellow', 'gradient-color-green')
-            }
-            else if (level <= 80) {
-                batteryLiquid.classList.add('gradient-color-yellow')
-                batteryLiquid.classList.remove('gradient-color-red', 'gradient-color-orange', 'gradient-color-green')
-            }
-            else {
-                batteryLiquid.classList.add('gradient-color-green')
-                batteryLiquid.classList.remove('gradient-color-red', 'gradient-color-orange', 'gradient-color-yellow')
-            }
-        }
-        updateBattery()
-    })
-}
 
 function lineCharts(targetElementId, measurementName, measurementValues, measurementTimestamps, measurementUnits) {
     Highcharts.chart(targetElementId, {
@@ -249,10 +209,42 @@ function lineCharts(targetElementId, measurementName, measurementValues, measure
         ],
     });
 }
-
+function battery(batteryLevel){
+    document.getElementById('batteryLevelValue').textContent = batteryLevel+'%';
+    Highcharts.chart('cont', {
+        chart: {
+            type: 'pie'
+        },
+        title: false,
+        plotOptions: {
+            pie: {
+                innerSize: '75%', // Set the inner size to create a donut chart
+                dataLabels: {
+                    enabled: false // Disable the data labels
+                }
+            }
+        },
+        series: [{
+            name: 'Battery Percentage',
+            data: [
+                {
+                    name: 'Battery Left',
+                    y: batteryLevel,
+                    color: 'rgb(92, 170, 50)'
+                },
+                {
+                    name: 'Battery Lost',
+                    y: 100-batteryLevel,
+                    color: '#D3D3D3'
+                }
+            ]
+        }]
+    });
+}
 $(document).ready(function(){
 
     $(function () {
+
         var start = moment().subtract(29, 'days');
         var end = moment();
 

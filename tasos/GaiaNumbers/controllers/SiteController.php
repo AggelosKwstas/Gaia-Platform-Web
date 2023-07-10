@@ -64,6 +64,27 @@ class SiteController extends Controller
         return $decoded;
     }
 
+    function fiveWeatherCalls()
+    {
+        #make api call
+        $ch = curl_init();
+        $url = "https://api.openweathermap.org/data/2.5/forecast?q=Ioannina&APPID=697f06f42d81bbda7d75e9349aefc162&cnt=5";
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $resp = curl_exec($ch);
+
+        #handle error
+        if ($e = curl_error($ch)) {
+            die($e);
+        } else {
+            $decoded = json_decode($resp, true);
+        }
+        curl_close($ch);
+        return $decoded;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -186,14 +207,12 @@ class SiteController extends Controller
 
     public function actionGraphs($id='',$title='',$name='',$time='')
     {
-        $gardiki = $this->makeWeatherCalls(39.7147, 20.7572);
-        $ioannis = $this->makeWeatherCalls(39.7027, 20.8122);
-        $eleousa = $this->makeWeatherCalls(39.7066, 20.7926);
+        $weatherCalls = $this->fiveWeatherCalls();
         $this->layout = 'graphs_layout';
         $this->view->title = 'Sensor Graphs';
         if($id == '4'){
             return $this->render('graphs', [
-                'content' => $gardiki,
+                'content' => $weatherCalls,
                 'title' => $title,
                 'id' => $id,
                 'name' => $name,
@@ -201,7 +220,7 @@ class SiteController extends Controller
             }
         elseif($id == '5'){
             return $this->render('graphs', [
-                'content' => $ioannis,
+                'content' => $weatherCalls,
                 'title' => $title,
                 'id' => $id,
                 'name' => $name,
@@ -209,7 +228,7 @@ class SiteController extends Controller
             }
         elseif($id == '6'){
             return $this->render('graphs', [
-                'content' => $eleousa,
+                'content' => $weatherCalls,
                 'title' => $title,
                 'id' => $id,
                 'name' => $name,
