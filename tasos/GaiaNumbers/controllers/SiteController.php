@@ -47,7 +47,7 @@ class SiteController extends Controller
         $ch = curl_init();
         $lat = strval($lat);
         $long = strval($long);
-        $url = "https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$long&APPID=697f06f42d81bbda7d75e9349aefc162";
+            $url = "https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$long&APPID=697f06f42d81bbda7d75e9349aefc162";
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -69,7 +69,7 @@ class SiteController extends Controller
         #make api call
         $ch = curl_init();
         $url = "https://api.openweathermap.org/data/2.5/forecast?q=Ioannina&APPID=697f06f42d81bbda7d75e9349aefc162&cnt=5";
-
+        https://api.openweathermap.org/data/2.5/forecast/daily?lat=39.7147&lon=20.7572&cnt=3&appid=697f06f42d81bbda7d75e9349aefc162
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 

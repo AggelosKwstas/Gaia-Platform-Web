@@ -65,7 +65,7 @@ body {
 }
 
 .card-image img {
-    width: 120% !important;
+    width: 100% !important;
     object-fit: cover;
 }
 

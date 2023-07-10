@@ -32,7 +32,7 @@ $this->registerCss('css/graphs.css');
 <section style="padding-top: 4rem!important; background-color: #e5e9ec;">
     <div class='card-container'>
         <div class='card-left' style="background-color: white;transform-origin: center;">
-            <div class='card-image'>
+            <div class='card-image' style="width: 78%;">
                 <img src="/asset/libeliumSensor.png" >
             </div>
             <div class='card-text'>
@@ -253,7 +253,7 @@ $this->registerCss('css/graphs.css');
                      style="object-fit: scale-down"/>
             </div>
             <div class='card-text' style="width: 80%">
-                <p class="battery__text">Select between two dates,<br> to show specific measurements average values.</p><br>
+                <p>Select between two dates,<br> to show specific measurements average values.</p><br>
                 <span class="col-md-4" id="reportrange"
                       style="width:100%;background: white; cursor: pointer; padding: 5px 10px; border: 5px solid #292725;height: 40px;">
             <i class="fa fa-calendar"></i>&nbsp;

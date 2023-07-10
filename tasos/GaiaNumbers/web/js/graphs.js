@@ -207,6 +207,13 @@ function lineCharts(targetElementId, measurementName, measurementValues, measure
 
             },
         ],
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+                }
+            }
+        }
     });
 }
 function battery(batteryLevel){

@@ -6,7 +6,7 @@ function toFixed(num, fixed) {
 //works only with xaamp directory
 function makeAjax(id, title, name, time) {
     $.ajax({
-        url: './?r=api/testing&title=' + title + "&id=" + id +"&name="+ name + "&time="+ time,
+        url: './?r=api/testing&title=' + title + "&id=" + id + "&name=" + name + "&time=" + time,
         data: {}, type: 'POST', success: function (response) {
             console.log(response);
         }, error: function (xhr, status, error) {
@@ -68,33 +68,33 @@ function checkQuality(o3, pm10, pm2, so2, no2) {
     let fair_no2 = false;
     let bad_no2 = false;
 
-    if (o3 >= 0.04 && o3 <= 0.2) {
+    if (o3 >= 100 && o3 <= 240) {
         fair_o3 = true;
-    } else if (o3 >= 0.2) {
+    } else if (o3 >= 240) {
         bad_o3 = true;
     }
 
-    if (pm10 >= 50 && pm10 <= 200) {
+    if (pm10 >= 40 && pm10 <= 100) {
         fair_pm1 = true;
-    } else if (pm10 >= 200) {
+    } else if (pm10 >= 100) {
         bad_pm1 = true;
     }
 
-    if (pm2 >= 25 && pm2 <= 100) {
+    if (pm2 >= 20 && pm2 <= 50) {
         fair_pm2 = true;
-    } else if (pm2 >= 100) {
+    } else if (pm2 >= 50) {
         bad_pm2 = true;
     }
 
-    if (so2 >= 0.1 && so2 <= 0.3) {
+    if (so2 >= 100 && so2 <= 200) {
         fair_so2 = true;
-    } else if (so2 >= 0.3) {
+    } else if (so2 >= 200) {
         bad_so2 = true;
     }
 
-    if (no2 >= 0.1 && no2 <= 0.2) {
+    if (no2 >= 90 && no2 <= 230) {
         fair_no2 = true;
-    } else if (no2 >= 0.2) {
+    } else if (no2 >= 230) {
         bad_no2 = true;
     }
 
@@ -159,7 +159,7 @@ function checkQuality(o3, pm10, pm2, so2, no2) {
 
     return {icon: greenIcon, condition: null, flag: null};
 
-    }
+}
 
 let sensorTypeId = [];
 let measurementValue = [];
@@ -167,24 +167,30 @@ let timestamp = null;
 let found = false;
 let counter = 0;
 
-function lastMeasurementsCall(id, callback) {
+
+function lastMeasurementsCall(id, type_id, callback) {
+    const day = new Date().getDate();
+    const month = new Date().getMonth() + 1; // Months are zero-based
+    const year = new Date().getFullYear();
+    const dateFormatted = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
     let key = '99f344c4-5afd-4962-a7e2-ddbc3467d4c8';
-    let lastMeasurementsURL = "https://restapi.gaia-platform.eu/rest-api/items/readLast.php?sensor_node_id=" + id + "";
+    let lastMeasurementsURL = 'https://restapi.gaia-platform.eu/rest-api/items/readMeasurements.php?token_auth=99f344c4-5afd-4962-a7e2-ddbc3467d4c8&sensor_node_id=' + id + '&date=' + dateFormatted + '&sensor_type_id=' + type_id + '';
 
     $.ajax(lastMeasurementsURL, {
         method: 'GET', data: {
             token_auth: key,
         }, success: function (data) {
-            if (data === null) {
-            } else {
+            if (data != null) {
                 sensorTypeId = [];
                 measurementValue = [];
                 timestamp = null;
                 for (let index in data) {
                     let item = data[index];
-                    timestamp = item.timestamp;
-                    sensorTypeId.push(item.sensor_type_id);
-                    measurementValue.push(item.value);
+                    item.forEach(function (value) {
+                        timestamp = value.timestamp;
+                        sensorTypeId.push(value.sensor_type_id);
+                        measurementValue.push(value.value);
+                    });
                 }
                 callback(id, counter);
             }
@@ -362,7 +368,7 @@ if (decodedLastPart === 'site/map') {
     map2.attributionControl.setPrefix();
 
     function checkCompletion() {
-        if (counter === 4) {
+        if (counter === 11) {
             console.log('Initilization completed')
             $('#loader').fadeOut('fast');
             AOS.init({
@@ -371,88 +377,19 @@ if (decodedLastPart === 'site/map') {
         }
     }
 
-    nodeApiCall(function () {
-        lastMeasurementsCall(sensorNode[0], function (id) {
-            typeCall(sensorNode[0], function (id) {
-                counter++;
-                let marker3 = L.marker([sensorLatitude[0], sensorLongitude[0]]).addTo(map2);
-                if (found === true) {
-                    marker3.setIcon(greyIcon);
-                    popup = `
-        <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[0])}</h6>
-        <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
-        <hr>
-        <b>State: </b><u style="color: red">Inactive</u><br>
-        <b>Type: </b>${sensorName[0]}<br>
-        <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
-        <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
-        <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
-        <button class="button_station button4" style="cursor: not-allowed">View station</button>
-        </div>`;
-                    marker3.bindPopup(popup);
-                } else if (found === false) {
-                    let icon = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).icon
-                    let objects = [];
-                    objects = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).condition
-                    let flag = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).flag
-                    marker3.setIcon(icon);
-                    marker3.bindPopup(`>
-                    <div style="display: block;text-align: center"
-                         <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[0])}</h6>
-                         </div>
-                        <img style="height:7rem;" src="../asset/sensorImages/agiosIoannisSensor.jpg">
-                        <hr class="dotted">
-                                  ${(() => {
-                        let loopContent0 = '';
-                        if (flag === 'bad') {
-                            loopContent0 += `<div><b><u>Bad due to:</u></b></div>`;
-                            for (let i = 0; i < objects.length; i++) {
-                                loopContent0 += `<li style="color: red;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
-                            }
-                        } else if (flag === 'fair') {
-                            loopContent0 += `<div><b><u>Fair due to:</u></b></div>`;
-                            for (let i = 0; i < objects.length; i++) {
-                                loopContent0 += `<li style="color: orange;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
-                            }
-                        }
-                        return loopContent0;
-                    })()}
-                        <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
-                        <b>Type: </b>${sensorName[0]}<br>
-                        <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
-                        <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
-                        <b>Today at:</b><br>F
-                        ${fixTimestamp(timestamp)}<br>
-                        <b><u>Sensor Readings:</u></b><br>
-                        </div>
-                            ${(() => {
-                        let loopContent0 = '';
-                        for (let i = 0; i < measurementValue.length; i++) {
-                            if (i == 1)
-                                typeDescription[i] = typeDescription[i].split(' ')[1];
-                            if (i == 3)
-                                typeDescription[i] = typeDescription[i].split(' ')[2];
-                            loopContent0 += `<div class="map-row"><div class="map-column"><b>${typeDescription[i]}:</b></div><div class="map-column"><div class="value-container">${measurementValue[i]} ${typeUnit[i]}<br></div></div></div>`;
-                        }
-                        return loopContent0;
-                    })()}
-                       <div class="centered-button">
-                       <button onclick="Redirect(sensorNode[0],sensorDescription[0],sensorName[0],fixTimestamp(timestamp))" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
-                       </div>
-                       <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-                        `);
-                }
-                found = false;
-                checkCompletion();
 
-                lastMeasurementsCall(sensorNode[1], function (id) {
-                    typeCall(sensorNode[1], function (id) {
-                        counter++;
-                        marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]]).addTo(map2);
-                        if (found === true) {
-                            marker4.setIcon(greyIcon);
-                            popup = `
+    nodeApiCall(function () {
+        typeCall(sensorNode[1], function (id) {
+            let value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            for (let i = 0; i < typeId.length; i++) {
+                lastMeasurementsCall(sensorNode[1], typeId[i], function (id) {
+                    value[i] = measurementValue[measurementValue.length - 1];
+                    counter++;
+
+                    if (found === true) {
+                        let marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]]).addTo(map2);
+                        marker4.setIcon(greyIcon);
+                        popup = `
         <div style="display: block;text-align: center">
         <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[1])}</h6>
         <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
@@ -464,12 +401,13 @@ if (decodedLastPart === 'site/map') {
         <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
         <button class="button_station button4" style="cursor: not-allowed">View station</button>
         </div>`;
-                            marker4.bindPopup(popup);
-                        } else if (found === false) {
-                            let icon = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).icon
-                            let objects = [];
-                            objects = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).condition
-                            let flag = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).flag
+                        marker4.bindPopup(popup);
+                    } else if (found === false) {
+                        if (i === typeId.length - 1) {
+                            let marker4 = L.marker([sensorLatitude[1], sensorLongitude[1]]).addTo(map2);
+                            let icon = checkQuality(value[0], value[6], value[5], value[7], value[9]).icon;
+                            let objects = checkQuality(value[0], value[6], value[5], value[7], value[9]).condition;
+                            let flag = checkQuality(value[0], value[6], value[5], value[7], value[9]).flag;
                             marker4.setIcon(icon);
                             marker4.bindPopup(`
                    <div style="display: block;text-align: center">
@@ -481,9 +419,7 @@ if (decodedLastPart === 'site/map') {
                 <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
                      <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
                 <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
-                  <b>Today at:</b><br>
-                        ${fixTimestamp(timestamp)}<br>
-                                  ${(() => {
+                   ${(() => {
                                 let loopContent0 = '';
                                 if (flag === 'bad') {
                                     loopContent0 += `<div><b><u>Bad due to:</u></b></div>`;
@@ -498,22 +434,14 @@ if (decodedLastPart === 'site/map') {
                                 }
                                 return loopContent0;
                             })()}
+                  <b>Today at:</b><br>
+                  ${fixTimestamp(timestamp)}<br>
                                          <b><u>Sensor Readings:</u></b><br>
                                             </div> 
-                    ${(() => {
+                                ${(() => {
                                 let loopContent0 = '';
-                                for (let i = 0; i < measurementValue.length; i++) {
-                                    if (i == 1)
-                                        typeDescription[i] = typeDescription[i].split(' ')[1];
-                                    if (i == 3)
-                                        typeDescription[i] = typeDescription[i].split(' ')[2];
-                                    loopContent0 += `
-  <div class="map-row">
-    <div class="map-column type-description">${typeDescription[i]}:</div>
-    <div class="map-column">
-      <div class="value-container">${measurementValue[i]} ${typeUnit[i]}<br></div>
-    </div>
-  </div>`;
+                                for (let i = 0; i < typeDescription.length; i++) {
+                                    loopContent0 += `<div class="map-row"><div class="map-column"><b>${typeDescription[i]}:</b></div><div class="map-column"><div class="value-container">${value[i]} ${typeUnit[i]}<br></div></div></div>`;
                                 }
                                 return loopContent0;
                             })()}
@@ -522,174 +450,13 @@ if (decodedLastPart === 'site/map') {
                 </div>
                 <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 `);
+
                         }
-                        found = false;
-                        checkCompletion();
-
-                        lastMeasurementsCall(sensorNode[2], function (id) {
-                            typeCall(sensorNode[2], function (id) {
-                                counter++;
-                                marker5 = L.marker([sensorLatitude[2], sensorLongitude[2]], {icon: greyIcon}).addTo(map2);
-                                if (found === true) {
-                                    marker5.setIcon(greyIcon);
-                                    popup = `
-        <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[2])}</h6>
-        <hr>
-        <b>State: </b><u style="color: red">Inactive</u><br>
-        <b>Type: </b>${sensorName[2]}<br>
-        <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
-        <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
-        <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
-        <button class="button_station button4" style="cursor: not-allowed">View station</button>
-        </div>`;
-                                    marker5.bindPopup(popup);
-                                } else if (found === false) {
-                                    let icon = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).icon
-                                    let objects = [];
-                                    objects = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).condition
-                                    let flag = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).flag
-                                    marker5.setIcon(icon);
-                                    marker5.bindPopup(`
-                   <div style="display: block;text-align: center">
-                <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[2])}</h6><br>
-                </div>
-                <img style="height:7rem;" src="../asset/sensorImages/agiosIoannisSensor.jpg">
-                <hr class="dotted">
-                <b>Type: </b>${sensorName[2]}<br>
-                <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
-                     <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
-                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
-                  <b>Today at:</b><br>
-                        ${fixTimestamp(timestamp)}<br>
-                                  ${(() => {
-                                        let loopContent0 = '';
-                                        if (flag === 'bad') {
-                                            loopContent0 += `<div><b><u>Bad due to:</u></b></div>`;
-                                            for (let i = 0; i < objects.length; i++) {
-                                                loopContent0 += `<li style="color: red;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
-                                            }
-                                        } else if (flag === 'fair') {
-                                            loopContent0 += `<div><b><u>Fair due to:</u></b></div>`;
-                                            for (let i = 0; i < objects.length; i++) {
-                                                loopContent0 += `<li style="color: orange;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
-                                            }
-                                        }
-                                        return loopContent0;
-                                    })()}
-                                         <b><u>Sensor Readings:</u></b><br>
-                                            </div> 
-                    ${(() => {
-                                        let loopContent0 = '';
-                                        for (let i = 0; i < measurementValue.length; i++) {
-                                            if (i == 1)
-                                                typeDescription[i] = typeDescription[i].split(' ')[1];
-                                            if (i == 3)
-                                                typeDescription[i] = typeDescription[i].split(' ')[2];
-                                            loopContent0 += `
-  <div class="map-row">
-    <div class="map-column type-description">${typeDescription[i]}:</div>
-    <div class="map-column">
-      <div class="value-container">${measurementValue[i]} ${typeUnit[i]}<br></div>
-    </div>
-  </div>`;
-                                        }
-                                        return loopContent0;
-                                    })()}
-                         <div class="centered-button">
-                <button onclick="Redirect(sensorNode[2],sensorDescription[2],sensorName[2],fixTimestamp(timestamp))" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
-                </div>
-                <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-                `);
-                                }
-                                found = false;
-                                checkCompletion();
-
-                                lastMeasurementsCall(sensorNode[3], function (id) {
-                                    typeCall(sensorNode[3], function (id) {
-                                        counter++;
-                                        marker6 = L.marker([sensorLatitude[3], sensorLongitude[3]]).addTo(map2);
-                                        if (found === true) {
-                                            marker6.setIcon(greyIcon);
-                                            popup = `
-        <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[3])}</h6>
-        <hr>
-                <b>State: </b><u style="color: red">Inactive</u><br>
-        <b>Type: </b>${sensorName[3]}<br>
-        <b>Status: </b>${uoi_object['weather'][0]['main']}<br>
-        <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${uoi_object['weather'][0]['icon']}.png">
-        <div style="height: 45px;width: 130px"><b>Station is currently unavailable!</b></div>
-        <button class="button_station button4" style="cursor: not-allowed">View station</button>
-        </div>`;
-                                            marker6.bindPopup(popup);
-                                        } else if (found === false) {
-                                            let icon = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).icon
-                                            let objects = [];
-                                            objects = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).condition
-                                            let flag = checkQuality(measurementValue[0], measurementValue[6], measurementValue[5], measurementValue[7], measurementValue[9]).flag
-                                            marker6.setIcon(icon);
-                                            marker6.bindPopup(`
-                   <div style="display: block;text-align: center">
-                <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[3])}</h6><br>
-                </div>
-                <img style="height:7rem;" src="../asset/sensorImages/eleousaSensor.jpg">
-                <hr class="dotted">
-                <b>Type: </b>${sensorName[3]}<br>
-                <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
-                     <b>Status: </b>${gardiki_object['weather'][0]['main']}<br>
-                <img class="forecast" style="height: 70px;width: 65px" src="http://openweathermap.org/img/w/${gardiki_object['weather'][0]['icon']}.png"><br>
-                  <b>Today at:</b><br>
-                        ${fixTimestamp(timestamp)}<br>
-                                  ${(() => {
-                                                let loopContent0 = '';
-                                                if (flag === 'bad') {
-                                                    loopContent0 += `<div><b><u>Bad due to:</u></b></div>`;
-                                                    for (let i = 0; i < objects.length; i++) {
-                                                        loopContent0 += `<li style="color: red;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
-                                                    }
-                                                } else if (flag === 'fair') {
-                                                    loopContent0 += `<div><b><u>Fair due to:</u></b></div>`;
-                                                    for (let i = 0; i < objects.length; i++) {
-                                                        loopContent0 += `<li style="color: orange;"><b>${convertSubscriptTagsToCharacters(objects[i])}</b></li>`;
-                                                    }
-                                                }
-                                                return loopContent0;
-                                            })()}
-                                         <b><u>Sensor Readings:</u></b><br>
-                                            </div> 
-                    ${(() => {
-                                                let loopContent0 = '';
-                                                for (let i = 0; i < measurementValue.length; i++) {
-                                                    if (i == 1)
-                                                        typeDescription[i] = typeDescription[i].split(' ')[1];
-                                                    if (i == 3)
-                                                        typeDescription[i] = typeDescription[i].split(' ')[2];
-                                                    loopContent0 += `
-  <div class="map-row">
-    <div class="map-column type-description">${typeDescription[i]}:</div>
-    <div class="map-column">
-      <div class="value-container">${measurementValue[i]} ${typeUnit[i]}<br></div>
-    </div>
-  </div>`;
-                                                }
-                                                return loopContent0;
-                                            })()}
-                         <div class="centered-button">
-                <button onclick="Redirect(sensorNode[3],sensorDescription[3],sensorName[3],fixTimestamp(timestamp))" class="btn btn-primary  px-3 mb-2 mb-lg-0">View station</button><br>
-                </div>
-                <div id="1" class="lds-roller" style="display: none;padding-left: 30px"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-                `);
-                                        }
-                                        found = false;
-                                        checkCompletion();
-                                    });
-                                });
-                            });
-                        });
-                    });
+                    }
+                    found = false;
+                    checkCompletion();
                 });
-            });
+            }
         });
     });
 
