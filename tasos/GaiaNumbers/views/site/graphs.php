@@ -43,7 +43,7 @@ $this->registerCss('css/graphs.css');
         </div>
         <div class='mid-card' style="background-color: white">
             <div class='card-text' style="margin-top:1rem;">
-
+                <?php echo '<h4 class="battery__text h4Hover"><strong> Weather Forecast </strong></h4>';?>
             </div>
         </div>
 
