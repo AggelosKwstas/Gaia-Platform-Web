@@ -36,7 +36,7 @@ $this->registerCss('css/graphs.css');
         </div>
         <div class='mid-card' style="background-color: white">
             <div class='card-text'>
-                <?php echo '<h4 class="battery__text h4Hover"><strong> Weather Forecast </strong></h4>';?>
+                <?php echo '<h4 class="battery__text h4Hover" style="font-size: 1.2em"><strong> Weather Forecast </strong></h4>';?>
                 <?php foreach ($content['list'] as $day): ?>
                     <?php $weather = $day['weather'][0]; ?>
                     <div class="weather-item">
@@ -75,9 +75,9 @@ $this->registerCss('css/graphs.css');
 
 <div class="item" data-aos="fade-down" data-aos-duration="1000">
 <div class="grid-title-container">
-<div class="grid-title" style="text-align:left;border-radius:4px;background-color:#292725;
+<div class="grid-title" style="text-align:left;border-radius:4px;height:35px;background-color:#292725;
         justify-content: center;">
-    &nbsp<?php echo '<i class="fa-solid fa-chart-column fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:17px;font-family: sans-serif !important; ">&nbsp&nbspMost Recent Values for ' . $title . '</span>';?>
+    &nbsp<?php echo '<i class="fa-solid fa-chart-column fa-lg" style="margin-left:6px;margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:17px;font-family: sans-serif !important; ">&nbsp&nbspMost Recent Values for ' . $title . '</span>';?>
 </div>
 </div>
 </div>
@@ -344,9 +344,9 @@ $this->registerCss('css/graphs.css');
 
 </div>
 <div class="grid-title-container" id="grid-title" style="display:none;">
-    <div class="grid-title" style="border-radius:4px;background-color:#292725;
+    <div class="grid-title" style="height:35px;border-radius:4px;background-color:#292725;
         justify-content: center;">
-        &nbsp<?php echo '<i class="fa-solid fa-chart-pie fa-lg" style="margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:17px;font-family: sans-serif !important; ">&nbsp&nbspData Analysis for selected date range: <span id="date1Value"></span> to <span id="date2Value"></span>.</span>';?>
+        &nbsp<?php echo '<i class="fa-solid fa-chart-pie fa-lg" style="margin-left:6px;margin-top:8px;color: #ffffff;"></i><span style="color: white;margin-top:5px; font-size:17px;font-family: sans-serif !important; ">&nbsp&nbspData Analysis for selected date range: <span id="date1Value"></span> to <span id="date2Value"></span>.</span>';?>
     </div>
 </div>
 
