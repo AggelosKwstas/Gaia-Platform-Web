@@ -390,8 +390,8 @@ if (decodedLastPart === 'site/map') {
                         marker3.setIcon(greyIcon);
                         popup = `
         <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[0])}</h6>
-        <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
+        <h5><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[0])}</h5>
+        <img style="height:7em;width: 9em" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
         <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[0]}<br>
@@ -410,9 +410,9 @@ if (decodedLastPart === 'site/map') {
                             marker3.setIcon(icon);
                             marker3.bindPopup(`
                    <div style="display: block;text-align: center">
-                <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[0])}</h6><br>
+                <div id="stationLoca"><h5><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[0])}</h5><br>
                 </div>
-                <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
+                <img style="height:7em;width: 9em" src="../asset/sensorImages/sensor_default.jpg">
                 <hr class="dotted">
                 <b>Type: </b>${sensorName[0]}<br>
                 <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
@@ -469,8 +469,8 @@ if (decodedLastPart === 'site/map') {
                         marker4.setIcon(greyIcon);
                         popup = `
         <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[1])}</h6>
-        <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg">
+        <h5><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[1])}</h5>
+        <img style="height:7em;width: 9em" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
         <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[1]}<br>
@@ -489,9 +489,9 @@ if (decodedLastPart === 'site/map') {
                             marker4.setIcon(icon);
                             marker4.bindPopup(`
                    <div style="display: block;text-align: center">
-                <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[1])}</h6><br>
+                <div id="stationLoca"><h5><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[1])}</h5><br>
                 </div>
-                <img style="height:7rem;" src="../asset/sensorImages/gardikiSensor.jpg">
+                <img style="height:7em;width: 9em" src="../asset/sensorImages/gardikiSensor.jpg">
                 <hr class="dotted">
                 <b>Type: </b>${sensorName[1]}<br>
                 <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
@@ -548,8 +548,8 @@ if (decodedLastPart === 'site/map') {
                         marker5.setIcon(greyIcon);
                         popup = `
         <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[2])}</h6>
-        <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg.jpg">
+        <h5 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[2])}</h5>
+        <img style="height:7em;width: 9em" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
         <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[2]}<br>
@@ -568,9 +568,9 @@ if (decodedLastPart === 'site/map') {
                             marker5.setIcon(icon);
                             marker5.bindPopup(`
                    <div style="display: block;text-align: center">
-                <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[2])}</h6><br>
+                <div id="stationLoca"><h5><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[2])}</h5><br>
                 </div>
-                <img style="height:7rem;" src="../asset/sensorImages/agiosIoannisSensor.jpg">
+                <img style="height:7em;width: 9em" src="../asset/sensorImages/agiosIoannisSensor.jpg">
                 <hr class="dotted">
                 <b>Type: </b>${sensorName[2]}<br>
                 <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
@@ -627,8 +627,8 @@ if (decodedLastPart === 'site/map') {
                         marker6.setIcon(greyIcon);
                         popup = `
         <div style="display: block;text-align: center">
-        <h6 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[3])}</h6>
-        <img style="height:7rem;" src="../asset/sensorImages/sensor_default.jpg.jpg">
+        <h5 ><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[3])}</h5>
+        <img style="height:7em;width: 9em" src="../asset/sensorImages/sensor_default.jpg">
         <hr>
         <b>State: </b><u style="color: red">Inactive</u><br>
         <b>Type: </b>${sensorName[3]}<br>
@@ -647,9 +647,9 @@ if (decodedLastPart === 'site/map') {
                             marker6.setIcon(icon);
                             marker6.bindPopup(`
                    <div style="display: block;text-align: center">
-                <div id="stationLoca"><h6><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[3])}</h6><br>
+                <div id="stationLoca"><h5><i class="fa fa-location-dot"></i> ${formatString(sensorDescription[3])}</h5><br>
                 </div>
-                <img style="height:7rem;" src="../asset/sensorImages/eleousaSensor.jpg">
+                <img style="height:7em;width: 9em" src="../asset/sensorImages/eleousaSensor.jpg">
                 <hr class="dotted">
                 <b>Type: </b>${sensorName[3]}<br>
                 <b>State: </b><u style="color: #01FB0AFF">Active</u><br>
