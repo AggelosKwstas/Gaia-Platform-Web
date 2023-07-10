@@ -15,7 +15,6 @@ function makeAjax(id, title, name, time) {
     });
 }
 
-
 function convertSubscriptTagsToCharacters(str) {
     var regex = /<sub>(.*?)<\/sub>/g;
     return str.replace(regex, function (match, p1) {
