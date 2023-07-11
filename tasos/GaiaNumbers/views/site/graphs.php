@@ -36,7 +36,7 @@ $this->registerCss('css/graphs.css');
         </div>
         <div class='mid-card' style="background-color: white">
             <div class='card-text'>
-                <?php echo '<h4 class="battery__text h4Hover" style="font-size: 1.2em"><strong> Weather Forecast </strong></h4>';?>
+                <?php echo '<h4 class="battery__text h4Hover"><strong> Weather Forecast </strong></h4>';?>
                 <?php foreach ($content['list'] as $day): ?>
                     <?php $weather = $day['weather'][0]; ?>
                     <div class="weather-item">
