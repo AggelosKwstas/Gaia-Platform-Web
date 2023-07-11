@@ -2,6 +2,11 @@
     display: inline-block;
     margin-right: 3px;
 }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .graphs-container-unhovered{
     background-color: white;

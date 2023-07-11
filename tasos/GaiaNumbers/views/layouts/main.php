@@ -77,26 +77,26 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => 'asset
     <footer class="text-center py-1" style="background-color: #1b1b1b">
         <div class="container px-5">
             <div class="text-white-50 small mt-2">
-                <a href="https://www.neuronenergy.com/" target="_blank"><img class="footer_logo" style="height: 60px;"
-                                                                             src="asset/logoNE.png"
-                                                                             title="Neuron Energy Solutions" alt=""></a>
-                <div class="mb-2" style="font-size: 12px">© 2023 | Neuron Energy Solutions. All rights reserved.</div>
+<!--                <a href="https://www.neuronenergy.com/" target="_blank"><img class="footer_logo" style="height: 60px;"-->
+<!--                                                                             src="asset/logoNE.png"-->
+<!--                                                                             title="Neuron Energy Solutions" alt=""></a>-->
+                <div class="mb-2" style="font-size: 12px">© 2023 | All rights reserved.</div>
                 <div class="it-icons">
                     <p>Follow us on:</p>
-                    <a style="text-decoration: none" target="_blank" title="LinkedIn"
-                       href="https://www.linkedin.com/company/neuron-energy-solutions/">
+                    <a style="text-decoration: none" target="_blank" title="LinkedIn">
+<!--                        href="https://www.linkedin.com/company/neuron-energy-solutions/"-->
                         <i class="fa-brands fa-linkedin-in"></i>&nbsp;&nbsp;
                     </a>
-                    <a style="text-decoration: none" target="_blank" title="Facebook"
-                       href="https://www.facebook.com/profile.php?id=100068977243761">
+                    <a style="text-decoration: none" target="_blank" title="Facebook">
+<!--                        href="https://www.facebook.com/profile.php?id=100068977243761"-->
                         <i class="fa-brands fa-facebook-f"></i>&nbsp;&nbsp;
                     </a>
-                    <a style="text-decoration: none" title="Twitter" target="_blank"
-                       href="https://twitter.com/SolarEye_PV">
+                    <a style="text-decoration: none" title="Twitter" target="_blank">
+<!--                        href="https://twitter.com/SolarEye_PV"-->
                         <i class="fa-brands fa-twitter"></i>&nbsp;&nbsp;
                     </a>
-                    <a style="text-decoration: none" target="_blank" title="Pinterest"
-                       href="https://gr.pinterest.com/solareye/">
+                    <a style="text-decoration: none" target="_blank" title="Pinterest">
+<!--                        href="https://gr.pinterest.com/solareye/"-->
                         <i class="fa-brands fa-pinterest-p"></i>
                     </a>
                 </div>

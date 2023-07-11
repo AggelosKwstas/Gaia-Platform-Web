@@ -217,10 +217,36 @@ function lineCharts(targetElementId, measurementName, measurementValues, measure
     });
 }
 function battery(batteryLevel){
-    document.getElementById('batteryLevelValue').textContent = batteryLevel+'%';
+    // document.getElementById('batteryLevelValue').textContent = batteryLevel+'%';
     Highcharts.chart('cont', {
         chart: {
-            type: 'pie'
+            type: 'pie',
+            events: {
+                render: function() {
+                    var chart = this,
+                        centerX = chart.plotWidth / 2,
+                        centerY = chart.plotHeight / 2,
+                        label = chart.renderer.label(batteryLevel + '%', centerX, centerY)
+                            .css({
+                                color: '#000',
+                                fontSize: '18px',
+                                fontWeight: 'bold'
+                            })
+                            .attr({
+                                fill: 'rgba(0, 0, 0, 0)',
+                                padding: 10,
+                                zIndex: 10
+                            })
+                            .add();
+
+                    label.align({
+                        align: 'center',
+                        verticalAlign: 'middle',
+                        x: -25,
+                        y: -20
+                    }, null, 'plotBox');
+                }
+            }
         },
         title: false,
         plotOptions: {
@@ -241,7 +267,7 @@ function battery(batteryLevel){
                 },
                 {
                     name: 'Battery Lost',
-                    y: 100-batteryLevel,
+                    y: 100 - batteryLevel,
                     color: '#D3D3D3'
                 }
             ]

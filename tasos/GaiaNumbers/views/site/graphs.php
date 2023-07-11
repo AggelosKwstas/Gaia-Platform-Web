@@ -36,7 +36,7 @@ $this->registerCss('css/graphs.css');
         </div>
         <div class='mid-card' style="background-color: white">
             <div class='card-text'>
-                <?php echo '<h4 class="battery__text h4Hover"><strong> Weather Forecast </strong></h4>';?>
+                <?php echo '<h4 class="battery__text h4Hover " style="margin-top:5px;"><strong> Weather Forecast </strong></h4>';?>
                 <?php foreach ($content['list'] as $day): ?>
                     <?php $weather = $day['weather'][0]; ?>
                     <div class="weather-item">
@@ -62,11 +62,16 @@ $this->registerCss('css/graphs.css');
 <!--                </div>-->
             </div>
             </div>
-            <div class='card-text' style="width: 40%;">
-                <?php echo '<p class="battery__text"><b>' . $title . '</b></p>';?>
-                 <?php echo '<p class="battery__text">Battery Level: <b><span id="batteryLevelValue"></span> </b></p>';?>
-                <h1 id="battery_percentage">
-                </h1>
+            <div class='card-text' style="width: 50%;">
+<!--                --><?php //echo '<p class="battery__text"><b>' . $title . '</b></p>';?>
+                <div class="center">
+                 <?php echo '<p class="battery__text" style="font-size: 16px;"><b>Battery Level</b></p>';?>
+<!--                <span id="batteryLevelValue"></span>-->
+                    <br>
+                <img src="/asset/graphs/battery.png" style="width:65px;">
+<!--                <h1 id="battery_percentage">-->
+<!--                </h1>-->
+                </div>
             </div>`
         </div>
 

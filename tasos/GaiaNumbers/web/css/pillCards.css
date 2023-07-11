@@ -52,7 +52,7 @@ body {
 
 .card-image {
     display: flex;
-    margin-left: 60px !important;
+    margin-left: 40px !important;
 }
 
 .card-left .card-image{
