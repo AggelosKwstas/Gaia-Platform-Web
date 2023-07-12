@@ -21,7 +21,7 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
         <div class="map-wrapper">
             <div id="map_full"></div>
             <div class="container_map" style="z-index: 50000;position: absolute;top:15px;right:30px">
-                <div class="dropdown" style="width: 150px">
+                <div class="dropdown" style="width: 160px">
                     <div class="select">
                         <span id="cycle_span"><i class="fa-solid fa-layer-group pull-left" style="font-size: 15px;"></i> <b>Cycle stations</b></span>
                         <i id="cycle" class="fa fa-chevron-left"></i>
