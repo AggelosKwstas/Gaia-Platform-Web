@@ -38,20 +38,32 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
                     <h3><b>Case Study - Air Quality Index at Ioannina,Greece</b></h3>
                     <p>
                         <em>The map markers indicate the positions of air quality monitoring stations,
-                            and the color assigned to each marker corresponds to the air quality index recorded at that specific station.
-                            <br>The index is determined by considering concentration values of up to five primary pollutants, which include:
+                            and the color assigned to each marker corresponds to the air quality index recorded at that
+                            specific station.
+                            <br>The index is determined by considering concentration values of up to five primary
+                            pollutants, which include:
                         </em>
 
                     <ul>
-                        <li><b>Particulate matter  (PM<sub>10</sub>)</b></li>
+                        <li><b>Particulate matter (PM<sub>10</sub>)</b></li>
                         <li><b>Fine particulate matter (PM<sub>2.5</sub>)</b></li>
                         <li><b>Ozone (O<sub>3</sub>)</b></li>
                         <li><b>Nitrogen dioxide (NO<sub>2</sub>)</b></li>
                         <li><b>Sulphur dioxide (SO2)</b></li>
                     </ul>
-                    <em> For all the pollutants (NO2, O3, SO2, PM10 and PM2.5), the air quality index levels are typically determined based on <b>latest</b> concentration measurements.
-                        By analyzing the latest concentration data of these key pollutants, the air quality index provides a comprehensive assessment of the current air quality at each monitoring station.
-                        This approach allows for a more immediate understanding of the overall air pollution levels in a given area, as it takes into account the most recent measurements available for PM10 and PM2.5 pollutants.</em>
+                    <em>The calculation of the AQ Index involves different methodologies for different pollutants. For
+                        pollutants such as nitrogen dioxide (NO2), ozone (O3), and sulphur dioxide (SO2), the index
+                        levels are based on hourly concentrations. This means that the concentration values for these
+                        pollutants are measured and recorded on an <b>hourly basis</b> at the air quality monitoring stations.
+                        On the other hand, the AQ Index for particulate matter, specifically PM10 and PM2.5, is based on
+                        <b>daily</b> running means. This means that the concentration values for these pollutants are averaged
+                        over a 24-hour period. The use of daily running means helps to smooth out the variations that
+                        may occur throughout the day due to factors such as weather conditions, traffic patterns, and
+                        human activities.
+                        By considering both hourly concentrations for NO2, O3, and SO2, and daily running means for PM10
+                        and PM2.5, the AQ Index methodology aims to provide a comprehensive and representative
+                        assessment of air quality, enabling individuals and authorities to make informed decisions
+                        regarding air pollution management and public health.</em>
                     <br>
                     <br>
                     <h5 class="removePhrase"><strong>Bands of concentrations and index levels :</strong></h5>
@@ -70,41 +82,41 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
                             <td style="text-align: left"><b>O<sub>3</sub> (ppm)</b></td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #01FB0AFF;"></span>
-                                <span>&#8804; 0.04</span>
+                                <span>&#8804; 100</span>
                             </td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #DECF37FF;"></span>
-                                <span>0.04-0.2</span>
+                                <span>100-240</span>
                             </td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #ff0032;"></span>
-                                <span>&#8805; 0.2</span>
+                                <span>&#8805; 240</span>
                             </td>
                         </tr>
                         <tr>
                             <td style="text-align: left"><b>PM 2.5 (μg/m3)</b></td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #01FB0AFF;"></span>
-                                <span>&#8804; 25</span>
+                                <span>&#8804; 20</span>
                             </td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #DECF37FF;"></span>
-                                <span>25-100</span>
+                                <span>20-50</span>
                             </td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #ff0032;"></span>
-                                <span>&#8805; 100</span>
+                                <span>&#8805; 50</span>
                             </td>
                         </tr>
                         <tr>
                             <td style="text-align: left"><b>PM 10 (μg/m3)</b></td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #01FB0AFF;"></span>
-                                <span>&#8804; 50</span>
+                                <span>&#8804; 40</span>
                             </td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #DECF37FF;"></span>
-                                <span>50-200</span>
+                                <span>40-100</span>
                             </td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #ff0032;"></span>
@@ -115,30 +127,30 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
                             <td style="text-align: left"><b>SO<sub>2</sub> (ppm)</b></td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #01FB0AFF;"></span>
-                                <span>&#8804; 0.1</span>
+                                <span>&#8804; 100</span>
                             </td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #DECF37FF;"></span>
-                                <span>0.1-0.3</span>
+                                <span>100-200</span>
                             </td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #ff0032;"></span>
-                                <span>&#8805; 0.3</span>
+                                <span>&#8805; 200</span>
                             </td>
                         </tr>
                         <tr>
                             <td style="text-align: left"><b>NO<sub>2</sub> (ppm)</b></td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #01FB0AFF;"></span>
-                                <span>&#8804; 0.1</span>
+                                <span>&#8804; 90</span>
                             </td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #DECF37FF;"></span>
-                                <span>0.1-0.2</span>
+                                <span>90-230</span>
                             </td>
                             <td style="text-align: left">
                                 <span style="display: inline-block; width: 20px; height: 20px; background-color: #ff0032;"></span>
-                                <span>&#8805; 0.2</span>
+                                <span>&#8805; 230</span>
                             </td>
                         </tr>
                         </tbody>
@@ -160,8 +172,9 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
                         <span></span>
                     </div>
                 </div>
-                <div class="loading">Initializing map elements...</div><br /><br />
-                <img src="asset/LogoGaiaPlatform.png" class="mediaImage" >
+                <div class="loading">Initializing map elements...</div>
+                <br/><br/>
+                <img src="asset/LogoGaiaPlatform.png" class="mediaImage">
             </div>
         </div>
     </div>
