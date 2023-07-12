@@ -102,6 +102,10 @@
     animation-delay: 1s;
 }
 
+.mediaImage{
+    margin-left:30%;
+
+}
 
 @media (max-width: 480px) {
     .logo {
@@ -115,6 +119,16 @@
 
     .loading-text {
         font-size: 16px;
+    }
+    .mediaImage{
+        margin-left: 15%;
+    }
+    .loading {
+        display:inline-block;
+        font-family: monospace;
+        font-size: 16px !important;
+        clip-path: inset(0 3ch 0 0);
+        animation: l 1s steps(4) infinite;
     }
 }
 

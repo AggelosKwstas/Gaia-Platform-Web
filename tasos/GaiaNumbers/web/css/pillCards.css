@@ -156,12 +156,114 @@ body {
 }
 /*hoverend*/
 
-@media (max-width: 400px) {
-    .card-image {
-        width: 38% !important;
+/*@media (max-width: 400px) {*/
+/*    .card-right,*/
+/*    .card-left,*/
+/*    .mid-card {*/
+/*        margin-right: 7rem;*/
+/*        margin-left: auto;*/
+/*    }*/
+/*    .card-image {*/
+/*        width: 38% !important;*/
+/*    }*/
+
+/*    .card-text {*/
+/*        width: 62% !important;*/
+/*    }*/
+/*}*/
+/*@media (max-width: 450px) {*/
+/*    .card-container {*/
+/*        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));*/
+/*        grid-auto-rows: auto;*/
+/*    }*/
+
+/*    .card-right,*/
+/*    .card-left,*/
+/*    .mid-card {*/
+/*        margin-left: 1rem;*/
+/*        margin-right: 1rem;*/
+/*        width: calc(100% - 2rem);*/
+/*        flex-direction: column;*/
+/*    }*/
+
+/*    .card-image,*/
+/*    .card-left .card-image,*/
+/*    .card-right .card-image,*/
+/*    .mid-card .card-image {*/
+/*        height: 200px;*/
+/*        width: 100%;*/
+/*    }*/
+
+/*    .card-left .card-image,*/
+/*    .card-right .card-image,*/
+/*    .mid-card .card-image {*/
+/*        margin-left: 0;*/
+/*        */
+/*    }*/
+
+/*    .card-left .card-text,*/
+/*    .card-right .card-text,*/
+/*    .mid-card .card-text {*/
+/*        padding: 15px;*/
+/*        text-align: center;*/
+/*    }*/
+/*}*/
+@media (max-width: 450px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+        grid-auto-rows: auto;
     }
 
-    .card-text {
-        width: 62% !important;
+    .card-right,
+    .card-left,
+    .mid-card {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        width: calc(100% - 4rem) !important;
+        flex-direction: column;
+    }
+    .card-left .card-image{
+        height: 200px;
+        width: 65% !important;
+        padding-left: 3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .card-right .card-image{
+        height: 200px;
+        padding-left: 3.7rem;
+        width: 78% !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mid-card .card-text{
+        margin-left: 25%;
+        width:50% !important;
+        padding: 15px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .card-left .card-text {
+        width:50% !important;
+        padding: 15px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .card-right .card-text {
+        width:50% !important;
+        padding: 15px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }

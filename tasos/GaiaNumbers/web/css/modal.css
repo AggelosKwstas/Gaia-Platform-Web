@@ -39,7 +39,9 @@
     table {
         margin-inline: auto;
     }
-
+    .removePhrase{
+        display:none;
+    }
     .modal-body {
         font-size: 15px !important;
     }

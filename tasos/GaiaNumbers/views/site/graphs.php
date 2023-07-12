@@ -262,7 +262,7 @@ $this->registerCss('css/graphs.css');
             <div class='card-text' style="width: 80%">
                 <p>Select between two dates,<br> to show specific measurements average values.</p><br>
                 <span class="col-md-4" id="reportrange"
-                      style="width:100%;background: white; cursor: pointer; padding: 5px 10px; border: 5px solid #292725;height: 40px;">
+                      style="background: white; cursor: pointer; padding: 5px 10px; border: 5px solid #292725;height: 40px;width:300px;">
             <i class="fa fa-calendar"></i>&nbsp;
             <span></span><i class="fa fa-caret-down"></i>
         </span>
@@ -426,7 +426,7 @@ $this->registerCss('css/graphs.css');
                 </div>
             </div>
             <div class="loading">Gathering sensor nodes...</div><br /><br />
-            <img src="asset/LogoGaiaPlatform.png" style="margin-left:30%;">
+            <img src="asset/LogoGaiaPlatform.png" class="mediaImage" >
         </div>
     </div>
 </div>

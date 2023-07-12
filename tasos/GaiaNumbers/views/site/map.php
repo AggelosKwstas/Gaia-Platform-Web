@@ -54,7 +54,7 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
                         This approach allows for a more immediate understanding of the overall air pollution levels in a given area, as it takes into account the most recent measurements available for PM10 and PM2.5 pollutants.</em>
                     <br>
                     <br>
-                    <h5><strong>Bands of concentrations and index levels :</strong></h5>
+                    <h5 class="removePhrase"><strong>Bands of concentrations and index levels :</strong></h5>
                     <table class="styled-table" style="align-items: center">
                         <thead>
                         <tr>
@@ -161,7 +161,7 @@ $this->registerJs("let baseUrl='" . Url::base('http') . "'", \yii\web\View::POS_
                     </div>
                 </div>
                 <div class="loading">Initializing map elements...</div><br /><br />
-                <img src="asset/LogoGaiaPlatform.png" style="margin-left:30%;">
+                <img src="asset/LogoGaiaPlatform.png" class="mediaImage" >
             </div>
         </div>
     </div>
